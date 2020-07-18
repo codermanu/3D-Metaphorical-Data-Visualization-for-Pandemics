@@ -1,0 +1,97 @@
+<html>
+
+<body>
+<!--canvas tag-->
+<canvas id="c"></canvas>
+</body>
+<script type="module">
+    //loading three js
+    import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/build/three.module.js';
+
+    function main() {
+        //ask threejs to draw into the canvas
+        const canvas = document.querySelector('#c');
+        //create a webgl renderer to take the data we provide and render it to the canvas
+        const renderer = new THREE.WebGLRenderer({canvas});
+
+        //Createing a perspective camera
+        //field of view
+        const fov = 75;//75 in the vertical dimension
+        //display aspect of the canvas
+        const aspect = 2;  // the canvas default
+        //space infront of the camera that will be rendered
+        const near = 0.1;
+        const far = 5;
+        //these four settings define a frustum
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+        //moving the camera from the origin to see the cube
+        camera.position.z = 2;
+        //make a scene
+        //A Scene in three.js is the root of a form of scene graph.
+        //Anything you want three.js to draw needs to be added to the scene.
+        const scene = new THREE.Scene();
+
+        //add light
+        {
+            const color = 0xFFFFFF;
+            const intensity = 1;
+            const light = new THREE.DirectionalLight(color, intensity);
+            light.position.set(-1, 2, 4);
+            scene.add(light);
+        }
+        //create boxgeometry - contains the data for the box
+        const boxWidth = 1;
+        const boxHeight = 1;
+        const boxDepth = 1;
+        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+        //create basic materical and set color
+        //const material = new THREE.MeshBasicMaterial({color: 0x44aa88});
+
+        function makeInstance(geometry, color, x) {
+            //meshbasicmaterial is not affected by light
+            const material = new THREE.MeshPhongMaterial({color});
+            //create a mesh
+            //A Mesh in three represents the combination of a Geometry (the shape of the object)
+            // and a Material (how to draw the object, shiny or flat, what color, what texture(s) to apply.
+            const cube = new THREE.Mesh(geometry, material);
+
+            //add the mesh to the scene
+            scene.add(cube);
+
+            cube.position.x = x;
+
+            return cube;
+        }
+
+        const cubes = [
+            makeInstance(geometry, 0x44aa88,  0),
+            makeInstance(geometry, 0x8844aa, -2),
+            makeInstance(geometry, 0xaa8844,  2),
+        ];
+
+        function render(time) {
+            time *= 0.001;  // convert time to seconds
+
+            cubes.forEach((cube, ndx) => {
+                const speed = 1 + ndx * .1;
+                const rot = time * speed;
+                cube.rotation.x = rot;
+                cube.rotation.y = rot;
+            });
+            //render the scene by calling the renderer's render function
+            // and passing it the scene and the camera
+            renderer.render(scene, camera);
+            //requestAnimationFrame is a request to the browser that you want to animate something.
+            requestAnimationFrame(render);
+        }
+        requestAnimationFrame(render);
+
+    }
+
+    main();
+
+</script>
+
+</html>
