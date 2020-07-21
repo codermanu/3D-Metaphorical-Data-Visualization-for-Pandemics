@@ -6,10 +6,13 @@
 <script type="module" >
     import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/build/three.module.js';
 
+  //ask three.js to draw into the canvas 
   function main() {
   const canvas = document.querySelector('#c');
+  // WebGLRenderer that uses WebGL to render 3D to the canvas.
   const renderer = new THREE.WebGLRenderer({canvas});
 
+  //create perspective camera
   const fov = 75;
   const aspect = 2;  // the canvas default
   const near = 0.1;
@@ -17,9 +20,11 @@
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.z = 2;
 
+  //Anything you want three.js to draw needs to be added to the scene
   const scene = new THREE.Scene();
 
   {
+  //create a directional light
   const color = 0xFFFFFF;
   const intensity = 1;
   const light = new THREE.DirectionalLight(color, intensity);
@@ -27,6 +32,7 @@
   scene.add(light);
 }
 
+  //create a BoxGeometry which contains the data for a box
   const boxWidth = 1;
   const boxHeight = 1;
   const boxDepth = 1;
@@ -60,8 +66,10 @@
       cube.rotation.y = rot;
     });
 
+    //render the scene by calling the renderer's render function and passing it the scene and the camera
     renderer.render(scene, camera);
-
+    
+    //requestAnimationFrame is a request to the browser that you want to animate something
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
