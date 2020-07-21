@@ -1,0 +1,95 @@
+<html>
+    <body>
+       <title>Three.js second task</title>
+    </body>
+
+    <!-- load three.js -->
+    <script src="https://threejs.org/build/three.js"></script>
+
+    <!-- Orbit controls allow the camera to orbit around a target.
+        To use this, as with all files in the /examples directory
+        , you will have to include the file seperately in your HTML -->
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+    
+    <script>
+        let camera, scene, renderer, controls;
+
+        const objects = [];
+
+        init();
+        animate();
+
+        function init() {
+
+            //parameters: fov, aspect, near, far
+            camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+            camera.position.set( 0, 3, 7 );
+
+            scene = new THREE.Scene();
+            camera.lookAt( scene.position );
+
+            const geometry = new THREE.BoxBufferGeometry();
+
+            //A material that maps the normal vectors to RGB colors.
+            const material = new THREE.MeshNormalMaterial();
+            
+            const count = 5;
+            
+            for ( let i = 0; i < count; i ++ ) {
+            
+                const mesh = new THREE.Mesh( geometry, material );
+            
+            const t = i / count * 2 * Math.PI;
+            
+            mesh.position.x = Math.cos( t ) * 4;
+            mesh.position.z = Math.sin( t ) * 4;
+            scene.add( mesh );
+            objects.push( mesh );
+            
+            }
+            // antialiasing :diminishing jaggies - stairstep-like lines that should be smooth
+            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+            
+            /**domElement: The HTML element used for event listeners
+               The HTMLDOMElement used to listen for mouse / touch events. 
+              **/
+            controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+            /**enableDamping :used to give a sense of weight to the controls.
+              Note that if this is enabled, you must call .update () in your animation loop.
+            **/
+           controls.enableDamping = true;
+
+            // Speed of rotation. Default is 1
+            controls.rotateSpeed = 0.5;
+
+           /** Set to true to automatically rotate around the target.
+              if this is enabled, you must call .update () in your animation loop.
+            **/
+            controls.autoRotate = true;
+
+            controls.autoRotateSpeed = 0.2;
+
+        }
+
+        function animate() {
+
+            requestAnimationFrame( animate );
+            
+            for ( let object of objects ) {
+            
+                object.rotation.z += 0.005;
+                object.rotation.x += 0.002;
+            
+            }
+            
+            controls.update();
+            
+            renderer.render( scene, camera );
+
+        }
+
+    </script>
+</html>
