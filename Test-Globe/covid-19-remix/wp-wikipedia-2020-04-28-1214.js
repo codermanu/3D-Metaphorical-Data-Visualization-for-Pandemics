@@ -237,7 +237,7 @@ WP.updateBars = function ( places ) {
 	//console.log( 'heightsCases', heightsCases );
 
 	const meshesCases = places.map( ( line, index ) =>
-		WP.addBar( line.latitude, line.longitude, places, index, "red", 0.4, heightsCases[ index ], 0, 12, 1, false ) );
+		WP.addBar( line.latitude, line.longitude, places, index, "yellow", 0.4, heightsCases[ index ], 0, 12, 1, false ) );
 
 	groupCasesWP.add( ...meshesCases );
 
@@ -246,7 +246,7 @@ WP.updateBars = function ( places ) {
 	//console.log( 'heightsDeaths', heightsDeaths );
 
 	const meshesDeaths = places.map( ( line, index ) =>
-		WP.addBar( line.latitude, line.longitude, places, index, "black", 0.5, heightsDeaths[ index ] ) );
+		WP.addBar( line.latitude, line.longitude, places, index, "red", 0.5, heightsDeaths[ index ] ) );
 
 	groupDeathsWP.add( ...meshesDeaths );
 
