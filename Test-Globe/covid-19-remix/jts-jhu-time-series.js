@@ -1,5 +1,4 @@
 
-
 const JTS = {};
 
 JTS.rowsCases = undefined;

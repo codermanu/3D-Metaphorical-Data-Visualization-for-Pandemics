@@ -1,5 +1,4 @@
 
-
 const GLO = {};
 
 let geoJsonArray = {};
@@ -74,6 +73,10 @@ GLO.loadGlobeBasic = function ( size = 50 ) {
 	geometry.applyMatrix4( new THREE.Matrix4().makeRotationX( 0.5 * Math.PI ) );
 
 	const url = "https://www.ladybug.tools/spider-covid-19-viz-3d/assets/images/natural-earth-4096-2048-col.jpg";
+	// const url = "https://raw.githubusercontent.com/ladybug-tools/spider-covid-19-viz-3d/master/assets/images/natural-earth-4096-2048-col.jpg"
+	
+	// const url=`<img src="../images/earth.jpg"  >`
+
 	var texture = new THREE.TextureLoader().load( url );
 
 	const material = new THREE.MeshBasicMaterial( { color: 0xcce0ff, map: texture } );

@@ -243,7 +243,7 @@ WP.updateBars = function ( places ) {
 	const heightsCases = places.map( line => Number( line.cases ) );
 	//console.log( 'heightsCases', heightsCases );
 
-	meshCases = WP.addBars( places, heightsCases, "red" );
+	meshCases = WP.addBars( places, heightsCases, "yellow" );
 	meshCases.userData.places = places;
 	groupCasesWP.add( meshCases );
 
@@ -251,7 +251,7 @@ WP.updateBars = function ( places ) {
 	const heightsDeaths = places.map( line => Number( line.deaths ) );
 	//console.log( 'heightsDeaths', heightsDeaths );
 
-	meshDeaths = WP.addBars( places, heightsDeaths, "black" );
+	meshDeaths = WP.addBars( places, heightsDeaths, "red" );
 	groupDeathsWP.add( meshDeaths );
 
 
