@@ -72,12 +72,13 @@ GLO.loadGlobeBasic = function ( size = 50 ) {
 	const geometry = new THREE.SphereBufferGeometry( size, 32, 32);
 	geometry.applyMatrix4( new THREE.Matrix4().makeRotationX( 0.5 * Math.PI ) );
 
-	const url = "https://www.ladybug.tools/spider-covid-19-viz-3d/assets/images/natural-earth-4096-2048-col.jpg";
-	// const url = "https://raw.githubusercontent.com/ladybug-tools/spider-covid-19-viz-3d/master/assets/images/natural-earth-4096-2048-col.jpg"
+	// const url = "https://www.ladybug.tools/spider-covid-19-viz-3d/assets/images/natural-earth-4096-2048-col.jpg";
 	
-	// const url=`<img src="../images/earth.jpg"  >`
+	//IMAGE URL CHANGED
+    const url = "https://raw.githubusercontent.com/Binurim/3D-Metaphorical-Data-Visualization-for-Pandemics/binuri/Test-Globe/images/globe.jpg"
+	var texture = new THREE.TextureLoader().load( url);
 
-	var texture = new THREE.TextureLoader().load( url );
+
 
 	const material = new THREE.MeshBasicMaterial( { color: 0xcce0ff, map: texture } );
 	const mesh = new THREE.Mesh( geometry, material );

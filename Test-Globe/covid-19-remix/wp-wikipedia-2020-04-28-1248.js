@@ -10,7 +10,6 @@
 
 
 const BAR = {
-
 	lat: 0,
 	lon: 0,
 	places: "Null Island",
@@ -21,15 +20,12 @@ const BAR = {
 	offset: 0,
 	radialSegments: 5,
 	heightSegments: 1,
-	openEnded: true
+	openEnded: true,
 
 };
 
 
 const WP = {};
-
-
-
 
 
 //WP.cors = location.protocol === "https:" ? "" : "https://cors-anywhere.herokuapp.com/";
@@ -237,12 +233,10 @@ WP.parseGlobal = function ( rows ) {
 
 
 WP.updateBars = function ( places ) {
-
 	//console.log( "", places );
 
 	const heightsCases = places.map( line => Number( line.cases ) );
 	//console.log( 'heightsCases', heightsCases );
-
 	meshCases = WP.addBars( places, heightsCases, "yellow" );
 	meshCases.userData.places = places;
 	groupCasesWP.add( meshCases );
@@ -250,14 +244,12 @@ WP.updateBars = function ( places ) {
 
 	const heightsDeaths = places.map( line => Number( line.deaths ) );
 	//console.log( 'heightsDeaths', heightsDeaths );
-
 	meshDeaths = WP.addBars( places, heightsDeaths, "red" );
 	groupDeathsWP.add( meshDeaths );
 
 
 	const heightsRecoveries = places.map( line => Number( line.recoveries ) );
 	//console.log( 'heightsRecoveries', heightsRecoveries );
-
 	meshRecoveries = WP.addBars( places, heightsRecoveries, "green" );
 	groupRecoveriesWP.add( meshRecoveries );
 
@@ -267,15 +259,25 @@ WP.updateBars = function ( places ) {
 
 WP.addBars = function ( places, heights, color = "red" ) {
 
-	radius = 0.5;
+	radius = 0.4;
 	radialSegments = 5;
 	heightSegments = 1;
-	openEnded = true;
+	openEnded = false;
 
-	//const geometry = new THREE.BoxBufferGeometry( 0.3, 0.3, 1 );
-	let geometry = new THREE.CylinderBufferGeometry( 0.2, radius, 1, radialSegments, heightSegments, openEnded );
+
+	let geometry = new THREE.CylinderBufferGeometry( 0.3, radius, 1, radialSegments, heightSegments, openEnded );
+		// radiusTop — Radius of the cylinder at the top. Default is 1.
+		// radiusBottom — Radius of the cylinder at the bottom. Default is 1.
+		// height — Height of the cylinder. Default is 1.
+		// radialSegments — Number of segmented faces around the circumference of the cylinder. Default is 8
+		// heightSegments — Number of rows of faces along the height of the cylinder. Default is 1.
+		// openEnded — A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
+		// thetaStart — Start angle for first segment, default = 0 (three o'clock position).
+		// thetaLength — The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete cylinder.
+
 	geometry.applyMatrix4( new THREE.Matrix4().makeRotationX( 0.5 * Math.PI ) );
 	geometry.applyMatrix4( new THREE.Matrix4().makeScale( - 1, - 1, - 1 ) );
+
 
 	//const material = new THREE.MeshNormalMaterial( { side: 2 } );
 	const material = new THREE.MeshPhongMaterial( { color: color, side: 2 } );

@@ -7,7 +7,6 @@
 const DPW = {};
 
 
-
 DMT.displayYourMessage = function ( intersected ) {
 
 	//console.log( "event", event );
@@ -59,15 +58,7 @@ WP.getPopUpMore = function () {
 		<div>
 			Data courtesy of Wikipedia: <a href="${ WP.chartPrefix }${ WP.dataLinks.article }" target="_blank">${ WP.place }</a>
 		<div>
-		<p>
-			<button onclick=WP.getInfoboxes();>infobox</button>
-
-			<button onclick=WP.getCases();>state data</button>
-
-			<button onclick=WP.getTables();>regional data</button>
-
-			<button onclick=WP.getGraphs(); >graphs</button>
-
+		<p>	
 		</p>`;
 
 	} else {
@@ -77,18 +68,16 @@ WP.getPopUpMore = function () {
 			Data courtesy of Wikipedia: <a href="${ WP.chartPrefix }${ WP.dataLinks.article }" target="_blank">${ WP.place }</a>
 		<div>
 		<p>
-			<button onclick=WP.getInfoboxes();>infobox</button>
-
-			<button onclick=WP.getCases();>national data</button>
-
-			<button onclick=WP.getTables();>regional data</button>
-
-			<button onclick=WP.getGraphs(); >graphs</button>
-
 		</p>`;
 
 	}
 
+	// <p>
+	//  <button onclick=WP.getInfoboxes();>infobox</button>
+	//  <button onclick=WP.getCases();>state data</button>
+	//  <button onclick=WP.getTables();>regional data</button>
+	//  <button onclick=WP.getGraphs(); >graphs</button>
+	// </p>
 
 
 	DMTdivPopUp.innerHTML = DMT.htmlPopUp;

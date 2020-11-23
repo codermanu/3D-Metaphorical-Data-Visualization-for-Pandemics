@@ -66,7 +66,7 @@ JTS.addBar = function ( lat, lon, index, color = "red", radius = 0.4, height = 0
 	const p1 = THR.latLonToXYZ( 50 + ( offset + 0.5 * heightScaled ), lat, lon );
 	const p2 = THR.latLonToXYZ( 100, lat, lon );
 
-	let geometry = new THREE.CylinderGeometry( 0.2, radius, heightScaled, radialSegments, heightSegments, openEnded );
+	let geometry = new .CylinderGeometry( 0.2, radius, heightScaled, radialSegments, heightSegments, openEnded );
 	geometry.applyMatrix4( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );
 	let material = new THREE.MeshPhongMaterial( { color: color, side: 2 } );
 	let mesh = new THREE.Mesh( geometry, material );
