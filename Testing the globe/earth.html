@@ -28,6 +28,16 @@
       // add controls
       cameraControl = new THREE.OrbitControls(camera);
       
+      function createEarthMaterial() {
+        // 4096 is the maximum width for maps
+        var earthTexture = THREE.ImageUtils.loadTexture(
+          "../assets/textures/planets/earthmap4k.jpg"
+        );
+        var earthMaterial = new THREE.MeshBasicMaterial();
+        earthMaterial.map = earthTexture;
+        return earthMaterial;
+      }
+
     </script>
   </body>
 </html>
