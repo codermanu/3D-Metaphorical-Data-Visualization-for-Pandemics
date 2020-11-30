@@ -11,8 +11,38 @@
   </head>
   <body>
     <script src="js/three.js"></script>
+    <script src="../libs/OrbitControls.js"></script>
+    <script src="../libs/dat.gui.min.js"></script>
+    <script src="../libs/stats.min.js"></script>
     <script>
+      // global variables
+      var renderer;
+      var scene;
+      var camera;
+      var control;
+      var stats;
+      var cameraControl;
+
+      /**
+       * Initializes the scene, camera and objects. Called when the window is
+       * loaded by using window.onload (see below)
+       */
+      // creating the scene that holds all the lights and cameras
       var scene = new THREE.Scene();
+      // creating the camera
+      camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      // creating the rendere object
+      renderer = new THREE.WebGLRenderer();
+      renderer.setClearColor(0x000000, 1.0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.shadowMapEnabled = true;
+
+      // creating of the sphere
       var sphereGeometry = new THREE.SphereGeometry(15, 30, 30);
       var sphereMaterial = new THREE.MeshNormalMaterial();
       var earthMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
@@ -27,7 +57,7 @@
 
       // add controls
       cameraControl = new THREE.OrbitControls(camera);
-      
+
       function createEarthMaterial() {
         // 4096 is the maximum width for maps
         var earthTexture = THREE.ImageUtils.loadTexture(
@@ -37,7 +67,6 @@
         earthMaterial.map = earthTexture;
         return earthMaterial;
       }
-
     </script>
   </body>
 </html>
