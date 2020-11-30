@@ -2,18 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <!-- <script
-       src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"
-       ></script> -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"
-      integrity="sha512-Q+IG0h7As6sfqE2t1Xf5IeamNyCXb4EXxGCA9Mlbpv7xtwurVHNdVDbyWeSQ3ulPf2FRlqeu77Ec3SJDdIR63w=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"></script>
-    <script src="geoloc.js"></script>
+    <title>My first three.js app</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <div id="view"></div>
+    <script src="js/three.js"></script>
+    <script>
+      var scene = new THREE.Scene();
+      var sphereGeometry = new THREE.SphereGeometry(15, 30, 30);
+      var sphereMaterial = new THREE.MeshNormalMaterial();
+      var earthMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      earthMesh.name = "earth";
+      scene.add(earthMesh);
+
+      // Position the camera and point it at the center of the scene
+      camera.position.x = 35;
+      camera.position.y = 36;
+      camera.position.z = 33;
+      camera.lookAt(scene.position);
+
+      // add controls
+      cameraControl = new THREE.OrbitControls(camera);
+      
+    </script>
   </body>
 </html>
