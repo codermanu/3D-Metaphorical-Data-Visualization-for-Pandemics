@@ -64,7 +64,12 @@
       overlayMesh.name = "overlay";
       scene.add(overlayMesh);
 
-      addCanvas();
+      // now add some better lighting
+      var ambientLight = new THREE.AmbientLight(0x111111);
+      ambientLight.name = "ambient";
+      scene.add(ambientLight);
+
+      
 
       // position and point the camera to the center of the scene
       camera.position.x = 25;
@@ -177,7 +182,7 @@
 
               // context.fill();
               context.lineWidth = 2;
-              context.strokeStyle = "#003300";
+              context.strokeStyle = "red";
               context.stroke();
             }
           });
@@ -277,9 +282,12 @@
       cameraControl.update();
 
       scene.getObjectByName("earth");
-      scene.getObjectByName('overlay')
+      scene.getObjectByName("overlay");
       // scene.getObjectByName("clouds");
-
+      // update light colors
+      scene.getObjectByName("ambient").color = new THREE.Color(
+        control.ambientLightColor
+      );
       // and render the scene
       renderer.render(scene, camera);
 
