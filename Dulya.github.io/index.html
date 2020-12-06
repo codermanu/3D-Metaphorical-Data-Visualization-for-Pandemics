@@ -372,7 +372,7 @@
 		var centerCords = new THREE.Vector2();
 		var PLANE_SIZE = 2000;
 		var MAP_SIZE = 512;
-		var ZOOM = 14;
+		var ZOOM = 10; //Static Map zoom
 		
 		var webGLRenderer, dynamicMapRenderer, canvasRenderer, labelRenderer;
 		var controls;
@@ -594,7 +594,7 @@
 							paths: wards[i].Polygon[0].outerBoundaryIs[0].coordinates,
 							strokeColor: '#000',
 							strokeOpacity: 1,
-							strokeWeight: 3,
+							strokeWeight: 2,
 							fillColor: '#D3D3D3',
 							fillOpacity: 0.3,
 							indexID: i
@@ -608,8 +608,10 @@
 				}
 			});
 
-		    //myParser.parse('https://dulya.github.io/doc.kml');
+		    
 			myParser.parse('District2.kml');
+			//myParser.parse('doc.kml');
+			//myParser.parse('https://dulya.github.io/doc.kml');
 		
 		}
 
@@ -716,10 +718,6 @@
 
 			scene.add(dynamicMapGroup);
 			console.log("Scene init done!");
-
-
-
-
 
 
 		}
