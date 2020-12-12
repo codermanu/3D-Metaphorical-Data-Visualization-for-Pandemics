@@ -1,11 +1,12 @@
 <!--
 	Author: Dulya Murage
 -->
+
 <html>
 
 <head>
 	<!-- <title>VBD Drill-Down</title> -->
-	<title>COVID19_Visualization</title>
+	<title>COVID-19_Visualization</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js></script>
@@ -288,8 +289,8 @@
 		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
 		function loadDataset(polygon, callback) {
 			console.log("loading dataset...");
-			d3.csv("dataset/data_full.csv", function (data) {
-				//d3.csv("dataset/final (copy).csv", function (data) {
+			//d3.csv("dataset/data_full.csv", function (data) {
+				d3.csv("dataset/final (copy).csv", function (data) {
 				
 				//select cases according to the given boundary
 				dataset = data.filter(function (report) {
@@ -369,10 +370,12 @@
 		var dynamicMapGroup = new THREE.Group();
 		var staticMapGroup = new THREE.Group();
 		var staticMap;
+		var dynamicMap; //newly added
 		var centerCords = new THREE.Vector2();
 		var PLANE_SIZE = 2000;
 		var MAP_SIZE = 512;
-		var ZOOM = 10; //Static Map zoom
+
+		var ZOOM = 7; //Static Map zoom
 		
 		var webGLRenderer, dynamicMapRenderer, canvasRenderer, labelRenderer;
 		var controls;
@@ -441,7 +444,9 @@
 			elms[0].style.fontSize=20;
 			elms[0].innerHTML = "Dengue Data for "+wards[polygon.indexID].name+"";
 			*/
-			changeMenuTitle("Dengue Data for "+wards[polygon.indexID].name+"");
+			//changeMenuTitle("Dengue Data for "+wards[polygon.indexID].name+"");
+			changeMenuTitle("COVID-19 Data for "+wards[polygon.indexID].name+"");
+
 
 			var loader = new THREE.TextureLoader();
 			var coordinateIterator;
@@ -505,13 +510,13 @@
 
 
 			loader.load(
-					'http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
+					'http://maps.googleapis.com/maps/api/staticmap?center=' +centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
 					// onLoad callback
 					function ( groundTexture ) {
 						// console.log('http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyCdWv25tk8tkWF15i20yBvik8pCJHUF2HI');
 						groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
 						groundTexture.repeat.set(1, 1);
-						groundTexture.anisotropy = 16;
+						groundTexture.anisotropy = 16;Math.PI
 
 						var groundMaterial = new THREE.MeshLambertMaterial({ map: groundTexture });
 						
@@ -554,8 +559,6 @@
 				google.maps.event.addListener(polygon, 'click', function (event) {
 					console.log("BID", polygon.indexID);
 					loadDataset(polygon, initScene);
-
-
 
 					labelRenderer = new THREE.CSS2DRenderer();
 					labelRenderer.setSize( window.innerWidth, window.innerHeight );
@@ -665,7 +668,7 @@
 
 			//renderers
 
-			dynamicMapRenderer = new THREE.CSS3DRenderer();
+			dynamicMapRenderer = new THREE.CSS3DRenderer(); //https://subscription.packtpub.com/book/web_development/9781783981182/1/ch01lvl1sec12/getting-started-with-the-css-3d-renderer
 			dynamicMapRenderer.setSize(window.innerWidth, window.innerHeight);
 			dynamicMapRenderer.domElement.style.position = 'absolute';
 			first_stage_container.appendChild(dynamicMapRenderer.domElement);
@@ -698,12 +701,12 @@
 			//Stage 1 - load dynamic google map
 			var mapObject = new MapElement('googleMap', 0, 0, 540, 270);
 			dynamicMapGroup.add(mapObject);
-			dynamicMapGroup.position.y = -459;
+			//	dynamicMapGroup.position.y = -459;
+		    dynamicMapGroup.position.y = - 550;
 			dynamicMapGroup.rotation.x = 1.3819063267948963; // - Math.PI / 2;
 			dynamicMapGroup.rotation.y = -3.14159265358979;// - Math.PI;
 
 			//Stage 2 - load static google map
-
 			second_stage_Container = document.createElement('div');
 			document.body.appendChild(second_stage_Container);
 
@@ -729,8 +732,6 @@
 		window.onmousemove = onMouseMove; //addEventListener('onmousemove', onMouseMove, false);
 		
 
-		
-
 		function onWindowResize() {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
@@ -744,12 +745,15 @@
 			requestAnimationFrame(animate);
 			render();
 			stats.update();
+			
 		}
 
 		function render() {
 			if (showMap) {
-				controls.enabled = false;
+				controls.enabled = true; // Make dynamic map interactive:false--> true
+
 				dynamicMapRenderer.render(scene, camera);
+
 			} else if (isModalDragging) {
 				controls.enabled = false;
 			} else if(isConeDragging) {
