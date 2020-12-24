@@ -6,9 +6,10 @@ function MetaphorDescriptor(mtype, dimension, dimensions, connectedSegments, pos
   this.metaphorType = mtype; // main (0) or sub >=(1)
   this.mainDimension = dimension;
   this.dimensions = dimensions;
+  this.connectedSegments = connectedSegments;
   this.position = position;
   this.level = level;
-  this.connectedSegments = connectedSegments;
+ 
 }
 
 /*
@@ -22,10 +23,10 @@ function Node() {
   this.metaphorDescriptor = null;
 }
 
-Node.prototype.getActiveDimensions = function() {
+Node.prototype.getActiveDimensions = function() {  //Prototypes are the mechanism by which JavaScript objects inherit features from one another.
   var result = [];
   if(this.metaphor) {
-    var dimensions = Object.keys(this.metaphor.userData.segments);
+    var dimensions = Object.keys(this.metaphor.userData.segments);  //The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.
     for(var i=0; i<dimensions.length; i++){
       var segment = this.metaphor.userData.segments[dimensions[i]];
       if(segment.userData.isActive){
@@ -92,7 +93,7 @@ function CreateNewNode(metaphorDescriptor){
 
    node.metaphorDescriptor = metaphorDescriptor;
    
-  if(metaphorDescriptor.metaphorType == 0){
+  if(metaphorDescriptor.metaphorType == 0){ // metaphorType==0 in main metaphor--> no middle button
     node.metaphor = createCarousel(node, false);
   }else{
     node.metaphor = createCarousel(node,true);

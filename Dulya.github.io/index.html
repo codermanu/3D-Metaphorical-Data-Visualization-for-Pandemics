@@ -137,12 +137,16 @@
 	<script src="js/geoxml3.js"></script>
 	<script src="js/encode.js"></script>
 	<script src="js/PlanetoMap.js"></script>
+
 	<!-- read data from csv-->
 	<script src="https://d3js.org/d3-collection.v1.min.js"></script>
 	<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 	<script src="https://d3js.org/d3-dsv.v1.min.js"></script>
 	<script src="https://d3js.org/d3-request.v1.min.js"></script>
 	<script src="js/loaders/OBJLoader.js"></script>
+
+	<script src="js/Cone.js"></script>
+
 
 
 
@@ -372,11 +376,12 @@
 		var staticMap;
 		var dynamicMap; //newly added
 		var centerCords = new THREE.Vector2();
-		var PLANE_SIZE = 2000;
-		var MAP_SIZE = 512;
+		var PLANE_SIZE =2000;
+		var MAP_SIZE =512;
+		
 
 		var ZOOM = 7; //Static Map zoom
-		
+	
 		var webGLRenderer, dynamicMapRenderer, canvasRenderer, labelRenderer;
 		var controls;
 		var iniZoom; //= controls.target.distanceTo( controls.object.position )
@@ -543,9 +548,12 @@
 			// 	  };
 
 			loader.load(
-					'http://maps.googleapis.com/maps/api/staticmap?center=' +centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&markers=size:tiny%7Ccolor:green%7Clabel:S%7C6.0535,80.2210&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
+					//'http://maps.googleapis.com/maps/api/staticmap?center=' +centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
 
-					//'http://maps.googleapis.com/maps/api/staticmap?center=' +latt+', '+lonn  +'&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
+					'http://maps.googleapis.com/maps/api/staticmap?center='+'7.8731, 80.7718'+
+					'&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+
+					'&scale=2&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' +
+					'&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
 					//'http://maps.googleapis.com/maps/api/staticmap?center=' +latt+', '+lonn  +'&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + '&markers=size:tiny%7Ccolor:green%7Clabel:S%7C6.0535,80.2210&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
 
 					// onLoad callback
@@ -558,7 +566,7 @@
 						var groundMaterial = new THREE.MeshLambertMaterial({ map: groundTexture });
 						
 						staticMap = new THREE.Mesh(new THREE.PlaneBufferGeometry(PLANE_SIZE, PLANE_SIZE), groundMaterial); //2000,2000
-						staticMap.position.y = - 250;
+						staticMap.position.y = - 200;
 						staticMap.rotation.x = - Math.PI / 2;
 						staticMap.receiveShadow = true;
 
@@ -604,7 +612,7 @@
     	    		position: new google.maps.LatLng(districts[i][2], districts[i][3]),
      		  		 map: map
 				  });
-				  marker.setVisible(false);
+				  marker.setVisible(true);
 
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
 					return function() {
@@ -672,9 +680,10 @@
 
 		    
 			//myParser.parse('District2.kml');
-			myParser.parse('level0.kml');
-			//myParser.parse('https://dulya.github.io/doc.kml');
 		
+			//myParser.parse('https://dulya.github.io/doc.kml');
+			myParser.parse('level0.kml');
+			//myParser.parse('doc.kml');
 		}
 
 		var MapElement = function (id, x, y, z, rx) {
@@ -770,33 +779,17 @@
 			second_stage_Container = document.createElement('div');
 			document.body.appendChild(second_stage_Container);
 
-			/*COMMENTED
-			add marker cone to staticMapGroup
-			var geometry = new THREE.ConeGeometry(40, 550, 32);
-			var material = new THREE.MeshBasicMaterial({ color: 0XFF0000 });
-			cone = new THREE.Mesh(geometry, material);
-			cone.position.y = -100;
-			cone.scale.y = 0.6;
-			staticMapGroup.add(cone);
-			*/
+			/*COMMENTED*/
+			//add marker cone to staticMapGroup
+			// var geometry = new THREE.ConeGeometry(40, 550, 32);
+			// var material = new THREE.MeshBasicMaterial({ color: 0XFF0000 });
+			// cone = new THREE.Mesh(geometry, material);
+			// cone.position.y = -100;
+			// cone.scale.y = 0.6;
+			// staticMapGroup.add(cone);
+			
 
-			/*Add multiple cones*/
-			group1 = new THREE.Group();
-			
-			var geometry1 = new THREE.ConeGeometry(40, 550, 32);
-		    var material1 = new THREE.MeshBasicMaterial({ color: 0XFF0000 });
-		    cone1 = new THREE.Mesh(geometry1, material1);
-		    //cone.position.y = -100;
-            cone1.scale.y = 0.6;
-			cone1.position.copy( new THREE.Vector3( -100, -100, 100) );
-				
-			cone2 = new THREE.Mesh(geometry1, material1);
-		    //cone.position.y = -100;
-            cone2.scale.y = 0.6;
-			cone2.position.copy( new THREE.Vector3( -10, -100, 100) );
-			
-			group1.add( cone1 )
-			group1.add( cone2 )
+			/*Add multiple cones  ---> Cone.js*/  
             scene.add( group1 );
 
 			scene.add(dynamicMapGroup);
@@ -829,7 +822,7 @@
 
 		function render() {
 			if (showMap) {
-				controls.enabled = true; // Make dynamic map interactive:false--> true
+				controls.enabled = false; // Make dynamic map interactive:false--> true
 
 				dynamicMapRenderer.render(scene, camera);
 
@@ -1008,10 +1001,19 @@
 			
             
 		}
+
+		var i;
+				for (i = 0; i < districts.length; i++) {  
+				  latt = districts[i][2];
+				  lonn= districts[i][3];
+				  };
+
 		function getWardOnConePosition(){
 			var config = {
-					lat: centerCords.x, // center lat
-					lng: centerCords.y, // center lng
+					// lat: centerCords.x, // centerLat
+					// lng: centerCords.y, // centerLng
+					lat:7.4675,
+					lng: 80.6234,
 					zoom: ZOOM,
 					size: {
 						x: MAP_SIZE,
@@ -1020,16 +1022,18 @@
 				};
 				
 				var vector = new THREE.Vector3().copy( cone.position );
+				console.log( 'local point:********************************** ', cone.position );
+
 				
 				staticMap.worldToLocal( vector );
 				
 				var tVector = transformPlaneToMap(vector.x, vector.y);
 
-				// console.log( 'local point: ', tVector );
+				console.log( 'local point:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ', tVector );
 				
 				var coordinate = getCoordinate(tVector.x,tVector.y,config);
 				
-				// console.log("latlng: ", coordinate);
+				//console.log("latlng: ", coordinate);
 				
 				
 				// check to which ward the coordinate belong to
@@ -1052,7 +1056,7 @@
 			var halfPlane = (PLANE_SIZE/2)
 			var scaleRatio = halfMap/halfPlane;
 
-			return new THREE.Vector2(x*scaleRatio+halfMap, halfMap-y*scaleRatio); 
+			return new THREE.Vector2(x*scaleRatio+halfMap, halfMap-y*scaleRatio); //https://threejs.org/docs/#api/en/math/Vector2
 		}
 
 		function onMouseUp(event) {

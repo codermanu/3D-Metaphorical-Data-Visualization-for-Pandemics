@@ -2,11 +2,12 @@
 * Author: Dulya Murage
 */
 function createCarousel(node, hasMiddle) {
-    var parent = new THREE.Group();
-    parent.userData.node = node;
+    var parent = new THREE.Group(); //https://threejs.org/docs/#api/en/core/Object3D.userData
+    parent.userData.node = node; //An object that can be used to store custom data about the Object3D. It should not hold references to functions as these will not be cloned.
     var startAngle=0;
     var segments={};
     var numOfSegments=node.metaphorDescriptor.dimensions.length;
+    
     //trying to add explode button
     if(hasMiddle){
         var middleButton = createMiddleButton(node);
@@ -85,6 +86,7 @@ function createCarousel(node, hasMiddle) {
 
 
 function createMiddleButton(node) {
+
     //trying to add explode button
     var geometry = new THREE.SphereGeometry(50,16,16, Math.PI/2, Math.PI*2, 0, 0.5 * Math.PI)
     var material = new THREE.MeshBasicMaterial( { color: '#FF0000'} );
