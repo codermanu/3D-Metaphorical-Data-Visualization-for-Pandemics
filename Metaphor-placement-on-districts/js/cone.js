@@ -1,6 +1,3 @@
-/**
-* Author: Binuri Manorathna
-*/
 
 group1 = new THREE.Group();
 			
@@ -72,7 +69,7 @@ cone12 = new THREE.Mesh(geometry1, material1);
 cone12.scale.y = 0.6;
 cone12.position.copy( new THREE.Vector3(-144.28700305690123, -100, 216.37690318355408) );
 
-//kilinochchi
+// //kilinochchi
 cone13 = new THREE.Mesh(geometry1, material1);
 cone13.scale.y = 0.6;
 cone13.position.copy( new THREE.Vector3(-141.51976635143092,  -100, -538.3927633695309) );
@@ -145,10 +142,8 @@ cone25.position.copy(new THREE.Vector3(-86.58835181700681,  -100,  -311.44480867
 
 
 group1.add( cone1, cone2, cone3, cone4, cone5, cone6, cone7, cone8, cone9, cone10,
-            cone11, cone12, cone13, cone14, cone15,cone16,cone17,cone18, cone19,cone20, 
+            cone11, cone12,cone13, cone14,cone15,cone16,cone17,cone18, cone19,cone20, 
              cone21,cone22,cone23,cone24,cone25);
-
-
 
 
 // var districts = [
@@ -178,3 +173,4 @@ group1.add( cone1, cone2, cone3, cone4, cone5, cone6, cone7, cone8, cone9, cone1
 //     ['Trincomalee',	24,	8.5711,	81.2335],
 //     ['Vavuniya',    25,	8.7514,	80.4971],
 //     ];
+    

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Mushroom</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
+<script src="./js/OrbitAndPanControls.new.js"></script>
+<script src="./js/mushroom.js"></script>
+
+<style type="text/css">
+	
+	#container{
+		width: 640px;
+		height: 480px;
+		border: 1px solid #000;
+	}
+	
+	#licenseStuff {
+		padding-top: 5px;
+		margin-top: 10px;
+		border-top: 1px solid #999;
+		font-family: arial, helvetica, sans-serif;
+		font-size: 10px;
+	}
+	
+</style>
+
+</head>
+<body>
+
+
+<div id="container">
+<canvas>
+</canvas>
+</div>
+
+<script type="text/javascript">
+/*global THREE, Coordinates, document, window, dat*/
+
+var camera, scene, renderer, projector;
+var cameraControls, effectController;
+
+var clock = new THREE.Clock();
+var canvasWidth =  640;
+var canvasHeight = 480;
+
+var rSeg = 32;
+var hSeg = 8;
+
+var showSpotCam = false;			
+var isDaytime = true;
+var animateWater = true;
+var closeView = false;
+
+var bubbleCount = 50;
+var bubblePartSys;							
+var bubbleTextureDay, bubbleTextureNight;	//so can switch for night and day
+
+var objects = [];			//list of mesh  in the scene that check for onmousedown
+
+var daylight, nightlight;	//arrays to hold lights for day and nights 
+var riverMat;				//made global so can access for animation in render func
+
+var mushroomList = [];		//list of Mushroom objects (mushroom.js)
+var smallMushrooms = [];	//list of generated mushrooms
+
+var moon;
+var moonlight;
+var bfly1;
+
+
+
+// function that should be called
+function drawMushroom () {
+    // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY
+    
+	var m1 = new Mushroom(60, 100, 19,15, 1.6, 1);
+
+	
+	m1.setColors("0xffba00", "0xbbba00", "0xffba00");
+	m1.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
+		
+	m1.growIt();
+	
+	m1.model.id = "m1";
+	m1.model.children[0].id = "cap1";
+	m1.model.children[1].id = "ucap1";	
+	m1.model.children[2].id = "stalk1";	
+	m1.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
+	m1.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
+	m1.model.children[0].material.map.repeat.set(3,1);		
+	
+	m1.model.position.x = -100;
+		
+	var shroomGroup = new THREE.Object3D();
+	shroomGroup.add(m1.model);
+	
+	shroomGroup.position.set(-50, 0, -10);
+	
+	scene.add(shroomGroup);
+	
+	//push (cap, undercap, stalk) onto object array so can detect intersect when click 
+	for (var i = 0; i < 3; i++) {
+		objects.push(m1.model.children[i]);	
+		
+	}
+		
+	mushroomList.push(m1);
+	
+			//use traverse code snippet from udacity cs291 
+		mushroomList[0].model.traverse(function (object) {
+			if (object instanceof THREE.Mesh) {
+				object.castShadow = true;
+				//object.receiveShadow = true;
+			}
+		});		
+	
+	
+}
+
+// Mostly grabbed from http://mrdoob.github.com/three.js/examples/canvas_interactive_cubes.html
+// Author unknown.
+function onDocumentMouseDown( event ) {
+
+	//console.log("objects.length:" + objects.length);
+	//event.preventDefault();
+
+	// Annoying nested window code: need to subtract offsets for nested windows.
+	// This is not needed if you have just a single window filling the browser
+	// var node = event.srcElement;
+	// var mouseX = event.clientX - node.offsetLeft;
+	// var mouseY = event.clientY - node.offsetTop;
+
+
+	// getBoundingClientRect()
+	//   givest the element's position relative to the browser's visile viewport.
+	// clientX/Y
+	//   gives the mouse position relative to the browser's visible viewport.
+	//
+	// we then just have to find the difference between the two
+	// to get the mouse position in "canvas-space"
+	var canvasPosition = renderer.domElement.getBoundingClientRect();
+	var mouseX = event.clientX - canvasPosition.left;
+	var mouseY = event.clientY - canvasPosition.top;
+
+	// console.log(canvasPosition.left,canvasPosition.top);
+	// console.log(mouseX,mouseY);
+
+	/*
+	while (node.offsetParent){
+		node = node.offsetParent;
+		mouseX -= node.offsetLeft;
+		mouseY -= node.offsetTop;
+	}*/
+
+	/* the old way */
+	/*
+	var mouseVector = new THREE.Vector3(
+		2 * ( mouseX / canvasWidth ) - 1,
+		1 - 2 * ( mouseY / canvasHeight ), 0.5 );
+	projector.unprojectVector( mouseVector, camera );
+	var raycaster = new THREE.Raycaster( camera.position, mouseVector.sub( camera.position ).normalize() );
+	*/
+
+	/* the new way: simpler creation of raycaster */
+	/* from tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+	var mouseVector = new THREE.Vector3(
+		2 * ( mouseX / canvasWidth ) - 1,
+		1 - 2 * ( mouseY / canvasHeight ));
+		
+	// debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+
+	// var raycaster = projector.pickingRay( mouseVector.clone(), camera );
+	// var intersects = raycaster.intersectObjects( objects );
+
+	var vector = point.clone().unproject( camera );
+	var direction = new THREE.Vector3( 0, 0, -1 ).transformDirection( camera.matrixWorld );
+	raycaster.set( vector, direction );
+	var intersects = raycaster.intersectObjects( objects );
+
+	if ( intersects.length > 0 ) {
+
+		//intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+		var id = intersects[0].object.id;
+		//console.log("intersects:" + id);
+		
+		if (id == "cap1" || id == "ucap1"  || id == "stalk1") {
+			mushroomAction1();
+		} else if (id == "cap2" || id == "ucap2"  || id == "stalk2") {
+			mushroomAction2();
+		} else if (id == "cap3" || id == "ucap3"  || id == "stalk3") {
+			mushroomAction3();
+		}
+		
+	
+	}
+
+}
+
+
+function init() {
+	var canvasRatio = canvasWidth / canvasHeight;
+
+	// RENDERER
+	renderer = new THREE.WebGLRenderer( { antialias: false } );
+	renderer.gammaInput = true;
+	renderer.gammaOutput = true;
+	renderer.setSize(canvasWidth, canvasHeight);
+	
+	if (isDaytime) {
+		renderer.setClearColor( 0xDDEEFF, 1.0 );
+	} else {
+		renderer.setClearColor( 0x000066, 1.0 );
+	}
+	
+	renderer.shadowMapEnabled = true;
+	
+	
+	// CAMERA
+	var viewAngle = 45;
+	var near = 0.1;
+	var far = 20000;
+	camera = new THREE.PerspectiveCamera( viewAngle, canvasRatio, near, far);
+	
+	// CONTROLS
+	cameraControls = new THREE.OrbitAndPanControls(camera, renderer.domElement);
+	camera.position.set(105,418,890);
+	cameraControls.target.set(21,191,-23);
+	
+	// projector = new THREE.Projector();
+	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+	
+}
+function setupGui() {
+	
+	effectController = {
+		
+	}
+}
+function fillScene() {
+	scene = new THREE.Scene();
+	// var ambient = new THREE.AmbientLight(0x222222);	
+	// scene.add(ambient);
+	
+	//day lights
+	var light1 = new THREE.DirectionalLight( 0xffffff, 0.8 );
+	light1.position.set( 200, 500, 500 );
+		
+	var light2 = new THREE.DirectionalLight( 0xddffdd, 0.7 );
+	light2.position.set( -20, 0, -20 );
+
+	var sunlight = new THREE.SpotLight(0xfffff0);
+	sunlight.position.set ( 400, 800, 1000);
+	
+	
+	daylight = new THREE.Object3D();
+	daylight.add(light1);
+	daylight.add(light2);
+	daylight.add(sunlight);
+	
+	daylight.traverse(function (obj) {
+		obj.visible = isDaytime;
+	});
+	
+	scene.add(daylight);
+
+	drawMushroom();	
+}
+
+
+function addToDOM() {
+    var container = document.getElementById('container');
+    var canvas = container.getElementsByTagName('canvas');
+    if (canvas.length>0) {http://workshop.chromeexperiments.com/examples/gui/#
+        container.removeChild(canvas[0]);
+    }
+    container.appendChild( renderer.domElement );
+}
+
+
+function animate() {
+	requestAnimationFrame(animate);
+	render();
+	
+}
+
+function render() {
+    var delta = clock.getDelta();
+	
+	cameraControls.update(delta);	
+	
+	renderer.render(scene, camera);
+}
+
+
+
+// this is the main action sequence
+init();
+setupGui();
+fillScene();
+addToDOM();
+animate();
+
+</script>
+
+</body>
+</html>
