@@ -22,7 +22,7 @@ function Mushroom (capSize, stalkHeight, stalkTop, stalkBottom, capScaleY, capOf
 	this.underCapTexture = null;
 	this.stalkTexture = null;
 	
-	this.rSeg = 16;					//radius segments
+	this.rSeg = 4;					//radius segments
 	this.hSeg = 2;					//height segments
 			
 	this.capSize = (capSize === undefined) ? 30 : capSize; 
