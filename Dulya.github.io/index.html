@@ -285,13 +285,18 @@
 		//var boundaryId=48;
 		var fields = [];
 		var subdimensions;
+		//fields in the dataset - caseid,boundaryid,lat,lon,death,gender,age,period,fogg
+		//dimensional fields - death, gender, age, period, fogg
 		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
 		function loadDataset(polygon, callback) {
 			console.log("loading dataset...");
+			//d3.js - parse and prepare common input formats
+			//converts a CSV file into an array of objects - all string values
 			d3.csv("dataset/data_full.csv", function (data) {
 				//d3.csv("dataset/final (copy).csv", function (data) {
 				
 				//select cases according to the given boundary
+				//what is report?????
 				dataset = data.filter(function (report) {
 					var bid = 0;
 					try {
