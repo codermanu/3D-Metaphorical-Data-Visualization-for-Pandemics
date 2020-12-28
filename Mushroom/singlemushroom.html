@@ -81,12 +81,15 @@ var bfly1;
 
 // function that should be called
 function drawMushroom () {
+
     // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY
     
-	var m1 = new Mushroom(60, 100, 19,15, 1.6, 1);
+	var m1 = new Mushroom(65, 100, 19,15, 1.6, 1);
+	// var m2 = new Mushroom(60, 100, 19,15, 1.6, 1);
 
 	
-	m1.setColors("0xffba00", "0xbbba00", "0xffba00");
+	m1.setColors("0xff00ba", "0xbbba00", "0xffba00");
+	//#BAFF00
 	m1.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
 	
 		
@@ -105,9 +108,9 @@ function drawMushroom () {
 		
 	var shroomGroup = new THREE.Object3D();
 	shroomGroup.add(m1.model);
-	
-	shroomGroup.position.set(-50, 0, -10);
-	
+	// leftright topdown frontback
+	shroomGroup.position.copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
+	// copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
 	scene.add(shroomGroup);
 	
 	//push (cap, undercap, stalk) onto object array so can detect intersect when click 
@@ -134,16 +137,16 @@ function drawMushroom () {
 function onDocumentMouseDown( event ) {
 
 	//console.log("objects.length:" + objects.length);
-	//event.preventDefault();
+	event.preventDefault();
 
 	// Annoying nested window code: need to subtract offsets for nested windows.
 	// This is not needed if you have just a single window filling the browser
-	// var node = event.srcElement;
-	// var mouseX = event.clientX - node.offsetLeft;
-	// var mouseY = event.clientY - node.offsetTop;
+	var node = event.srcElement;
+	var mouseX = event.clientX - node.offsetLeft;
+	var mouseY = event.clientY - node.offsetTop;
 
 
-	// getBoundingClientRect()
+	getBoundingClientRect()
 	//   givest the element's position relative to the browser's visile viewport.
 	// clientX/Y
 	//   gives the mouse position relative to the browser's visible viewport.
@@ -154,8 +157,8 @@ function onDocumentMouseDown( event ) {
 	var mouseX = event.clientX - canvasPosition.left;
 	var mouseY = event.clientY - canvasPosition.top;
 
-	// console.log(canvasPosition.left,canvasPosition.top);
-	// console.log(mouseX,mouseY);
+	console.log(canvasPosition.left,canvasPosition.top);
+	console.log(mouseX,mouseY);
 
 	/*
 	while (node.offsetParent){
@@ -205,7 +208,8 @@ function onDocumentMouseDown( event ) {
 		}
 		
 	
-		/*var sphereGeom = new THREE.SphereGeometry(10);
+		/*var sphereGeom = new THREE.Spher
+		eGeometry(10);
 		var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
 		
 		var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
