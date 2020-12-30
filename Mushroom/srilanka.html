@@ -388,9 +388,11 @@
           //   adding the pixcel variables
           let pixce_x = dataset[4];
           let pixce_y = dataset[5];
-		  let pixce_z = dataset[6];
-		  
-		// capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
+          let pixce_z = dataset[6];
+
+          // Creating the length and capsize based on the data goes here
+
+          // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
           var index = new Mushroom(18, 30, 5, 5, 1.2, 1);
           index.setColors("0xff00ba", "0xbbba00", "0xffba00");
           //#BAFF00
@@ -417,24 +419,26 @@
             new THREE.Vector3(pixce_x, pixce_y, pixce_z)
           );
           shroomGroup.add(index.model);
-		});
-		scene.add(shroomGroup);
 
-
-        //push (cap, undercap, stalk) onto object array so can detect intersect when click
-        for (var i = 0; i < 3; i++) {
-          objects.push(m1.model.children[i]);
-        }
-
-        mushroomList.push(m1);
-
-        //use traverse code snippet from udacity cs291
-        mushroomList[0].model.traverse(function (object) {
-          if (object instanceof THREE.Mesh) {
-            object.castShadow = true;
-            //object.receiveShadow = true;
+          // Used to detect the mushroom
+          //push (cap, undercap, stalk) onto object array so can detect intersect when click
+          for (var i = 0; i < 3; i++) {
+            objects.push(index.model.children[i]);
           }
+
+		  console.log(objects)
+          mushroomList.push(index);
+
+          //use traverse code snippet from udacity cs291
+          mushroomList[0].model.traverse(function (object) {
+            if (object instanceof THREE.Mesh) {
+              object.castShadow = true;
+              //object.receiveShadow = true;
+            }
+          });
         });
+
+        scene.add(shroomGroup);
       }
 
       function onDocumentMouseDown(event) {
