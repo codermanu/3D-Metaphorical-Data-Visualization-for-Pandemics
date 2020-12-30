@@ -96,6 +96,7 @@ WP.updateBars = function (places) {
   groupRecoveriesWP.add(meshRecoveries);
 };
 
+
 WP.addBars = function (places, heights, color = "red") {
   radius = 0.5;
   radialSegments = 5;
