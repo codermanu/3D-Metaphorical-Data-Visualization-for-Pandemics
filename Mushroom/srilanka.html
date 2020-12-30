@@ -34,10 +34,10 @@
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script>
 
-    <script src="cone.js"></script>
+    <!-- <script src="cone.js"></script> -->
     <script>
       /*global THREE, Coordinates, document, window, dat*/
-
+      var shroomGroup;
       var camera, scene, renderer, projector;
       var cameraControls, effectController;
 
@@ -90,12 +90,12 @@
       var objects = [];
 
       init();
-      drawMushroom();
-	  animate();
-	  importCSV();
+      importCSV();
+      //   drawMushroom();
+      animate();
 
       function init() {
-        console.log(districtWithpxl);
+        // console.log(districtWithpxl);
         container = document.createElement("div");
         document.body.appendChild(container);
 
@@ -248,6 +248,7 @@
         //
 
         window.addEventListener("resize", onWindowResize, false);
+        document.addEventListener("mousedown", onDocumentMouseDown, false);
 
         // create the mushroom
       }
@@ -255,24 +256,95 @@
       //import the csv
 
       function importCSV() {
-        console.log("called");
+        console.log("csv importing called");
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             console.log("imported");
-            var ports = CSVToArray(xmlhttp.responseText, ";");
-            ports.forEach(function (e) {
-              let jsonCountry = {};
-              console.log(e);
-              
-            });
-            console.log(countryArrfromcsv);
-            WP.updateBars(countryArrfromcsv);
+            var district_data = CSVToArray(xmlhttp.responseText, ";");
+            drawMushroom(district_data);
+
+            //district,totalcases,recovered,no_deaths
+            // district_data.forEach(function (e) {
+            //   drawMushroom(e);
+            //   console.log(e);
+            // });
           }
         };
 
-        xmlhttp.open("GET", "../dataset-district/small-set.csv", true);
+        xmlhttp.open("GET", "./dataset-district/districtcsv.csv", true);
         xmlhttp.send();
+      }
+
+      function CSVToArray(strData, strDelimiter) {
+        // Check to see if the delimiter is defined. If not,
+        // then default to comma.
+        strDelimiter = strDelimiter || ",";
+
+        // Create a regular expression to parse the CSV values.
+        var objPattern = new RegExp(
+          // Delimiters.
+          "(\\" +
+            strDelimiter +
+            "|\\r?\\n|\\r|^)" +
+            // Quoted fields.
+            '(?:"([^"]*(?:""[^"]*)*)"|' +
+            // Standard fields.
+            '([^"\\' +
+            strDelimiter +
+            "\\r\\n]*))",
+          "gi"
+        );
+
+        // Create an array to hold our data. Give the array
+        // a default empty first row.
+        var arrData = [[]];
+
+        // Create an array to hold our individual pattern
+        // matching groups.
+        var arrMatches = null;
+
+        // Keep looping over the regular expression matches
+        // until we can no longer find a match.
+        while ((arrMatches = objPattern.exec(strData))) {
+          // Get the delimiter that was found.
+          var strMatchedDelimiter = arrMatches[1];
+
+          // Check to see if the given delimiter has a length
+          // (is not the start of string) and if it matches
+          // field delimiter. If id does not, then we know
+          // that this delimiter is a row delimiter.
+          if (
+            strMatchedDelimiter.length &&
+            strMatchedDelimiter != strDelimiter
+          ) {
+            // Since we have reached a new row of data,
+            // add an empty row to our data array.
+            arrData.push([]);
+          }
+
+          // Now that we have our delimiter out of the way,
+          // let's check to see which kind of value we
+          // captured (quoted or unquoted).
+          if (arrMatches[2]) {
+            // We found a quoted value. When we capture
+            // this value, unescape any double quotes.
+            var strMatchedValue = arrMatches[2].replace(
+              new RegExp('""', "g"),
+              '"'
+            );
+          } else {
+            // We found a non-quoted value.
+            var strMatchedValue = arrMatches[3];
+          }
+
+          // Now that we have our value string, let's add
+          // it to the data array.
+          arrData[arrData.length - 1].push(strMatchedValue);
+        }
+
+        // Return the parsed data.
+        return arrData;
       }
 
       function onWindowResize() {
@@ -303,101 +375,51 @@
 
       // Functions related to mushroom
 
-      function drawMushroom() {
-        var districts = [
-          ["Ampara", 1, 7.29754, 81.68202],
-          ["Anuradhapura", 2, 8.31223, 80.41306],
-          ["Badulla", 3, 6.9895, 81.0557],
-          ["Batticaloa", 4, 7.7102, 81.6924],
-          ["Colombo", 5, 6.93194, 79.84778],
-          ["Galle", 6, 6.0367, 80.217],
-          ["Gampaha", 7, 7.08731, 80.014366],
-          ["Hambantota", 8, 6.1429, 81.1212],
-          ["Jaffna", 9, 9.66845, 80.00742],
-          ["Kalutara", 10, 6.5831, 79.9593],
-          ["Kandy", 11, 7.2955, 80.6356],
-          ["Kegalle", 12, 7.2513, 80.3464],
-          ["Kilinochchi", 13, 9.3961, 80.3982],
-          ["Kurunegala", 14, 7.4863, 80.3623],
-          ["Mannar", 15, 8.981, 79.9044],
-          ["Matale", 16, 7.4675, 80.6234],
-          ["Matara", 17, 5.94851, 80.53528],
-          ["Moneragala", 18, 6.8714, 81.3487],
-          ["Mullaitivu", 19, 9.2671, 80.8142],
-          ["Nuwara Eliya", 20, 6.97078, 80.78286],
-          ["Polonnaruwa", 21, 7.93965, 81.00274],
-          ["Puttalam", 22, 8.0362, 79.8283],
-          ["Ratnapura", 23, 6.68278, 80.39917],
-          ["Trincomalee", 24, 8.5711, 81.2335],
-          ["Vavuniya", 25, 8.7514, 80.4971],
-        ];
-
-        for (let x = 0; x < 25; x++) {}
-
-        // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY
-
-        var m1 = new Mushroom(65, 100, 19, 15, 1.6, 1);
-        var m2 = new Mushroom(65, 100, 19, 15, 1.6, 1);
-
-        m1.setColors("0xff00ba", "0xbbba00", "0xffba00");
-        //#BAFF00
-        m1.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
-
-        m1.growIt();
-
-        m1.model.id = "m1";
-        m1.model.children[0].id = "cap1";
-        m1.model.children[1].id = "ucap1";
-        m1.model.children[2].id = "stalk1";
-        m1.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
-        m1.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
-        m1.model.children[0].material.map.repeat.set(3, 1);
-
-        // m1.model.position.x = 100;
-
-        // adding the single mushroom
-        m1.model.position.copy(
-          new THREE.Vector3(-263.70491733576927, -150, -667.9713237287366)
-        );
-        // mushroom group 2
-        m2.setColors("0xff00ba", "0xbbba00", "0xffba00");
-        //#BAFF00
-        m2.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
-
-        m2.growIt();
-
-        m2.model.id = "m2";
-        m2.model.children[0].id = "cap1";
-        m2.model.children[1].id = "ucap1";
-        m2.model.children[2].id = "stalk1";
-        m2.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
-        m2.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
-        m2.model.children[0].material.map.repeat.set(3, 1);
-
-        m2.model.position.x = 100;
-
-        // adding the single mushroom
-        // m2.model.position.copy(
-        //   new THREE.Vector3(-40.240137585480284, +40,  204.67288742878964)
-        // );
-
-        // var newMushroomGroup=new THREE.Group()
-        // newMushroomGroup.add(m1)
-
+      function drawMushroom(disc_data_arr) {
         var shroomGroup = new THREE.Object3D();
-        var shroomGroup2 = new THREE.Object3D();
-
-        shroomGroup.add(m1.model);
-        // shroomGroup.add(m2.model);
-        // leftright topdown frontback
         shroomGroup.position.copy(new THREE.Vector3(0, 0, 0));
 
-        // shroomGroup2.position.copy(
-        //   new THREE.Vector3(-40.240137585480284, -200,  204.67288742878964)
-        // );
-        // copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
-        scene.add(shroomGroup);
-        // scene.add(shroomGroup2);
+        console.log(disc_data_arr);
+
+        let mush_name_arr = [];
+        disc_data_arr.forEach((dataset, index) => {
+          //discid,totalcases,recovered,died,pixcel_x,Pixcel_Y,Pixcel_Z
+          console.log(dataset);
+          //   adding the pixcel variables
+          let pixce_x = dataset[4];
+          let pixce_y = dataset[5];
+		  let pixce_z = dataset[6];
+		  
+		// capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
+          var index = new Mushroom(18, 30, 5, 5, 1.2, 1);
+          index.setColors("0xff00ba", "0xbbba00", "0xffba00");
+          //#BAFF00
+          index.setTextures(
+            "./img/cap1.png",
+            "./img/ucap1.png",
+            "./img/stalk1.png"
+          );
+
+          index.growIt();
+
+          index.model.id = "m1";
+          index.model.children[0].id = "cap1";
+          index.model.children[1].id = "ucap1";
+          index.model.children[2].id = "stalk1";
+          index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
+          index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
+          index.model.children[0].material.map.repeat.set(3, 1);
+
+          // m1.model.position.x = 100;
+
+          // adding the single mushroom
+          index.model.position.copy(
+            new THREE.Vector3(pixce_x, pixce_y, pixce_z)
+          );
+          shroomGroup.add(index.model);
+		});
+		scene.add(shroomGroup);
+
 
         //push (cap, undercap, stalk) onto object array so can detect intersect when click
         for (var i = 0; i < 3; i++) {
@@ -413,6 +435,90 @@
             //object.receiveShadow = true;
           }
         });
+      }
+
+      function onDocumentMouseDown(event) {
+        console.log("objects.length:" + objects.length);
+        //event.preventDefault();
+
+        // Annoying nested window code: need to subtract offsets for nested windows.
+        // This is not needed if you have just a single window filling the browser
+        // var node = event.srcElement;
+        // var mouseX = event.clientX - node.offsetLeft;
+        // var mouseY = event.clientY - node.offsetTop;
+
+        // getBoundingClientRect()
+        //   givest the element's position relative to the browser's visile viewport.
+        // clientX/Y
+        //   gives the mouse position relative to the browser's visible viewport.
+        //
+        // we then just have to find the difference between the two
+        // to get the mouse position in "canvas-space"
+        var canvasPosition = renderer.domElement.getBoundingClientRect();
+        var mouseX = event.clientX - canvasPosition.left;
+        var mouseY = event.clientY - canvasPosition.top;
+
+        console.log(canvasPosition.left, canvasPosition.top);
+        console.log(mouseX, mouseY);
+
+        /*
+while (node.offsetParent){
+	node = node.offsetParent;
+	mouseX -= node.offsetLeft;
+	mouseY -= node.offsetTop;
+}*/
+
+        /* the old way */
+        /*
+var mouseVector = new THREE.Vector3(
+	2 * ( mouseX / canvasWidth ) - 1,
+	1 - 2 * ( mouseY / canvasHeight ), 0.5 );
+projector.unprojectVector( mouseVector, camera );
+
+var raycaster = new THREE.Raycaster( camera.position, mouseVector.sub( camera.position ).normalize() );
+*/
+
+        /* the new way: simpler creation of raycaster */
+        /* from tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+        var mouseVector = new THREE.Vector3(
+          2 * (mouseX / canvasWidth) - 1,
+          1 - 2 * (mouseY / canvasHeight)
+        );
+
+        // debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+
+        // var raycaster = projector.pickingRay( mouseVector.clone(), camera );
+        var raycaster = new THREE.Raycaster(); // create once
+        var mouse = new THREE.Vector2(); // create once
+        var intersects = raycaster.intersectObjects(scene);
+        console.log("intersects", intersects);
+        if (intersects.length > 0) {
+          //intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+          var id = intersects[0].object.id;
+          //console.log("intersects:" + id);
+          if (id == "cap1" || id == "ucap1" || id == "stalk1") {
+            console.log(id);
+          } else if (id == "cap2" || id == "ucap2" || id == "stalk2") {
+            mushroomAction2();
+          } else if (id == "cap3" || id == "ucap3" || id == "stalk3") {
+            mushroomAction3();
+          }
+
+          /*var sphereGeom = new THREE.SphereGeometry(10);
+	var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
+	
+	var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
+	sphere.position = intersects[ 0 ].point;
+	scene.add( sphere );
+	*/
+        }
+
+        /*
+// Parse all the faces, for when you are using face materials
+for ( var i in intersects ) {
+	intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
+}
+*/
       }
     </script>
   </body>
