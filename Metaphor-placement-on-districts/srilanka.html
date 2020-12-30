@@ -17,6 +17,7 @@
       }
     </style>
   </head>
+  <div id="tooltip"><span>123</span></div>
 
   <body>
 
@@ -53,6 +54,13 @@
     <script src="./js/mushroom.js"></script>
 
     <script src="cone.js"></script>
+
+
+    <!-- Tooltip -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
+
+
     <script>
       /*global THREE, Coordinates, document, window, dat*/
 	  	var shroomGroup
@@ -103,10 +111,7 @@
       var camera, scene, renderer, renderer1, controls;
 
       var sphere;
-      //var cone;
-      // var object;
-      //var objects = [];
-
+     
       init();
       drawMushroom();
       animate();
@@ -367,6 +372,7 @@
         renderer.render(scene, camera);
       }
 
+
       // Functions related to mushroom
       function drawMushroom() {
         var districts = [
@@ -424,6 +430,9 @@
         m1.model.position.copy(
           new THREE.Vector3(-263.70491733576927, -150, -667.9713237287366)
         );
+
+
+
         // mushroom group 2
         m2.setColors("0xff00ba", "0xbbba00", "0xffba00");
         //#BAFF00
@@ -439,7 +448,11 @@
         m2.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
         m2.model.children[0].material.map.repeat.set(3, 1);
 
-        m2.model.position.x = 100;
+       // m2.model.position.x = 100;
+       m2.model.position.copy(
+          new THREE.Vector3(-133.50400526646462, -150,  -156.27262598648872)
+        );
+
 
         /*
         // adding the single mushroom
@@ -455,7 +468,7 @@
         var shroomGroup2 = new THREE.Object3D();
 
         shroomGroup.add(m1.model);
-        // shroomGroup.add(m2.model);
+         shroomGroup.add(m2.model);
         // leftright topdown frontback
         shroomGroup.position.copy(new THREE.Vector3(0, 0, 0));
 
@@ -463,12 +476,16 @@
         //   new THREE.Vector3(-40.240137585480284, -200, 204.67288742878964)
         // );
         // copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
+
         scene.add(shroomGroup);
-        // scene.add(shroomGroup2);
+        scene.add(shroomGroup2);
 
         //push (cap, undercap, stalk) onto object array so can detect intersect when click
         for (var i = 0; i < 3; i++) {
           objects.push(m1.model.children[i]);
+          objects.push(m2.model.children[i]);
+
+
           //console.log("****",m1.model.children[i])
         }
 
@@ -499,8 +516,7 @@
         /*getBoundingClientRect() -->
           gives the element's position relative to the browser's visile viewport.
           https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-          */
-          
+          */  
         var canvasPosition = renderer.domElement.getBoundingClientRect();
 
         /*clientX/Y  -->  
@@ -557,6 +573,8 @@
 
         if (intersects.length > 0) {
           intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+          intersects[ 0 ].object.name;
+
           var id = intersects[0].object.id;
           console.log("intersects:" + id);
 
@@ -576,6 +594,7 @@
           sphere.position = intersects[ 0 ].point;
           scene.add( sphere );
           */
+
         }
 
         /*
@@ -585,7 +604,128 @@
         }
         */
       }
-    
+
+
+
+
+
+
+
+      /*TOOLTIP*/
+
+      const districts = [
+    { name: "Ampara", id: 1, rgb: {r:255, g:105, b:180} },
+    { name: "Anuradhapura", id:2, rgb: {r:255, g:105, b:180} }]
+
+
+      // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
+      var mouse = new THREE.Vector2();
+
+      var latestMouseProjection; // this is the latest projection of the mouse on object (i.e. intersection with ray)
+      var hoveredObj; // this objects is hovered at the moment
+
+      // tooltip will not appear immediately. If object was hovered shortly,
+      // - the timer will be canceled and tooltip will not appear at all.
+      var tooltipDisplayTimeout;
+
+      // This will move tooltip to the current mouse position and show it by timer.
+      function showTooltip() {
+        var divElement = $("#tooltip");
+
+        if (divElement && latestMouseProjection) {
+          divElement.css({
+            display: "block",
+            opacity: 0.0
+          });
+
+          var canvasHalfWidth = renderer.domElement.offsetWidth / 2;
+          var canvasHalfHeight = renderer.domElement.offsetHeight / 2;
+
+          var tooltipPosition = latestMouseProjection.clone().project(camera);
+          tooltipPosition.x = (tooltipPosition.x * canvasHalfWidth) + canvasHalfWidth + renderer.domElement.offsetLeft;
+          tooltipPosition.y = -(tooltipPosition.y * canvasHalfHeight) + canvasHalfHeight + renderer.domElement.offsetTop;
+
+          var tootipWidth = divElement[0].offsetWidth;
+          var tootipHeight = divElement[0].offsetHeight;
+
+          divElement.css({
+            left: `${tooltipPosition.x - tootipWidth/2}px`,
+            top: `${tooltipPosition.y - tootipHeight - 5}px`
+          });
+
+          // var position = new THREE.Vector3();
+          // var quaternion = new THREE.Quaternion();
+          // var scale = new THREE.Vector3();
+          // hoveredObj.matrix.decompose(position, quaternion, scale);
+          console.log(hoveredObj.userData.tooltipText)
+          divElement.find('span').text(hoveredObj.userData.tooltipText);
+
+          setTimeout(function() {
+            divElement.css({
+              opacity: 1.0
+            });
+          }, 0.5);
+        }
+      }
+
+      // This will immediately hide tooltip.
+      function hideTooltip() {
+        var divElement = $("#tooltip");
+        if (divElement) {
+          divElement.css({
+            display: "none"
+          });
+        }
+      }
+
+      // Following two functions will convert mouse coordinates
+      // from screen to three.js system (where [0,0] is in the middle of the screen)
+      function updateMouseCoords(event, coordsObj) {
+        coordsObj.x = ((event.clientX - renderer.domElement.offsetLeft + 0.5) / window.innerWidth) * 2 - 1;
+        coordsObj.y = -((event.clientY - renderer.domElement.offsetTop + 0.5) / window.innerHeight) * 2 + 1;
+      }
+
+
+      function handleManipulationUpdate() {
+        
+        var raycaster = new THREE.Raycaster(); 
+        raycaster.setFromCamera(mouse, camera);
+        {
+          var intersects = raycaster.intersectObjects(objects);
+          //console.log("objectssssssssssssssssss",objects);
+
+          if (intersects.length > 0) {
+            latestMouseProjection = intersects[0].point;
+            hoveredObj = intersects[0].object;
+          }
+        }
+
+        if (tooltipDisplayTimeout || !latestMouseProjection) {
+          clearTimeout(tooltipDisplayTimeout);
+          tooltipDisplayTimeout = undefined;
+          hideTooltip();
+        }
+
+        if (!tooltipDisplayTimeout && latestMouseProjection) {
+          tooltipDisplayTimeout = setTimeout(function() {
+            tooltipDisplayTimeout = undefined;
+            showTooltip();
+          }, 330);
+        }
+      }
+
+      function onMouseMove(event) {
+        updateMouseCoords(event, mouse);
+
+        latestMouseProjection = undefined;
+        hoveredObj = undefined;
+        handleManipulationUpdate();
+      }
+
+      window.addEventListener('mousemove', onMouseMove, false);
+
+
+          
     </script>
   </body>
 </html>
