@@ -19,9 +19,8 @@
   </head>
   <!-- Tooltip -->
   <div id="tooltip"><span>123</span></div>
-  <!-- DistrictLabels -->
-  <canvas id="c"></canvas>
-
+  
+ 
   <body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
@@ -56,12 +55,18 @@
 
     <script src="./js/mushroom.js"></script>
 
-    <script src="cone.js"></script>
+    <script src="./js/OnClickObject1.js"></script>
 
 
     <!-- Tooltip -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
+
+
+     <!-- DistrictLabels -->
+    <script src="labelrenderes/OrbitControls.js"></script>
+    <script src="labelrenderes/CSS2DRenderer.js"></script>
+
 
       <script>
   // import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/controls/OrbitControls.js';
@@ -69,7 +74,7 @@
 
       /*global THREE, Coordinates, document, window, dat*/
 	  	var shroomGroup
-      var camera, scene, renderer, projector;
+      var camera, scene, renderer, projector, labelRenderer;
       var cameraControls, effectController;
 
       var clock = new THREE.Clock();
@@ -259,6 +264,9 @@
         //This listener will be watching for click events
         document.addEventListener("mousedown", onDocumentMouseDown, false);
 
+
+         
+
       }
 
       //import the csv
@@ -359,6 +367,9 @@
 
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer1.setSize(window.innerWidth, window.innerHeight);
+
+        labelRenderer.setSize( window.innerWidth, window.innerHeight );
+
 
         // webGLRenderer.setSize(window.innerWidth, window.innerHeight);
         // dynamicMapRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -486,6 +497,25 @@
         // );
         // copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
 
+        //LABEL
+        // const mushroomDiv = document.createElement( 'div' );
+				// mushroomDiv.className = 'label';
+				// mushroomDiv.textContent = 'Earth';
+				// mushroomDiv.style.marginTop = '-1em';
+				// const mushroomLabel = new THREE.CSS2DObject( mushroomDiv );
+        //         //mushroomLabel.position.set( 0, EARTH_RADIUS, 0 );
+        // mushroomLabel.position.set( 0,0, 0 );
+
+        // shroomGroup.add( mushroomLabel);
+        // console.log("mushroomLABEL",mushroomLabel)
+
+        // labelRenderer = new THREE.CSS2DRenderer();
+				// labelRenderer.setSize( window.innerWidth, window.innerHeight );
+				// labelRenderer.domElement.style.position = 'absolute';
+				// labelRenderer.domElement.style.top = '0px';
+				// document.body.appendChild( labelRenderer.domElement );
+
+      
         scene.add(shroomGroup);
         scene.add(shroomGroup2);
 
@@ -507,6 +537,10 @@
             //object.receiveShadow = true;
           }
         });
+
+
+       
+
       }
 
 
@@ -581,7 +615,9 @@
         console.log("intersects",intersects)
 
         if (intersects.length > 0) {
-          intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+         // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+          drawObjectOnclick();
+          someDeleteFunction();
           intersects[ 0 ].object.name;
 
           var id = intersects[0].object.id;
@@ -613,11 +649,6 @@
         }
         */
       }
-
-
-
-
-
 
 
       /*TOOLTIP*/
