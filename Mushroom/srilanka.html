@@ -426,15 +426,15 @@
 
           //calculate the capsie
           //calculate the stalk height for
-		  let stalkheight = 7 * Math.sqrt(parseInt(dataset[1]));
-		  
-          //  let stalkheight =30+(((450-30)/totalcases_Max)*2 )*dataset[1]
-            console.log(stalkheight,dataset[7])
+          let stalkheight = 7 * Math.sqrt(parseInt(dataset[1]));
 
-		  //calculate the capsize
-		  let capsize=40+Math.sqrt(parseInt(dataset[2]))
-		// capsize=35+(((65-18)/totalcases_Max)*2 )*dataset[2]
-		  console.log("capsize",capsize)
+          //  let stalkheight =30+(((450-30)/totalcases_Max)*2 )*dataset[1]
+          // console.log(stalkheight,dataset[7])
+
+          //calculate the capsize
+          let capsize = 25 + 2 * Math.sqrt(parseInt(dataset[2]));
+          // capsize=35+(((65-18)/totalcases_Max)*2 )*dataset[2]
+          //   console.log("capsize",capsize)
 
           //var m1 = new Mushroom(18, 30, 5, 5, 1.2, 1);-smallest one
           //var m1 = new Mushroom(65, 900, 10, 10, 1.2, 1)- largest one
@@ -448,7 +448,29 @@
 
           // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
           var index = new Mushroom(capsize, stalkheight, 8, 8, 0.9, 1);
-          index.setColors("0xff00ba", "0xbbba00", "0xffba00");
+          // calculate the death rate
+          if (dataset[3] > 0) {
+            let capcolor;
+            const death_rate = (dataset[3] / dataset[1]) * 100;
+            console.log(dataset[7]);
+            console.log("deathrate", death_rate);
+            // Colorscale available on https://www.htmlcsscolor.com/hex/F40909
+            if (death_rate > 1) {
+              capcolor = "0xf40909";
+            } else if (death_rate > 0.5) {
+              capcolor = "0xf63a3a";
+            } else if (death_rate > 0.2) {
+              capcolor = "0xf86161";
+            } else {
+              capcolor = "0xfbaeae";
+            }
+
+            index.setColors(capcolor, "0xbbba00", "0xffba00");
+          } else {
+            index.setColors("0xffff00", "0xbbba00", "0xffba00");
+          }
+          //capcolor,undercapcolor,stalkcolor
+
           //#BAFF00
           index.setTextures(
             "./img/cap1.png",
@@ -458,15 +480,13 @@
 
           index.growIt();
 
-          index.model.id = "m1";
-          index.model.children[0].id = "cap1";
-          index.model.children[1].id = "ucap1";
-          index.model.children[2].id = "stalk1";
+          index.model.id = dataset[0];
+          index.model.children[0].id = "cap" + dataset[0];
+          index.model.children[1].id = "ucap" + dataset[0];
+          index.model.children[2].id = "stalk" + dataset[0];
           index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
           index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
           index.model.children[0].material.map.repeat.set(3, 1);
-
-          // m1.model.position.x = 100;
 
           // adding the single mushroom
           index.model.position.copy(
