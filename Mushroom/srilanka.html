@@ -18,6 +18,9 @@
     </style>
   </head>
 
+  <!-- Tooltip -->
+  <div id="tooltip"><span>123</span></div>
+
   <body>
     <script src="./threejs/build/three.min.js"></script>
     <script src="./cs291-master/lib/Coordinates.js"></script>
@@ -28,11 +31,19 @@
     <script src="./js/distrctwithpixce.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
-    <script src="OrbitControl.js"></script>
+    <script src="js/OrbitControl.js"></script>
+    <!-- <script src="js/OrbitAndPanControls.new.js"></script> -->
+
 
     <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script> -->
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script>
+
+
+    <!-- Tooltip -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
+
 
     <!-- <script src="cone.js"></script> -->
     <script>
@@ -245,12 +256,13 @@
         stats = new Stats();
         container.appendChild(stats.dom);
 
-        //
+        
 
         window.addEventListener("resize", onWindowResize, false);
+
+        //This listener will be watching for click events
         document.addEventListener("mousedown", onDocumentMouseDown, false);
 
-        // create the mushroom
       }
 
       //import the csv
@@ -392,6 +404,7 @@
 
           // Creating the length and capsize based on the data goes here
 
+		  
           // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
           var index = new Mushroom(18, 30, 5, 5, 1.2, 1);
           index.setColors("0xff00ba", "0xbbba00", "0xffba00");
@@ -441,9 +454,12 @@
         scene.add(shroomGroup);
       }
 
+
+     /*Mouse OnClick Colour Change*/
       function onDocumentMouseDown(event) {
         console.log("objects.length:" + objects.length);
-        //event.preventDefault();
+        console.log("objects",objects);
+        event.preventDefault();
 
         // Annoying nested window code: need to subtract offsets for nested windows.
         // This is not needed if you have just a single window filling the browser
@@ -451,14 +467,21 @@
         // var mouseX = event.clientX - node.offsetLeft;
         // var mouseY = event.clientY - node.offsetTop;
 
-        // getBoundingClientRect()
-        //   givest the element's position relative to the browser's visile viewport.
-        // clientX/Y
-        //   gives the mouse position relative to the browser's visible viewport.
-        //
-        // we then just have to find the difference between the two
-        // to get the mouse position in "canvas-space"
+
+        /*getBoundingClientRect() -->
+          gives the element's position relative to the browser's visile viewport.
+          https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+          */  
         var canvasPosition = renderer.domElement.getBoundingClientRect();
+
+        /*clientX/Y  -->  
+        gives the mouse position relative to the browser's visible viewport.
+        */
+
+        /*we then just have to find the difference between the two
+         to get the mouse position in "canvas-space"
+        */
+
         var mouseX = event.clientX - canvasPosition.left;
         var mouseY = event.clientY - canvasPosition.top;
 
@@ -466,40 +489,50 @@
         console.log(mouseX, mouseY);
 
         /*
-while (node.offsetParent){
-	node = node.offsetParent;
-	mouseX -= node.offsetLeft;
-	mouseY -= node.offsetTop;
-}*/
+        while (node.offsetParent){
+          node = node.offsetParent;
+          mouseX -= node.offsetLeft;
+          mouseY -= node.offsetTop;
+        }*/
 
-        /* the old way */
-        /*
-var mouseVector = new THREE.Vector3(
-	2 * ( mouseX / canvasWidth ) - 1,
-	1 - 2 * ( mouseY / canvasHeight ), 0.5 );
-projector.unprojectVector( mouseVector, camera );
-
-var raycaster = new THREE.Raycaster( camera.position, mouseVector.sub( camera.position ).normalize() );
-*/
 
         /* the new way: simpler creation of raycaster */
-        /* from tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
-        var mouseVector = new THREE.Vector3(
-          2 * (mouseX / canvasWidth) - 1,
-          1 - 2 * (mouseY / canvasHeight)
-        );
+        /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+        var mouseVector = new THREE.Vector3( 
+           2 * (mouseX / canvasWidth) - 1,                               
+           1 - 2 * (mouseY / canvasHeight));
 
-        // debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+        //debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+        //var raycaster = projector.pickingRay( mouseVector.clone(), camera );
 
-        // var raycaster = projector.pickingRay( mouseVector.clone(), camera );
-        var raycaster = new THREE.Raycaster(); // create once
-        var mouse = new THREE.Vector2(); // create once
-        var intersects = raycaster.intersectObjects(scene);
-        console.log("intersects", intersects);
+        //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
+
+        var raycaster = new THREE.Raycaster(); 
+        var mouse = new THREE.Vector2();   
+
+        // calculate mouse position in normalized device coordinates
+        // (-1 to +1) for both components
+        mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+
+
+        //Adjusts the direction of the ray to point at the vector in world coordinates.
+        //camera.lookAt( scene.position );
+
+        // update the picking ray with the camera and mouse position
+        raycaster.setFromCamera( mouse, camera );
+
+        var intersects = raycaster.intersectObjects( objects );
+        console.log("OBJECTS", objects)
+        console.log("intersects",intersects)
+
         if (intersects.length > 0) {
-          //intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+          intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+          intersects[ 0 ].object.name;
+
           var id = intersects[0].object.id;
-          //console.log("intersects:" + id);
+          console.log("intersects:" + id);
+
           if (id == "cap1" || id == "ucap1" || id == "stalk1") {
             console.log(id);
           } else if (id == "cap2" || id == "ucap2" || id == "stalk2") {
@@ -508,22 +541,179 @@ var raycaster = new THREE.Raycaster( camera.position, mouseVector.sub( camera.po
             mushroomAction3();
           }
 
-          /*var sphereGeom = new THREE.SphereGeometry(10);
-	var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
-	
-	var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
-	sphere.position = intersects[ 0 ].point;
-	scene.add( sphere );
-	*/
+          /*
+          var sphereGeom = new THREE.SphereGeometry(10);
+          var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
+          
+          var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
+          sphere.position = intersects[ 0 ].point;
+          scene.add( sphere );
+          */
+
         }
 
         /*
-// Parse all the faces, for when you are using face materials
-for ( var i in intersects ) {
-	intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
-}
-*/
+        // Parse all the faces, for when you are using face materials
+        for ( var i in intersects ) {
+          intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
+        }
+        */
       }
+
+
+
+      
+      /*TOOLTIP*/
+
+      // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
+      var mouse = new THREE.Vector2();
+
+      var latestMouseProjection; // this is the latest projection of the mouse on object (i.e. intersection with ray)
+      var hoveredObj; // this objects is hovered at the moment
+
+      // tooltip will not appear immediately. If object was hovered shortly,
+      // - the timer will be canceled and tooltip will not appear at all.
+      var tooltipDisplayTimeout;
+
+      // This will move tooltip to the current mouse position and show it by timer.
+      function showTooltip() {
+        var divElement = $("#tooltip");
+
+        if (divElement && latestMouseProjection) {
+          divElement.css({
+            display: "block",
+            opacity: 0.0
+          });
+
+          var canvasHalfWidth = renderer.domElement.offsetWidth / 2;
+          var canvasHalfHeight = renderer.domElement.offsetHeight / 2;
+
+          var tooltipPosition = latestMouseProjection.clone().project(camera);
+          tooltipPosition.x = (tooltipPosition.x * canvasHalfWidth) + canvasHalfWidth + renderer.domElement.offsetLeft;
+          tooltipPosition.y = -(tooltipPosition.y * canvasHalfHeight) + canvasHalfHeight + renderer.domElement.offsetTop;
+
+          var tootipWidth = divElement[0].offsetWidth;
+          var tootipHeight = divElement[0].offsetHeight;
+
+          divElement.css({
+            left: `${tooltipPosition.x - tootipWidth/2}px`,
+            top: `${tooltipPosition.y - tootipHeight - 5}px`
+          });
+
+          // var position = new THREE.Vector3();
+          // var quaternion = new THREE.Quaternion();
+          // var scale = new THREE.Vector3();
+          // hoveredObj.matrix.decompose(position, quaternion, scale);
+
+         // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
+
+           console.log("TOOLTIPTEXT",hoveredObj.id);
+
+          const districts = [
+                  { name: "Ampara", id: 16},
+                  { name: "Anuradhapura", id:20 },
+                  { name:"Badulla",  id:24 },
+                  { name:"Batticaloa",  id:28 },
+                  { name:"Colombo",  id:32 },
+                  { name:"Galle",  id:36 },
+                  { name:"Gampaha",  id:40},
+                  { name:"Hambantota",  id:44},
+                  { name:"Jaffna",  id:48 },
+                  { name:"Kalutara",  id:52 },
+                  { name:"Kandy",  id:56},
+                  { name:"Kegalle",  id:60 },
+                  { name:"Kilinochchi",  id:64},
+                  { name:"Kurunegala",  id:68},
+                  { name:"Mannar",  id:72 },
+                  { name:"Matale",  id:76},
+                  { name:"Matara",  id:80},
+                  { name:"Moneragala", id:84 },
+                  { name:"Mullaitivu",  id:88 },
+                  { name:"Nuwara Eliya",  id:92},
+                  { name:"Polonnaruwa",  id:96},
+                  { name:"Puttalam", id:100},
+                  { name:"Ratnapura",  id:104},
+                  { name:"Trincomalee",  id:108},
+                  { name:"Vavuniya",  id:112 }
+
+                ];
+
+                for (let i = 0; i < districts.length; i++) {
+
+                if(hoveredObj.id==districts[i].id){
+                  TOOLTIPTEXT =districts[i].name;
+                }
+
+              }
+
+          //divElement.find('span').text(hoveredObj.userData.tooltipText);
+          divElement.find('span').text( TOOLTIPTEXT );
+
+          setTimeout(function() {
+            divElement.css({
+              opacity: 1.0
+            });
+          }, 0.5);
+        }
+      }
+
+      // This will immediately hide tooltip.
+      function hideTooltip() {
+        var divElement = $("#tooltip");
+        if (divElement) {
+          divElement.css({
+            display: "none"
+          });
+        }
+      }
+
+      // Following two functions will convert mouse coordinates
+      // from screen to three.js system (where [0,0] is in the middle of the screen)
+      function updateMouseCoords(event, coordsObj) {
+        coordsObj.x = ((event.clientX - renderer.domElement.offsetLeft + 0.5) / window.innerWidth) * 2 - 1;
+        coordsObj.y = -((event.clientY - renderer.domElement.offsetTop + 0.5) / window.innerHeight) * 2 + 1;
+      }
+
+      function handleManipulationUpdate() {
+        
+        var raycaster = new THREE.Raycaster(); 
+        raycaster.setFromCamera(mouse, camera);
+        {
+          var intersects = raycaster.intersectObjects(objects);
+          //console.log("objectssssssssssssssssss",objects);
+
+          if (intersects.length > 0) {
+            latestMouseProjection = intersects[0].point;
+            hoveredObj = intersects[0].object;
+          }
+        }
+
+        if (tooltipDisplayTimeout || !latestMouseProjection) {
+          clearTimeout(tooltipDisplayTimeout);
+          tooltipDisplayTimeout = undefined;
+          hideTooltip();
+        }
+
+        if (!tooltipDisplayTimeout && latestMouseProjection) {
+          tooltipDisplayTimeout = setTimeout(function() {
+            tooltipDisplayTimeout = undefined;
+            showTooltip();
+          }, 330);
+        }
+      }
+
+      function onMouseMove(event) {
+        updateMouseCoords(event, mouse);
+
+        latestMouseProjection = undefined;
+        hoveredObj = undefined;
+        handleManipulationUpdate();
+      }
+
+      window.addEventListener('mousemove', onMouseMove, false);
+
+    
+    
     </script>
   </body>
 </html>
