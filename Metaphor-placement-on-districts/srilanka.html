@@ -403,17 +403,17 @@
           ["Vavuniya", 25, 8.7514, 80.4971],
         ];
 
-        for (let x = 0; x < 25; x++) {}
+        for (let x = 0; x < 25; x++) {
+        }
 
         // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY
 
         var m1 = new Mushroom(65, 100, 19, 15, 1.6, 1);
         var m2 = new Mushroom(65, 100, 19, 15, 1.6, 1);
 
+       // Mushroom1
         m1.setColors("0xff00ba", "0xbbba00", "0xffba00");
-        //#BAFF00
         m1.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
-
         m1.growIt();
 
         m1.model.id = "m1";
@@ -424,20 +424,16 @@
         m1.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
         m1.model.children[0].material.map.repeat.set(3, 1);
 
-        // m1.model.position.x = 100;
-
         // adding the single mushroom
         m1.model.position.copy(
           new THREE.Vector3(-263.70491733576927, -150, -667.9713237287366)
         );
 
+       
 
-
-        // mushroom group 2
+       // Mushroom2
         m2.setColors("0xff00ba", "0xbbba00", "0xffba00");
-        //#BAFF00
         m2.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
-
         m2.growIt();
 
         m2.model.id = "m2";
@@ -465,10 +461,17 @@
         */
 
         var shroomGroup = new THREE.Object3D();
+        console.log("SHROOOMGROUPEEEEEEEEEEEEEEEEEEEEEEEEEE",shroomGroup.id)
+
+        shroomGroup.userData.name ="Anuradhapura";
+        shroomGroup.userData.tooltipText = "HELLO";
+        console.log("EEEEEEEEEEEEEEEEEEEEEEEEEE", shroomGroup.userData.tooltipText)
+
         var shroomGroup2 = new THREE.Object3D();
+        console.log("SHROOOMGROUPEEEEEEEEEEEEEEEEEEEEEEEEEE",shroomGroup2.id)
 
         shroomGroup.add(m1.model);
-         shroomGroup.add(m2.model);
+        shroomGroup.add(m2.model);
         // leftright topdown frontback
         shroomGroup.position.copy(new THREE.Vector3(0, 0, 0));
 
@@ -613,11 +616,6 @@
 
       /*TOOLTIP*/
 
-      const districts = [
-    { name: "Ampara", id: 1, rgb: {r:255, g:105, b:180} },
-    { name: "Anuradhapura", id:2, rgb: {r:255, g:105, b:180} }]
-
-
       // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
       var mouse = new THREE.Vector2();
 
@@ -657,8 +655,50 @@
           // var quaternion = new THREE.Quaternion();
           // var scale = new THREE.Vector3();
           // hoveredObj.matrix.decompose(position, quaternion, scale);
-          console.log(hoveredObj.userData.tooltipText)
-          divElement.find('span').text(hoveredObj.userData.tooltipText);
+
+         // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
+
+           console.log("TOOLTIPTEXT",hoveredObj.id);
+
+          const districts = [
+                  { name: "Ampara", id: 1},
+                  { name: "Anuradhapura", id:45 },
+                  { name:"Badulla",  id:3 },
+                  { name:"Batticaloa",  id:4 },
+                  { name:"Colombo",  id:5 },
+                  { name:"Galle",  id:6 },
+                  { name:"Gampaha",  id:7 },
+                  { name:"Hambantota",  id:8},
+                  { name:"Jaffna",  id:41 },
+                  { name:"Kalutara",  id:10 },
+                  { name:"Kandy",  id:11},
+                  { name:"Kegalle",  id:12 },
+                  { name:"Kilinochchi",  id:13},
+                  { name:"Kurunegala",  id:14},
+                  { name:"Mannar",  id:15 },
+                  { name:"Matale",  id:16 },
+                  { name:"Matara",  id:17},
+                  { name:"Moneragala", id:18 },
+                  { name:"Mullaitivu",  id:19 },
+                  { name:"Nuwara Eliya",  id:20},
+                  { name:"Polonnaruwa",  id:21},
+                  { name:"Puttalam", id:22 },
+                  { name:"Ratnapura",  id:23},
+                  { name:"Trincomalee",  id:24},
+                  { name:"Vavuniya",  id:25 }
+
+                ];
+
+                for (let i = 0; i < districts.length; i++) {
+
+                if(hoveredObj.id==districts[i].id){
+                  TOOLTIPTEXT =districts[i].name;
+                }
+
+              }
+
+          //divElement.find('span').text(hoveredObj.userData.tooltipText);
+          divElement.find('span').text( TOOLTIPTEXT );
 
           setTimeout(function() {
             divElement.css({
@@ -684,7 +724,6 @@
         coordsObj.x = ((event.clientX - renderer.domElement.offsetLeft + 0.5) / window.innerWidth) * 2 - 1;
         coordsObj.y = -((event.clientY - renderer.domElement.offsetTop + 0.5) / window.innerHeight) * 2 + 1;
       }
-
 
       function handleManipulationUpdate() {
         
@@ -723,9 +762,11 @@
       }
 
       window.addEventListener('mousemove', onMouseMove, false);
-
-
           
+
+
+
+
     </script>
   </body>
 </html>
