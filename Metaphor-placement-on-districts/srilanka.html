@@ -17,7 +17,10 @@
       }
     </style>
   </head>
+  <!-- Tooltip -->
   <div id="tooltip"><span>123</span></div>
+  <!-- DistrictLabels -->
+  <canvas id="c"></canvas>
 
   <body>
 
@@ -60,8 +63,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
 
+      <script>
+  // import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/controls/OrbitControls.js';
 
-    <script>
+
       /*global THREE, Coordinates, document, window, dat*/
 	  	var shroomGroup
       var camera, scene, renderer, projector;
@@ -370,6 +375,7 @@
       function render() {
         renderer1.render(scene, camera);
         renderer.render(scene, camera);
+
       }
 
 
@@ -762,10 +768,11 @@
       }
 
       window.addEventListener('mousemove', onMouseMove, false);
-          
 
 
-
+      // ADD DISTRICT LABELS 
+        
+      
 
     </script>
   </body>

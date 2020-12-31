@@ -138,9 +138,56 @@ Mushroom.prototype.growIt = function() {
 	
 	mushroomObj.position.y = this.stalkHeight / 2;
 	this.model = mushroomObj;
+
 	
+	//ADD LABEL TO MUSHROOM
+
+	//const canvas = makeLabelCanvas(labelWidth, size, name);
+    //const texture = new THREE.CanvasTexture(canvas);
+    // because our canvas is likely not a power of 2
+    // in both dimensions set the filtering appropriately.
+    // texture.minFilter = THREE.LinearFilter;
+    // texture.wrapS = THREE.ClampToEdgeWrapping;
+	// texture.wrapT = THREE.ClampToEdgeWrapping;
+
+	var name = 'Rovdjuret';
+	var canvas = document.createElement('canvas');
+	var ctx = canvas.getContext("2d");
+		ctx.font="20px Georgia";
+		ctx.fillText(name,10,50);
+	
+	var texture = new THREE.Texture(canvas);
+		texture.needsUpdate = true; //just to make sure it's all up to date.
+	
+	var label = new THREE.Mesh(new THREE.PlaneGeometry, new THREE.MeshBasicMaterial({map:texture}));
+
+// 	const labelMaterial = new THREE.SpriteMaterial({
+// //	map: texture,
+// 		transparent: true,
+// 	  });
+
+
+// 	const labelBaseScale = 0.01;
+//     const label = new THREE.Sprite(labelMaterial);
+	mushroomObj.add(label);
+	
+
+
+    // label.position.y = head.position.y + headRadius + size * labelBaseScale;
+
+	//label.scale.x = canvas.width  * labelBaseScale;
+	// label.scale.y = canvas.height * labelBaseScale;
+
+	console.log("LLLLLLLLLLLLLLLLLLLLLLL",mushroomObj);
+
 	return mushroomObj;
+
+
 }
+
+
+
+  
 
 
 
