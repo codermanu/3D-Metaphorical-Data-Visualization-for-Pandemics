@@ -45,6 +45,10 @@
     ></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css" />
 
+    <!-- DataExplorer -->
+    <script src="explorer/onClickMushroom.js"></script>
+
+
     <!-- <script src="cone.js"></script> -->
     <script>
       /*global THREE, Coordinates, document, window, dat*/
@@ -350,7 +354,6 @@
         // canvasRenderer.setSize(window.innerWidth, window.innerHeight);
       }
 
-      //
 
       function animate() {
         requestAnimationFrame(animate);
@@ -492,7 +495,8 @@
         scene.add(shroomGroup);
       }
 
-      /*Mouse OnClick Colour Change*/
+      /*MUSHROOM ON CLICK*/
+
       function onDocumentMouseDown(event) {
         // console.log("objects.length:" + objects.length);
         // console.log("objects", objects);
@@ -562,13 +566,13 @@
         // console.log("intersects", intersects);
 
         if (intersects.length > 0) {
-          intersects[0].object.material.color.setRGB(
-            Math.random(),
-            Math.random(),
-            Math.random()
-          );
+          drawObjectOnclick();
+          // intersects[0].object.material.color.setRGB(
+          //   Math.random(),
+          //   Math.random(),
+          //   Math.random()
+          // );
           intersects[0].object.name;
-
           var id = intersects[0].object.id;
           console.log("intersects:" + id);
 
