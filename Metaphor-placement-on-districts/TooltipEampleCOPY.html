@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Mouse Tooltip - EXAMPLE</title>
+	<meta charset="utf-8">
+</head>
+
+<div id="tooltip"><span>123</span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
+<script src="js/OrbitControl.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+<link rel="stylesheet" href="./css/tooltip.css" type="text/css">
+
+<body>
+<script>
+ class RayysWebColors {
+    constructor() {
+        const districts = this.getDistrictNames();
+        console.log("districts",districts)
+        const toThreeColor = 
+        color =>
+         new THREE.Color(color.rgb.r / 256.0, color.rgb.g / 256.0, color.rgb.b / 256.0);
+
+        this.getRandom = function() {
+           const color = districts[Math.floor(districts.length * Math.random())];
+           console.log("color",color);
+
+            const threeColor = toThreeColor(color);
+            threeColor.name = color.name;
+            return threeColor;
+        };
+
+        this.findByName = function(name) {
+            const idx = districts.indexOf(el => el.name.toLowerCase() === name.toLowerCase());
+            if (idx === -1) {
+                return null;
+            }
+            const color = districts[idx];
+            console.log("color",color);
+            const threeColor = toThreeColor(color);
+            threeColor.name = color.name;
+            return threeColor;
+        };
+    }
+
+    getDistrictNames() {
+        return [
+            { name: "Ampara", id: 1, rgb: {r:255, g:105, b:180} },
+            { name: "Anuradhapura", id:2, rgb: {r:255, g:105, b:180} },
+            // { name: "Badulla",id: 3, rgb: {r:255, g:105, b:180} },
+            // { name: "Batticaloa",id: 4, rgb: {r:255, g:105, b:180} },
+            // { name: "Colombo",id: 5, rgb: {r:255, g:105, b:180} },
+            // { name: "Galle", id: 6, rgb: {r:255, g:105, b:180} },
+            // { name: "Gampaha",id: 7, rgb: {r:255, g:105, b:180} },
+            // { name: "Hambantota", id: 8, rgb: {r:255, g:105, b:180} },
+            // { name: "Jaffna", id: 9, rgb: {r:255, g:105, b:180} },
+            // { name: "Kalutara", id: 10, rgb: {r:255, g:105, b:180} },
+            // { name: "Kandy", id: 11, rgb: {r:255, g:105, b:180} },
+            // { name: "Kegalle", id: 12, rgb: {r:255, g:105, b:180} },
+            // { name: "Kilinochchi",id: 13, rgb: {r:255, g:105, b:180} },
+            // { name: "Kurunegala", id: 14, rgb: {r:255, g:105, b:180} },
+            // { name: "Mannar", id: 15, rgb: {r:255, g:105, b:180} },
+            // { name: "Matale", id: 16, rgb: {r:255, g:105, b:180} },
+            // { name: "Matara", id: 17, rgb: {r:255, g:105, b:180} },
+            // { name: "Moneragala",id: 18, rgb: {r:255, g:105, b:180} },
+            // { name: "Mullaitivu", id: 19, rgb: {r:255, g:105, b:180} },
+            // { name: "Nuwara Eliya", id: 20, rgb: {r:255, g:105, b:180} },
+            // { name: "Polonnaruwa", id: 21, rgb: {r:255, g:105, b:180} },
+            // { name: "Puttalam", id: 22, rgb: {r:255, g:105, b:180} },
+            // { name: "Ratnapura", id: 23, rgb: {r:255, g:105, b:180} },
+            // { name: "Trincomalee", id: 24, rgb: {r:255, g:105, b:180} },
+            // { name: "Vavuniya", id: 25, rgb: {r:255, g:105, b:180} },
+
+          
+           
+        ]
+   }
+ }
+
+
+
+
+
+var scene = new THREE.Scene();
+var raycaster = new THREE.Raycaster();
+
+//create some camera
+camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.x = 5;
+camera.position.y = 5;
+camera.position.z = 5;
+camera.lookAt(0, 0, 0);
+
+var renderer = new THREE.WebGLRenderer({
+  antialias: true
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(new THREE.Color(0x595959));
+document.body.appendChild(renderer.domElement);
+
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+
+// white spotlight shining from the side, casting a shadow
+var spotLight = new THREE.SpotLight(0xffffff, 2.5, 25, Math.PI / 6);
+spotLight.position.set(4, 10, 7);
+scene.add(spotLight);
+
+// collect objects for raycasting, 
+// for better performance don't raytrace all scene
+var tooltipEnabledObjects = [];
+
+ var colors = new RayysWebColors();
+
+//  const districts = [
+//             { name: "Ampara", id: 1, rgb: {r:255, g:105, b:180} },
+//             { name: "Anuradhapura", id:2, rgb: {r:255, g:105, b:180} }]
+
+
+for (let k = 0; k < 4; k++) {
+  var size = 0.5;
+  var geometry = new THREE.BoxGeometry(size, 0.2, size);
+  var randomColor = colors.getRandom();
+  var material = new THREE.MeshPhongMaterial({
+   color: randomColor,
+    transparent: true,
+    opacity: 0.75
+  });
+  var cube = new THREE.Mesh(geometry, material);
+//  cube.userData.tooltipText = districts[0].name;
+  cube.userData.tooltipText = randomColor.name;
+  cube.applyMatrix(new THREE.Matrix4().makeTranslation(-3 + 6 * Math.random(), 0, -3 + 0.5 * k));
+  scene.add(cube);
+  tooltipEnabledObjects.push(cube);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+};
+
+// this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
+var mouse = new THREE.Vector2();
+
+var latestMouseProjection; // this is the latest projection of the mouse on object (i.e. intersection with ray)
+var hoveredObj; // this objects is hovered at the moment
+
+// tooltip will not appear immediately. If object was hovered shortly,
+// - the timer will be canceled and tooltip will not appear at all.
+var tooltipDisplayTimeout;
+
+// This will move tooltip to the current mouse position and show it by timer.
+function showTooltip() {
+  var divElement = $("#tooltip");
+
+  if (divElement && latestMouseProjection) {
+    divElement.css({
+      display: "block",
+      opacity: 0.0
+    });
+
+    var canvasHalfWidth = renderer.domElement.offsetWidth / 2;
+    var canvasHalfHeight = renderer.domElement.offsetHeight / 2;
+
+    var tooltipPosition = latestMouseProjection.clone().project(camera);
+    tooltipPosition.x = (tooltipPosition.x * canvasHalfWidth) + canvasHalfWidth + renderer.domElement.offsetLeft;
+    tooltipPosition.y = -(tooltipPosition.y * canvasHalfHeight) + canvasHalfHeight + renderer.domElement.offsetTop;
+
+    var tootipWidth = divElement[0].offsetWidth;
+    var tootipHeight = divElement[0].offsetHeight;
+
+    divElement.css({
+      left: `${tooltipPosition.x - tootipWidth/2}px`,
+      top: `${tooltipPosition.y - tootipHeight - 5}px`
+    });
+
+    // var position = new THREE.Vector3();
+    // var quaternion = new THREE.Quaternion();
+    // var scale = new THREE.Vector3();
+    // hoveredObj.matrix.decompose(position, quaternion, scale);
+    console.log(hoveredObj.userData.tooltipText)
+    divElement.find('span').text(hoveredObj.userData.tooltipText);
+
+    setTimeout(function() {
+      divElement.css({
+        opacity: 1.0
+      });
+    }, 2);
+  }
+}
+
+// This will immediately hide tooltip.
+function hideTooltip() {
+  var divElement = $("#tooltip");
+  if (divElement) {
+    divElement.css({
+      display: "none"
+    });
+  }
+}
+
+// Following two functions will convert mouse coordinates
+// from screen to three.js system (where [0,0] is in the middle of the screen)
+function updateMouseCoords(event, coordsObj) {
+  coordsObj.x = ((event.clientX - renderer.domElement.offsetLeft + 0.5) / window.innerWidth) * 2 - 1;
+  coordsObj.y = -((event.clientY - renderer.domElement.offsetTop + 0.5) / window.innerHeight) * 2 + 1;
+}
+
+function handleManipulationUpdate() {
+  raycaster.setFromCamera(mouse, camera);
+  {
+    var intersects = raycaster.intersectObjects(tooltipEnabledObjects);
+    if (intersects.length > 0) {
+      latestMouseProjection = intersects[0].point;
+      hoveredObj = intersects[0].object;
+    }
+  }
+
+  if (tooltipDisplayTimeout || !latestMouseProjection) {
+    clearTimeout(tooltipDisplayTimeout);
+    tooltipDisplayTimeout = undefined;
+    hideTooltip();
+  }
+
+  if (!tooltipDisplayTimeout && latestMouseProjection) {
+    tooltipDisplayTimeout = setTimeout(function() {
+      tooltipDisplayTimeout = undefined;
+      showTooltip();
+    }, 330);
+  }
+}
+
+function onMouseMove(event) {
+  updateMouseCoords(event, mouse);
+
+  latestMouseProjection = undefined;
+  hoveredObj = undefined;
+  handleManipulationUpdate();
+}
+
+window.addEventListener('mousemove', onMouseMove, false);
+
+animate();
+</script>
+
+</body>
+</html>
