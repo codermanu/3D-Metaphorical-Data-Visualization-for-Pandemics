@@ -422,19 +422,19 @@
         console.log("deaths_Min", deaths_Min);
 
         disc_data_arr.forEach((dataset, index) => {
-		  //discid[0],totalcases[1],recovered[2],died[3],pixcel_x[4],Pixcel_Y[5],Pixcel_Z[6]
-		
-		  //calculate the capsie   
-		 //calculate the stalk height
-		 const stalkheight =30+((900.0-30.0)/totalcases_Max )*dataset[1]
-		 console.log(stalkheight,dataset[0])
-		  //calculate the capsie   
-				   
+          //discid[0],totalcases[1],recovered[2],died[3],pixcel_x[4],Pixcel_Y[5],Pixcel_Z[6]
 
-			
-		 
-		 	 //var m1 = new Mushroom(18, 30, 5, 5, 1.2, 1);-smallest one
-			//var m1 = new Mushroom(65, 900, 10, 10, 1.2, 1)- largest one
+          //calculate the capsie
+          //calculate the stalk height for
+		  let stalkheight = 7 * Math.sqrt(parseInt(dataset[1]));
+		  
+          //  let stalkheight =30+(((450-30)/totalcases_Max)*2 )*dataset[1]
+            console.log(stalkheight,dataset[0])
+
+          //calculate the capsize
+
+          //var m1 = new Mushroom(18, 30, 5, 5, 1.2, 1);-smallest one
+          //var m1 = new Mushroom(65, 900, 10, 10, 1.2, 1)- largest one
 
           //   adding the pixcel variables
           let pixce_x = dataset[4];
