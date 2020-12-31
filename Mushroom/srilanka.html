@@ -34,16 +34,16 @@
     <script src="js/OrbitControl.js"></script>
     <!-- <script src="js/OrbitAndPanControls.new.js"></script> -->
 
-
     <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script> -->
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script>
 
-
     <!-- Tooltip -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
-
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"
+    ></script>
+    <link rel="stylesheet" href="./css/tooltip.css" type="text/css" />
 
     <!-- <script src="cone.js"></script> -->
     <script>
@@ -160,24 +160,6 @@
 
         scene.add(light);
 
-        // const geometry3 = new THREE.BoxBufferGeometry( 1, 1, 1 );
-        // const material4 = new THREE.MeshBasicMaterial( {color: 0XFF0000} );
-
-        // const cubeA = new THREE.Mesh( geometry3, material4 );
-        // //cubeA.position.set( 100, 100, 0 );
-        // cubeA.position.copy( new THREE.Vector3( 0, - 45, 0 ) );
-
-        // const cubeB = new THREE.Mesh( geometry3, material4 );
-        // 	cubeB.position.set(  new THREE.Vector3( 15, - 25, 15 ) );
-
-        // group.add( cubeA );
-        // group.add( cubeB );
-        // scene.add( group );
-        // console.log('*******************');
-
-        //Add cones from the cone.js
-        // scene.add(group1);
-
         // ground
         var PLANE_SIZE = 2000;
         var MAP_SIZE = 512;
@@ -256,13 +238,10 @@
         stats = new Stats();
         container.appendChild(stats.dom);
 
-        
-
         window.addEventListener("resize", onWindowResize, false);
 
         //This listener will be watching for click events
         document.addEventListener("mousedown", onDocumentMouseDown, false);
-
       }
 
       //import the csv
@@ -389,14 +368,74 @@
 
       function drawMushroom(disc_data_arr) {
         var shroomGroup = new THREE.Object3D();
+
         shroomGroup.position.copy(new THREE.Vector3(0, 0, 0));
 
         console.log(disc_data_arr);
 
-        let mush_name_arr = [];
-        disc_data_arr.forEach((dataset, index) => {
-          //discid,totalcases,recovered,died,pixcel_x,Pixcel_Y,Pixcel_Z
+        // Get the min and max values of totalcases,recoveries,death
+        var totalcases_Max = 0;
+        var totalcases_Min = 10000;
+
+        var recoveries_Max = 0;
+        var recoveries_Min = 1000;
+
+        var deaths_Max = 0;
+        var deaths_Min = 1000;
+
+        disc_data_arr.forEach((dataset) => {
           console.log(dataset);
+
+          var disc_totalcases = parseInt(dataset[1]);
+          var disc_recoveries = parseInt(dataset[2]);
+          var disc_death = parseInt(dataset[3]);
+
+          console.log(totalcases_Max);
+
+          if (disc_totalcases > totalcases_Max) {
+            totalcases_Max = disc_totalcases;
+          }
+          if (disc_totalcases < totalcases_Min) {
+            totalcases_Min = disc_totalcases;
+          }
+
+          if (disc_recoveries > recoveries_Max) {
+            recoveries_Max = disc_recoveries;
+          }
+          if (disc_recoveries < recoveries_Min) {
+            recoveries_Min = disc_recoveries;
+          }
+
+          if (disc_death > deaths_Max) {
+            deaths_Max = disc_death;
+          }
+          if (disc_death < deaths_Min) {
+            deaths_Min = disc_death;
+          }
+        });
+
+        console.log("totalcases_Max", totalcases_Max);
+        console.log("totalcases_Min", totalcases_Min);
+        console.log("recoveries_Max", recoveries_Max);
+        console.log("recoveries_Min", recoveries_Min);
+        console.log(" deaths_Max", deaths_Max);
+        console.log("deaths_Min", deaths_Min);
+
+        disc_data_arr.forEach((dataset, index) => {
+		  //discid[0],totalcases[1],recovered[2],died[3],pixcel_x[4],Pixcel_Y[5],Pixcel_Z[6]
+		
+		  //calculate the capsie   
+		 //calculate the stalk height
+		 const stalkheight =30+((900.0-30.0)/totalcases_Max )*dataset[1]
+		 console.log(stalkheight,dataset[0])
+		  //calculate the capsie   
+				   
+
+			
+		 
+		 	 //var m1 = new Mushroom(18, 30, 5, 5, 1.2, 1);-smallest one
+			//var m1 = new Mushroom(65, 900, 10, 10, 1.2, 1)- largest one
+
           //   adding the pixcel variables
           let pixce_x = dataset[4];
           let pixce_y = dataset[5];
@@ -404,9 +443,8 @@
 
           // Creating the length and capsize based on the data goes here
 
-		  
           // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
-          var index = new Mushroom(18, 30, 5, 5, 1.2, 1);
+          var index = new Mushroom(18, stalkheight, 5, 5, 1.2, 1);
           index.setColors("0xff00ba", "0xbbba00", "0xffba00");
           //#BAFF00
           index.setTextures(
@@ -439,7 +477,7 @@
             objects.push(index.model.children[i]);
           }
 
-		  console.log(objects)
+          //   console.log(objects);
           mushroomList.push(index);
 
           //use traverse code snippet from udacity cs291
@@ -454,11 +492,10 @@
         scene.add(shroomGroup);
       }
 
-
-     /*Mouse OnClick Colour Change*/
+      /*Mouse OnClick Colour Change*/
       function onDocumentMouseDown(event) {
-        console.log("objects.length:" + objects.length);
-        console.log("objects",objects);
+        // console.log("objects.length:" + objects.length);
+        // console.log("objects", objects);
         event.preventDefault();
 
         // Annoying nested window code: need to subtract offsets for nested windows.
@@ -467,20 +504,19 @@
         // var mouseX = event.clientX - node.offsetLeft;
         // var mouseY = event.clientY - node.offsetTop;
 
-
         /*getBoundingClientRect() -->
-          gives the element's position relative to the browser's visile viewport.
-          https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-          */  
+             gives the element's position relative to the browser's visile viewport.
+             https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+             */
         var canvasPosition = renderer.domElement.getBoundingClientRect();
 
-        /*clientX/Y  -->  
-        gives the mouse position relative to the browser's visible viewport.
-        */
+        /*clientX/Y  -->
+           gives the mouse position relative to the browser's visible viewport.
+           */
 
         /*we then just have to find the difference between the two
-         to get the mouse position in "canvas-space"
-        */
+            to get the mouse position in "canvas-space"
+           */
 
         var mouseX = event.clientX - canvasPosition.left;
         var mouseY = event.clientY - canvasPosition.top;
@@ -489,46 +525,49 @@
         console.log(mouseX, mouseY);
 
         /*
-        while (node.offsetParent){
-          node = node.offsetParent;
-          mouseX -= node.offsetLeft;
-          mouseY -= node.offsetTop;
-        }*/
-
+           while (node.offsetParent){
+             node = node.offsetParent;
+             mouseX -= node.offsetLeft;
+             mouseY -= node.offsetTop;
+           }*/
 
         /* the new way: simpler creation of raycaster */
         /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
-        var mouseVector = new THREE.Vector3( 
-           2 * (mouseX / canvasWidth) - 1,                               
-           1 - 2 * (mouseY / canvasHeight));
+        var mouseVector = new THREE.Vector3(
+          2 * (mouseX / canvasWidth) - 1,
+          1 - 2 * (mouseY / canvasHeight)
+        );
 
         //debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
         //var raycaster = projector.pickingRay( mouseVector.clone(), camera );
 
         //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
 
-        var raycaster = new THREE.Raycaster(); 
-        var mouse = new THREE.Vector2();   
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
 
         // calculate mouse position in normalized device coordinates
         // (-1 to +1) for both components
-        mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-        mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
-
+        mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+        mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
 
         //Adjusts the direction of the ray to point at the vector in world coordinates.
         //camera.lookAt( scene.position );
 
         // update the picking ray with the camera and mouse position
-        raycaster.setFromCamera( mouse, camera );
+        raycaster.setFromCamera(mouse, camera);
 
-        var intersects = raycaster.intersectObjects( objects );
-        console.log("OBJECTS", objects)
-        console.log("intersects",intersects)
+        var intersects = raycaster.intersectObjects(objects);
+        // console.log("OBJECTS", objects);
+        // console.log("intersects", intersects);
 
         if (intersects.length > 0) {
-          intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
-          intersects[ 0 ].object.name;
+          intersects[0].object.material.color.setRGB(
+            Math.random(),
+            Math.random(),
+            Math.random()
+          );
+          intersects[0].object.name;
 
           var id = intersects[0].object.id;
           console.log("intersects:" + id);
@@ -542,27 +581,23 @@
           }
 
           /*
-          var sphereGeom = new THREE.SphereGeometry(10);
-          var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
-          
-          var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
-          sphere.position = intersects[ 0 ].point;
-          scene.add( sphere );
-          */
+             var sphereGeom = new THREE.SphereGeometry(10);
+             var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
 
+             var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
+             sphere.position = intersects[ 0 ].point;
+             scene.add( sphere );
+             */
         }
 
         /*
-        // Parse all the faces, for when you are using face materials
-        for ( var i in intersects ) {
-          intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
-        }
-        */
+           // Parse all the faces, for when you are using face materials
+           for ( var i in intersects ) {
+             intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
+           }
+           */
       }
 
-
-
-      
       /*TOOLTIP*/
 
       // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
@@ -582,22 +617,28 @@
         if (divElement && latestMouseProjection) {
           divElement.css({
             display: "block",
-            opacity: 0.0
+            opacity: 0.0,
           });
 
           var canvasHalfWidth = renderer.domElement.offsetWidth / 2;
           var canvasHalfHeight = renderer.domElement.offsetHeight / 2;
 
           var tooltipPosition = latestMouseProjection.clone().project(camera);
-          tooltipPosition.x = (tooltipPosition.x * canvasHalfWidth) + canvasHalfWidth + renderer.domElement.offsetLeft;
-          tooltipPosition.y = -(tooltipPosition.y * canvasHalfHeight) + canvasHalfHeight + renderer.domElement.offsetTop;
+          tooltipPosition.x =
+            tooltipPosition.x * canvasHalfWidth +
+            canvasHalfWidth +
+            renderer.domElement.offsetLeft;
+          tooltipPosition.y =
+            -(tooltipPosition.y * canvasHalfHeight) +
+            canvasHalfHeight +
+            renderer.domElement.offsetTop;
 
           var tootipWidth = divElement[0].offsetWidth;
           var tootipHeight = divElement[0].offsetHeight;
 
           divElement.css({
-            left: `${tooltipPosition.x - tootipWidth/2}px`,
-            top: `${tooltipPosition.y - tootipHeight - 5}px`
+            left: `${tooltipPosition.x - tootipWidth / 2}px`,
+            top: `${tooltipPosition.y - tootipHeight - 5}px`,
           });
 
           // var position = new THREE.Vector3();
@@ -605,53 +646,50 @@
           // var scale = new THREE.Vector3();
           // hoveredObj.matrix.decompose(position, quaternion, scale);
 
-         // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
+          // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
 
-           console.log("TOOLTIPTEXT",hoveredObj.id);
+          console.log("TOOLTIPTEXT", hoveredObj.id);
 
           const districts = [
-                  { name: "Ampara", id: 16},
-                  { name: "Anuradhapura", id:20 },
-                  { name:"Badulla",  id:24 },
-                  { name:"Batticaloa",  id:28 },
-                  { name:"Colombo",  id:32 },
-                  { name:"Galle",  id:36 },
-                  { name:"Gampaha",  id:40},
-                  { name:"Hambantota",  id:44},
-                  { name:"Jaffna",  id:48 },
-                  { name:"Kalutara",  id:52 },
-                  { name:"Kandy",  id:56},
-                  { name:"Kegalle",  id:60 },
-                  { name:"Kilinochchi",  id:64},
-                  { name:"Kurunegala",  id:68},
-                  { name:"Mannar",  id:72 },
-                  { name:"Matale",  id:76},
-                  { name:"Matara",  id:80},
-                  { name:"Moneragala", id:84 },
-                  { name:"Mullaitivu",  id:88 },
-                  { name:"Nuwara Eliya",  id:92},
-                  { name:"Polonnaruwa",  id:96},
-                  { name:"Puttalam", id:100},
-                  { name:"Ratnapura",  id:104},
-                  { name:"Trincomalee",  id:108},
-                  { name:"Vavuniya",  id:112 }
+            { name: "Ampara", id: 16 },
+            { name: "Anuradhapura", id: 20 },
+            { name: "Badulla", id: 24 },
+            { name: "Batticaloa", id: 28 },
+            { name: "Colombo", id: 32 },
+            { name: "Galle", id: 36 },
+            { name: "Gampaha", id: 40 },
+            { name: "Hambantota", id: 44 },
+            { name: "Jaffna", id: 48 },
+            { name: "Kalutara", id: 52 },
+            { name: "Kandy", id: 56 },
+            { name: "Kegalle", id: 60 },
+            { name: "Kilinochchi", id: 64 },
+            { name: "Kurunegala", id: 68 },
+            { name: "Mannar", id: 72 },
+            { name: "Matale", id: 76 },
+            { name: "Matara", id: 80 },
+            { name: "Moneragala", id: 84 },
+            { name: "Mullaitivu", id: 88 },
+            { name: "Nuwara Eliya", id: 92 },
+            { name: "Polonnaruwa", id: 96 },
+            { name: "Puttalam", id: 100 },
+            { name: "Ratnapura", id: 104 },
+            { name: "Trincomalee", id: 108 },
+            { name: "Vavuniya", id: 112 },
+          ];
 
-                ];
-
-                for (let i = 0; i < districts.length; i++) {
-
-                if(hoveredObj.id==districts[i].id){
-                  TOOLTIPTEXT =districts[i].name;
-                }
-
-              }
+          for (let i = 0; i < districts.length; i++) {
+            if (hoveredObj.id == districts[i].id) {
+              TOOLTIPTEXT = districts[i].name;
+            }
+          }
 
           //divElement.find('span').text(hoveredObj.userData.tooltipText);
-          divElement.find('span').text( TOOLTIPTEXT );
+          divElement.find("span").text(TOOLTIPTEXT);
 
-          setTimeout(function() {
+          setTimeout(function () {
             divElement.css({
-              opacity: 1.0
+              opacity: 1.0,
             });
           }, 0.5);
         }
@@ -662,7 +700,7 @@
         var divElement = $("#tooltip");
         if (divElement) {
           divElement.css({
-            display: "none"
+            display: "none",
           });
         }
       }
@@ -670,13 +708,22 @@
       // Following two functions will convert mouse coordinates
       // from screen to three.js system (where [0,0] is in the middle of the screen)
       function updateMouseCoords(event, coordsObj) {
-        coordsObj.x = ((event.clientX - renderer.domElement.offsetLeft + 0.5) / window.innerWidth) * 2 - 1;
-        coordsObj.y = -((event.clientY - renderer.domElement.offsetTop + 0.5) / window.innerHeight) * 2 + 1;
+        coordsObj.x =
+          ((event.clientX - renderer.domElement.offsetLeft + 0.5) /
+            window.innerWidth) *
+            2 -
+          1;
+        coordsObj.y =
+          -(
+            (event.clientY - renderer.domElement.offsetTop + 0.5) /
+            window.innerHeight
+          ) *
+            2 +
+          1;
       }
 
       function handleManipulationUpdate() {
-        
-        var raycaster = new THREE.Raycaster(); 
+        var raycaster = new THREE.Raycaster();
         raycaster.setFromCamera(mouse, camera);
         {
           var intersects = raycaster.intersectObjects(objects);
@@ -695,7 +742,7 @@
         }
 
         if (!tooltipDisplayTimeout && latestMouseProjection) {
-          tooltipDisplayTimeout = setTimeout(function() {
+          tooltipDisplayTimeout = setTimeout(function () {
             tooltipDisplayTimeout = undefined;
             showTooltip();
           }, 330);
@@ -710,10 +757,7 @@
         handleManipulationUpdate();
       }
 
-      window.addEventListener('mousemove', onMouseMove, false);
-
-    
-    
+      window.addEventListener("mousemove", onMouseMove, false);
     </script>
   </body>
 </html>
