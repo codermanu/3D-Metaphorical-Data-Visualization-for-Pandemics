@@ -30,7 +30,10 @@
     <script src="js/geoxml3.js"></script>
     <script src="js/encode.js"></script>
     <script src="js/PlanetoMap.js"></script>
-    
+
+
+    <script src="js/libs/stats.min.js"></script>
+    <script src="js/libs/lodash.js"></script>
 
     <script src="./threejs/build/three.min.js"></script>
     <script src="./cs291-master/lib/Coordinates.js"></script>
@@ -55,7 +58,6 @@
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     <script src="https://d3js.org/d3-request.v1.min.js"></script>
     <script src="js/loaders/OBJLoader.js"></script>
-
 
     <!-- Tooltip -->
     <script
@@ -121,6 +123,16 @@
         object.rotation.x = rx;
         return object;
       };
+      //carousel variables
+      var controls;
+      var iniZoom; //= controls.target.distanceTo( controls.object.position )
+      var isCarouselSelected = false;
+      var isCarousel = false;
+      var parent;
+      var clickedSlice;
+      var dataExplorer;
+      var dataVisualizer;
+      var caseVisualizer;
 
       var container, stats;
       var camera, scene, renderer, renderer1, controls;
@@ -135,7 +147,6 @@
       //   drawMushroom();
       animate();
       dataexplore_csv();
-    
 
       function dataexplore_csv() {
         d3.csv("data-explore/data.csv", function (data) {
@@ -186,8 +197,7 @@
           console.log("Main dimensions info = ", subdimensions);
           console.log("##########################");
 
-          carouselinit()
-
+          carouselinit();
         });
 
         //conditions for selecting subdimesnions
@@ -203,7 +213,6 @@
 
           return true;
         };
-        
       }
 
       function carouselinit() {
@@ -214,7 +223,7 @@
           [],
           undefined
         );
-         console.log(metaphorDescriptor);
+        console.log(metaphorDescriptor);
         parent = CreateNewNode(metaphorDescriptor);
 
         caseVisualizer = new CaseVisualizer(scene, subdimensions);
@@ -257,7 +266,11 @@
           338.2706222303878,
           -692.3346730528838
         );
-        camera.position.set(0.2538268801815511, 1329.2257935074563, -25.3884727987337);
+        camera.position.set(
+          0.2538268801815511,
+          1329.2257935074563,
+          -25.3884727987337
+        );
 
         group = new THREE.Group();
 
@@ -306,6 +319,7 @@
             "&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:" +
             "&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA"
         );
+        isCarousel = true;
         //var groundTexture = loader.load('download.jpeg');
         groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
         groundTexture.repeat.set(1, 1);
@@ -370,8 +384,92 @@
         //This listener will be watching for click events
         // document.addEventListener("mousedown", onDocumentMouseDown, false);
       }
+      //window click events
+      var mouseDragCount = 0;
+      window.addEventListener("mouseup", onMouseUp, false);
+      window.addEventListener("mousedown", onMouseDown, false);
 
-      // get the carousel files
+      function onMouseUp(event) {
+        console.log("MouseUp")
+        event.preventDefault();
+        // isModalDragging = false; // if this is true, we should make it false anyway
+        // endDragCone(event);
+      }
+
+      function onMouseDown(event) {
+        event.preventDefault();
+        // startDragCone(event);
+        console.log("mouseDown")
+
+        if (mouseDragCount < 5) {
+          console.log("mousedrag")
+          var raycaster = new THREE.Raycaster();
+          var mouse = new THREE.Vector2();
+          var intersects;
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+          raycaster.setFromCamera(mouse, camera);
+
+          if (isCarousel) {
+            var prevNumLevels = dataExplorer.levels.length;
+            // get all segments and buttons in the scene
+            var i = 0;
+            var children_segments = [];
+            var allNodes = dataExplorer.getAllNodes();
+
+            for (i = 0; i < allNodes.length; i++) {
+              children_segments = children_segments.concat(
+                allNodes[i].metaphor.children
+              );
+            }
+
+            var intersects = raycaster.intersectObjects(
+              children_segments,
+              true
+            );
+            console.log("intersects",intersects)
+            //console.log(allActiveNodes);
+            var time = new Date() * 0.001;
+            for (i = 0; i < intersects.length; i++) {
+              if (
+                intersects[i].object.geometry.type == "ExtrudeGeometry" ||
+                intersects[i].object.geometry.type == "SphereGeometry"           ) {
+                isSegmentClicked = true;
+
+                // When the user clicks on the button, open the modal
+
+                clickedSlice = intersects[i].object;
+
+                clickedSlice.select(dataExplorer);
+                /*
+							if(clickedSlice.getType() == "segment"){
+								//clickedDimension = clickedSlice.getDimension();
+								clickedSlice.select(dataExplorer);
+							}else if(clickedSlice.getType() == "middle_button"){
+								clickedSlice.select(dataExplorer);
+							}*/
+
+                break;
+              }
+            }
+            /*
+					var curNumLevels = dataExplorer.levels.length;
+					if(curNumLevels>prevNumLevels && curNumLevels>3){
+						var lev = curNumLevels-1;
+						var zooms = [0,0,0,1.36*iniZoom,1.5*iniZoom, 1.7*iniZoom];
+
+						var curZoom = controls.target.distanceTo( controls.object.position );
+						
+						if (curZoom < zooms[lev]){
+							controls.zoomOut(zooms[lev]);
+							controls.update();
+						}
+						
+					}*/
+          }
+        }
+        mouseDragCount = 0;
+      }
 
       //import the csv
 
@@ -627,7 +725,7 @@
             objects.push(index.model.children[i]);
           }
 
-          //   console.log(objects);
+             console.log(objects);
           mushroomList.push(index);
 
           //use traverse code snippet from udacity cs291
@@ -639,118 +737,14 @@
           });
         });
 
-        scene.add(shroomGroup);
+         scene.add(shroomGroup);
       }
 
       /*MUSHROOM ON CLICK*/
 
-      function onDocumentMouseDown(event) {
-        // console.log("objects.length:" + objects.length);
-        // console.log("objects", objects);
-        event.preventDefault();
-
-        // Annoying nested window code: need to subtract offsets for nested windows.
-        // This is not needed if you have just a single window filling the browser
-        // var node = event.srcElement;
-        // var mouseX = event.clientX - node.offsetLeft;
-        // var mouseY = event.clientY - node.offsetTop;
-
-        /*getBoundingClientRect() -->
-             gives the element's position relative to the browser's visile viewport.
-             https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-             */
-        var canvasPosition = renderer.domElement.getBoundingClientRect();
-
-        /*clientX/Y  -->
-           gives the mouse position relative to the browser's visible viewport.
-           */
-
-        /*we then just have to find the difference between the two
-            to get the mouse position in "canvas-space"
-           */
-
-        var mouseX = event.clientX - canvasPosition.left;
-        var mouseY = event.clientY - canvasPosition.top;
-
-        console.log(canvasPosition.left, canvasPosition.top);
-        console.log(mouseX, mouseY);
-
-        /*
-           while (node.offsetParent){
-             node = node.offsetParent;
-             mouseX -= node.offsetLeft;
-             mouseY -= node.offsetTop;
-           }*/
-
-        /* the new way: simpler creation of raycaster */
-        /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
-        var mouseVector = new THREE.Vector3(
-          2 * (mouseX / canvasWidth) - 1,
-          1 - 2 * (mouseY / canvasHeight)
-        );
-
-        //debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
-        //var raycaster = projector.pickingRay( mouseVector.clone(), camera );
-
-        //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
-
-        var raycaster = new THREE.Raycaster();
-        var mouse = new THREE.Vector2();
-
-        // calculate mouse position in normalized device coordinates
-        // (-1 to +1) for both components
-        mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
-        mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
-
-        //Adjusts the direction of the ray to point at the vector in world coordinates.
-        //camera.lookAt( scene.position );
-
-        // update the picking ray with the camera and mouse position
-        raycaster.setFromCamera(mouse, camera);
-
-        var intersects = raycaster.intersectObjects(objects);
-        // console.log("OBJECTS", objects);
-        // console.log("intersects", intersects);
-
-        if (intersects.length > 0) {
-          // drawObjectOnclick();
-          // intersects[0].object.material.color.setRGB(
-          //   Math.random(),
-          //   Math.random(),
-          //   Math.random()
-          // );
-          intersects[0].object.name;
-          var id = intersects[0].object.id;
-          console.log("intersects:" + id);
-
-          if (id == "cap1" || id == "ucap1" || id == "stalk1") {
-            console.log(id);
-          } else if (id == "cap2" || id == "ucap2" || id == "stalk2") {
-            mushroomAction2();
-          } else if (id == "cap3" || id == "ucap3" || id == "stalk3") {
-            mushroomAction3();
-          }
-
-          /*
-             var sphereGeom = new THREE.SphereGeometry(10);
-             var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
-
-             var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
-             sphere.position = intersects[ 0 ].point;
-             scene.add( sphere );
-             */
-        }
-
-        /*
-           // Parse all the faces, for when you are using face materials
-           for ( var i in intersects ) {
-             intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
-           }
-           */
-      }
+  
 
       /*TOOLTIP*/
-
       // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
       var mouse = new THREE.Vector2();
 
@@ -895,7 +889,7 @@
         if (!tooltipDisplayTimeout && latestMouseProjection) {
           tooltipDisplayTimeout = setTimeout(function () {
             tooltipDisplayTimeout = undefined;
-            showTooltip();
+            // showTooltip();
           }, 330);
         }
       }
@@ -908,7 +902,7 @@
         handleManipulationUpdate();
       }
 
-      window.addEventListener("mousemove", onMouseMove, false);
+      // window.addEventListener("mousemove", onMouseMove, false);
     </script>
   </body>
 </html>
