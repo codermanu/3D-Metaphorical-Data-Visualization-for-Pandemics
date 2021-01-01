@@ -27,6 +27,8 @@ function createCarousel(node, hasMiddle) {
         var context = canvas.getContext("2d");
         context.font = "Bold 36px Arial";
         context.fillStyle = "rgb(255,255,255)";
+        console.log(node)
+        //context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
         context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
         var texture = new THREE.Texture(canvas) 
         texture.needsUpdate = true;
@@ -79,6 +81,12 @@ function createCarousel(node, hasMiddle) {
     parent.userData.segments = segments;
     // return {main:parent, segments:segments};
     return parent;
+}
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 
