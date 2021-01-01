@@ -45,15 +45,15 @@
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
 
     <!-- DataExplorer : CAROUSEL-->
-  <script src="DistrictDataExplorer/controls/OrbitControls.js"></script>
-	<script src="DistrictDataExplorer/renderers/CSS3DRenderer.js"></script>
-	<script src="DistrictDataExplorer/renderers/CSS2DRenderer.js"></script>
-	<script src="DistrictDataExplorer/libs/stats.min.js"></script>
-	<script src="DistrictDataExplorer/libs/tween.min.js"></script>
-	<script src="DistrictDataExplorer/libs/lodash.js"></script>
-	<script src="DistrictDataExplorer/renderers/CanvasRenderer.js"></script>
-  <script src="DistrictDataExplorer/renderers/Projector.js"></script>
-  
+    <script src="DistrictDataExplorer/controls/OrbitControls.js"></script>
+    <script src="DistrictDataExplorer/renderers/CSS3DRenderer.js"></script>
+    <script src="DistrictDataExplorer/renderers/CSS2DRenderer.js"></script>
+    <script src="DistrictDataExplorer/libs/stats.min.js"></script>
+    <script src="DistrictDataExplorer/libs/tween.min.js"></script>
+    <script src="DistrictDataExplorer/libs/lodash.js"></script>
+    <script src="DistrictDataExplorer/renderers/CanvasRenderer.js"></script>
+    <script src="DistrictDataExplorer/renderers/Projector.js"></script>
+    
 
     <script src="./DistrictDataExplorer/Carousel.js"></script>
     <script src="./DistrictDataExplorer/CaseVisualizer.js"></script>
@@ -64,7 +64,7 @@
     <script src="./DistrictDataExplorer/GlobalFUnction.js"></script>
     <script src="./DistrictDataExplorer/DataVisualizer.js"></script>
     <script src="./DistrictDataExplorer/Projector.js"></script>
-    <script src="./DistrictDataExplorer/OBJLoader.js"></script>
+    <script src="./DistrictDataExplorer/loaders/OBJLoader.js"></script>
 
     <script src="./DistrictDataExplorer/onClickMushroom.js"></script>
     <script src="./DistrictDataExplorer/ClickCarousel.js"></script>
@@ -77,7 +77,6 @@
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     <script src="https://d3js.org/d3-request.v1.min.js"></script>
     
-   
   
     <!-- <script src="cone.js"></script> -->
     <script>
@@ -110,21 +109,18 @@
       var mushroomList = []; //list of Mushroom objects (mushroom.js)
       var smallMushrooms = []; //list of generated mushrooms
 
-      var moon;
-      var moonlight;
-      var bfly1;
       var MapElement = function (id, x, y, z, rx) {
-        var div = document.createElement("div");
-        div.id = id;
-        div.style.width = "1200px";
-        div.style.height = "950px";
-        //	div.style.backgroundColor = 'red';
+      var div = document.createElement("div");
+      div.id = id;
+      div.style.width = "1200px";
+      div.style.height = "950px";
+      //	div.style.backgroundColor = 'red';
 
-        var object = new THREE.CSS3DObject(div);
-        object.position.set(x, y, z);
-        object.rotation.x = rx;
-        return object;
-      };
+      var object = new THREE.CSS3DObject(div);
+      object.position.set(x, y, z);
+      object.rotation.x = rx;
+      return object;
+    };
 
       var container, stats;
       var camera, scene, renderer, renderer1, controls;
@@ -133,12 +129,12 @@
       //var cone;
       // var object;
       var objects = [];
-
+      
       init();
       importCSV();
-      //   drawMushroom();
+      //drawMushroom();
       animate();
-      dataexplore_csv();
+      dataexplore_csv()
 
 
       function init() {
@@ -562,7 +558,7 @@
 
         if (intersects.length > 0) {
 
-          initScene(); //load carousel when clicked mushroom - onClickMushroom.js
+         initCarousel(); //load carousel when clicked mushroom - onClickMushroom.js
 
          // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
           intersects[ 0 ].object.name;
@@ -749,14 +745,8 @@
 
       window.addEventListener('mousemove', onMouseMove, false);
 
-
-
-
     
     </script>
-
-
-
 
   </body>
 </html>

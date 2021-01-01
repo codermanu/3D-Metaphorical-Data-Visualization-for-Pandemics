@@ -1,10 +1,89 @@
-/*ADDING CARUOSEL TO THE SCENE*/
+/*ADDING CARUOSEL TO THE SCENE*///initScene();
 
-// initScene();
+
+ // carousel variables
+
+ var dataset = [];
+ //var boundaryId=48;
+ var fields = [];
+ var subdimensions;
+ var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
+ 
+
+function dataexplore_csv() {
+    d3.csv("./DistrictDataExplorer/data_full.csv", function (data) {
+      console.log("csv data", data);
+      //select cases according to the given boundary
+      dataset = data.filter(function (report) {
+        var bid = 0;
+        try {
+          bid = parseInt(report.boundaryid);
+        } catch (e) {
+          console.log("error", e);
+        }
+        // return bid == polygon.indexID;
+        return bid == 26;
+      });
+      //select dimensional fields
+
+      console.log("selected dataset", dataset);
+      if (dataset.length > 0) {
+        fields = Object.keys(dataset[0]).filter(function (key) {
+          return nonDimensionalFields.indexOf(key) == -1;
+        });
+      }
+
+      //finding subdimenions from the dataset values
+      var fieldValues = {};
+      subdimensions = {};
+      fields.forEach(function (field) {
+        fieldValues[field] = [];
+        subdimensions[field] = [];
+      });
+
+      dataset.forEach(function (record) {
+        fields.forEach(function (field) {
+          fieldValues[field].push(record[field]);
+        });
+      });
+
+      fields.forEach(function (field) {
+        fieldValues[field] = Array.from(new Set(fieldValues[field]));
+        if (isSubdimension(fieldValues[field])) {
+          subdimensions[field] = fieldValues[field];
+        }
+      });
+      console.log("dataset loaded!");
+      console.log("######## Dataset #########");
+      console.log("Main dimensions = ", fields);
+      console.log("Main dimensions info = ", subdimensions);
+      console.log("##########################");
+
+
+    });
+
+    //conditions for selecting subdimesnions
+    var isSubdimension = function (dimArray) {
+      var threshold = (dataset.length * 10) / 100;
+      if (!dimArray.some(isNaN)) {
+        return false;
+      }
+
+      if (dimArray.length >= threshold) {
+        return false;
+      }
+
+      return true;
+    };
+    
+  }
+
+
 var exploreobjects=[];   //add object to this after clicked mushroom
 
 
-function initScene() {
+function initCarousel() {
+
     //	showMap = false;
     //	var x = document.getElementById("googleMap");
     //	x.style.display = "none";
@@ -21,31 +100,12 @@ function initScene() {
         var params = {
             numOfParas: 4,
         };*/
-			
-    var subdimensions;
-
-    //Have to get from Dataset
-    subdimensions= {
-        death: [" no-death", " death"], 
-        gender: [" male", " female"], 
-        age: [" elder", " child", " adult"], 
-        period:[" 2014-2016", " 2016-2018", " 2012-2014"],
-        fogg: [" fogged", " not-fogged"]
-    }
-            
+			         
     
     var metaphorDescriptor = new MetaphorDescriptor(0, null, Object.keys(subdimensions), [], undefined);
     
     parent = CreateNewNode(metaphorDescriptor);
       
-    dataset=[
-      {caseid: "case6", boundaryid: " 26", lat: " 6.903300989180914", lon: " 79.86876983357969", death: " no-death",age: " elder",fogg: " fogged",gender: " male",period: " 2014-2016"},
-      {caseid: "case149", boundaryid: " 26", lat: " 6.906363645677337", lon: " 79.87833850658262", death: " no-death",fogg: " fogged",gender: " male",period: " 2014-2016"},
-      {caseid: "case158", boundaryid: " 26", lat: " 6.914638656293256", lon: " 79.8543108969087", death: " no-death",fogg: " fogged",gender: " male",period: " 2014-2016"},
-      {caseid: "case299", boundaryid: " 26", lat: " 6.904201098343787", lon: " 79.87146513218475", death: " death",fogg: " fogged",gender: " male",period: " 2014-2016"},
-
-      ]
-
     caseVisualizer = new CaseVisualizer(scene, subdimensions);
     dataVisualizer = new DataVisualizer(dataset, caseVisualizer);
     dataExplorer = new DataExplorer(scene, parent, subdimensions, dataVisualizer);
@@ -62,9 +122,7 @@ function initScene() {
 
     }
 
-
     //	infowindow.open(map, marker);
-
         // switchScene(polygon);
         // //load human avatar
         // //loadAvatar(scene,dataset.length*ratio);
@@ -88,7 +146,7 @@ function initScene() {
             scene.add(clicksphere);
 
            exploreobjects.push(clicksphere)
-        //   console.log("#############################################",exploreobjects)
+        // console.log("#############################################",exploreobjects)
    
 }
 
@@ -139,7 +197,7 @@ function onDocumentMouseDown(event) {
 
         }else{
 
-            onMouseDown() ;
+            onMouseDown(event) ;
             console.log("NOT CLICK");
         }
     
@@ -160,7 +218,6 @@ function removeObjectOnclick(){
     }
 
 }
-
 
 //window.addEventListener('mousedown', onMouseDown, false);
 document.addEventListener("mousedown", onDocumentMouseDown, false);

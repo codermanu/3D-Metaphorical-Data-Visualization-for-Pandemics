@@ -4,8 +4,8 @@ var isCarouselSelected = false;
 
 var mouseDragCount = 0;
 //window.addEventListener('resize', onWindowResize, false);
-window.addEventListener('mouseup', onMouseUp, false);
-window.addEventListener('mousedown', onMouseDown, true);
+//window.addEventListener('mouseup', onMouseUp, false);
+//window.addEventListener('mousedown', onMouseDown, true);
 //window.onmousemove = onMouseMove; //addEventListener('onmousemove', onMouseMove, false);
 
 // var isConeDragging = false;
@@ -15,8 +15,8 @@ window.addEventListener('mousedown', onMouseDown, true);
 // 		}
 
 
-function onMouseDown() {
-   // event.preventDefault();
+function onMouseDown(event) {
+    event.preventDefault();
    // startDragCone(event);
 
 
