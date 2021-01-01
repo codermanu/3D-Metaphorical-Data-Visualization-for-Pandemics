@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02.02 - Basic textures</title>
+    <script src="./libs/three.js"></script>
+    <script src="./libs/OrbitControls.js"></script>
+    <script src="./libs/dat.gui.min.js"></script>
+    <script src="./libs/stats.min.js"></script>
+    <script src="./libs/RenderPass.js"></script>
+    <script src="./libs/ShaderPass.js"></script>
+    <script src="./libs/EffectComposer.js"></script>
+    <script src="./libs/CopyShader.js"></script>
+
+    <style>
+      body {
+        /* set margin to 0 and overflow to hidden, to go fullscreen */
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <script>
+    // global variables
+    var renderer;
+    var scene;
+    var camera;
+    var control;
+    var stats;
+    var cameraControl;
+
+    /**
+     * Initializes the scene, camera and objects. Called when the window is
+     * loaded by using window.onload (see below)
+     */
+    function init() {
+      // create a scene, that will hold all our elements such as objects, cameras and lights.
+      scene = new THREE.Scene();
+
+      // create a camera, which defines where we're looking at.
+      camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+
+      // create a render, sets the background color and the size
+      renderer = new THREE.WebGLRenderer();
+      renderer.setClearColor(0x000000, 1.0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.shadowMapEnabled = true;
+
+      // create a sphere
+      var sphereGeometry = new THREE.SphereGeometry(15, 60, 60);
+      var sphereMaterial = createEarthMaterial();
+      var earthMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      earthMesh.name = "earth";
+      scene.add(earthMesh);
+
+      // create overlay
+      var overlayGeometry = new THREE.SphereGeometry(15, 60, 60);
+      var overlayMaterial = createOverlayMaterial();
+      var overlayMesh = new THREE.Mesh(overlayGeometry, overlayMaterial);
+      overlayMesh.name = "overlay";
+      scene.add(overlayMesh);
+
+      // now add some better lighting
+      var ambientLight = new THREE.AmbientLight(0x111111);
+      ambientLight.name = "ambient";
+      scene.add(ambientLight);
+
+      
+
+      // position and point the camera to the center of the scene
+      camera.position.x = 25;
+      camera.position.y = 26;
+      camera.position.z = 23;
+      camera.lookAt(scene.position);
+
+      // add controls
+      cameraControl = new THREE.OrbitControls(camera);
+
+      // setup the control object for the control gui
+      control = new (function () {
+        this.rotationSpeed = 0.001;
+      })();
+
+      // add extras
+      addControlGui(control);
+      addStatsObject();
+
+      // setup the composer steps
+      // first render the background
+      //var bgPass = new THREE.RenderPass(sceneBG, cameraBG);
+      // next render the scene (rotating earth), without clearing the current output
+      var renderPass = new THREE.RenderPass(scene, camera);
+      renderPass.clear = false;
+      // finally copy the result to the screen
+      var effectCopy = new THREE.ShaderPass(THREE.CopyShader);
+      effectCopy.renderToScreen = true;
+
+      // add these passes to the composer
+      composer = new THREE.EffectComposer(renderer);
+      // composer.addPass(bgPass);
+      composer.addPass(renderPass);
+      composer.addPass(effectCopy);
+
+      // add the output of the renderer to the html element
+      document.body.appendChild(renderer.domElement);
+
+      // call the render function, after the first render, interval is determined
+      // by requestAnimationFrame
+
+      render();
+    }
+
+    function createEarthMaterial() {
+      // 4096 is the maximum width for maps
+      var earthTexture = THREE.ImageUtils.loadTexture(
+        "./assets/textures/planets/text3.jpg"
+      );
+
+      var earthMaterial = new THREE.MeshBasicMaterial();
+      earthMaterial.map = earthTexture;
+
+      return earthMaterial;
+    }
+
+    function addControlGui(controlObject) {
+      var gui = new dat.GUI();
+      gui.add(controlObject, "rotationSpeed", -0.01, 0.01);
+    }
+
+    function addStatsObject() {
+      stats = new Stats();
+      stats.setMode(0);
+
+      stats.domElement.style.position = "absolute";
+      stats.domElement.style.left = "0px";
+      stats.domElement.style.top = "0px";
+
+      document.body.appendChild(stats.domElement);
+    }
+
+    function createOverlayMaterial() {
+      var olMaterial = new THREE.MeshPhongMaterial();
+      olMaterial.map = new THREE.Texture(addCanvas());
+      olMaterial.transparent = true;
+      olMaterial.opacity = 0.6;
+      return olMaterial;
+    }
+
+    // Adding the canvas
+    function addCanvas() {
+      canvas = document.createElement("canvas");
+      canvas.width = 4096;
+      canvas.height = 2048;
+
+      var context = canvas.getContext("2d");
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var ports = CSVToArray(xmlhttp.responseText, ";");
+          ports.forEach(function (e) {
+            if (e[25] === "L") {
+              var posY = parseFloat(e[4] + "." + e[5]);
+              var sign = e[6];
+              if (sign === "S") posY = posY * -1;
+
+              var posX = parseFloat(e[7] + "." + e[8]);
+              var sign = e[9];
+              if (sign === "W") posX = posX * -1;
+
+              var x2 = (4096 / 360.0) * (180 + posX);
+              var y2 = (2048 / 180.0) * (90 - posY);
+
+              context.beginPath();
+              context.fillStyle = "red";
+              context.arc(x2, y2, 4, 0, 2 * Math.PI, false);
+              context.fill();
+
+              // context.fill();
+              context.lineWidth = 2;
+              context.strokeStyle = "red";
+              context.stroke();
+            }
+          });
+        }
+      };
+
+      xmlhttp.open("GET", "./assets/data/wpi.csv", true);
+      xmlhttp.send();
+
+      //    document.body.appendChild(canvas);
+
+      return canvas;
+    }
+
+    // This will parse a delimited string into an array of
+    // arrays. The default delimiter is the comma, but this
+    // can be overriden in the second argument.
+    // via http://stackoverflow.com/questions/1293147/javascript-code-to-parse-csv-data
+    function CSVToArray(strData, strDelimiter) {
+      // Check to see if the delimiter is defined. If not,
+      // then default to comma.
+      strDelimiter = strDelimiter || ",";
+
+      // Create a regular expression to parse the CSV values.
+      var objPattern = new RegExp(
+        // Delimiters.
+        "(\\" +
+          strDelimiter +
+          "|\\r?\\n|\\r|^)" +
+          // Quoted fields.
+          '(?:"([^"]*(?:""[^"]*)*)"|' +
+          // Standard fields.
+          '([^"\\' +
+          strDelimiter +
+          "\\r\\n]*))",
+        "gi"
+      );
+
+      // Create an array to hold our data. Give the array
+      // a default empty first row.
+      var arrData = [[]];
+
+      // Create an array to hold our individual pattern
+      // matching groups.
+      var arrMatches = null;
+
+      // Keep looping over the regular expression matches
+      // until we can no longer find a match.
+      while ((arrMatches = objPattern.exec(strData))) {
+        // Get the delimiter that was found.
+        var strMatchedDelimiter = arrMatches[1];
+
+        // Check to see if the given delimiter has a length
+        // (is not the start of string) and if it matches
+        // field delimiter. If id does not, then we know
+        // that this delimiter is a row delimiter.
+        if (strMatchedDelimiter.length && strMatchedDelimiter != strDelimiter) {
+          // Since we have reached a new row of data,
+          // add an empty row to our data array.
+          arrData.push([]);
+        }
+
+        // Now that we have our delimiter out of the way,
+        // let's check to see which kind of value we
+        // captured (quoted or unquoted).
+        if (arrMatches[2]) {
+          // We found a quoted value. When we capture
+          // this value, unescape any double quotes.
+          var strMatchedValue = arrMatches[2].replace(
+            new RegExp('""', "g"),
+            '"'
+          );
+        } else {
+          // We found a non-quoted value.
+          var strMatchedValue = arrMatches[3];
+        }
+
+        // Now that we have our value string, let's add
+        // it to the data array.
+        arrData[arrData.length - 1].push(strMatchedValue);
+      }
+
+      // Return the parsed data.
+      return arrData;
+    }
+
+    /**
+     * Called when the scene needs to be rendered. Delegates to requestAnimationFrame
+     * for future renders
+     */
+    function render() {
+      scene.getObjectByName("overlay").material.map.needsUpdate = true;
+      // update stats
+      stats.update();
+
+      // update the camera
+      cameraControl.update();
+
+      scene.getObjectByName("earth");
+      scene.getObjectByName("overlay");
+      // scene.getObjectByName("clouds");
+      // update light colors
+      scene.getObjectByName("ambient").color = new THREE.Color(
+        control.ambientLightColor
+      );
+      // and render the scene
+      renderer.render(scene, camera);
+
+      // render using requestAnimationFrame
+      requestAnimationFrame(render);
+    }
+
+    /**
+     * Function handles the resize event. This make sure the camera and the renderer
+     * are updated at the correct moment.
+     */
+    function handleResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    // calls the init function when the window is done loading.
+    window.onload = init;
+    // calls the handleResize function when the window is resized
+    window.addEventListener("resize", handleResize, false);
+  </script>
+  <body></body>
+</html>

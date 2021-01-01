@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>three.js webgl - cloth simulation</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <style>
+      body {
+        font-family: Monospace;
+        background-color: #000;
+        color: #000;
+        margin: 0px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <!-- Tooltip -->
+  <div id="tooltip"><span>123</span></div>
+
+  <body>
+    <script src="./threejs/build/three.min.js"></script>
+    <script src="./cs291-master/lib/Coordinates.js"></script>
+    <script src="./cs291-master/lib/OrbitAndPanControls.new.js"></script>
+    <script src="./cs291-master/lib/dat.gui.min.js"></script>
+    <script src="./tween.js-master/src/Tween.js"></script>
+    <script src="./js/mushroom.js"></script>
+    <script src="./js/distrctwithpixce.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
+    <script src="js/OrbitControl.js"></script>
+    <!-- <script src="js/OrbitAndPanControls.new.js"></script> -->
+
+    <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script> -->
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/renderers/CSS3DRenderer.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script>
+
+    <!-- Tooltip -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"
+    ></script>
+    <link rel="stylesheet" href="./css/tooltip.css" type="text/css" />
+
+    <!-- DataExplorer -->
+    <script src="explorer/onClickMushroom.js"></script>
+
+
+    <!-- <script src="cone.js"></script> -->
+    <script>
+      /*global THREE, Coordinates, document, window, dat*/
+      var shroomGroup;
+      var camera, scene, renderer, projector;
+      var cameraControls, effectController;
+
+      var clock = new THREE.Clock();
+      var canvasWidth = 640;
+      var canvasHeight = 480;
+
+      var rSeg = 32;
+      var hSeg = 8;
+
+      var showSpotCam = false;
+      var isDaytime = true;
+      var animateWater = true;
+      var closeView = false;
+
+      var bubbleCount = 50;
+      var bubblePartSys;
+      var bubbleTextureDay, bubbleTextureNight; //so can switch for night and day
+
+      var objects = []; //list of mesh  in the scene that check for onmousedown
+
+      var daylight, nightlight; //arrays to hold lights for day and nights
+      var riverMat; //made global so can access for animation in render func
+
+      var mushroomList = []; //list of Mushroom objects (mushroom.js)
+      var smallMushrooms = []; //list of generated mushrooms
+
+      var moon;
+      var moonlight;
+      var bfly1;
+      var MapElement = function (id, x, y, z, rx) {
+        var div = document.createElement("div");
+        div.id = id;
+        div.style.width = "1200px";
+        div.style.height = "950px";
+        //	div.style.backgroundColor = 'red';
+
+        var object = new THREE.CSS3DObject(div);
+        object.position.set(x, y, z);
+        object.rotation.x = rx;
+        return object;
+      };
+
+      var container, stats;
+      var camera, scene, renderer, renderer1, controls;
+
+      var sphere;
+      //var cone;
+      // var object;
+      var objects = [];
+
+      init();
+      importCSV();
+      //   drawMushroom();
+      animate();
+
+      function init() {
+        // console.log(districtWithpxl);
+        container = document.createElement("div");
+        document.body.appendChild(container);
+
+        // scene
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+        scene.fog = new THREE.Fog(0xcce0ff, 500, 10000);
+
+        // camera
+
+        camera = new THREE.PerspectiveCamera(
+          30,
+          window.innerWidth / window.innerHeight,
+          1,
+          10000
+        );
+        //
+        camera.position.set(
+          -1630.5660632506256,
+          338.2706222303878,
+          -692.3346730528838
+        );
+        //camera.position.set(0.2538268801815511, 1329.2257935074563, -25.3884727987337);
+
+        group = new THREE.Group();
+
+        // lights
+
+        var light, materials;
+
+        scene.add(new THREE.AmbientLight(0x666666));
+
+        light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(50, 200, 100);
+        light.position.multiplyScalar(1.3);
+
+        light.castShadow = true;
+
+        light.shadow.mapSize.width = 1024;
+        light.shadow.mapSize.height = 1024;
+
+        var d = 300;
+
+        light.shadow.camera.left = -d;
+        light.shadow.camera.right = d;
+        light.shadow.camera.top = d;
+        light.shadow.camera.bottom = -d;
+
+        light.shadow.camera.far = 1000;
+
+        scene.add(light);
+
+        // ground
+        var PLANE_SIZE = 2000;
+        var MAP_SIZE = 512;
+
+        var ZOOM = 7; //Static Map zoom
+
+        var loader = new THREE.TextureLoader();
+        var groundTexture = loader.load(
+          "http://maps.googleapis.com/maps/api/staticmap?center=" +
+            " 7.8731, 80.7718" +
+            "&scale=2&zoom=" +
+            ZOOM +
+            "&size=" +
+            MAP_SIZE +
+            "x" +
+            MAP_SIZE +
+            "&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:" +
+            "&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA"
+        );
+        //var groundTexture = loader.load('download.jpeg');
+        groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+        groundTexture.repeat.set(1, 1);
+        groundTexture.anisotropy = 16;
+        Math.PI;
+
+        var groundMaterial = new THREE.MeshLambertMaterial({
+          map: groundTexture,
+        });
+
+        var mesh = new THREE.Mesh(
+          new THREE.PlaneBufferGeometry(2000, 2000),
+          groundMaterial
+        );
+        mesh.position.y = -200;
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.receiveShadow = true;
+        scene.add(mesh);
+
+        var mapObject = new MapElement("googleMap", 0, 0, 540, 270);
+        group.add(mapObject);
+        group.position.y = -459;
+
+        group.rotation.x = 1.3819063267948963; // - Math.PI / 2;
+        group.rotation.y = -3.14159265358979; // - Math.PI;
+
+        scene.add(group);
+
+        // renderer
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        renderer1 = new THREE.CSS3DRenderer();
+        renderer1.setSize(window.innerWidth, window.innerHeight);
+
+        renderer1.domElement.style.position = "absolute";
+        // renderer1.domElement.style.top = 0;
+
+        container.appendChild(renderer1.domElement);
+        container.appendChild(renderer.domElement);
+
+        renderer.gammaInput = true;
+        renderer.gammaOutput = true;
+
+        renderer.shadowMap.enabled = true;
+
+        // controls
+        controls = new THREE.OrbitControls(camera);
+        controls.maxPolarAngle = Math.PI * 0.5;
+        controls.minDistance = 1000;
+        controls.maxDistance = 5000;
+
+        // performance monitor
+
+        stats = new Stats();
+        container.appendChild(stats.dom);
+
+        window.addEventListener("resize", onWindowResize, false);
+
+        //This listener will be watching for click events
+        document.addEventListener("mousedown", onDocumentMouseDown, false);
+      }
+
+      //import the csv
+
+      function importCSV() {
+        console.log("csv importing called");
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            console.log("imported");
+            var district_data = CSVToArray(xmlhttp.responseText, ";");
+            drawMushroom(district_data);
+
+            //district,totalcases,recovered,no_deaths
+            // district_data.forEach(function (e) {
+            //   drawMushroom(e);
+            //   console.log(e);
+            // });
+          }
+        };
+
+        xmlhttp.open("GET", "./dataset-district/districtcsv.csv", true);
+        xmlhttp.send();
+      }
+
+      function CSVToArray(strData, strDelimiter) {
+        // Check to see if the delimiter is defined. If not,
+        // then default to comma.
+        strDelimiter = strDelimiter || ",";
+
+        // Create a regular expression to parse the CSV values.
+        var objPattern = new RegExp(
+          // Delimiters.
+          "(\\" +
+            strDelimiter +
+            "|\\r?\\n|\\r|^)" +
+            // Quoted fields.
+            '(?:"([^"]*(?:""[^"]*)*)"|' +
+            // Standard fields.
+            '([^"\\' +
+            strDelimiter +
+            "\\r\\n]*))",
+          "gi"
+        );
+
+        // Create an array to hold our data. Give the array
+        // a default empty first row.
+        var arrData = [[]];
+
+        // Create an array to hold our individual pattern
+        // matching groups.
+        var arrMatches = null;
+
+        // Keep looping over the regular expression matches
+        // until we can no longer find a match.
+        while ((arrMatches = objPattern.exec(strData))) {
+          // Get the delimiter that was found.
+          var strMatchedDelimiter = arrMatches[1];
+
+          // Check to see if the given delimiter has a length
+          // (is not the start of string) and if it matches
+          // field delimiter. If id does not, then we know
+          // that this delimiter is a row delimiter.
+          if (
+            strMatchedDelimiter.length &&
+            strMatchedDelimiter != strDelimiter
+          ) {
+            // Since we have reached a new row of data,
+            // add an empty row to our data array.
+            arrData.push([]);
+          }
+
+          // Now that we have our delimiter out of the way,
+          // let's check to see which kind of value we
+          // captured (quoted or unquoted).
+          if (arrMatches[2]) {
+            // We found a quoted value. When we capture
+            // this value, unescape any double quotes.
+            var strMatchedValue = arrMatches[2].replace(
+              new RegExp('""', "g"),
+              '"'
+            );
+          } else {
+            // We found a non-quoted value.
+            var strMatchedValue = arrMatches[3];
+          }
+
+          // Now that we have our value string, let's add
+          // it to the data array.
+          arrData[arrData.length - 1].push(strMatchedValue);
+        }
+
+        // Return the parsed data.
+        return arrData;
+      }
+
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer1.setSize(window.innerWidth, window.innerHeight);
+
+        // webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+        // dynamicMapRenderer.setSize(window.innerWidth, window.innerHeight);
+        // canvasRenderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        render();
+        stats.update();
+      }
+
+      function render() {
+        renderer1.render(scene, camera);
+        renderer.render(scene, camera);
+      }
+
+      // Functions related to mushroom
+
+      function drawMushroom(disc_data_arr) {
+        var shroomGroup = new THREE.Object3D();
+
+        shroomGroup.position.copy(new THREE.Vector3(0, 0, 0));
+
+        console.log(disc_data_arr);
+
+        // Get the min and max values of totalcases,recoveries,death
+        var totalcases_Max = 0;
+        var totalcases_Min = 10000;
+
+        var recoveries_Max = 0;
+        var recoveries_Min = 1000;
+
+        var deaths_Max = 0;
+        var deaths_Min = 1000;
+
+        disc_data_arr.forEach((dataset) => {
+          console.log(dataset);
+
+          var disc_totalcases = parseInt(dataset[1]);
+          var disc_recoveries = parseInt(dataset[2]);
+          var disc_death = parseInt(dataset[3]);
+
+          console.log(totalcases_Max);
+
+          if (disc_totalcases > totalcases_Max) {
+            totalcases_Max = disc_totalcases;
+          }
+          if (disc_totalcases < totalcases_Min) {
+            totalcases_Min = disc_totalcases;
+          }
+
+          if (disc_recoveries > recoveries_Max) {
+            recoveries_Max = disc_recoveries;
+          }
+          if (disc_recoveries < recoveries_Min) {
+            recoveries_Min = disc_recoveries;
+          }
+
+          if (disc_death > deaths_Max) {
+            deaths_Max = disc_death;
+          }
+          if (disc_death < deaths_Min) {
+            deaths_Min = disc_death;
+          }
+        });
+
+        console.log("totalcases_Max", totalcases_Max);
+        console.log("totalcases_Min", totalcases_Min);
+        console.log("recoveries_Max", recoveries_Max);
+        console.log("recoveries_Min", recoveries_Min);
+        console.log(" deaths_Max", deaths_Max);
+        console.log("deaths_Min", deaths_Min);
+
+        disc_data_arr.forEach((dataset, index) => {
+          //discid[0],totalcases[1],recovered[2],died[3],pixcel_x[4],Pixcel_Y[5],Pixcel_Z[6]
+
+          //calculate the capsie
+          //calculate the stalk height for
+          let stalkheight = 7 * Math.sqrt(parseInt(dataset[1]));
+
+          //  let stalkheight =30+(((450-30)/totalcases_Max)*2 )*dataset[1]
+          // console.log(stalkheight,dataset[7])
+
+          //calculate the capsize
+          let capsize = 25 + 2 * Math.sqrt(parseInt(dataset[2]));
+          // capsize=35+(((65-18)/totalcases_Max)*2 )*dataset[2]
+          //   console.log("capsize",capsize)
+
+          //var m1 = new Mushroom(18, 30, 5, 5, 1.2, 1);-smallest one
+          //var m1 = new Mushroom(65, 900, 10, 10, 1.2, 1)- largest one
+
+          //   adding the pixcel variables
+          let pixce_x = dataset[4];
+          let pixce_y = dataset[5];
+          let pixce_z = dataset[6];
+
+          // Creating the length and capsize based on the data goes here
+
+          // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
+          var index = new Mushroom(capsize, stalkheight, 8, 8, 0.9, 1);
+          // calculate the death rate
+          if (dataset[3] > 0) {
+            let capcolor;
+            const death_rate = (dataset[3] / dataset[1]) * 100;
+            console.log(dataset[7]);
+            console.log("deathrate", death_rate);
+            // Colorscale available on https://www.htmlcsscolor.com/hex/F40909
+            if (death_rate > 1) {
+              capcolor = "0xf40909";
+            } else if (death_rate > 0.5) {
+              capcolor = "0xf63a3a";
+            } else if (death_rate > 0.2) {
+              capcolor = "0xf86161";
+            } else {
+              capcolor = "0xfbaeae";
+            }
+
+            index.setColors(capcolor, "0xbbba00", "0xffba00");
+          } else {
+            index.setColors("0xffff00", "0xbbba00", "0xffba00");
+          }
+          //capcolor,undercapcolor,stalkcolor
+
+          //#BAFF00
+          index.setTextures(
+            "./img/cap1.png",
+            "./img/ucap1.png",
+            "./img/stalk1.png"
+          );
+
+          index.growIt();
+
+          index.model.id = dataset[0];
+          index.model.children[0].id = "cap" + dataset[0];
+          index.model.children[1].id = "ucap" + dataset[0];
+          index.model.children[2].id = "stalk" + dataset[0];
+          index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
+          index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
+          index.model.children[0].material.map.repeat.set(3, 1);
+
+          // adding the single mushroom
+          index.model.position.copy(
+            new THREE.Vector3(pixce_x, pixce_y, pixce_z)
+          );
+          shroomGroup.add(index.model);
+
+          // Used to detect the mushroom
+          //push (cap, undercap, stalk) onto object array so can detect intersect when click
+          for (var i = 0; i < 3; i++) {
+            objects.push(index.model.children[i]);
+          }
+
+          //   console.log(objects);
+          mushroomList.push(index);
+
+          //use traverse code snippet from udacity cs291
+          mushroomList[0].model.traverse(function (object) {
+            if (object instanceof THREE.Mesh) {
+              object.castShadow = true;
+              //object.receiveShadow = true;
+            }
+          });
+        });
+
+        scene.add(shroomGroup);
+      }
+
+      /*MUSHROOM ON CLICK*/
+
+      function onDocumentMouseDown(event) {
+        // console.log("objects.length:" + objects.length);
+        // console.log("objects", objects);
+        event.preventDefault();
+
+        // Annoying nested window code: need to subtract offsets for nested windows.
+        // This is not needed if you have just a single window filling the browser
+        // var node = event.srcElement;
+        // var mouseX = event.clientX - node.offsetLeft;
+        // var mouseY = event.clientY - node.offsetTop;
+
+        /*getBoundingClientRect() -->
+             gives the element's position relative to the browser's visile viewport.
+             https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+             */
+        var canvasPosition = renderer.domElement.getBoundingClientRect();
+
+        /*clientX/Y  -->
+           gives the mouse position relative to the browser's visible viewport.
+           */
+
+        /*we then just have to find the difference between the two
+            to get the mouse position in "canvas-space"
+           */
+
+        var mouseX = event.clientX - canvasPosition.left;
+        var mouseY = event.clientY - canvasPosition.top;
+
+        console.log(canvasPosition.left, canvasPosition.top);
+        console.log(mouseX, mouseY);
+
+        /*
+           while (node.offsetParent){
+             node = node.offsetParent;
+             mouseX -= node.offsetLeft;
+             mouseY -= node.offsetTop;
+           }*/
+
+        /* the new way: simpler creation of raycaster */
+        /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+        var mouseVector = new THREE.Vector3(
+          2 * (mouseX / canvasWidth) - 1,
+          1 - 2 * (mouseY / canvasHeight)
+        );
+
+        //debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+        //var raycaster = projector.pickingRay( mouseVector.clone(), camera );
+
+        //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        // calculate mouse position in normalized device coordinates
+        // (-1 to +1) for both components
+        mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+        mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+
+        //Adjusts the direction of the ray to point at the vector in world coordinates.
+        //camera.lookAt( scene.position );
+
+        // update the picking ray with the camera and mouse position
+        raycaster.setFromCamera(mouse, camera);
+
+        var intersects = raycaster.intersectObjects(objects);
+        // console.log("OBJECTS", objects);
+        // console.log("intersects", intersects);
+
+        if (intersects.length > 0) {
+          drawObjectOnclick();
+          // intersects[0].object.material.color.setRGB(
+          //   Math.random(),
+          //   Math.random(),
+          //   Math.random()
+          // );
+          intersects[0].object.name;
+          var id = intersects[0].object.id;
+          console.log("intersects:" + id);
+
+          if (id == "cap1" || id == "ucap1" || id == "stalk1") {
+            console.log(id);
+          } else if (id == "cap2" || id == "ucap2" || id == "stalk2") {
+            mushroomAction2();
+          } else if (id == "cap3" || id == "ucap3" || id == "stalk3") {
+            mushroomAction3();
+          }
+
+          /*
+             var sphereGeom = new THREE.SphereGeometry(10);
+             var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
+
+             var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
+             sphere.position = intersects[ 0 ].point;
+             scene.add( sphere );
+             */
+        }
+
+        /*
+           // Parse all the faces, for when you are using face materials
+           for ( var i in intersects ) {
+             intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
+           }
+           */
+      }
+
+      /*TOOLTIP*/
+
+      // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
+      var mouse = new THREE.Vector2();
+
+      var latestMouseProjection; // this is the latest projection of the mouse on object (i.e. intersection with ray)
+      var hoveredObj; // this objects is hovered at the moment
+
+      // tooltip will not appear immediately. If object was hovered shortly,
+      // - the timer will be canceled and tooltip will not appear at all.
+      var tooltipDisplayTimeout;
+
+      // This will move tooltip to the current mouse position and show it by timer.
+      function showTooltip() {
+        var divElement = $("#tooltip");
+
+        if (divElement && latestMouseProjection) {
+          divElement.css({
+            display: "block",
+            opacity: 0.0,
+          });
+
+          var canvasHalfWidth = renderer.domElement.offsetWidth / 2;
+          var canvasHalfHeight = renderer.domElement.offsetHeight / 2;
+
+          var tooltipPosition = latestMouseProjection.clone().project(camera);
+          tooltipPosition.x =
+            tooltipPosition.x * canvasHalfWidth +
+            canvasHalfWidth +
+            renderer.domElement.offsetLeft;
+          tooltipPosition.y =
+            -(tooltipPosition.y * canvasHalfHeight) +
+            canvasHalfHeight +
+            renderer.domElement.offsetTop;
+
+          var tootipWidth = divElement[0].offsetWidth;
+          var tootipHeight = divElement[0].offsetHeight;
+
+          divElement.css({
+            left: `${tooltipPosition.x - tootipWidth / 2}px`,
+            top: `${tooltipPosition.y - tootipHeight - 5}px`,
+          });
+
+          // var position = new THREE.Vector3();
+          // var quaternion = new THREE.Quaternion();
+          // var scale = new THREE.Vector3();
+          // hoveredObj.matrix.decompose(position, quaternion, scale);
+
+          // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
+
+          console.log("TOOLTIPTEXT", hoveredObj.id);
+
+          const districts = [
+            { name: "Ampara", id: 16 },
+            { name: "Anuradhapura", id: 20 },
+            { name: "Badulla", id: 24 },
+            { name: "Batticaloa", id: 28 },
+            { name: "Colombo", id: 32 },
+            { name: "Galle", id: 36 },
+            { name: "Gampaha", id: 40 },
+            { name: "Hambantota", id: 44 },
+            { name: "Jaffna", id: 48 },
+            { name: "Kalutara", id: 52 },
+            { name: "Kandy", id: 56 },
+            { name: "Kegalle", id: 60 },
+            { name: "Kilinochchi", id: 64 },
+            { name: "Kurunegala", id: 68 },
+            { name: "Mannar", id: 72 },
+            { name: "Matale", id: 76 },
+            { name: "Matara", id: 80 },
+            { name: "Moneragala", id: 84 },
+            // { name: "Mullaitivu", id: 88 },
+            { name: "Nuwara Eliya", id: 88 },
+            { name: "Polonnaruwa", id: 92 },
+            { name: "Puttalam", id: 96 },
+            { name: "Ratnapura", id: 100 },
+            { name: "Trincomalee", id: 104 },
+            { name: "Vavuniya", id: 108 },
+          ];
+
+          for (let i = 0; i < districts.length; i++) {
+            if (hoveredObj.id == districts[i].id) {
+              TOOLTIPTEXT = districts[i].name;
+            }
+          }
+
+          //divElement.find('span').text(hoveredObj.userData.tooltipText);
+          divElement.find("span").text(TOOLTIPTEXT);
+
+          setTimeout(function () {
+            divElement.css({
+              opacity: 1.0,
+            });
+          }, 0.5);
+        }
+      }
+
+      // This will immediately hide tooltip.
+      function hideTooltip() {
+        var divElement = $("#tooltip");
+        if (divElement) {
+          divElement.css({
+            display: "none",
+          });
+        }
+      }
+
+      // Following two functions will convert mouse coordinates
+      // from screen to three.js system (where [0,0] is in the middle of the screen)
+      function updateMouseCoords(event, coordsObj) {
+        coordsObj.x =
+          ((event.clientX - renderer.domElement.offsetLeft + 0.5) /
+            window.innerWidth) *
+            2 -
+          1;
+        coordsObj.y =
+          -(
+            (event.clientY - renderer.domElement.offsetTop + 0.5) /
+            window.innerHeight
+          ) *
+            2 +
+          1;
+      }
+
+      function handleManipulationUpdate() {
+        var raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(mouse, camera);
+        {
+          var intersects = raycaster.intersectObjects(objects);
+          //console.log("objectssssssssssssssssss",objects);
+
+          if (intersects.length > 0) {
+            latestMouseProjection = intersects[0].point;
+            hoveredObj = intersects[0].object;
+          }
+        }
+
+        if (tooltipDisplayTimeout || !latestMouseProjection) {
+          clearTimeout(tooltipDisplayTimeout);
+          tooltipDisplayTimeout = undefined;
+          hideTooltip();
+        }
+
+        if (!tooltipDisplayTimeout && latestMouseProjection) {
+          tooltipDisplayTimeout = setTimeout(function () {
+            tooltipDisplayTimeout = undefined;
+            showTooltip();
+          }, 330);
+        }
+      }
+
+      function onMouseMove(event) {
+        updateMouseCoords(event, mouse);
+
+        latestMouseProjection = undefined;
+        hoveredObj = undefined;
+        handleManipulationUpdate();
+      }
+
+      window.addEventListener("mousemove", onMouseMove, false);
+    </script>
+  </body>
+</html>
