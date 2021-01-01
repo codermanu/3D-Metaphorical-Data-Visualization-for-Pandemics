@@ -44,7 +44,29 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
 
+    <!-- DataExplorer : CAROUSEL-->
+    <script src="./DistrictDataExplorer/Carousel.js"></script>
+    <script src="./DistrictDataExplorer/CaseVisualizer.js"></script>
+    <script src="./DistrictDataExplorer/Connector.js"></script>    
+    <script src="./DistrictDataExplorer/Structure.js"></script>
+    <script src="./DistrictDataExplorer/DataExplorer.js"></script>
+    <script src="./DistrictDataExplorer/Subdimension.js"></script>
+    <script src="./DistrictDataExplorer/GlobalFUnction.js"></script>
+    <script src="./DistrictDataExplorer/DataVisualizer.js"></script>
+    <script src="./DistrictDataExplorer/Projector.js"></script>
+    <script src="./DistrictDataExplorer/OBJLoader.js"></script>
 
+    <script src="./DistrictDataExplorer/onClickMushroom.js"></script>
+
+    <!-- <script src="./DataExplorer/data_full.csv"></script> -->
+
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    
+   
+  
     <!-- <script src="cone.js"></script> -->
     <script>
       /*global THREE, Coordinates, document, window, dat*/
@@ -371,7 +393,6 @@
         // canvasRenderer.setSize(window.innerWidth, window.innerHeight);
       }
 
-      //
 
       function animate() {
         requestAnimationFrame(animate);
@@ -526,7 +547,10 @@
         console.log("intersects",intersects)
 
         if (intersects.length > 0) {
-          intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+
+          initScene(); //load carousel when clicked mushroom - onClickMushroom.js
+
+         // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
           intersects[ 0 ].object.name;
 
           var id = intersects[0].object.id;
@@ -711,8 +735,14 @@
 
       window.addEventListener('mousemove', onMouseMove, false);
 
-    
+
+
+
     
     </script>
+
+
+
+
   </body>
 </html>
