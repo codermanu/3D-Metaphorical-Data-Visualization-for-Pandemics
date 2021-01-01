@@ -30,8 +30,7 @@
     <script src="js/geoxml3.js"></script>
     <script src="js/encode.js"></script>
     <script src="js/PlanetoMap.js"></script>
-    <script src="js/DataVisualizer.js"></script>
-    <script src="js/CaseVisualizer.js"></script>
+    
 
     <script src="./threejs/build/three.min.js"></script>
     <script src="./cs291-master/lib/Coordinates.js"></script>
@@ -49,6 +48,15 @@
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script>
 
+    <!-- Load the csv file -->
+
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <script src="js/loaders/OBJLoader.js"></script>
+
+
     <!-- Tooltip -->
     <script
       type="text/javascript"
@@ -56,8 +64,12 @@
     ></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css" />
 
+    <!-- <script src="explorer/onClickMushroom.js"></script> -->
+
     <!-- DataExplorer -->
-    <script src="explorer/onClickMushroom.js"></script>
+
+    <script src="js/DataVisualizer.js"></script>
+    <script src="js/CaseVisualizer.js"></script>
 
     <!-- <script src="cone.js"></script> -->
     <script>
@@ -91,6 +103,9 @@
       var smallMushrooms = []; //list of generated mushrooms
 
       // carousel variables
+      var dataset = [];
+      //var boundaryId=48;
+      var fields = [];
       var subdimensions;
       var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
 
@@ -119,21 +134,76 @@
       importCSV();
       //   drawMushroom();
       animate();
+      dataexplore_csv();
+    
 
       function dataexplore_csv() {
-        console.log("csv importing called");
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            console.log("imported");
-            var district_data = CSVToArray(xmlhttp.responseText, ";");
-            
-         
-          }
-        };
+        d3.csv("data-explore/data.csv", function (data) {
+          console.log("csv data", data);
+          //select cases according to the given boundary
+          dataset = data.filter(function (report) {
+            var bid = 0;
+            try {
+              bid = parseInt(report.boundaryid);
+            } catch (e) {
+              console.log("error", e);
+            }
+            // return bid == polygon.indexID;
+            return bid == 26;
+          });
+          //select dimensional fields
 
-        xmlhttp.open("GET", "./dataset-district/districtcsv.csv", true);
-        xmlhttp.send();
+          console.log("selected dataset", dataset);
+          if (dataset.length > 0) {
+            fields = Object.keys(dataset[0]).filter(function (key) {
+              return nonDimensionalFields.indexOf(key) == -1;
+            });
+          }
+
+          //finding subdimenions from the dataset values
+          var fieldValues = {};
+          subdimensions = {};
+          fields.forEach(function (field) {
+            fieldValues[field] = [];
+            subdimensions[field] = [];
+          });
+
+          dataset.forEach(function (record) {
+            fields.forEach(function (field) {
+              fieldValues[field].push(record[field]);
+            });
+          });
+
+          fields.forEach(function (field) {
+            fieldValues[field] = Array.from(new Set(fieldValues[field]));
+            if (isSubdimension(fieldValues[field])) {
+              subdimensions[field] = fieldValues[field];
+            }
+          });
+          console.log("dataset loaded!");
+          console.log("######## Dataset #########");
+          console.log("Main dimensions = ", fields);
+          console.log("Main dimensions info = ", subdimensions);
+          console.log("##########################");
+
+          carouselinit()
+
+        });
+
+        //conditions for selecting subdimesnions
+        var isSubdimension = function (dimArray) {
+          var threshold = (dataset.length * 10) / 100;
+          if (!dimArray.some(isNaN)) {
+            return false;
+          }
+
+          if (dimArray.length >= threshold) {
+            return false;
+          }
+
+          return true;
+        };
+        
       }
 
       function carouselinit() {
@@ -144,7 +214,7 @@
           [],
           undefined
         );
-        // console.log(metaphorDescriptor);
+         console.log(metaphorDescriptor);
         parent = CreateNewNode(metaphorDescriptor);
 
         caseVisualizer = new CaseVisualizer(scene, subdimensions);
@@ -158,7 +228,7 @@
 
         console.log(dataExplorer);
 
-        staticMapGroup.add(parent.metaphor);
+        // staticMapGroup.add(parent.metaphor);
         scene.add(parent.metaphor);
       }
 
@@ -298,7 +368,7 @@
         window.addEventListener("resize", onWindowResize, false);
 
         //This listener will be watching for click events
-        document.addEventListener("mousedown", onDocumentMouseDown, false);
+        // document.addEventListener("mousedown", onDocumentMouseDown, false);
       }
 
       // get the carousel files
@@ -441,13 +511,13 @@
         var deaths_Min = 1000;
 
         disc_data_arr.forEach((dataset) => {
-          console.log(dataset);
+          // console.log(dataset);
 
           var disc_totalcases = parseInt(dataset[1]);
           var disc_recoveries = parseInt(dataset[2]);
           var disc_death = parseInt(dataset[3]);
 
-          console.log(totalcases_Max);
+          // console.log(totalcases_Max);
 
           if (disc_totalcases > totalcases_Max) {
             totalcases_Max = disc_totalcases;
@@ -643,7 +713,7 @@
         // console.log("intersects", intersects);
 
         if (intersects.length > 0) {
-          drawObjectOnclick();
+          // drawObjectOnclick();
           // intersects[0].object.material.color.setRGB(
           //   Math.random(),
           //   Math.random(),
