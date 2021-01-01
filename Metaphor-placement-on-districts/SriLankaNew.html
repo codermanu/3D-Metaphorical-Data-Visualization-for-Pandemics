@@ -334,8 +334,7 @@
             "\\r\\n]*))",
           "gi"
         );
-
-        // Create an array to hold our data. Give the array
+         // Create an array to hold our data. Give the array
         // a default empty first row.
         var arrData = [[]];
 
@@ -386,6 +385,7 @@
         return arrData;
       }
 
+
       function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -419,10 +419,72 @@
 
         console.log(disc_data_arr);
 
-        let mush_name_arr = [];
+        // Get the min and max values of totalcases,recoveries,death
+        var totalcases_Max = 0;
+        var totalcases_Min = 10000;
+
+        var recoveries_Max = 0;
+        var recoveries_Min = 1000;
+
+        var deaths_Max = 0;
+        var deaths_Min = 1000;
+
+        disc_data_arr.forEach((dataset) => {
+          // console.log(dataset);
+
+          var disc_totalcases = parseInt(dataset[1]);
+          var disc_recoveries = parseInt(dataset[2]);
+          var disc_death = parseInt(dataset[3]);
+
+          // console.log(totalcases_Max);
+
+          if (disc_totalcases > totalcases_Max) {
+            totalcases_Max = disc_totalcases;
+          }
+          if (disc_totalcases < totalcases_Min) {
+            totalcases_Min = disc_totalcases;
+          }
+
+          if (disc_recoveries > recoveries_Max) {
+            recoveries_Max = disc_recoveries;
+          }
+          if (disc_recoveries < recoveries_Min) {
+            recoveries_Min = disc_recoveries;
+          }
+
+          if (disc_death > deaths_Max) {
+            deaths_Max = disc_death;
+          }
+          if (disc_death < deaths_Min) {
+            deaths_Min = disc_death;
+          }
+        });
+
+        console.log("totalcases_Max", totalcases_Max);
+        console.log("totalcases_Min", totalcases_Min);
+        console.log("recoveries_Max", recoveries_Max);
+        console.log("recoveries_Min", recoveries_Min);
+        console.log(" deaths_Max", deaths_Max);
+        console.log("deaths_Min", deaths_Min);
+
         disc_data_arr.forEach((dataset, index) => {
-          //discid,totalcases,recovered,died,pixcel_x,Pixcel_Y,Pixcel_Z
-          console.log(dataset);
+          //discid[0],totalcases[1],recovered[2],died[3],pixcel_x[4],Pixcel_Y[5],Pixcel_Z[6]
+
+          //calculate the capsie
+          //calculate the stalk height for
+          let stalkheight = 7 * Math.sqrt(parseInt(dataset[1]));
+
+          //  let stalkheight =30+(((450-30)/totalcases_Max)*2 )*dataset[1]
+          // console.log(stalkheight,dataset[7])
+
+          //calculate the capsize
+          let capsize = 25 + 2 * Math.sqrt(parseInt(dataset[2]));
+          // capsize=35+(((65-18)/totalcases_Max)*2 )*dataset[2]
+          //   console.log("capsize",capsize)
+
+          //var m1 = new Mushroom(18, 30, 5, 5, 1.2, 1);-smallest one
+          //var m1 = new Mushroom(65, 900, 10, 10, 1.2, 1)- largest one
+
           //   adding the pixcel variables
           let pixce_x = dataset[4];
           let pixce_y = dataset[5];
@@ -431,8 +493,30 @@
           // Creating the length and capsize based on the data goes here
 
           // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
-          var index = new Mushroom(18, 30, 5, 5, 1.2, 1);
-          index.setColors("0xff00ba", "0xbbba00", "0xffba00");
+          var index = new Mushroom(capsize, stalkheight, 8, 8, 0.9, 1);
+          // calculate the death rate
+          if (dataset[3] > 0) {
+            let capcolor;
+            const death_rate = (dataset[3] / dataset[1]) * 100;
+            console.log(dataset[7]);
+            console.log("deathrate", death_rate);
+            // Colorscale available on https://www.htmlcsscolor.com/hex/F40909
+            if (death_rate > 1) {
+              capcolor = "0xf40909";
+            } else if (death_rate > 0.5) {
+              capcolor = "0xf63a3a";
+            } else if (death_rate > 0.2) {
+              capcolor = "0xf86161";
+            } else {
+              capcolor = "0xfbaeae";
+            }
+
+            index.setColors(capcolor, "0xbbba00", "0xffba00");
+          } else {
+            index.setColors("0xffff00", "0xbbba00", "0xffba00");
+          }
+          //capcolor,undercapcolor,stalkcolor
+
           //#BAFF00
           index.setTextures(
             "./img/cap1.png",
@@ -442,15 +526,13 @@
 
           index.growIt();
 
-          index.model.id = "m1";
-          index.model.children[0].id = "cap1";
-          index.model.children[1].id = "ucap1";
-          index.model.children[2].id = "stalk1";
+          index.model.id = dataset[0];
+          index.model.children[0].id = "cap" + dataset[0];
+          index.model.children[1].id = "ucap" + dataset[0];
+          index.model.children[2].id = "stalk" + dataset[0];
           index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
           index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
           index.model.children[0].material.map.repeat.set(3, 1);
-
-          // m1.model.position.x = 100;
 
           // adding the single mushroom
           index.model.position.copy(
@@ -464,7 +546,7 @@
             objects.push(index.model.children[i]);
           }
 
-		  console.log(objects)
+          //   console.log(objects);
           mushroomList.push(index);
 
           //use traverse code snippet from udacity cs291
