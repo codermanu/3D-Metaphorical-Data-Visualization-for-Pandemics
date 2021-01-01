@@ -22,6 +22,17 @@
   <div id="tooltip"><span>123</span></div>
 
   <body>
+    <!-- carousel js files -->
+    <script src="js/Carousel.js"></script>
+    <script src="js/Connector.js"></script>
+    <script src="js/Structure.js"></script>
+    <script src="js/DataExplorer.js"></script>
+    <script src="js/geoxml3.js"></script>
+    <script src="js/encode.js"></script>
+    <script src="js/PlanetoMap.js"></script>
+    <script src="js/DataVisualizer.js"></script>
+    <script src="js/CaseVisualizer.js"></script>
+
     <script src="./threejs/build/three.min.js"></script>
     <script src="./cs291-master/lib/Coordinates.js"></script>
     <script src="./cs291-master/lib/OrbitAndPanControls.new.js"></script>
@@ -47,7 +58,6 @@
 
     <!-- DataExplorer -->
     <script src="explorer/onClickMushroom.js"></script>
-
 
     <!-- <script src="cone.js"></script> -->
     <script>
@@ -80,9 +90,10 @@
       var mushroomList = []; //list of Mushroom objects (mushroom.js)
       var smallMushrooms = []; //list of generated mushrooms
 
-      var moon;
-      var moonlight;
-      var bfly1;
+      // carousel variables
+      var subdimensions;
+      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
+
       var MapElement = function (id, x, y, z, rx) {
         var div = document.createElement("div");
         div.id = id;
@@ -108,6 +119,48 @@
       importCSV();
       //   drawMushroom();
       animate();
+
+      function dataexplore_csv() {
+        console.log("csv importing called");
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            console.log("imported");
+            var district_data = CSVToArray(xmlhttp.responseText, ";");
+            
+         
+          }
+        };
+
+        xmlhttp.open("GET", "./dataset-district/districtcsv.csv", true);
+        xmlhttp.send();
+      }
+
+      function carouselinit() {
+        var metaphorDescriptor = new MetaphorDescriptor(
+          0,
+          null,
+          Object.keys(subdimensions),
+          [],
+          undefined
+        );
+        // console.log(metaphorDescriptor);
+        parent = CreateNewNode(metaphorDescriptor);
+
+        caseVisualizer = new CaseVisualizer(scene, subdimensions);
+        dataVisualizer = new DataVisualizer(dataset, caseVisualizer);
+        dataExplorer = new DataExplorer(
+          scene,
+          parent,
+          subdimensions,
+          dataVisualizer
+        );
+
+        console.log(dataExplorer);
+
+        staticMapGroup.add(parent.metaphor);
+        scene.add(parent.metaphor);
+      }
 
       function init() {
         // console.log(districtWithpxl);
@@ -248,6 +301,8 @@
         document.addEventListener("mousedown", onDocumentMouseDown, false);
       }
 
+      // get the carousel files
+
       //import the csv
 
       function importCSV() {
@@ -353,7 +408,6 @@
         // dynamicMapRenderer.setSize(window.innerWidth, window.innerHeight);
         // canvasRenderer.setSize(window.innerWidth, window.innerHeight);
       }
-
 
       function animate() {
         requestAnimationFrame(animate);
