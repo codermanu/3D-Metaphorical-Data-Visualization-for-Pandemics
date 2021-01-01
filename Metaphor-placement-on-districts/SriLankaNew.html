@@ -45,6 +45,16 @@
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
 
     <!-- DataExplorer : CAROUSEL-->
+  <script src="DistrictDataExplorer/controls/OrbitControls.js"></script>
+	<script src="DistrictDataExplorer/renderers/CSS3DRenderer.js"></script>
+	<script src="DistrictDataExplorer/renderers/CSS2DRenderer.js"></script>
+	<script src="DistrictDataExplorer/libs/stats.min.js"></script>
+	<script src="DistrictDataExplorer/libs/tween.min.js"></script>
+	<script src="DistrictDataExplorer/libs/lodash.js"></script>
+	<script src="DistrictDataExplorer/renderers/CanvasRenderer.js"></script>
+  <script src="DistrictDataExplorer/renderers/Projector.js"></script>
+  
+
     <script src="./DistrictDataExplorer/Carousel.js"></script>
     <script src="./DistrictDataExplorer/CaseVisualizer.js"></script>
     <script src="./DistrictDataExplorer/Connector.js"></script>    
@@ -57,6 +67,8 @@
     <script src="./DistrictDataExplorer/OBJLoader.js"></script>
 
     <script src="./DistrictDataExplorer/onClickMushroom.js"></script>
+    <script src="./DistrictDataExplorer/ClickCarousel.js"></script>
+
 
     <!-- <script src="./DataExplorer/data_full.csv"></script> -->
 
@@ -126,6 +138,8 @@
       importCSV();
       //   drawMushroom();
       animate();
+      dataexplore_csv();
+
 
       function init() {
         // console.log(districtWithpxl);
@@ -477,8 +491,8 @@
 
      /*Mouse OnClick Colour Change*/
       function onDocumentMouseDown(event) {
-        console.log("objects.length:" + objects.length);
-        console.log("objects",objects);
+        //console.log("objects.length:" + objects.length);
+        //console.log("objects",objects);
         event.preventDefault();
 
         // Annoying nested window code: need to subtract offsets for nested windows.
@@ -543,8 +557,8 @@
         raycaster.setFromCamera( mouse, camera );
 
         var intersects = raycaster.intersectObjects( objects );
-        console.log("OBJECTS", objects)
-        console.log("intersects",intersects)
+        //console.log("OBJECTS", objects)
+       // console.log("intersects",intersects)
 
         if (intersects.length > 0) {
 

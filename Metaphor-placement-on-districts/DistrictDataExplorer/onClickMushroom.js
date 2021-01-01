@@ -1,7 +1,6 @@
 /*ADDING CARUOSEL TO THE SCENE*/
 
 // initScene();
-
 var exploreobjects=[];   //add object to this after clicked mushroom
 
 
@@ -140,6 +139,7 @@ function onDocumentMouseDown(event) {
 
         }else{
 
+            onMouseDown() ;
             console.log("NOT CLICK");
         }
     
@@ -164,7 +164,4 @@ function removeObjectOnclick(){
 
 //window.addEventListener('mousedown', onMouseDown, false);
 document.addEventListener("mousedown", onDocumentMouseDown, false);
-
-
-
 
