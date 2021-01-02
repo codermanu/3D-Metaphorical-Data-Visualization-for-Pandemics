@@ -759,7 +759,7 @@
           );
 
           index.growIt();
-
+ //discid[0],totalcases[1],recovered[2],died[3],pixcel_x[4],Pixcel_Y[5],Pixcel_Z[6]
           index.model.id = dataset[0];
           index.model.children[0].id = "cap" + dataset[0];
           index.model.children[1].id = "ucap" + dataset[0];
@@ -767,7 +767,7 @@
           index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
           index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
           index.model.children[0].material.map.repeat.set(3, 1);
-          index.model.userData={distrctId:dataset[0]}
+          index.model.userData={distrctId:dataset[0],totalcases:dataset[1],recovered:dataset[2],died:dataset[3],districtName:dataset[7]}
           console.log(index.model)
        
           // adding the single mushroom
@@ -809,100 +809,92 @@
           isCarouselSelected = true
           event.preventDefault();
 
-/*getBoundingClientRect() -->
-gives the element's position relative to the browser's visile viewport.
-https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-*/  
-var canvasPosition = renderer.domElement.getBoundingClientRect();
+                /*getBoundingClientRect() -->
+                gives the element's position relative to the browser's visile viewport.
+                https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+                */  
+                var canvasPosition = renderer.domElement.getBoundingClientRect();
 
-/*clientX/Y  -->  
-gives the mouse position relative to the browser's visible viewport.
-*/
+                /*clientX/Y  -->  
+                gives the mouse position relative to the browser's visible viewport.
+                */
 
-/*we then just have to find the difference between the two
-to get the mouse position in "canvas-space"
-*/
+                /*we then just have to find the difference between the two
+                to get the mouse position in "canvas-space"
+                */
 
-var mouseX = event.clientX - canvasPosition.left;
-var mouseY = event.clientY - canvasPosition.top;
+                var mouseX = event.clientX - canvasPosition.left;
+                var mouseY = event.clientY - canvasPosition.top;
 
-console.log(canvasPosition.left, canvasPosition.top);
-console.log(mouseX, mouseY);
+                console.log(canvasPosition.left, canvasPosition.top);
+                console.log(mouseX, mouseY);
 
-/*
-while (node.offsetParent){
-node = node.offsetParent;
-mouseX -= node.offsetLeft;
-mouseY -= node.offsetTop;
-}*/
-
-
-/* the new way: simpler creation of raycaster */
-/* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
-var mouseVector = new THREE.Vector3( 
-2 * (mouseX / canvasWidth) - 1,                               
-1 - 2 * (mouseY / canvasHeight));
-
-//debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
-//var raycaster = projector.pickingRay( mouseVector.clone(), camera );
-
-//https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
-
-var raycaster = new THREE.Raycaster(); 
-var mouse = new THREE.Vector2();   
-
-// calculate mouse position in normalized device coordinates
-// (-1 to +1) for both components
-mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+                /*
+                while (node.offsetParent){
+                node = node.offsetParent;
+                mouseX -= node.offsetLeft;
+                mouseY -= node.offsetTop;
+                }*/
 
 
-//Adjusts the direction of the ray to point at the vector in world coordinates.
-//camera.lookAt( scene.position );
+                /* the new way: simpler creation of raycaster */
+                /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+                var mouseVector = new THREE.Vector3( 
+                2 * (mouseX / canvasWidth) - 1,                               
+                1 - 2 * (mouseY / canvasHeight));
 
-// update the picking ray with the camera and mouse position
-raycaster.setFromCamera( mouse, camera );
+                //debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+                //var raycaster = projector.pickingRay( mouseVector.clone(), camera );
 
-var intersects = raycaster.intersectObjects( objects );
-console.log("intersects",intersects)
+                //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
 
-if (intersects.length > 0) {
-// intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
-intersects[ 0 ].object.name;
-var intobjname = intersects[ 0 ].object.userData.name;
-intobjname ="WHATEVER";
+                var raycaster = new THREE.Raycaster(); 
+                var mouse = new THREE.Vector2();   
 
-// get the district Id from the mushroom
-var distrcit_Id=intersects[0].object.parent.userData.distrctId
+                // calculate mouse position in normalized device coordinates
+                // (-1 to +1) for both components
+                mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+                mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
 
-dataexplore_csv(distrcit_Id);
 
-console.log("distrcit_Id",distrcit_Id)
+                //Adjusts the direction of the ray to point at the vector in world coordinates.
+                //camera.lookAt( scene.position );
 
-var id = intersects[0].object.id;
+                // update the picking ray with the camera and mouse position
+                raycaster.setFromCamera( mouse, camera );
 
-console.log("intersects:" + id);
+                var intersects = raycaster.intersectObjects( objects );
+                console.log("intersects",intersects)
 
-/*
-var sphereGeom = new THREE.SphereGeometry(10);
-var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
+                if (intersects.length > 0) {
+                // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+                intersects[ 0 ].object.name;
+                var intobjname = intersects[ 0 ].object.userData.name;
+                intobjname ="WHATEVER";
 
-var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
-sphere.position = intersects[ 0 ].point;
-scene.add( sphere );
-*/
+                // get the district Id from the mushroom
+                var distrcit_Id=intersects[0].object.parent.userData.distrctId
 
-}
+                dataexplore_csv(distrcit_Id);
+
+                console.log("distrcit_Id",distrcit_Id)
+
+                var id = intersects[0].object.id;
+
+                console.log("intersects:" + id);
+
+                /*
+                var sphereGeom = new THREE.SphereGeometry(10);
+                var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
+
+                var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
+                sphere.position = intersects[ 0 ].point;
+                scene.add( sphere );
+                */
+
+                }
         }
-        //console.log("objects",objects);
-     
-
-        /*
-        // Parse all the faces, for when you are using face materials
-        for ( var i in intersects ) {
-          intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
-        }
-        */
+    
       }
 
 
