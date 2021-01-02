@@ -276,6 +276,8 @@
         };
       }
 
+      var exploreobjects=[]; //Add Detected carousel objects to this array
+
       function carouselinit() {
         var metaphorDescriptor = new MetaphorDescriptor(
           0,
@@ -298,11 +300,38 @@
 
         console.log(dataExplorer);
 
+
         // staticMapGroup.add(parent.metaphor);
         scene.add(parent.metaphor);
+
+        parent.metaphor.userData.name = "parentMetaphor"; //Level1-Carousel
+        console.log("PARENT",parent.metaphor)
+
+
+        //Since parent.metaphor type is a "Group" , do add children which type="Mesh"
+        for(var i=0; i< parent.metaphor.children.length;i++ ){
+          parent.metaphor.children[i].name="parentMetaphorChildren";
+            exploreobjects.push(parent.metaphor.children[i])
+
+        }
+        console.log("EXPLORE",exploreobjects);
+
       }
 
       function removecarousel(){
+      console.log("REMOVE")
+      for( var i = scene.children.length - 1; i >= 0; i--) { 
+          obj = scene.children[i];
+          // if(obj=="Mesh"){
+          //   scene.remove(scene.children[i]); 
+
+          // }
+           console.log("SCENE CHILDREN", scene.children)
+           if(obj.userData.name=="parentMetaphor" ){
+            scene.remove(obj); 
+
+        }
+     }
 
       }
 
@@ -485,6 +514,13 @@
               true
             );
             console.log("Child-intersects", intersects);
+
+            console.log(intersects[0].object.name)
+            if(intersects.length>0){
+             removecarousel();
+
+            }
+
             // console.log("allActiveNodes",allActiveNodes);
             var time = new Date() * 0.001;
             for (i = 0; i < intersects.length; i++) {
@@ -797,7 +833,7 @@
             }
           });
         });
-
+        shroomGroup.userData.name = "Mushrooms"; 
         scene.add(shroomGroup);
       }
 
@@ -806,7 +842,6 @@
 
       function onDocumentMouseDown(event) {
 
-      
           event.preventDefault();
 
                 /*getBoundingClientRect() -->
@@ -864,13 +899,13 @@
                 raycaster.setFromCamera( mouse, camera );
 
                 var intersects = raycaster.intersectObjects( objects );
-                console.log("intersects",intersects)
+                console.log("intersectsMUSHROOMCLICK",intersects)
 
                 if (intersects.length > 0) {
                 // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
                 intersects[ 0 ].object.name;
-                var intobjname = intersects[ 0 ].object.userData.name;
-                intobjname ="WHATEVER";
+                // var intobjname = intersects[ 0 ].object.userData.name;
+                // intobjname ="WHATEVER";
 
                 // get the district Id from the mushroom
                 var distrcit_Id=intersects[0].object.parent.userData.distrctId
@@ -882,6 +917,8 @@
                 var id = intersects[0].object.id;
 
                 console.log("intersects:" + id);
+                console.log("NAME",intersects[0]);
+
 
                 /*
                 var sphereGeom = new THREE.SphereGeometry(10);
@@ -891,10 +928,9 @@
                 sphere.position = intersects[ 0 ].point;
                 scene.add( sphere );
                 */
-
+    
                 
         }
-    
       }
 
 
@@ -1020,7 +1056,7 @@
         raycaster.setFromCamera(mouse, camera);
         {
           var intersects = raycaster.intersectObjects(objects);
-          console.log("objectssssssssssssssssss",intersects);
+          //console.log("objectssssssssssssssssss",intersects);
 
           if (intersects.length > 0) {
             latestMouseProjection = intersects[0].point;
@@ -1050,8 +1086,7 @@
         handleManipulationUpdate();
       }
 
-     
-
+    
 
     </script>
   </body>
