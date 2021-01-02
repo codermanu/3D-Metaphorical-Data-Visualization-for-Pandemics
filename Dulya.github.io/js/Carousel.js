@@ -19,7 +19,7 @@ function createCarousel(node, hasMiddle) {
 
         var segmentPortion=360/numOfSegments;
         var color=Math.random() * 0xffff00;
-        var segment=createSegment(300,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent); 
+        var segment=createSegment(250,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent, numOfSegments);
         startAngle+=segmentPortion;
 
         // create a canvas element
@@ -40,7 +40,7 @@ function createCarousel(node, hasMiddle) {
         );
         
 
-        mesh.position.set(segment.getinsidepoint().x+90,segment.getinsidepoint().y+10,segment.getinsidepoint().z+10);
+        mesh.position.set(segment.getinsidepoint().x+90,segment.getinsidepoint().y+10,segment.getinsidepoint().z+90);
         segment.add( mesh );         
         //end : create canvas element
 
@@ -108,7 +108,7 @@ function createMiddleButton(node) {
     return sphere;
 }
 			
-function createSegment(radius, angleStart, angleEnd, color, dimension, carousel) {
+function createSegment(radius, angleStart, angleEnd, color, dimension, carousel, numOfSegments) {
     var extrOpt = {
         curveSegments: 32,
         steps: 1,
@@ -123,7 +123,7 @@ function createSegment(radius, angleStart, angleEnd, color, dimension, carousel)
     shape.lineTo(0, 0);  
     
     var segmentGeom = new THREE.ExtrudeGeometry( shape, extrOpt );
-    segmentGeom.rotateX(-Math.PI / 2);
+    // segmentGeom.rotateX(0);
 
     var segmentMat = new THREE.MeshLambertMaterial({
         color: color
@@ -153,11 +153,18 @@ function createSegment(radius, angleStart, angleEnd, color, dimension, carousel)
 
     segment.getinsidepoint = function() {
 
-        var radians = (this.userData.angleEnd + this.userData.angleStart) * 0.5;
-        var vx = Math.cos(radians);
-        var vz = -Math.sin(radians);
+        var radians = (this.userData.angleEnd + this.userData.angleStart) * 0.5 - Math.PI / numOfSegments;
+        var vy = Math.cos(radians) + Math.sin(radians);
+        var vx = -Math.sin(radians) + Math.cos(radians);
+        // var vz = -Math.cos(radians);
         var sinTime = 0.6;
-        return {x:sinTime * vx * 200, y: this.userData.initialPosition.y, z:sinTime * vz * 200};
+        return {y:sinTime * vy * 200, x: sinTime * vx * 200, z:this.userData.initialPosition.z};
+
+        // var radians = (this.userData.angleEnd + this.userData.angleStart) * 0.5;
+        // var vx = Math.cos(radians);
+        // var vz = -Math.sin(radians);
+        // var sinTime = 0.6;
+        // return {x:sinTime * vx * 200, y: this.userData.initialPosition.y, z:sinTime * vz * 200};
     }
 
     segment.select = function (dataExplorer) {

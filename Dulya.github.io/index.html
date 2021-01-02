@@ -287,12 +287,12 @@
 		var subdimensions;
 		//fields in the dataset - caseid,boundaryid,lat,lon,death,gender,age,period,fogg
 		//dimensional fields - death, gender, age, period, fogg
-		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon","contacts","district","underlying_conditions","place_of_death"];
+		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon","contacts","district","underlying_conditions","place_of_death","wardname"];
 		function loadDataset(polygon, callback) {
 			console.log("loading dataset...");
 			//d3.js - parse and prepare common input formats
 			//converts a CSV file into an array of objects - all string values
-			d3.csv("dataset/Covid19.csv", function (data) {
+			d3.csv("dataset/Covid19_ward_data_final.csv", function (data) {
 				//d3.csv("dataset/final (copy).csv", function (data) {
 				
 				//select cases according to the given boundary
@@ -348,14 +348,14 @@
 
 			//conditions for selecting subdimesnions
 			var isSubdimension = function (dimArray) {
-				var threshold = (dataset.length * 10) / 100;
-				if (!dimArray.some(isNaN)) {
-					return false;
-				}
-
-				if (dimArray.length >= threshold) {
-					return false;
-				}
+				// var threshold = (dataset.length * 10) / 100;
+				// if (!dimArray.some(isNaN)) {
+				// 	return false;
+				// }
+				//
+				// if (dimArray.length >= threshold) {
+				// 	return false;
+				// }
 
 				return true;
 			}
@@ -377,7 +377,7 @@
 		var centerCords = new THREE.Vector2();
 		var PLANE_SIZE = 2000;
 		var MAP_SIZE = 512;
-		var ZOOM = 10; //Static Map zoom
+		var ZOOM = 15; //Static Map zoom
 		
 		var webGLRenderer, dynamicMapRenderer, canvasRenderer, labelRenderer;
 		var controls;
@@ -521,7 +521,7 @@
 						var groundMaterial = new THREE.MeshLambertMaterial({ map: groundTexture });
 						
 						staticMap = new THREE.Mesh(new THREE.PlaneBufferGeometry(PLANE_SIZE, PLANE_SIZE), groundMaterial); //2000,2000
-						staticMap.position.y = - 250;
+						staticMap.position.y = - 350;
 						staticMap.rotation.x = - Math.PI / 2;
 						staticMap.receiveShadow = true;
 						staticMapGroup.add(staticMap);
@@ -606,16 +606,16 @@
 						});
 						addListenersOnWards(ward);
 						ward.setMap(map);
-						//map.setZoom(12.5);
+						map.setZoom(12.5);
 						//Zoom out to display whole Sri Lanka
-						map.setZoom(8);
+						// map.setZoom(8);
 					}
 				}
 			});
 
 		    
-			myParser.parse('District2.kml');
-			//myParser.parse('doc.kml');
+			//myParser.parse('District2.kml');
+			myParser.parse('doc.kml');
 			//myParser.parse('https://dulya.github.io/doc.kml');
 		
 		}
@@ -713,12 +713,20 @@
 			document.body.appendChild(second_stage_Container);
 
 			//add marker cone to staticMapGroup
-			var geometry = new THREE.ConeGeometry(40, 550, 32);
-			var material = new THREE.MeshBasicMaterial({ color: 0XFF0000 });
-			cone = new THREE.Mesh(geometry, material);
-			cone.position.y = -100;
-			cone.scale.y = 0.6;
-			staticMapGroup.add(cone);
+			// var geometry = new THREE.ConeGeometry(40, 550, 32);
+			// var material = new THREE.MeshBasicMaterial({ color: 0XFF0000 });
+			// cone = new THREE.Mesh(geometry, material);
+			// cone.position.y = -100;
+			// cone.scale.y = 0.6;
+			// staticMapGroup.add(cone);
+
+			//add trunk to staticMapGroup
+			var trunkGeometry = new THREE.CylinderGeometry(40, 40, 550, 32);
+			var trunkMaterial = new THREE.MeshBasicMaterial({ color: 0xA0522D });
+			trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+			trunk.position.y = -180;
+			trunk.scale.y = 0.6;
+			staticMapGroup.add(trunk);
 
 
 			scene.add(dynamicMapGroup);
@@ -869,7 +877,7 @@
 		}
 		function startDragCone(mouseEvent){
 			isConeDragging = false;
-			if(checkMouseIntersect(cone, mouseEvent)){
+			if(checkMouseIntersect(trunk, mouseEvent)){
 				isConeDragging = true;
 				controls.saveState(); // save the state
 			}
@@ -880,7 +888,7 @@
 				var intersect = checkMouseIntersect(staticMap, mouseEvent);
 				
 				if(intersect){
-					cone.position.set(intersect.point.x, cone.position.y, intersect.point.z);
+					trunk.position.set(intersect.point.x, trunk.position.y, intersect.point.z);
 					var ward = getWardOnConePosition();
 					if(ward != null){
 						updateConeLabel(ward.name);
@@ -904,15 +912,15 @@
 				}
 				
 				updateConeLabel("");
-				cone.position.set(0, cone.position.y, 0);
+				trunk.position.set(0, trunk.position.y, 0);
 				isConeDragging = false;
 				controls.reset();
 			}		
 		}
 		function updateConeLabel(msg){
 			var container=null;
-			if(cone.children.length>0){
-				container = cone.children[0];
+			if(trunk.children.length>0){
+				container = trunk.children[0];
 				container.children[0].element.innerHTML=msg;
 			}else{
 				container = new THREE.Group();
@@ -922,10 +930,10 @@
 				moonDiv.textContent = msg;
 				moonDiv.style.marginTop = '-1em';
 				var moonLabel = new THREE.CSS2DObject(moonDiv);
-				moonLabel.position.set(cone.position.x, cone.position.y+100, cone.position.z);
+				moonLabel.position.set(trunk.position.x, trunk.position.y+100, trunk.position.z);
 
 				container.add(moonLabel);
-				cone.add(container);
+				trunk.add(container);
 			}
 			
             
@@ -941,7 +949,7 @@
 					}
 				};
 				
-				var vector = new THREE.Vector3().copy( cone.position );
+				var vector = new THREE.Vector3().copy( trunk.position );
 				
 				staticMap.worldToLocal( vector );
 				
