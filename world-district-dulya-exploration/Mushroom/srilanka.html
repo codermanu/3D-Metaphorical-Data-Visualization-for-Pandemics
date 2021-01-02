@@ -942,9 +942,10 @@
       var latestMouseProjection; 
       // this is the latest projection of the mouse on object (i.e. intersection with ray)
       var hoveredObj; 
-      var hovered_totalCases
-      var hovered_totalDeaths
-      var hovered_totalRecovered
+      var hovered_totalCases;
+      var hovered_totalDeaths;
+      var hovered_totalRecovered;
+      var hovered_districtName
       // this objects is hovered at the moment
 
       // tooltip will not appear immediately. If object was hovered shortly,
@@ -983,48 +984,56 @@
 
          // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
 
-           console.log("TOOLTIPTEXT",hoveredObj.id);
+        TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
+        //  console.log("TOOLTIPTEXT",hoveredObj.id);
 
-          const districts = [
-                  { name: "Ampara", id: 16},
-                  { name: "Anuradhapura", id:20 },
-                  { name:"Badulla",  id:24 },
-                  { name:"Batticaloa",  id:28 },
-                  { name:"Colombo",  id:32 },
-                  { name:"Galle",  id:36 },
-                  { name:"Gampaha",  id:40},
-                  { name:"Hambantota",  id:44},
-                  { name:"Jaffna",  id:48 },
-                  { name:"Kalutara",  id:52 },
-                  { name:"Kandy",  id:56},
-                  { name:"Kegalle",  id:60 },
-                  { name:"Kilinochchi",  id:64},
-                  { name:"Kurunegala",  id:68},
-                  { name:"Mannar",  id:72 },
-                  { name:"Matale",  id:76},
-                  { name:"Matara",  id:80},
-                  { name:"Moneragala", id:84 },
-                  // { name:"Mullaitivu",  id:88 },
-                  { name:"Nuwara Eliya",  id:88},
-                  { name:"Polonnaruwa",  id:92},
-                  { name:"Puttalam", id:96},
-                  { name:"Ratnapura",  id:100},
-                  { name:"Trincomalee",  id:104},
-                  { name:"Vavuniya",  id:108 }
+        // const districts = [
+        //         { name: "Ampara", id: 16},
+        //         { name: "Anuradhapura", id:20 },
+        //         { name:"Badulla",  id:24 },
+        //         { name:"Batticaloa",  id:28 },
+        //         { name:"Colombo",  id:32 },
+        //         { name:"Galle",  id:36 },
+        //         { name:"Gampaha",  id:40},
+        //         { name:"Hambantota",  id:44},
+        //         { name:"Jaffna",  id:48 },
+        //         { name:"Kalutara",  id:52 },
+        //         { name:"Kandy",  id:56},
+        //         { name:"Kegalle",  id:60 },
+        //         { name:"Kilinochchi",  id:64},
+        //         { name:"Kurunegala",  id:68},
+        //         { name:"Mannar",  id:72 },
+        //         { name:"Matale",  id:76},
+        //         { name:"Matara",  id:80},
+        //         { name:"Moneragala", id:84 },
+        //         // { name:"Mullaitivu",  id:88 },
+        //         { name:"Nuwara Eliya",  id:88},
+        //         { name:"Polonnaruwa",  id:92},
+        //         { name:"Puttalam", id:96},
+        //         { name:"Ratnapura",  id:100},
+        //         { name:"Trincomalee",  id:104},
+        //         { name:"Vavuniya",  id:108 }
 
-                ];
+        //       ];
 
-                for (let i = 0; i < districts.length; i++) {
+        //     //   for (let i = 0; i < districts.length; i++) {
 
-                if(hoveredObj.id==districts[i].id){
-                  TOOLTIPTEXT =districts[i].name;
-                }
+        //     //   if(hoveredObj.id==districts[i].id){
+        //     //      =districts[i].name;
+        //     //   }
 
-              }
+        //     // }
+        //     TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
 
-          //divElement.find('span').text(hoveredObj.userData.tooltipText);
-          divElement.find('span').text( TOOLTIPTEXT );
+        //divElement.find('span').text(hoveredObj.userData.tooltipText);
+        // divElement.find('span').text( TOOLTIPTEXT );
 
+          divElement.find('span').html(hovered_districtName+
+          "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
+          "Recovered: "+hovered_totalRecovered+"<br>"+
+          "Deaths: "+hovered_totalDeaths+"<br>" )
+
+         
           setTimeout(function() {
             divElement.css({
               opacity: 1.0
@@ -1061,6 +1070,11 @@
           if (intersects.length > 0) {
             latestMouseProjection = intersects[0].point;
             hoveredObj = intersects[0].object;
+            hovered_totalCases=intersects[0].object.parent.userData.totalcases;
+            hovered_totalDeaths=intersects[0].object.parent.userData.died;
+            hovered_totalRecovered=intersects[0].object.parent.userData.recovered;
+            hovered_districtName=intersects[0].object.parent.userData.districtName;
+            // console.log(hovered_totalCases)
           }
         }
 
