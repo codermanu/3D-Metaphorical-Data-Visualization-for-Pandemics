@@ -7,6 +7,8 @@
       name="viewport"
       content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+
+    <!-- 2D CHARTS -->
     <script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js></script>
     <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -52,6 +54,9 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css">
 
+    <link rel="stylesheet" href="./css/dulya.css" type="text/css">
+
+
     <!-- DataExplorer : CAROUSEL-->
     <script src="DistrictDataExplorer/controls/OrbitControls.js"></script>
     <script src="DistrictDataExplorer/renderers/CSS3DRenderer.js"></script>
@@ -85,10 +90,10 @@
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     <script src="https://d3js.org/d3-request.v1.min.js"></script>
     
-
+   <!-- 2D Charts -->
     <div id="myModal" class="modal">
 		<span class="close" id="close_btn">&times;</span>
-		<canvas id="chart" ></canvas>
+		<canvas id="chart" width="450px" height="400px"></canvas>
 	  </div>
     
     <!-- <script src="cone.js"></script> -->
@@ -221,7 +226,7 @@
         console.log("Main dimensions info = ", subdimensions);
         console.log("##########################");
 
-        carouselinit() 
+       // carouselinit() 
       });
 
       //conditions for selecting subdimesnions
@@ -424,7 +429,7 @@
         window.addEventListener("resize", onWindowResize, false);
 
         //This listener will be watching for click events
-        //document.addEventListener("mousedown", onDocumentMouseDown, false);
+        document.addEventListener("mousedown", onDocumentMouseDown, false);
 
       }
            
