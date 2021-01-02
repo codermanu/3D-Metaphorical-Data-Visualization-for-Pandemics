@@ -94,7 +94,37 @@
     <div id="myModal" class="modal">
 		<span class="close" id="close_btn">&times;</span>
 		<canvas id="chart" width="450px" height="400px"></canvas>
-	  </div>
+    </div>
+
+    <!-- ADD MAIN TITLE -->
+    <div id="mymenu" class="mymenu">
+      <span id="maintitle" style="font-size:18px;margin-top: 10px;">COVID-19 Data Visualization for Sri Lanka - District Level</span>
+      <br/>
+      <a href="#" class="btnMenu" title="World Level">World Level</a>
+      <br>
+      <a href="#" class="btnMenu" title="Ward Level">Ward Level</a>
+
+
+      <!-- <a href="index.html" class="btnMenu" title="Back to main map">
+        <img src="images/map_button.png" alt="Main Map" style="width:42px;height:42px;border:0">
+        Main Map
+      </a> -->
+    </div>
+    <script>
+      function showMenu(){
+        var menu = document.getElementById("mymenu");
+        menu.style.display = "block";
+      }
+      function hideMenu(){
+        var menu = document.getElementById("mymenu");
+        menu.style.display = "none";
+      }
+      function changeMenuTitle(txt){
+        var title = document.getElementById("maintitle");
+        title.innerHTML = txt;
+      }
+      showMenu();
+    </script>
     
     <!-- <script src="cone.js"></script> -->
     <script>
@@ -174,11 +204,13 @@
       //var boundaryId=48;
       var fields = [];
       var subdimensions;
-      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
+      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon", "district"];
       
 
     function dataexplore_csv() {
-          d3.csv("./DistrictDataExplorer/data_full.csv", function (data) {
+         // d3.csv("./DistrictDataExplorer/data_full.csv", function (data) {
+            d3.csv("./dataset-district/converted.csv", function (data) {
+
             console.log("csv data", data);
             //select cases according to the given boundary
             dataset = data.filter(function (report) {
