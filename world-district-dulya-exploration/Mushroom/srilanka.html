@@ -302,6 +302,10 @@
         scene.add(parent.metaphor);
       }
 
+      function removecarousel(){
+
+      }
+
       function init() {
         // console.log(districtWithpxl);
         container = document.createElement("div");
@@ -480,8 +484,8 @@
               children_segments,
               true
             );
-            console.log("intersects", intersects);
-            //console.log(allActiveNodes);
+            console.log("Child-intersects", intersects);
+            // console.log("allActiveNodes",allActiveNodes);
             var time = new Date() * 0.001;
             for (i = 0; i < intersects.length; i++) {
               if (
@@ -767,8 +771,8 @@
           index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
           index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
           index.model.children[0].material.map.repeat.set(3, 1);
-          index.model.userData={distrctId:dataset[0],totalcases:dataset[1],recovered:dataset[2],died:dataset[3],districtName:dataset[7]}
-          console.log(index.model)
+          index.model.userData= {distrctId:dataset[0],totalcases:dataset[1],recovered:dataset[2],died:dataset[3],districtName:dataset[7]}
+          // console.log(index.model)
        
           // adding the single mushroom
           index.model.position.copy(
@@ -801,12 +805,8 @@
       
 
       function onDocumentMouseDown(event) {
-        if(isCarouselSelected){
-          scene.remove(parent.metaphor)
-          isCarouselSelected = false
 
-        }else{
-          isCarouselSelected = true
+      
           event.preventDefault();
 
                 /*getBoundingClientRect() -->
@@ -892,7 +892,7 @@
                 scene.add( sphere );
                 */
 
-                }
+                
         }
     
       }
@@ -903,8 +903,13 @@
       // this will be 2D coordinates of the current mouse position, [0,0] is middle of the screen.
       var mouse = new THREE.Vector2();
 
-      var latestMouseProjection; // this is the latest projection of the mouse on object (i.e. intersection with ray)
-      var hoveredObj; // this objects is hovered at the moment
+      var latestMouseProjection; 
+      // this is the latest projection of the mouse on object (i.e. intersection with ray)
+      var hoveredObj; 
+      var hovered_totalCases
+      var hovered_totalDeaths
+      var hovered_totalRecovered
+      // this objects is hovered at the moment
 
       // tooltip will not appear immediately. If object was hovered shortly,
       // - the timer will be canceled and tooltip will not appear at all.
@@ -1015,7 +1020,7 @@
         raycaster.setFromCamera(mouse, camera);
         {
           var intersects = raycaster.intersectObjects(objects);
-          //console.log("objectssssssssssssssssss",objects);
+          console.log("objectssssssssssssssssss",intersects);
 
           if (intersects.length > 0) {
             latestMouseProjection = intersects[0].point;

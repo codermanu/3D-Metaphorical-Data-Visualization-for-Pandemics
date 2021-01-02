@@ -27,7 +27,6 @@ function createCarousel(node, hasMiddle) {
         var context = canvas.getContext("2d");
         context.font = "Bold 36px Arial";
         context.fillStyle = "rgb(255,255,255)";
-        console.log(node)
         //context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
         context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
         var texture = new THREE.Texture(canvas) 

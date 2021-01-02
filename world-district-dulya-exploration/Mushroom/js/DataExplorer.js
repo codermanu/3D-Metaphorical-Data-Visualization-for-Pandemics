@@ -257,6 +257,7 @@ DataExplorer.prototype.segmentClick = function (segment) {
     clearpath(X, a) would remove Y, W, Z, V
 */ 
 DataExplorer.prototype.clearpath = function(node, dimension) {
+    console.log("dataExplorere clear path")
     var level = node.metaphorDescriptor.level;
     var segment = node.metaphor.userData.segments[dimension];
     console.log("clearing path of level", level," dimension", dimension);
