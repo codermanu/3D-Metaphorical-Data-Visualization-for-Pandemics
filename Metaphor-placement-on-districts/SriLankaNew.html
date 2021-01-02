@@ -84,7 +84,6 @@
 
 
     <!-- <script src="./DataExplorer/data_full.csv"></script> -->
-
     <script src="https://d3js.org/d3-collection.v1.min.js"></script>
     <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
@@ -897,7 +896,11 @@
          //initCarousel(); //load carousel when clicked mushroom - onClickMushroom.js
 
          // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
-          intersects[ 0 ].object.name;
+         intersects[ 0 ].object.name;
+         var intobjname = intersects[ 0 ].object.userData.name;
+         intobjname ="WHATEVER";
+
+          console.log("BLAHHHHHHH", intobjname)
 
           var id = intersects[0].object.id;
           console.log("intersects:" + id);
