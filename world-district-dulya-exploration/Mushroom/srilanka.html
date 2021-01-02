@@ -7,6 +7,16 @@
       name="viewport"
       content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+
+    <!-- 2D CHARTS -->
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js></script>
+    <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"
+    />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
     <style>
       body {
         font-family: Monospace;
@@ -30,19 +40,33 @@
     <script src="js/geoxml3.js"></script>
     <script src="js/encode.js"></script>
     <script src="js/PlanetoMap.js"></script>
+    <script src="js/CaseVisualizer.js"></script>
+    <script src="js/GlobalFunctions.js"></script>
+    <script src="js/DataVisualizer.js"></script>
 
-   
 
-    
+    <!-- carousel libs files -->
     <script src="js/libs/lodash.js"></script>
+    <script src="js/libs/stats.min.js"></script>
+    <script src="js/libs/tween.min.js"></script>
 
-    <script src="./threejs/build/three.min.js"></script>
-    <script src="./cs291-master/lib/Coordinates.js"></script>
+    <!-- carousel renderers files -->
+    <script src="js/renderers/CanvasRenderer.js"></script>
+    <script src="js/renderers/Projector.js"></script>
+    <script src="js/renderers/CSS3DRenderer.js"></script>
+    <script src="js/renderers/CSS2DRenderer.js"></script>
+
+
+    <!-- <script src="./threejs/build/three.min.js"></script> -->
+    <!-- <script src="./cs291-master/lib/Coordinates.js"></script> -->
     <script src="./cs291-master/lib/OrbitAndPanControls.new.js"></script>
-    <script src="./cs291-master/lib/dat.gui.min.js"></script>
-    <script src="./tween.js-master/src/Tween.js"></script>
+    <!-- <script src="./cs291-master/lib/dat.gui.min.js"></script> -->
+    <!-- <script src="./tween.js-master/src/Tween.js"></script> -->
     <script src="./js/mushroom.js"></script>
     <script src="./js/distrctwithpixce.js"></script>
+
+    <script src="js/controls/OrbitControls.js"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
     <script src="js/OrbitControl.js"></script>
@@ -50,7 +74,7 @@
 
     <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script> -->
     <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/renderers/CSS3DRenderer.js"></script>
-    <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script> -->
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js"></script>
 
     <!-- Load the csv file -->
 
@@ -60,12 +84,21 @@
     <script src="https://d3js.org/d3-request.v1.min.js"></script>
     <script src="js/loaders/OBJLoader.js"></script>
 
+    <!-- 2D Charts -->
+    <div id="myModal" class="modal">
+    <span class="close" id="close_btn">&times;</span>
+    <canvas id="chart" width="450px" height="400px"></canvas>
+    </div>
+
     <!-- Tooltip -->
     <script
       type="text/javascript"
       src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"
     ></script>
     <link rel="stylesheet" href="./css/tooltip.css" type="text/css" />
+
+    <link rel="stylesheet" href="./css/dataexplore.css" type="text/css" />
+
 
     <!-- <script src="explorer/onClickMushroom.js"></script> -->
 
