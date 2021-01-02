@@ -17,6 +17,32 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
     <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
+     <!-- ADD MAIN TITLE -->
+    <div id="mymenu" class="mymenu">
+    <span id="maintitle" style="font-size:18px;margin-top: 10px;">COVID-19 Data Visualization for Sri Lanka - District Level</span>
+    <br/>
+    <a href="#" class="btnMenu" title="World Level">World Level</a>
+    <br>
+    <a href="#" class="btnMenu" title="Ward Level">Ward Level</a>
+    </div>
+
+    <script>
+      function showMenu(){
+        var menu = document.getElementById("mymenu");
+        menu.style.display = "block";
+      }
+      function hideMenu(){
+        var menu = document.getElementById("mymenu");
+        menu.style.display = "none";
+      }
+      function changeMenuTitle(txt){
+        var title = document.getElementById("maintitle");
+        title.innerHTML = txt;
+      }
+      showMenu();
+    </script>
+    
+
     <style>
       body {
         font-family: Monospace;
