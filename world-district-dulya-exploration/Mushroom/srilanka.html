@@ -302,6 +302,7 @@
         scene.add(parent.metaphor);
       }
 
+
       function removecarousel(){
 
       }
@@ -906,9 +907,10 @@
       var latestMouseProjection; 
       // this is the latest projection of the mouse on object (i.e. intersection with ray)
       var hoveredObj; 
-      var hovered_totalCases
-      var hovered_totalDeaths
-      var hovered_totalRecovered
+      var hovered_totalCases;
+      var hovered_totalDeaths;
+      var hovered_totalRecovered;
+      var hovered_districtName
       // this objects is hovered at the moment
 
       // tooltip will not appear immediately. If object was hovered shortly,
@@ -978,16 +980,21 @@
 
                 ];
 
-                for (let i = 0; i < districts.length; i++) {
+              //   for (let i = 0; i < districts.length; i++) {
 
-                if(hoveredObj.id==districts[i].id){
-                  TOOLTIPTEXT =districts[i].name;
-                }
+              //   if(hoveredObj.id==districts[i].id){
+              //      =districts[i].name;
+              //   }
 
-              }
+              // }
+              TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
 
           //divElement.find('span').text(hoveredObj.userData.tooltipText);
-          divElement.find('span').text( TOOLTIPTEXT );
+          // divElement.find('span').text( TOOLTIPTEXT );
+          divElement.find('span').html(hovered_districtName+
+          "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
+          "Recovered: "+hovered_totalRecovered+"<br>"+
+          "Deaths: "+hovered_totalDeaths+"<br>" )
 
           setTimeout(function() {
             divElement.css({
@@ -1020,11 +1027,17 @@
         raycaster.setFromCamera(mouse, camera);
         {
           var intersects = raycaster.intersectObjects(objects);
-          console.log("objectssssssssssssssssss",intersects);
+          // console.log("objects",intersects);
 
           if (intersects.length > 0) {
             latestMouseProjection = intersects[0].point;
             hoveredObj = intersects[0].object;
+            hovered_totalCases=intersects[0].object.parent.userData.totalcases;
+            hovered_totalDeaths=intersects[0].object.parent.userData.died;
+            hovered_totalRecovered=intersects[0].object.parent.userData.recovered;
+            hovered_districtName=intersects[0].object.parent.userData.districtName;
+            // console.log(hovered_totalCases)
+
           }
         }
 
