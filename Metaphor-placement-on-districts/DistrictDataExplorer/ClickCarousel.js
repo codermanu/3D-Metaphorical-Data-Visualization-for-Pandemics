@@ -1,100 +1,101 @@
-var isCarouselSelected = false;
-		var isCasaroul = true;
+// var isCarouselSelected = false;
+// 		var isCasaroul = true;
 
 
-var mouseDragCount = 0;
-//window.addEventListener('resize', onWindowResize, false);
-//window.addEventListener('mouseup', onMouseUp, false);
-//window.addEventListener('mousedown', onMouseDown, true);
-//window.onmousemove = onMouseMove; //addEventListener('onmousemove', onMouseMove, false);
+// var mouseDragCount = 0;
+// //window.addEventListener('resize', onWindowResize, false);
+// //window.addEventListener('mouseup', onMouseUp, false);
+// //window.addEventListener('mousedown', onMouseDown, false);
+// window.onmousemove = onMouseMove; //addEventListener('onmousemove', onMouseMove, false);
 
-// var isConeDragging = false;
-// 		function onMouseMove(event) {
-// 			//console.log("Moving");
-// 			dragCone(event);
-// 		}
-
-
-function onMouseDown(event) {
-    event.preventDefault();
-   // startDragCone(event);
+// // var isConeDragging = false;
+// // 		function onMouseMove(event) {
+// // 			//console.log("Moving");
+// // 			dragCone(event);
+// // 		}
 
 
-    if (mouseDragCount < 5) {
-
-        var raycaster = new THREE.Raycaster();
-        var mouse = new THREE.Vector2();
-        var intersects;
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-        raycaster.setFromCamera(mouse, camera);
-
-        if (isCasaroul) {
-            var prevNumLevels = dataExplorer.levels.length;
-            // get all segments and buttons in the scene
-            var i = 0;
-            var children_segments = [];
-            var allNodes = dataExplorer.getAllNodes();
-
-            for (i = 0; i < allNodes.length; i++) {
-                children_segments = children_segments.concat(allNodes[i].metaphor.children);
-            }
+// function onMouseDown(event) {
+//     event.preventDefault();
+//    // startDragCone(event);
 
 
-            var intersects = raycaster.intersectObjects(children_segments, true);
-            //console.log(allActiveNodes);											
-            var time = new Date() * 0.001;
-            for (i = 0; i < intersects.length; i++) {
-                if (intersects[i].object.geometry.type == 'ExtrudeGeometry' || intersects[i].object.geometry.type == "SphereGeometry") {
-                    isSegmentClicked = true;
+//     if (mouseDragCount < 5) {
 
-                    // When the user clicks on the button, open the modal
+//         var raycaster = new THREE.Raycaster();
+//         var mouse = new THREE.Vector2();
+//         var intersects;
+//         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+//         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+//         raycaster.setFromCamera(mouse, camera);
 
-                    clickedSlice = intersects[i].object;
+//         if (isCasaroul) {
+//             var prevNumLevels = dataExplorer.levels.length;
+//             // get all segments and buttons in the scene
+//             var i = 0;
+//             var children_segments = [];
+//             var allNodes = dataExplorer.getAllNodes();
 
-                    clickedSlice.select(dataExplorer);
-                    /*
-                    if(clickedSlice.getType() == "segment"){
-                        //clickedDimension = clickedSlice.getDimension();
-                        clickedSlice.select(dataExplorer);
-                    }else if(clickedSlice.getType() == "middle_button"){
-                        clickedSlice.select(dataExplorer);
-                    }*/
+//             for (i = 0; i < allNodes.length; i++) {
+//                 children_segments = children_segments.concat(allNodes[i].metaphor.children);
+//             }
 
 
-                    break;
-                }
-            }
-            /*
-            var curNumLevels = dataExplorer.levels.length;
-            if(curNumLevels>prevNumLevels && curNumLevels>3){
-                var lev = curNumLevels-1;
-                var zooms = [0,0,0,1.36*iniZoom,1.5*iniZoom, 1.7*iniZoom];
+//             var intersects = raycaster.intersectObjects(children_segments, true);
+//             //console.log(allActiveNodes);											
+//             var time = new Date() * 0.001;
+//             for (i = 0; i < intersects.length; i++) {
+//                 if (intersects[i].object.geometry.type == 'ExtrudeGeometry' || intersects[i].object.geometry.type == "SphereGeometry") {
+//                     isSegmentClicked = true;
 
-                var curZoom = controls.target.distanceTo( controls.object.position );
+//                     // When the user clicks on the button, open the modal
+
+//                     clickedSlice = intersects[i].object;
+
+//                     clickedSlice.select(dataExplorer);
+//                     /*
+//                     if(clickedSlice.getType() == "segment"){
+//                         //clickedDimension = clickedSlice.getDimension();
+//                         clickedSlice.select(dataExplorer);
+//                     }else if(clickedSlice.getType() == "middle_button"){
+//                         clickedSlice.select(dataExplorer);
+//                     }*/
+
+
+//                     break;
+//                 }
+//             }
+//             /*
+//             var curNumLevels = dataExplorer.levels.length;
+//             if(curNumLevels>prevNumLevels && curNumLevels>3){
+//                 var lev = curNumLevels-1;
+//                 var zooms = [0,0,0,1.36*iniZoom,1.5*iniZoom, 1.7*iniZoom];
+
+//                 var curZoom = controls.target.distanceTo( controls.object.position );
                 
-                if (curZoom < zooms[lev]){
-                    controls.zoomOut(zooms[lev]);
-                    controls.update();
-                }
+//                 if (curZoom < zooms[lev]){
+//                     controls.zoomOut(zooms[lev]);
+//                     controls.update();
+//                 }
                 
-            }*/
-        }
-    }
-    mouseDragCount = 0;
-}
+//             }*/
+//         }
+//     }
+//     mouseDragCount = 0;
+// }
 
-function checkMouseIntersect(obj, mouseEvent){
-    var raycaster = new THREE.Raycaster();
-    var mouse = new THREE.Vector2();
-    var intersects;
-    mouse.x = (mouseEvent.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(mouseEvent.clientY / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
+// function checkMouseIntersect(obj, mouseEvent){
+//     var raycaster = new THREE.Raycaster();
+//     var mouse = new THREE.Vector2();
+//     var intersects;
+//     mouse.x = (mouseEvent.clientX / window.innerWidth) * 2 - 1;
+//     mouse.y = -(mouseEvent.clientY / window.innerHeight) * 2 + 1;
+//     raycaster.setFromCamera(mouse, camera);
 
-    var intersects = raycaster.intersectObjects([obj], true);
-    if(intersects.length > 0){
-        return intersects[0];
-    }
-    return false;
-}
+//     var intersects = raycaster.intersectObjects([obj], true);
+//     console.log("LEVEL2",intersects)
+//     if(intersects.length > 0){
+//         return intersects[0];
+//     }
+//     return false;
+// }
