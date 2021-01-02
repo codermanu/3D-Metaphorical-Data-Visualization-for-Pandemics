@@ -431,7 +431,7 @@
         // stats = new Stats();
         // container.appendChild(stats.dom);
 
-      document.addEventListener("mousedown", onDocumentMouseDown, false);
+      window.addEventListener("mousedown", onDocumentMouseDown, false);
 
         //This listener will be watching for click events
         // document.addEventListener("mousedown", onDocumentMouseDown, false);
@@ -728,6 +728,7 @@
 
           // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY, capOffsetY
           var index = new Mushroom(capsize, stalkheight, 8, 8, 0.9, 1);
+          
           // calculate the death rate
           if (dataset[3] > 0) {
             let capcolor;
@@ -767,7 +768,9 @@
           index.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
           index.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
           index.model.children[0].material.map.repeat.set(3, 1);
-
+          index.model.userData={distrctId:dataset[0]}
+          console.log(index.model)
+       
           // adding the single mushroom
           index.model.position.copy(
             new THREE.Vector3(pixce_x, pixce_y, pixce_z)
@@ -780,7 +783,7 @@
             objects.push(index.model.children[i]);
           }
 
-          console.log(objects);
+          // console.log(objects);
           mushroomList.push(index);
 
           //use traverse code snippet from udacity cs291
@@ -798,7 +801,7 @@
       /*MUSHROOM ON CLICK*/
 
       function onDocumentMouseDown(event) {
-        //console.log("objects.length:" + objects.length);
+      // console.log("objects.length:" + objects.length);
         //console.log("objects",objects);
         event.preventDefault();
 
@@ -864,11 +867,10 @@
         raycaster.setFromCamera( mouse, camera );
 
         var intersects = raycaster.intersectObjects( objects );
-        //console.log("OBJECTS", objects)
-        // console.log("intersects",intersects)
+        console.log("intersects",intersects)
 
         if (intersects.length > 0) {
-          carouselinit(); //load carousel when clicked mushroom 
+            carouselinit(); //load carousel when clicked mushroom 
 
          // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
          intersects[ 0 ].object.name;
@@ -878,6 +880,7 @@
           console.log("BLAHHHHHHH", intobjname)
 
           var id = intersects[0].object.id;
+          console.log(intersects[0].object.parent.userData.distrctId)
           console.log("intersects:" + id);
 
           if (id == "cap1" || id == "ucap1" || id == "stalk1") {
