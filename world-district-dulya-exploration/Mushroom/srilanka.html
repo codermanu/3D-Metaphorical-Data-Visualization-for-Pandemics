@@ -208,11 +208,10 @@
       importCSV();
       //   drawMushroom();
       animate();
-       dataexplore_csv();
 
-      function dataexplore_csv() {
-        d3.csv("data-explore/data.csv", function (data) {
-          console.log("csv data", data);
+      function dataexplore_csv(district_id) {
+        d3.csv("data-explore/data_full.csv", function (data) {
+          // console.log("csv data", data);
           //select cases according to the given boundary
           dataset = data.filter(function (report) {
             var bid = 0;
@@ -222,11 +221,11 @@
               console.log("error", e);
             }
             // return bid == polygon.indexID;
-            return bid == 26;
+            return bid == parseInt(district_id);
           });
           //select dimensional fields
 
-          console.log("selected dataset", dataset);
+          // console.log("selected dataset", dataset);
           if (dataset.length > 0) {
             fields = Object.keys(dataset[0]).filter(function (key) {
               return nonDimensionalFields.indexOf(key) == -1;
@@ -259,7 +258,7 @@
           console.log("Main dimensions info = ", subdimensions);
           console.log("##########################");
 
-          //carouselinit();
+          carouselinit();
         });
 
         //conditions for selecting subdimesnions
@@ -651,7 +650,7 @@
 
         shroomGroup.position.copy(new THREE.Vector3(0, 0, 0));
 
-        console.log(disc_data_arr);
+        // console.log(disc_data_arr);
 
         // Get the min and max values of totalcases,recoveries,death
         var totalcases_Max = 0;
@@ -799,17 +798,20 @@
       }
 
       /*MUSHROOM ON CLICK*/
+      
 
       function onDocumentMouseDown(event) {
-      // console.log("objects.length:" + objects.length);
+        if(isCarouselSelected){
+          scene.remove(parent.metaphor)
+          isCarouselSelected = false
+
+        }else{
+          isCarouselSelected = true
+        }
         //console.log("objects",objects);
         event.preventDefault();
 
-        // Annoying nested window code: need to subtract offsets for nested windows.
-        // This is not needed if you have just a single window filling the browser
-        // var node = event.srcElement;
-        // var mouseX = event.clientX - node.offsetLeft;
-        // var mouseY = event.clientY - node.offsetTop;
+   
 
 
         /*getBoundingClientRect() -->
@@ -870,7 +872,7 @@
         console.log("intersects",intersects)
 
         if (intersects.length > 0) {
-            carouselinit(); //load carousel when clicked mushroom 
+            // carouselinit(); //load carousel when clicked mushroom 
 
          // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
          intersects[ 0 ].object.name;
@@ -878,9 +880,16 @@
          intobjname ="WHATEVER";
 
           console.log("BLAHHHHHHH", intobjname)
+          // get the district Id from the mushroom
+          var distrcit_Id=intersects[0].object.parent.userData.distrctId
 
+          dataexplore_csv(distrcit_Id);
+
+
+          console.log("distrcit_Id",distrcit_Id)
+          
           var id = intersects[0].object.id;
-          console.log(intersects[0].object.parent.userData.distrctId)
+
           console.log("intersects:" + id);
 
           if (id == "cap1" || id == "ucap1" || id == "stalk1") {
