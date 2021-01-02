@@ -58,6 +58,7 @@
   <div id="tooltip"><span>123</span></div>
 
   <body>
+    <script src="js/three.js"></script>
     <!-- carousel js files -->
     <script src="js/Carousel.js"></script>
     <script src="js/Connector.js"></script>
@@ -83,7 +84,6 @@
     <script src="js/renderers/CSS2DRenderer.js"></script>
 
 
-    <!-- <script src="./threejs/build/three.min.js"></script> -->
     <!-- <script src="./cs291-master/lib/Coordinates.js"></script> -->
     <script src="./cs291-master/lib/OrbitAndPanControls.new.js"></script>
     <!-- <script src="./cs291-master/lib/dat.gui.min.js"></script> -->
@@ -196,6 +196,8 @@
 
       var container, stats;
       var camera, scene, renderer, renderer1, controls;
+      var webGLRenderer, dynamicMapRenderer, canvasRenderer, labelRenderer;
+
 
       var sphere;
       //var cone;
@@ -424,13 +426,12 @@
         controls.maxPolarAngle = Math.PI * 0.5;
         controls.minDistance = 1000;
         controls.maxDistance = 5000;
-
         // performance monitor
 
         // stats = new Stats();
         // container.appendChild(stats.dom);
 
-        window.addEventListener("resize", onWindowResize, false);
+      document.addEventListener("mousedown", onDocumentMouseDown, false);
 
         //This listener will be watching for click events
         // document.addEventListener("mousedown", onDocumentMouseDown, false);
@@ -439,6 +440,8 @@
       var mouseDragCount = 0;
       window.addEventListener("mouseup", onMouseUp, false);
       window.addEventListener("mousedown", onMouseDown, false);
+      window.addEventListener("resize", onWindowResize, false);
+      window.addEventListener('mousemove', onMouseMove, false);
 
       function onMouseUp(event) {
         console.log("MouseUp");
@@ -1052,8 +1055,7 @@
         handleManipulationUpdate();
       }
 
-      window.addEventListener('mousemove', onMouseMove, false);
-      document.addEventListener("mousedown", onDocumentMouseDown, false);
+     
 
 
     </script>
