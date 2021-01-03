@@ -23,7 +23,7 @@ aSource.href = "https://github.com/ladybug-tools/spider-covid-19-viz-3d/";
 
 spnTitle.innerHTML = document.title; // ? document.title : location.href.split( "/" ).pop().slice( 0, - 5 ).replace( /-/g, " " );
 const versionStr = version + "-" + timeStamp + "-" + build;
-spnVersion.innerHTML = versionStr;
+spnVersion.innerHTML = "Covid-19 World Wide data" ;
 //divDescription.innerHTML = document.head.querySelector( "[ name=description ]" ).content;
 
 spnDescription.innerHTML = `
@@ -39,11 +39,7 @@ in interactive 3D using JavaScript <a href="https://threeja.org" target="_blank"
 ////////// Pop-up messages
 
 let messageInfo = `
-<ul>
-	<li title="Or press any key or scroll mouse">Touch the screen to stop rotating</li>
-	<li title="Press left mouse or drag touch to rotate" >Two fingers or mouse wheel to zoom</li>
-	<li title="It may take a few seconds for data to arrive" >Touch the bars to pop-up statistics</li>
-</ul>`;
+`;
 
 let messageOfTheDayStable = `
 <mark>
@@ -55,17 +51,7 @@ New for 2020-05-04
 `;
 
 let messageOfTheDayDev = `
-<mark>
-New for 2020-05-04
-<ul>
-	<li>Nothing new yet</li>
-	<li>In process of moving this project to <a href="https://glitch.com/@theo-armour" target="_blank">Glitch</a></li>
-	<li>See <a href="https://dev.to/theoarmour" target="_blank">posts on Dev.to</a> for details</li>
-	<li>Statistics are from <a href="https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data" target="_blank">wikipedia:Template:COVID-19_pandemic_data</a></li>
-
-
-</ul>
-</mark>`;
+`;
 
 // <li>Nothing new yet</li>
 
@@ -192,35 +178,7 @@ function toggleNewCases ( group = groupCases ) {
 
 function getNotes () {
 
-	divSettings.innerHTML = `
-<details id=detSettings >
-
-		<summary> notes & settings </summary>
-
-		<p>
-			<button onclick=getNotesContent()>show notes</button>
-		</p>
-
-		<p title="View the frames per second and memory used by this page" >
-			<a href="javascript:( () => { const script=document.head.appendChild( document.createElement('script') ); script.onload=() => {const stats=new Stats();document.body.appendChild(stats.dom); requestAnimationFrame( function loop(){ stats.update(); requestAnimationFrame(loop) } ); } ; script.src='https://raw.githack.com/mrdoob/stats.js/master/build/stats.min.js'; })()" >load stats.js</a>
-		</p>
-
-		<p title="View the number of objects that need rendering and the total number of triangles used to create the objects">
-			<button onclick="getRendererInfo()" >getRendererInfo</button>
-		</p>
-
-		<div id=divInfo ></div>
-
-		<p>
-			<label><input id=SETinpSpyBox type=checkbox onchange=GLO.toggleSkyBox(this.checked)> toggle skybox</label>
-		</p>
-
-		<p>
-			<button onclick="SCC.init()" >start screen capture</button><br>
-			<i>Experimental feature. Work-in-progress. In JavaScript developer console, select a small screen before using.</i>
-		</p>
-
-</details>`;
+	divSettings.innerHTML = ``;
 
 }
 
@@ -279,7 +237,7 @@ function getNotesContent () {
 			&bull; The text is huge and leaves much white space. This is so you are not totally distracted while looking at the data.
 		</p>
 
-		<hr>
+	
 
 		<p>US States new cases data coming soon</p>
 
