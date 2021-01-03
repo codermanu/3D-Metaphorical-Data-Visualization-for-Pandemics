@@ -193,6 +193,7 @@
       var dataExplorer;
       var dataVisualizer;
       var caseVisualizer;
+      var CarouselSelected =false;
 
       var container, stats;
       var camera, scene, renderer, renderer1, controls;
@@ -314,6 +315,7 @@
             exploreobjects.push(parent.metaphor.children[i])
 
         }
+
         console.log("EXPLORE",exploreobjects);
 
       }
@@ -322,13 +324,21 @@
       console.log("REMOVE")
       for( var i = scene.children.length - 1; i >= 0; i--) { 
           obj = scene.children[i];
+          line = scene.children[i]
+          grp = scene.children[i]
+
           // if(obj=="Mesh"){
           //   scene.remove(scene.children[i]); 
 
           // }
            console.log("SCENE CHILDREN", scene.children)
-           if(obj.userData.name=="parentMetaphor" ){
+           if(obj.userData.name=="parentMetaphor" || 
+           obj.userData.name=="parentMetaphorChildren"||
+           line.type=="Line" ||
+           line.type=="Group"){
             scene.remove(obj); 
+            scene.remove(line);
+            scene.remove(grp)
 
         }
      }
@@ -515,11 +525,8 @@
             );
             console.log("Child-intersects", intersects);
 
-            console.log(intersects[0].object.name)
-            if(intersects.length>0){
-             removecarousel();
+            console.log("BBBBBBBBBBBBBBBBBB",intersects[0].object.userData.name)
 
-            }
 
             // console.log("allActiveNodes",allActiveNodes);
             var time = new Date() * 0.001;
@@ -901,7 +908,7 @@
                 var intersects = raycaster.intersectObjects( objects );
                 console.log("intersectsMUSHROOMCLICK",intersects)
 
-                if (intersects.length > 0) {
+                if (intersects.length > 0 ){
                 // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
                 intersects[ 0 ].object.name;
                 // var intobjname = intersects[ 0 ].object.userData.name;
@@ -919,6 +926,12 @@
                 console.log("intersects:" + id);
                 console.log("NAME",intersects[0]);
 
+                   
+                }else{
+
+                  removecarousel();
+             
+
 
                 /*
                 var sphereGeom = new THREE.SphereGeometry(10);
@@ -928,7 +941,6 @@
                 sphere.position = intersects[ 0 ].point;
                 scene.add( sphere );
                 */
-    
                 
         }
       }
