@@ -27,13 +27,25 @@ DMT.displayYourMessage = function ( intersected ) {
 
 	WP.dataLinks = c19LinksGlobal.find( link => link.country === line.country && link.region === line.region );
 
-	DMTdivPopUp.innerHTML = `
+	if(index==95){
+		DMTdivPopUp.innerHTML = `
 	<div id=DMTdivIntersected>
 		WP cases: ${ Number( line.cases ).toLocaleString() }<br>
 		WP deaths: ${ Number( line.deaths ).toLocaleString() }<br>
 		WP recoveries: ${ isNaN( Number( line.recoveries ) ) ? "NA" : Number( line.recoveries ).toLocaleString() }<br>
-		<button onclick=WP.getPopUpMore(); title="Click this button to view the charts" >📊 ${ WP.place } case data charts</button></br>
-	</div>`;
+		<a href="../../Mushroom/srilanka.html"> Country Level Data Explore </a>
+		</div>`;
+
+	}else{
+		DMTdivPopUp.innerHTML = `
+	<div id=DMTdivIntersected>
+		WP cases: ${ Number( line.cases ).toLocaleString() }<br>
+		WP deaths: ${ Number( line.deaths ).toLocaleString() }<br>
+		WP recoveries: ${ isNaN( Number( line.recoveries ) ) ? "NA" : Number( line.recoveries ).toLocaleString() }<br>
+		</div>`;
+	}
+
+
 
 };
 
