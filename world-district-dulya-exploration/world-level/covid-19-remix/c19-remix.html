@@ -58,7 +58,7 @@
           </h2>
 
           <div>
-            <span id="spnVersion"></span>
+            <span id="spnVersion" style="font-size: 19px;color: black;"></span>
           </div>
         </header>
 
@@ -67,7 +67,7 @@
         <div id="MASdivMenuAppSwitch"></div>
 
         <details id="setInteractiveLegend" open>
-          <summary>
+          <summary style="display: none;">
             interactive legend
 
             <span class="couponcode"
@@ -78,25 +78,25 @@
             >
           </summary>
 
-          <p class="navLegend" style="background-color: red" title=";-(">
+          <p class="navLegend" style="background-color: yellow" title=";-(">
             <button
               id="butCases"
               class="butLegend"
               onclick="toggleBars(groupCasesWP)"
-              style="background-color: red; color: white; width: 100%"
+              style="background-color: yellow; font-size:20px;color: black; width: 100%"
             >
-              Wikipedia cases&nbsp;
+              Total cases&nbsp;
             </button>
           </p>
 
-          <p class="navLegend" style="background-color: black" title=";-(">
+          <p class="navLegend" style="background-color: red" title=";-(">
             <button
               id="butDeaths"
               class="butLegend"
               onclick="toggleBars(groupDeathsWP)"
-              style="background-color: black; color: white; width: 100%"
+              style="background-color: red;font-size:20px; color: white; width: 100%"
             >
-              Wikipedia Deaths&nbsp;
+              Total Deaths&nbsp;
             </button>
           </p>
 
@@ -105,12 +105,12 @@
               id="butRecoveries"
               class="butLegend"
               onclick="toggleBars(groupRecoveriesWP)"
-              style="background-color: limegreen; width: 100%"
+              style="background-color: limegreen; font-size:20px;width: 100%"
             >
-              Wikipedia Recoveries&nbsp;
+              Total Recoveries&nbsp;
             </button>
           </p>
-
+<!-- 
           <p>
             <label title="Better comparison view of large numbers of cases">
               <input
@@ -132,8 +132,8 @@
               />
               linear heights
             </label>
-          </p>
-          <hr />
+          </p> -->
+          <!-- <hr /> -->
         </details>
         <!--
 
@@ -242,21 +242,12 @@
        DMT.objects = groupCasesWP.children;
 
         DMT.htmlPopUp = `
-			<div id="DMTdivContainer" >
-				<div id="DMTdivHeader">
-					🕷 <span ontouchstart=DMTdivPopUp.hidden=true; onclick=DMTdivPopUp.hidden=true; style=cursor:pointer;float:right;z-index:20; >[ x ]</span>
-				</div>
-				<div id="DMTdivContent" ></div>
-			</div>`;
+	`;
 
         DMTdivContent.innerHTML = `
 				<div id=divMessageTitle ></div>
 				<div id=divReleaseText >dev</div>
-				<div>
-					Access to data from Wikipedia <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic_by_country_and_territory"
-					target="_blank">
-					COVID-19 pandemic by country and territory</a> and 230++ related articles
-				</div>
+		
 				<hr>
 				<div id=divMessageInfo></div>
 				<hr>
@@ -264,21 +255,21 @@
 
 			`;
 
-        divMessageTitle.innerHTML = `<b>${document.title} ~ ${versionStr}</b>`;
+        divMessageTitle.innerHTML = ``;
 
         divMessageInfo.innerHTML = messageInfo;
 
         //MAS.getMenuAppSwitch();
 
-        if (build === "stable") {
-          //MASliJTSstable.style.backgroundColor = "pink";
-          divReleaseText.innerHTML = `<p><mark>"Flagship" chart - most authoritative data and least likely to crash</mark></p>`;
-          divMessageOfTheDay.innerHTML = messageOfTheDayStable;
-        } else {
-          //MASliWPdev.style.backgroundColor = "pink";
-          divReleaseText.innerHTML = `<mark>"Beta version" - chart with new features and likely to have issues</mark>`;
-          divMessageOfTheDay.innerHTML = messageOfTheDayDev;
-        }
+        // if (build === "stable") {
+        //   //MASliJTSstable.style.backgroundColor = "pink";
+        //   divReleaseText.innerHTML = `<p><mark>"Flagship" chart - most authoritative data and least likely to crash</mark></p>`;
+        //   divMessageOfTheDay.innerHTML = messageOfTheDayStable;
+        // } else {
+        //   //MASliWPdev.style.backgroundColor = "pink";
+        //   divReleaseText.innerHTML = `<mark>"Beta version" - chart with new features and likely to have issues</mark>`;
+        //   divMessageOfTheDay.innerHTML = messageOfTheDayDev;
+        // }
 
         detNavMenu.open = window.innerWidth > 640;
 
