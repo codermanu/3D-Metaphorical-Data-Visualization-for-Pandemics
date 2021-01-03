@@ -208,7 +208,7 @@
 
       init();
       importCSV();
-      //   drawMushroom();
+      //drawMushroom();
       animate();
 
       function dataexplore_csv(district_id) {
@@ -278,7 +278,6 @@
         };
       }
 
-      var exploreobjects=[]; //Add Detected carousel objects to this array
 
       function carouselinit() {
         var metaphorDescriptor = new MetaphorDescriptor(
@@ -302,55 +301,36 @@
 
         console.log(dataExplorer);
 
-
         // staticMapGroup.add(parent.metaphor);
         scene.add(parent.metaphor);
 
         parent.metaphor.userData.name = "parentMetaphor"; //Level1-Carousel
-        console.log("PARENT",parent.metaphor)
-
-
-        //Since parent.metaphor type is a "Group" , do add children which type="Mesh"
-        for(var i=0; i< parent.metaphor.children.length;i++ ){
-          parent.metaphor.children[i].name="parentMetaphorChildren";
-            exploreobjects.push(parent.metaphor.children[i])
-
-        }
-
-        console.log("EXPLORE",exploreobjects);
+        //console.log("PARENT",parent.metaphor)
 
       }
 
       function removecarousel(){
-      console.log("REMOVE CAROUSEL")
-      for( var i = scene.children.length - 1; i >= 0; i--) { 
+        console.log("REMOVE CAROUSEL")
+     
+        for( var i = scene.children.length - 1; i >= 0; i--) {
           obj = scene.children[i];
-          line = scene.children[i]
-          grp = scene.children[i]
-
-          // if(obj=="Mesh"){
-          //   scene.remove(scene.children[i]); 
-
-          // }
-           console.log("SCENE CHILDREN", scene.children)
-           if(obj.userData.name=="parentMetaphor" || 
-           obj.userData.name=="parentMetaphorChildren"||
-           line.type=="Line" ||
-           line.type=="Group"){
-            scene.remove(obj); 
-            scene.remove(line);
-            scene.remove(grp);
-
+         //console.log("SCENE CHILDREN", scene.children)
+         if(
+          //obj.userData.name=="parentMetaphor" || 
+          //obj.userData.name=="parentMetaphorChildren"||
+          obj.type=="Line" ||
+          obj.type=="Group"
+          )
+          {
+          scene.remove(obj); 
 
         }
      }
 
-      }
+    }
 
       function removeChart(){
-        console.log("REMOVE CHART")
         document.getElementById("myModal").style.display ="none";
-
       }
 
       function init() {
@@ -536,9 +516,6 @@
             );
             console.log("Child-intersects", intersects);
 
-           // console.log("BBBBBBBBBBBBBBBBBB",intersects[0].object.userData.name)
-
-
             // console.log("allActiveNodes",allActiveNodes);
             var time = new Date() * 0.001;
             for (i = 0; i < intersects.length; i++) {
@@ -573,8 +550,6 @@
                     console.log("not a node",scene.children[i].userData.node)
 
                   }
-
-              
                     
 }
 
@@ -874,112 +849,78 @@
 
       /*MUSHROOM ON CLICK*/
       
-
       function onDocumentMouseDown(event) {
 
-      console.log("onDocumentMouseDown")
-          event.preventDefault();
+      // console.log("onDocumentMouseDown")
+        event.preventDefault();
 
-                /*getBoundingClientRect() -->
-                gives the element's position relative to the browser's visile viewport.
-                https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-                */  
-                var canvasPosition = renderer.domElement.getBoundingClientRect();
+        /*getBoundingClientRect() -->
+        gives the element's position relative to the browser's visile viewport.
+        https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+        */  
+        var canvasPosition = renderer.domElement.getBoundingClientRect();
 
-                /*clientX/Y  -->  
-                gives the mouse position relative to the browser's visible viewport.
-                */
+        /*clientX/Y  -->  
+        gives the mouse position relative to the browser's visible viewport.
+        */
 
-                /*we then just have to find the difference between the two
-                to get the mouse position in "canvas-space"
-                */
+        /*we then just have to find the difference between the two
+        to get the mouse position in "canvas-space"
+        */
 
-                var mouseX = event.clientX - canvasPosition.left;
-                var mouseY = event.clientY - canvasPosition.top;
+        var mouseX = event.clientX - canvasPosition.left;
+        var mouseY = event.clientY - canvasPosition.top;
 
-                console.log(canvasPosition.left, canvasPosition.top);
-                console.log(mouseX, mouseY);
+        console.log(canvasPosition.left, canvasPosition.top);
+        console.log(mouseX, mouseY);
 
-                /*
-                while (node.offsetParent){
-                node = node.offsetParent;
-                mouseX -= node.offsetLeft;
-                mouseY -= node.offsetTop;
-                }*/
+        /* the new way: simpler creation of raycaster */
+        /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+        var mouseVector = new THREE.Vector3( 
+        2 * (mouseX / canvasWidth) - 1,                               
+        1 - 2 * (mouseY / canvasHeight));
 
+        //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
 
-                /* the new way: simpler creation of raycaster */
-                /* tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
-                var mouseVector = new THREE.Vector3( 
-                2 * (mouseX / canvasWidth) - 1,                               
-                1 - 2 * (mouseY / canvasHeight));
+        var raycaster = new THREE.Raycaster(); 
+        var mouse = new THREE.Vector2();   
 
-                //debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
-                //var raycaster = projector.pickingRay( mouseVector.clone(), camera );
+        // calculate mouse position in normalized device coordinates
+        // (-1 to +1) for both components
+        mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
 
-                //https://stackoverflow.com/questions/29366109/three-js-three-projector-has-been-moved-to
+        //Adjusts the direction of the ray to point at the vector in world coordinates.
+        //camera.lookAt( scene.position );
 
-                var raycaster = new THREE.Raycaster(); 
-                var mouse = new THREE.Vector2();   
+        // update the picking ray with the camera and mouse position
+        raycaster.setFromCamera( mouse, camera );
 
-                // calculate mouse position in normalized device coordinates
-                // (-1 to +1) for both components
-                mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-                mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+        var intersects = raycaster.intersectObjects( objects );
+        //console.log("intersectsMUSHROOMCLICK",intersects)
 
+        if (intersects.length > 0 && isMushroomSelected ){
+        
+        // get the district Id from the mushroom
+        var distrcit_Id=intersects[0].object.parent.userData.distrctId
 
-                //Adjusts the direction of the ray to point at the vector in world coordinates.
-                //camera.lookAt( scene.position );
+        dataexplore_csv(distrcit_Id);
 
-                // update the picking ray with the camera and mouse position
-                raycaster.setFromCamera( mouse, camera );
+        console.log("distrcit_Id",distrcit_Id)
 
-                var intersects = raycaster.intersectObjects( objects );
-                console.log("intersectsMUSHROOMCLICK",intersects)
+        isMushroomSelected =false;
 
-                if (intersects.length > 0 && isMushroomSelected ){
-                // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
-                intersects[ 0 ].object.name;
-                // var intobjname = intersects[ 0 ].object.userData.name;
-                // intobjname ="WHATEVER";
+            
+        }else if(intersects.length > 0 && isMushroomSelected ==false){
 
-                // get the district Id from the mushroom
-                var distrcit_Id=intersects[0].object.parent.userData.distrctId
-
-                dataexplore_csv(distrcit_Id);
-
-                console.log("distrcit_Id",distrcit_Id)
-
-                var id = intersects[0].object.id;
-
-                console.log("intersects:" + id);
-                console.log("NAME",intersects[0]);
-               // var objects=[];
-                isMushroomSelected =false;
-
-                   
-                }else if(intersects.length > 0 && isMushroomSelected ==false){
-
-                  removecarousel();
-                  removeChart();
-                  isMushroomSelected =true;
-
-             
-
-
-                /*
-                var sphereGeom = new THREE.SphereGeometry(10);
-                var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
-
-                var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
-                sphere.position = intersects[ 0 ].point;
-                scene.add( sphere );
-                */
+          removecarousel();
+          removeChart();
+          isMushroomSelected =true;
                 
         }else{
           onMouseDown();
         }
-      }
+    }
 
 
       /*TOOLTIP*/
@@ -1030,52 +971,10 @@
           // var scale = new THREE.Vector3();
           // hoveredObj.matrix.decompose(position, quaternion, scale);
 
-         // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
+         //console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
 
         TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
-        //  console.log("TOOLTIPTEXT",hoveredObj.id);
-
-        // const districts = [
-        //         { name: "Ampara", id: 16},
-        //         { name: "Anuradhapura", id:20 },
-        //         { name:"Badulla",  id:24 },
-        //         { name:"Batticaloa",  id:28 },
-        //         { name:"Colombo",  id:32 },
-        //         { name:"Galle",  id:36 },
-        //         { name:"Gampaha",  id:40},
-        //         { name:"Hambantota",  id:44},
-        //         { name:"Jaffna",  id:48 },
-        //         { name:"Kalutara",  id:52 },
-        //         { name:"Kandy",  id:56},
-        //         { name:"Kegalle",  id:60 },
-        //         { name:"Kilinochchi",  id:64},
-        //         { name:"Kurunegala",  id:68},
-        //         { name:"Mannar",  id:72 },
-        //         { name:"Matale",  id:76},
-        //         { name:"Matara",  id:80},
-        //         { name:"Moneragala", id:84 },
-        //         // { name:"Mullaitivu",  id:88 },
-        //         { name:"Nuwara Eliya",  id:88},
-        //         { name:"Polonnaruwa",  id:92},
-        //         { name:"Puttalam", id:96},
-        //         { name:"Ratnapura",  id:100},
-        //         { name:"Trincomalee",  id:104},
-        //         { name:"Vavuniya",  id:108 }
-
-        //       ];
-
-        //     //   for (let i = 0; i < districts.length; i++) {
-
-        //     //   if(hoveredObj.id==districts[i].id){
-        //     //      =districts[i].name;
-        //     //   }
-
-        //     // }
-        //     TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
-
-        //divElement.find('span').text(hoveredObj.userData.tooltipText);
-        // divElement.find('span').text( TOOLTIPTEXT );
-
+      
           divElement.find('span').html(hovered_districtName+
           "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
           "Recovered: "+hovered_totalRecovered+"<br>"+
@@ -1148,8 +1047,7 @@
         handleManipulationUpdate();
       }
 
-    
-
+  
     </script>
   </body>
 </html>
