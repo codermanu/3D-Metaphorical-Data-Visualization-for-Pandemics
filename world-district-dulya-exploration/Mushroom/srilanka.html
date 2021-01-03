@@ -280,6 +280,8 @@
 
 
       function carouselinit() {
+        isCarousel = true;
+
         var metaphorDescriptor = new MetaphorDescriptor(
           0,
           null,
@@ -316,13 +318,14 @@
           obj = scene.children[i];
          //console.log("SCENE CHILDREN", scene.children)
          if(
-          //obj.userData.name=="parentMetaphor" || 
+          obj.userData.name=="parentMetaphor" || 
           //obj.userData.name=="parentMetaphorChildren"||
           obj.type=="Line" ||
           obj.type=="Group"
           )
           {
           scene.remove(obj); 
+          isCarousel=false;
 
         }
      }
@@ -402,7 +405,7 @@
             "&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:" +
             "&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA"
         );
-        isCarousel = true;
+        //isCarousel = true;
         //var groundTexture = loader.load('download.jpeg');
         groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
         groundTexture.repeat.set(1, 1);
@@ -919,6 +922,7 @@
                 
         }else{
           onMouseDown();
+          
         }
     }
 
