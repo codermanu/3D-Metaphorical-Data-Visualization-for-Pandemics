@@ -51,7 +51,7 @@ function importCSV() {
       var ports = CSVToArray(xmlhttp.responseText, ";");
       ports.forEach(function (e) {
         let jsonCountry = {};
-        console.log(e);
+        // console.log(e);
         var points = e[0].split(",");
         jsonCountry.country = points[0];
         jsonCountry.region = points[1];
@@ -64,7 +64,7 @@ function importCSV() {
         jsonCountry.recoveries = points[8];
         countryArrfromcsv.push(jsonCountry);
       });
-      console.log(countryArrfromcsv);
+      // console.log(countryArrfromcsv);
       WP.updateBars(countryArrfromcsv);
     }
   };

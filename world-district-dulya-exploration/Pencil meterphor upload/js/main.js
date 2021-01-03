@@ -18,7 +18,6 @@ let versionDev = "v-2020-05-04";
 let version = build === "dev" ? versionDev : versionStable;
 
 let pathAssets = "../../../assets/";
-imgIcon.src = pathAssets + "images/github-mark-32.png";
 
 aSource.href = "https://github.com/ladybug-tools/spider-covid-19-viz-3d/";
 

@@ -33,7 +33,9 @@
 
     <nav id="navMenu">
       <details id="detNavMenu">
-       
+        <summary style="margin-bottom: 2ch; padding: 0">
+          show or hide menu
+        </summary>
 
         <header id="hdrTitle">
           <h2>
@@ -152,11 +154,7 @@
             href="javascript:window.scrollTo(0,0);"
             style="text-decoration: none"
           >
-            <img
-              src="../../../assets/spider.ico"
-              alt="spider icon"
-              height="24"
-            />
+          
           </a>
         </center>
       </details>
@@ -282,7 +280,7 @@
           divMessageOfTheDay.innerHTML = messageOfTheDayDev;
         }
 
-        // detNavMenu.open = window.innerWidth > 640;
+        detNavMenu.open = window.innerWidth > 640;
 
         getNotes();
 
