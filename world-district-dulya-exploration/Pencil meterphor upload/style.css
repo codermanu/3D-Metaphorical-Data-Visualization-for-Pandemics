@@ -161,6 +161,8 @@ ul {
 	border-radius: 1ch;
 	opacity: 0.85;
 	padding: 1ch;
+	font-size: 24px;
+
 }
 
 @media all and (max-width: 640px) {
