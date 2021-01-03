@@ -169,7 +169,7 @@
       //var boundaryId=48;
       var fields = [];
       var subdimensions;
-      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon"];
+      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon", "district"];
 
       var MapElement = function (id, x, y, z, rx) {
         var div = document.createElement("div");
@@ -212,7 +212,7 @@
       animate();
 
       function dataexplore_csv(district_id) {
-        d3.csv("data-explore/data_full.csv", function (data) {
+        d3.csv("data-explore/districtdata.csv", function (data) {
           // console.log("csv data", data);
           //select cases according to the given boundary
           dataset = data.filter(function (report) {
