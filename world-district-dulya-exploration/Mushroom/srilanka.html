@@ -193,6 +193,8 @@
       var dataExplorer;
       var dataVisualizer;
       var caseVisualizer;
+      var CarouselSelected =false;
+      var isMushroomSelected = true;
 
       var container, stats;
       var camera, scene, renderer, renderer1, controls;
@@ -276,6 +278,8 @@
         };
       }
 
+      var exploreobjects=[]; //Add Detected carousel objects to this array
+
       function carouselinit() {
         var metaphorDescriptor = new MetaphorDescriptor(
           0,
@@ -298,12 +302,64 @@
 
         console.log(dataExplorer);
 
+
         // staticMapGroup.add(parent.metaphor);
         scene.add(parent.metaphor);
+
+        parent.metaphor.userData.name = "parentMetaphor"; //Level1-Carousel
+        console.log("PARENT",parent.metaphor)
+
+
+        //Since parent.metaphor type is a "Group" , do add children which type="Mesh"
+        for(var i=0; i< parent.metaphor.children.length;i++ ){
+          parent.metaphor.children[i].name="parentMetaphorChildren";
+            exploreobjects.push(parent.metaphor.children[i])
+
+        }
+
+        console.log("EXPLORE",exploreobjects);
+
       }
 
-
       function removecarousel(){
+      console.log("REMOVE CAROUSEL")
+      for( var i = scene.children.length - 1; i >= 0; i--) { 
+          obj = scene.children[i];
+          line = scene.children[i]
+          grp = scene.children[i]
+
+          // if(obj=="Mesh"){
+          //   scene.remove(scene.children[i]); 
+
+          // }
+           console.log("SCENE CHILDREN", scene.children)
+           if(obj.userData.name=="parentMetaphor" || 
+           obj.userData.name=="parentMetaphorChildren"||
+           line.type=="Line" ||
+           line.type=="Group"){
+            scene.remove(obj); 
+            scene.remove(line);
+            scene.remove(grp);
+
+
+        }
+     }
+
+      }
+
+      function removeChart(){
+        console.log("REMOVE CHART")
+        document.getElementById("myModal").innerHTML = ""; 
+        document.getElementById("myModal").style.display =none;
+        document.getElementsByClassName("modal").style.display =none;
+       
+       // document.getElementById("chart").innerHTML = ""; 
+
+      //canvas clear
+      // const canvas = document.getElementById('chart');
+      // const ctx = canvas.getContext('2d');
+      // ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 
       }
 
@@ -450,6 +506,8 @@
       function onMouseUp(event) {
         console.log("MouseUp");
         event.preventDefault();
+       
+       
         // isModalDragging = false; // if this is true, we should make it false anyway
         // endDragCone(event);
       }
@@ -487,6 +545,10 @@
               true
             );
             console.log("Child-intersects", intersects);
+
+           // console.log("BBBBBBBBBBBBBBBBBB",intersects[0].object.userData.name)
+
+
             // console.log("allActiveNodes",allActiveNodes);
             var time = new Date() * 0.001;
             for (i = 0; i < intersects.length; i++) {
@@ -816,7 +878,7 @@
             }
           });
         });
-
+        shroomGroup.userData.name = "Mushrooms"; 
         scene.add(shroomGroup);
       }
 
@@ -825,7 +887,10 @@
 
       function onDocumentMouseDown(event) {
 
+<<<<<<< HEAD
       console.log("onDocumentMouseDown")
+=======
+>>>>>>> c57a3e9d087b2568847705cc64ab2ff076d2618d
           event.preventDefault();
 
                 /*getBoundingClientRect() -->
@@ -883,13 +948,13 @@
                 raycaster.setFromCamera( mouse, camera );
 
                 var intersects = raycaster.intersectObjects( objects );
-                console.log("intersects",intersects)
+                console.log("intersectsMUSHROOMCLICK",intersects)
 
-                if (intersects.length > 0) {
+                if (intersects.length > 0 && isMushroomSelected ){
                 // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
                 intersects[ 0 ].object.name;
-                var intobjname = intersects[ 0 ].object.userData.name;
-                intobjname ="WHATEVER";
+                // var intobjname = intersects[ 0 ].object.userData.name;
+                // intobjname ="WHATEVER";
 
                 // get the district Id from the mushroom
                 var distrcit_Id=intersects[0].object.parent.userData.distrctId
@@ -901,6 +966,19 @@
                 var id = intersects[0].object.id;
 
                 console.log("intersects:" + id);
+                console.log("NAME",intersects[0]);
+               // var objects=[];
+                isMushroomSelected =false;
+
+                   
+                }else if(intersects.length > 0 && isMushroomSelected ==false){
+
+                  removecarousel();
+                  removeChart();
+                  isMushroomSelected =true;
+
+             
+
 
                 /*
                 var sphereGeom = new THREE.SphereGeometry(10);
@@ -910,10 +988,10 @@
                 sphere.position = intersects[ 0 ].point;
                 scene.add( sphere );
                 */
-
                 
+        }else{
+          onMouseDown();
         }
-    
       }
 
 
@@ -967,6 +1045,7 @@
 
          // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
 
+<<<<<<< HEAD
          //  console.log("TOOLTIPTEXT",hoveredObj.id);
 
           // const districts = [
@@ -1009,12 +1088,58 @@
 
           //divElement.find('span').text(hoveredObj.userData.tooltipText);
           // divElement.find('span').text( TOOLTIPTEXT );
+=======
+        TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
+        //  console.log("TOOLTIPTEXT",hoveredObj.id);
+
+        // const districts = [
+        //         { name: "Ampara", id: 16},
+        //         { name: "Anuradhapura", id:20 },
+        //         { name:"Badulla",  id:24 },
+        //         { name:"Batticaloa",  id:28 },
+        //         { name:"Colombo",  id:32 },
+        //         { name:"Galle",  id:36 },
+        //         { name:"Gampaha",  id:40},
+        //         { name:"Hambantota",  id:44},
+        //         { name:"Jaffna",  id:48 },
+        //         { name:"Kalutara",  id:52 },
+        //         { name:"Kandy",  id:56},
+        //         { name:"Kegalle",  id:60 },
+        //         { name:"Kilinochchi",  id:64},
+        //         { name:"Kurunegala",  id:68},
+        //         { name:"Mannar",  id:72 },
+        //         { name:"Matale",  id:76},
+        //         { name:"Matara",  id:80},
+        //         { name:"Moneragala", id:84 },
+        //         // { name:"Mullaitivu",  id:88 },
+        //         { name:"Nuwara Eliya",  id:88},
+        //         { name:"Polonnaruwa",  id:92},
+        //         { name:"Puttalam", id:96},
+        //         { name:"Ratnapura",  id:100},
+        //         { name:"Trincomalee",  id:104},
+        //         { name:"Vavuniya",  id:108 }
+
+        //       ];
+
+        //     //   for (let i = 0; i < districts.length; i++) {
+
+        //     //   if(hoveredObj.id==districts[i].id){
+        //     //      =districts[i].name;
+        //     //   }
+
+        //     // }
+        //     TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
+
+        //divElement.find('span').text(hoveredObj.userData.tooltipText);
+        // divElement.find('span').text( TOOLTIPTEXT );
+>>>>>>> c57a3e9d087b2568847705cc64ab2ff076d2618d
 
           divElement.find('span').html(hovered_districtName+
           "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
           "Recovered: "+hovered_totalRecovered+"<br>"+
           "Deaths: "+hovered_totalDeaths+"<br>" )
 
+         
           setTimeout(function() {
             divElement.css({
               opacity: 1.0
@@ -1046,7 +1171,7 @@
         raycaster.setFromCamera(mouse, camera);
         {
           var intersects = raycaster.intersectObjects(objects);
-          // console.log("objects",intersects);
+          //console.log("objectssssssssssssssssss",intersects);
 
           if (intersects.length > 0) {
             latestMouseProjection = intersects[0].point;
@@ -1056,7 +1181,6 @@
             hovered_totalRecovered=intersects[0].object.parent.userData.recovered;
             hovered_districtName=intersects[0].object.parent.userData.districtName;
             // console.log(hovered_totalCases)
-
           }
         }
 
@@ -1082,8 +1206,7 @@
         handleManipulationUpdate();
       }
 
-     
-
+    
 
     </script>
   </body>
