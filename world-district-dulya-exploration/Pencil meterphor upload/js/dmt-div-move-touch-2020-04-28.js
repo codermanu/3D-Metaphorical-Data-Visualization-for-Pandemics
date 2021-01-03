@@ -139,7 +139,6 @@ DMT.checkIntersect = function ( event ) {
 
 	const intersects = raycaster.intersectObjects( DMT.objects );
 	const cutOff = THR.camera.position.distanceTo( THR.scene.position );
-
 	if ( intersects.length > 0 ) {
 
 		if ( DMT.intersected !== intersects[ 0 ].object && intersects[ 0 ].distance < cutOff ) {
@@ -148,6 +147,9 @@ DMT.checkIntersect = function ( event ) {
 
 			DMT.intersects = intersects;
 			DMT.intersected = intersects[ 0 ].object;
+			console.log("intersected",intersects[ 0 ].object)
+			console.log("intersects instance id",intersects[0].instanceId)
+
 
 			DMT.displayYourMessage( DMT.intersected );
 
