@@ -23,25 +23,27 @@ DMT.displayYourMessage = function ( intersected ) {
 	WP.line = line;
 
 	WP.place = line.region ? line.region : line.country;
-	//console.log( "wp.place", WP.place );
+	console.log( "wp.place", WP.place );
 
 	WP.dataLinks = c19LinksGlobal.find( link => link.country === line.country && link.region === line.region );
 
 	if(index==95){
 		DMTdivPopUp.innerHTML = `
 	<div id=DMTdivIntersected>
-		WP cases: ${ Number( line.cases ).toLocaleString() }<br>
-		WP deaths: ${ Number( line.deaths ).toLocaleString() }<br>
-		WP recoveries: ${ isNaN( Number( line.recoveries ) ) ? "NA" : Number( line.recoveries ).toLocaleString() }<br>
+	Country: ${ WP.place  }<br>
+		Total cases: ${ Number( line.cases ).toLocaleString() }<br>
+		Total deaths: ${ Number( line.deaths ).toLocaleString() }<br>
+		Total recoveries: ${ isNaN( Number( line.recoveries ) ) ? "NA" : Number( line.recoveries ).toLocaleString() }<br>
 		<a href="../../Mushroom/srilanka.html"> Country Level Data Explore </a>
 		</div>`;
 
 	}else{
 		DMTdivPopUp.innerHTML = `
 	<div id=DMTdivIntersected>
-		WP cases: ${ Number( line.cases ).toLocaleString() }<br>
-		WP deaths: ${ Number( line.deaths ).toLocaleString() }<br>
-		WP recoveries: ${ isNaN( Number( line.recoveries ) ) ? "NA" : Number( line.recoveries ).toLocaleString() }<br>
+	Country: ${  WP.place }<br>
+	Total cases: ${ Number( line.cases ).toLocaleString() }<br>
+	Total deaths: ${ Number( line.deaths ).toLocaleString() }<br>
+	Total recoveries: ${ isNaN( Number( line.recoveries ) ) ? "NA" : Number( line.recoveries ).toLocaleString() }<br>
 		</div>`;
 	}
 
