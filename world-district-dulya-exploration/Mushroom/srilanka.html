@@ -458,6 +458,7 @@
         event.preventDefault();
         // startDragCone(event);
         console.log("mouseDown");
+        console.log(scene.children)
 
         if (mouseDragCount < 5) {
           console.log("mousedrag");
@@ -492,8 +493,11 @@
               if (
                 intersects[i].object.geometry.type == "ExtrudeGeometry" ||
                 intersects[i].object.geometry.type == "SphereGeometry"
-              ) {
+              ) {                
+
                 isSegmentClicked = true;
+                console.log(scene.children)
+
 
                 // When the user clicks on the button, open the modal
 
@@ -506,7 +510,21 @@
 								clickedSlice.select(dataExplorer);
 							}else if(clickedSlice.getType() == "middle_button"){
 								clickedSlice.select(dataExplorer);
-							}*/
+              }*/
+              for( var i = scene.children.length - 1; i >= 0; i--) { 
+                  if(scene.children[i].userData.node){
+                    obj = scene.children[i];
+                    console.log(scene.children[i])
+                    //  scene.remove(obj); 
+
+                  }else{
+                    console.log("not a node",scene.children[i].userData.node)
+
+                  }
+
+              
+                    
+}
 
                 break;
               }
@@ -807,7 +825,7 @@
 
       function onDocumentMouseDown(event) {
 
-      
+      console.log("onDocumentMouseDown")
           event.preventDefault();
 
                 /*getBoundingClientRect() -->
@@ -949,7 +967,7 @@
 
          // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
 
-          //  console.log("TOOLTIPTEXT",hoveredObj.id);
+         //  console.log("TOOLTIPTEXT",hoveredObj.id);
 
           // const districts = [
           //         { name: "Ampara", id: 16},
@@ -991,7 +1009,7 @@
 
           //divElement.find('span').text(hoveredObj.userData.tooltipText);
           // divElement.find('span').text( TOOLTIPTEXT );
-          
+
           divElement.find('span').html(hovered_districtName+
           "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
           "Recovered: "+hovered_totalRecovered+"<br>"+
