@@ -194,6 +194,7 @@
       var dataVisualizer;
       var caseVisualizer;
       var CarouselSelected =false;
+      var isMushroomSelected = true;
 
       var container, stats;
       var camera, scene, renderer, renderer1, controls;
@@ -338,7 +339,8 @@
            line.type=="Group"){
             scene.remove(obj); 
             scene.remove(line);
-            scene.remove(grp)
+            scene.remove(grp);
+
 
         }
      }
@@ -908,7 +910,7 @@
                 var intersects = raycaster.intersectObjects( objects );
                 console.log("intersectsMUSHROOMCLICK",intersects)
 
-                if (intersects.length > 0 ){
+                if (intersects.length > 0 && isMushroomSelected ){
                 // intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
                 intersects[ 0 ].object.name;
                 // var intobjname = intersects[ 0 ].object.userData.name;
@@ -925,11 +927,15 @@
 
                 console.log("intersects:" + id);
                 console.log("NAME",intersects[0]);
+               // var objects=[];
+                isMushroomSelected =false;
 
                    
                 }else{
 
                   removecarousel();
+                  isMushroomSelected =true;
+
              
 
 
