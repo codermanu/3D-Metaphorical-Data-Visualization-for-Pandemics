@@ -931,7 +931,7 @@
                 isMushroomSelected =false;
 
                    
-                }else{
+                }else if(intersects.length > 0 && isMushroomSelected ==false){
 
                   removecarousel();
                   isMushroomSelected =true;
@@ -948,6 +948,8 @@
                 scene.add( sphere );
                 */
                 
+        }else{
+          onMouseDown();
         }
       }
 
