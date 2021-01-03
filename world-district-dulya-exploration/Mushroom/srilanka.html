@@ -322,7 +322,7 @@
       }
 
       function removecarousel(){
-      console.log("REMOVE")
+      console.log("REMOVE CAROUSEL")
       for( var i = scene.children.length - 1; i >= 0; i--) { 
           obj = scene.children[i];
           line = scene.children[i]
@@ -344,6 +344,22 @@
 
         }
      }
+
+      }
+
+      function removeChart(){
+        console.log("REMOVE CHART")
+        document.getElementById("myModal").innerHTML = ""; 
+        document.getElementById("myModal").style.display =none;
+        document.getElementsByClassName("modal").style.display =none;
+       
+       // document.getElementById("chart").innerHTML = ""; 
+
+      //canvas clear
+      // const canvas = document.getElementById('chart');
+      // const ctx = canvas.getContext('2d');
+      // ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 
       }
 
@@ -490,6 +506,8 @@
       function onMouseUp(event) {
         console.log("MouseUp");
         event.preventDefault();
+       
+       
         // isModalDragging = false; // if this is true, we should make it false anyway
         // endDragCone(event);
       }
@@ -527,7 +545,7 @@
             );
             console.log("Child-intersects", intersects);
 
-            console.log("BBBBBBBBBBBBBBBBBB",intersects[0].object.userData.name)
+           // console.log("BBBBBBBBBBBBBBBBBB",intersects[0].object.userData.name)
 
 
             // console.log("allActiveNodes",allActiveNodes);
@@ -934,6 +952,7 @@
                 }else if(intersects.length > 0 && isMushroomSelected ==false){
 
                   removecarousel();
+                  removeChart();
                   isMushroomSelected =true;
 
              
