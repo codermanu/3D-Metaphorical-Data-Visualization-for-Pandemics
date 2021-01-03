@@ -349,17 +349,7 @@
 
       function removeChart(){
         console.log("REMOVE CHART")
-        document.getElementById("myModal").innerHTML = ""; 
-        document.getElementById("myModal").style.display =none;
-        document.getElementsByClassName("modal").style.display =none;
-       
-       // document.getElementById("chart").innerHTML = ""; 
-
-      //canvas clear
-      // const canvas = document.getElementById('chart');
-      // const ctx = canvas.getContext('2d');
-      // ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+        document.getElementById("myModal").style.display ="none";
 
       }
 
@@ -887,10 +877,7 @@
 
       function onDocumentMouseDown(event) {
 
-<<<<<<< HEAD
       console.log("onDocumentMouseDown")
-=======
->>>>>>> c57a3e9d087b2568847705cc64ab2ff076d2618d
           event.preventDefault();
 
                 /*getBoundingClientRect() -->
@@ -1045,50 +1032,6 @@
 
          // console.log("TOOLTIPTEXT",hoveredObj.userData.tooltipText)
 
-<<<<<<< HEAD
-         //  console.log("TOOLTIPTEXT",hoveredObj.id);
-
-          // const districts = [
-          //         { name: "Ampara", id: 16},
-          //         { name: "Anuradhapura", id:20 },
-          //         { name:"Badulla",  id:24 },
-          //         { name:"Batticaloa",  id:28 },
-          //         { name:"Colombo",  id:32 },
-          //         { name:"Galle",  id:36 },
-          //         { name:"Gampaha",  id:40},
-          //         { name:"Hambantota",  id:44},
-          //         { name:"Jaffna",  id:48 },
-          //         { name:"Kalutara",  id:52 },
-          //         { name:"Kandy",  id:56},
-          //         { name:"Kegalle",  id:60 },
-          //         { name:"Kilinochchi",  id:64},
-          //         { name:"Kurunegala",  id:68},
-          //         { name:"Mannar",  id:72 },
-          //         { name:"Matale",  id:76},
-          //         { name:"Matara",  id:80},
-          //         { name:"Moneragala", id:84 },
-          //         // { name:"Mullaitivu",  id:88 },
-          //         { name:"Nuwara Eliya",  id:88},
-          //         { name:"Polonnaruwa",  id:92},
-          //         { name:"Puttalam", id:96},
-          //         { name:"Ratnapura",  id:100},
-          //         { name:"Trincomalee",  id:104},
-          //         { name:"Vavuniya",  id:108 }
-
-          //       ];
-
-          //     //   for (let i = 0; i < districts.length; i++) {
-
-          //     //   if(hoveredObj.id==districts[i].id){
-          //     //      =districts[i].name;
-          //     //   }
-
-          //     // }
-          //     TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
-
-          //divElement.find('span').text(hoveredObj.userData.tooltipText);
-          // divElement.find('span').text( TOOLTIPTEXT );
-=======
         TOOLTIPTEXT= "Recovered: "+hovered_totalRecovered +"\A" 
         //  console.log("TOOLTIPTEXT",hoveredObj.id);
 
@@ -1132,7 +1075,6 @@
 
         //divElement.find('span').text(hoveredObj.userData.tooltipText);
         // divElement.find('span').text( TOOLTIPTEXT );
->>>>>>> c57a3e9d087b2568847705cc64ab2ff076d2618d
 
           divElement.find('span').html(hovered_districtName+
           "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
