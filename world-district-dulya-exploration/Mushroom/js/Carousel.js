@@ -25,10 +25,14 @@ function createCarousel(node, hasMiddle) {
         // create a canvas element
         var canvas = document.createElement('canvas');
         var context = canvas.getContext("2d");
-        context.font = "Bold 36px Arial";
-        context.fillStyle = "rgb(255,255,255)";
+        context.font = "Bold 25px sans-serif";
+        //context.strokeStyle = '';
+        context.fillStyle = "black";
+        context.textAlign= "start";
         //context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
         context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
+        //context.strokeText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
+
         var texture = new THREE.Texture(canvas) 
         texture.needsUpdate = true;
         
