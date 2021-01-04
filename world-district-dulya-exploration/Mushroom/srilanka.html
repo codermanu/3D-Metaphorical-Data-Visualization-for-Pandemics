@@ -922,9 +922,6 @@
 
         isMushroomSelected =false;
         
-        //Change District name accordingly
-        changeSubTitle(distrcit_Id+" District");
-
             
         }else if(intersects.length > 0 && isMushroomSelected ==false){
 
@@ -996,6 +993,8 @@
           "Recovered: "+hovered_totalRecovered+"<br>"+
           "Deaths: "+hovered_totalDeaths+"<br>" )
 
+        //Change District name accordingly
+        changeSubTitle(hovered_districtName+" District");
          
           setTimeout(function() {
             divElement.css({
