@@ -74,6 +74,7 @@ GLO.loadGlobeBasic = function ( size = 50 ) {
 	geometry.applyMatrix4( new THREE.Matrix4().makeRotationX( 0.5 * Math.PI ) );
 
 	const url = "https://www.ladybug.tools/spider-covid-19-viz-3d/assets/images/natural-earth-4096-2048-col.jpg";
+	//const url = "https://raw.githubusercontent.com/Binurim/3D-Metaphorical-Data-Visualization-for-Pandemics/binuri/Test-Globe/images/globe.jpg"
 	var texture = new THREE.TextureLoader().load( url );
 
 	const material = new THREE.MeshBasicMaterial( { color: 0xcce0ff, map: texture } );
@@ -154,8 +155,8 @@ GLO.toggleSkyBox = function ( boole = true ) {
 
 	THR.scene.background = boole ?
 		new THREE.CubeTextureLoader()
-			.setPath( "https://www.ladybug.tools/spider-covid-19-viz-3d/assets/cube-textures/" )
-			.load( [ "f1.jpg", "f2.jpg", "f3.jpg", "f4.jpg", "f5.jpg", "f6.jpg" ] )
+			//.setPath( "https://www.ladybug.tools/spider-covid-19-viz-3d/assets/cube-textures/" )
+			//.load( [ "f1.jpg", "f2.jpg", "f3.jpg", "f4.jpg", "f5.jpg", "f6.jpg" ] )
 		:
 		null;
 
