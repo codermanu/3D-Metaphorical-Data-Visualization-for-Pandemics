@@ -21,15 +21,15 @@ case18,5,6.9257,79.8503,death,female,elder,October,Hospital,Colombo,N/A,N/A
 case19,5,6.9382,79.8605,death,female,adult,October,Hospital,Colombo,Diabetes,N/A
 case20,7,7.083636,80.004073,death,male,adult,November,Hospital,Gampaha,High blood pressure & diabetes,N/A
 case21,5,6.9271,79.8612,death,female,elder,November,At home,Colombo,N/A,N/A
-case22,5,6.9702,79.8717,death,female,elder,November,At home,Colombo,Lung disease,N/A
-case23,5,6.9488,79.8605,death,female,elder,November,At home,Colombo,Cardiac arrest ,N/A
+case22,5,6.9702,79.8717,death,female,elder,November,At home,Colombo,Lung disease ,N/A
+case23,5,6.9488,79.8605,death,female,elder,November,At home,Colombo,Cardiac arrest,N/A
 case24,5,6.9257,79.8503,death,male,adult,November,Hospital,Colombo,N/A,N/A
 case25,5,6.9424,79.9046,death,female,elder,November,Hospital,Colombo,N/A,N/A
 case26,5,6.9382,79.8605,death,female,adult,November,At home,Colombo,Cardiac arrest,N/A
-case27,5,6.9511,79.8741,death,female,elder,November,At home,Colombo,Lung disease,N/A
-case28,5,6.9702,79.8717,death,male,elder,November,At home,Colombo,Cardiac arrest ,N/A
+case27,5,6.9511,79.8741,death,female,elder,November,At home,Colombo,Lung disease ,N/A
+case28,5,6.9702,79.8717,death,male,elder,November,At home,Colombo,Cardiac arrest,N/A
 case29,5,6.9669,79.8712,death,male,adult,November,IDH,Colombo,Diabetes,N/A
-case30,5,6.9373,79.8718,death,female,adult,November,At Home,Colombo,Cardiac arrest ,N/A
+case30,5,6.9373,79.8718,death,female,adult,November,At Home,Colombo,Cardiac arrest,N/A
 case31,5,6.9373,79.8718,death,female,elder,November,Hospital,Colombo,Pneumonia,N/A
 case32,7,7.083636,80.004073,death,male,elder,November,IDH,Gampaha,Sepsis ,N/A
 case33,5,6.9424,79.9046,death,male,elder,November,At home,Colombo,Pneumonia,N/A
@@ -39,11 +39,11 @@ case36,5,6.9094,79.8943,death,male,adult,November,Not home,Colombo,Pneumonia,N/A
 case37,5,6.9122,79.8829,death,male,adult,November,Not home,Colombo,Pneumonia,N/A
 case38,7,7.083636,80.004073,death,female,elder,November,Not home,Gampaha,Pneumonia,N/A
 case39,5,6.9271,79.8612,death,male,adult,November,Not home,Colombo,N/A,N/A
-case40,7,7.083636,80.004073,death,male,adult,November,At home,Gampaha,Cancer,N/A
-case41,10,6.5831,79.9593,death,male,elder,November,At home,Kalutara,Cardiac arrest ,N/A
-case42,5,6.9367,79.8535,death,male,adult,November,Hospital,Colombo,Cardiac arrest ,N/A
-case43,5,6.9518,79.9133,death,male,adult,November,Hospital,Colombo,Cardiac arrest ,N/A
-case44,5,6.9373,79.8718,death,female,elder,November,At home,Colombo,Cardiac arrest ,N/A
+case40,7,7.083636,80.004073,death,male,adult,November,At home,Gampaha,Cancer ,N/A
+case41,10,6.5831,79.9593,death,male,elder,November,At home,Kalutara,Cardiac arrest,N/A
+case42,5,6.9367,79.8535,death,male,adult,November,Hospital,Colombo,Cardiac arrest,N/A
+case43,5,6.9518,79.9133,death,male,adult,November,Hospital,Colombo,Cardiac arrest,N/A
+case44,5,6.9373,79.8718,death,female,elder,November,At home,Colombo,Cardiac arrest,N/A
 case45,7,7.083636,80.004073,death,male,elder,November,Hospital,Gampaha,Leukemia ,N/A
 case46,7,7.083636,80.004073,death,male,adult,November,Hospital,Gampaha,Lung disease ,N/A
 case47,5,6.8216,80.0475,death,male,adult,November,Hospital,Colombo,Pneumonia,N/A
@@ -51,11 +51,11 @@ case48,5,6.9511,79.8741,death,female,elder,November,At home,Colombo,High blood p
 case49,22,8.0362,79.8283,death,male,elder,November,Hospital,Puttalam,High blood pressure ,N/A
 case50,5,6.8195,79.8801,death,male,elder,November,At home,Colombo,High blood pressure & diabetes,N/A
 case51,5,6.9488,79.8605,death,male,elder,November,At home,Colombo,Cardiac arrest,N/A
-case52,5,6.9488,79.8605,death,male,elder,November,At home,Colombo,Lung disease,N/A
-case53,5,6.9488,79.8605,death,male,adult,November,Hospital,Colombo,Cancer,N/A
-case54,5,6.9702,79.8717,death,male,adult,November,Hospital,Colombo,Cancer,N/A
-case55,5,6.9382,79.8605,death,male,elder,November,At home,Colombo,Cardiac arrest ,N/A
-case56,5,6.9122,79.8829,death,male,elder,November,At home,Colombo,Lung disease,N/A
+case52,5,6.9488,79.8605,death,male,elder,November,At home,Colombo,Lung disease ,N/A
+case53,5,6.9488,79.8605,death,male,adult,November,Hospital,Colombo,Cancer ,N/A
+case54,5,6.9702,79.8717,death,male,adult,November,Hospital,Colombo,Cancer ,N/A
+case55,5,6.9382,79.8605,death,male,elder,November,At home,Colombo,Cardiac arrest,N/A
+case56,5,6.9122,79.8829,death,male,elder,November,At home,Colombo,Lung disease ,N/A
 case57,5,6.9488,79.8605,death,male,elder,November,At home,Colombo,Cardiac arrest,N/A
 case58,5,6.7881,79.8913,death,female,elder,November,At home,Colombo,Diabetes,N/A
 case59,5,6.9122,79.8829,death,male,elder,November,IDH,Colombo,Kidney disease,N/A
@@ -71,39 +71,39 @@ case68,5,6.9488,79.8605,death,male,adult,November,At home,Colombo,Diabetes,N/A
 case69,5,6.9702,79.8717,death,female,adult,November,Hospital,Colombo,Liver disease,N/A
 case70,5,6.9122,79.8829,death,male,elder,November,At home,Colombo,Pneumonia,N/A
 case71,10,6.5831,79.9593,death,female,adult,November,At home,Kalutara,High blood pressure & cardiac arrest ,N/A
-case72,10,6.5831,79.9593,death,male,elder,November,At home,Kalutara,Cardiac arrest ,N/A
-case73,5,6.9257,79.8503,death,male,elder,November,Hospital,Colombo,Cardiac arrest ,N/A
+case72,10,6.5831,79.9593,death,male,elder,November,At home,Kalutara,Cardiac arrest,N/A
+case73,5,6.9257,79.8503,death,male,elder,November,Hospital,Colombo,Cardiac arrest,N/A
 case74,5,6.9257,79.8503,death,male,adult,November,Hospital,Colombo,Pneumonia,N/A
 case75,5,6.9424,79.9046,death,male,elder,November,Hospital,Colombo,High blood pressure & diabetes,N/A
-case76,5,6.9122,79.8829,death,female,adult,November,At home,Colombo,Cardiac arrest ,N/A
+case76,5,6.9122,79.8829,death,female,adult,November,At home,Colombo,Cardiac arrest,N/A
 case77,5,6.9122,79.8829,death,male,elder,November,At home,Colombo,High blood pressure & diabetes,N/A
-case78,5,6.9488,79.8605,death,female,elder,November,At home,Colombo,Cardiac arrest ,N/A
+case78,5,6.9488,79.8605,death,female,elder,November,At home,Colombo,Cardiac arrest,N/A
 case79,5,6.8741,79.8605,death,male,elder,November,Hospital,Colombo,Bacterial infection ,N/A
 case80,5,6.9424,79.9046,death,female,elder,November,Hospital,Colombo,Pneumonia,N/A
 case81,5,6.9271,79.8612,death,female,elder,November,IDH,Colombo,Blood poisoning ,N/A
 case82,5,6.9353,79.8808,death,male,elder,November,Hospital,Colombo,Pneumonia,N/A
 case83,5,6.9702,79.8717,death,female,elder,November,At home,Colombo,Pneumonia,N/A
-case84,5,6.9382,79.8605,death,male,adult,November,At home,Colombo,Chronic respiratory disease,N/A
+case84,5,6.9382,79.8605,death,male,adult,November,At home,Colombo,Respiratory disease,N/A
 case85,5,6.9122,79.8829,death,female,elder,November,At home,Colombo,Pneumonia,N/A
 case86,5,6.9122,79.8829,death,male,elder,November,IDH,Colombo,Pneumonia,N/A
 case87,7,7.083636,80.004073,death,female,elder,November,IDH,Gampaha,N/A,N/A
 case88,5,6.9702,79.8717,death,male,adult,November,Hospital,Colombo,Blood poisoning ,N/A
-case89,5,6.9511,79.8741,death,female,adult,November,Hospital,Colombo,Cardiac arrest ,N/A
+case89,5,6.9511,79.8741,death,female,adult,November,Hospital,Colombo,Cardiac arrest,N/A
 case90,20,6.97078,80.78286,death,male,elder,November,Hospital,Nuwara Eliya,Multi-organ dysfunction,N/A
 case91,7,7.083636,80.004073,death,male,adult,November,Hospital,Gampaha,Kidney disease,N/A
 case92,5,6.8841,79.8759,death,female,elder,November,Hospital,Colombo,Pneumonia,N/A
-case93,10,6.5831,79.9593,death,male,adult,November,IDH,Kalutara,Chronic liver disease & encephalitis,N/A
-case94,5,6.9382,79.8605,death,female,adult,November,Hospital,Colombo,Cardiac arrest ,N/A
-case95,5,6.8464,79.9484,death,male,elder,November,Hospital,Colombo,Liver disease ,N/A
-case96,5,6.9122,79.8829,death,male,elder,November,Hospital,Colombo,Bacteria infection,N/A
+case93,10,6.5831,79.9593,death,male,adult,November,IDH,Kalutara,Liver disease,N/A
+case94,5,6.9382,79.8605,death,female,adult,November,Hospital,Colombo,Cardiac arrest,N/A
+case95,5,6.8464,79.9484,death,male,elder,November,Hospital,Colombo,Liver disease,N/A
+case96,5,6.9122,79.8829,death,male,elder,November,Hospital,Colombo,Bacterial infection ,N/A
 case97,5,6.9044,79.854,death,male,elder,November,Hospital,Colombo,High blood pressure & diabetes,N/A
 case98,7,7.083636,80.004073,death,female,elder,November,Hospital,Gampaha,High blood pressure & diabetes,N/A
-case99,5,6.9488,79.8605,death,female,elder,November,At home,Colombo,Cardiac arrest ,N/A
+case99,5,6.9488,79.8605,death,female,elder,November,At home,Colombo,Cardiac arrest,N/A
 case100,5,6.9353,79.8808,death,female,adult,November,Hospital,Colombo,Pneumonia,N/A
-case101,5,6.9122,79.8829,death,female,elder,November,At home,Colombo,Cardiac arrest ,N/A
-case102,5,6.9702,79.8717,death,male,adult,November,IDH,Colombo,Lung disease,N/A
-case103,5,6.9257,79.8503,death,male,elder,November,At home,Colombo,Cardiac arrest ,N/A
-case104,5,6.9373,79.8718,death,female,adult,November,At home,Colombo,Cardiac arrest ,N/A
+case101,5,6.9122,79.8829,death,female,elder,November,At home,Colombo,Cardiac arrest,N/A
+case102,5,6.9702,79.8717,death,male,adult,November,IDH,Colombo,Lung disease ,N/A
+case103,5,6.9257,79.8503,death,male,elder,November,At home,Colombo,Cardiac arrest,N/A
+case104,5,6.9373,79.8718,death,female,adult,November,At home,Colombo,Cardiac arrest,N/A
 case105,5,6.9122,79.8829,death,male,elder,November,At home,Colombo,Pneumonia,N/A
 case106,5,6.921,79.8779,death,male,elder,November,Hospital,Colombo,Kidney disease,N/A
 case107,7,7.083636,80.004073,Discharged,female,adult,January,Not dead,Gampaha,N/A,N/A
@@ -163,7 +163,7 @@ case160,25,8.7514,80.4971,Discharged,female,adult,March,Not dead,Vavuniya,N/A,N/
 case161,5,6.9122,79.8829,Discharged,female,adult,March,Not dead,Colombo,N/A,N/A
 case162,5,6.8195,79.8801,Discharged,female,elder,March,Not dead,Colombo,N/A,N/A
 case163,23,6.68278,80.39917,Hospitalized,female,adult,March,Not dead,Ratnapura,N/A,Gem business person's
-case164,23,6.68278,80.39917,Hospitalized,female,child,March,Not dead,Ratnapura,N/A,Gem business person's 
+case164,23,6.68278,80.39917,Hospitalized,female,child,March,Not dead,Ratnapura,N/A,Gem business person's
 case165,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,N/A
 case166,7,7.083636,80.004073,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/A
 case167,7,7.083636,80.004073,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/A
@@ -191,18 +191,18 @@ case188,5,6.93194,79.84778,Discharged,male,adult,May,Not dead,Colombo,N/A,Navy
 case189,5,6.93194,79.84778,Discharged,female,adult,May,Not dead,Colombo,N/A,Navy 
 case190,5,6.93194,79.84778,Hospitalized,female,adult,June,Not dead,Colombo,N/A,Army 
 case191,5,6.93194,79.84778,Hospitalized,male,adult,June,Not dead,Colombo,N/A,Army 
-case192,2,8.30729,80.402796,Hospitalized,male,adult,July,Not dead,Anuradhapura,N/A,Kandakadu staff's 
-case193,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's
-case194,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's 
-case195,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's
-case196,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's 
-case197,2,8.30729,80.402796,Hospitalized,male,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's 
-case198,5,6.8018,79.9227,Hospitalized,female,adult,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case199,5,6.8018,79.9227,Hospitalized,female,adult,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case200,5,6.8433,80.0032,Hospitalized,male,adult,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case201,5,6.8433,80.0032,Hospitalized,male,adult,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case202,5,6.8433,80.0032,Hospitalized,male,adult,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case203,5,6.8433,80.0032,Hospitalized,female,elder,July,Not dead,Colombo,N/A,Kandakadu counselor's 
+case192,2,8.30729,80.402796,Hospitalized,male,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case193,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case194,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case195,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case196,2,8.30729,80.402796,Hospitalized,female,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case197,2,8.30729,80.402796,Hospitalized,male,adult,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case198,5,6.8018,79.9227,Hospitalized,female,adult,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case199,5,6.8018,79.9227,Hospitalized,female,adult,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case200,5,6.8433,80.0032,Hospitalized,male,adult,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case201,5,6.8433,80.0032,Hospitalized,male,adult,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case202,5,6.8433,80.0032,Hospitalized,male,adult,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case203,5,6.8433,80.0032,Hospitalized,female,elder,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
 case204,21,7.93965,81.00274,Hospitalized,male,elder,August,Not dead,Polonnaruwa,N/A,Civil Security Force
 case205,21,7.93965,81.00274,Hospitalized,female,child,August,Not dead,Polonnaruwa,N/A,Civil Security Force
 case206,5,6.93194,79.84778,Hospitalized,male,adult,October,Not dead,Colombo,N/A,QC
@@ -7862,7 +7862,7 @@ case7859,7,7.0204,79.90363,Discharged,male,elder,June,Not dead,Gampaha,N/A,N/A
 case7860,7,7.0204,79.90363,Discharged,male,elder,June,Not dead,Gampaha,N/A,N/A
 case7861,7,7.0204,79.90363,Discharged,male,elder,June,Not dead,Gampaha,N/A,N/A
 case7862,7,7.0204,79.90363,Discharged,male,adult,July,Not dead,Gampaha,N/A,QC
-case7863,7,7.0204,79.90363,Hospitalized,male,elder,July,Not dead,Gampaha,N/A,Navy
+case7863,7,7.0204,79.90363,Hospitalized,male,elder,July,Not dead,Gampaha,N/A,Navy 
 case7864,5,6.869,79.9039,Hospitalized,male,elder,October,Not dead,Colombo,N/A,N/A
 case7865,5,6.869,79.9039,Hospitalized,male,elder,November,Not dead,Colombo,N/A,N/A
 case7866,5,6.869,79.9039,Hospitalized,male,elder,November,Not dead,Colombo,N/A,N/A
@@ -8212,12 +8212,12 @@ case8209,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,N
 case8210,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Naval Base - Welisara
 case8211,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Naval Base - Welisara
 case8212,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Naval Base - Welisara
-case8213,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Navy
-case8214,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Navy
-case8215,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy
-case8216,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy
-case8217,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy
-case8218,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy
+case8213,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Navy 
+case8214,10,6.5831,79.9593,Discharged,female,adult,April,Not dead,Kalutara,N/A,Navy 
+case8215,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy 
+case8216,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy 
+case8217,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy 
+case8218,10,6.5831,79.9593,Discharged,female,adult,May,Not dead,Kalutara,N/A,Navy 
 case8219,10,6.5831,79.9593,Hospitalized,female,adult,October,Not dead,Kalutara,N/A,Divulapitiya cluster
 case8220,10,6.5831,79.9593,Hospitalized,female,adult,October,Not dead,Kalutara,N/A,Divulapitiya cluster
 case8221,10,6.5831,79.9593,Hospitalized,female,adult,October,Not dead,Kalutara,N/A,Divulapitiya cluster
@@ -9026,13 +9026,13 @@ case9023,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/
 case9024,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/A
 case9025,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/A
 case9026,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/A
-case9027,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
-case9028,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
-case9029,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
-case9030,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
-case9031,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
-case9032,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
-case9033,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy
+case9027,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
+case9028,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
+case9029,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
+case9030,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
+case9031,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
+case9032,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
+case9033,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,Navy 
 case9034,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,N/A
 case9035,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,QC
 case9036,7,7.08731,80.014366,Discharged,male,adult,April,Not dead,Gampaha,N/A,QC
@@ -10092,16 +10092,16 @@ case10089,7,7.08731,80.014366,Hospitalized,female,elder,October,Not dead,Gampaha
 case10090,7,7.08731,80.014366,Hospitalized,female,elder,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10091,7,7.08731,80.014366,Hospitalized,female,elder,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10092,7,7.08731,80.014366,Hospitalized,female,elder,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
-case10093,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10094,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10095,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10096,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10097,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10098,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10099,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10100,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10101,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10102,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
+case10093,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10094,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10095,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10096,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10097,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10098,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10099,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10100,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10101,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10102,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
 case10103,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10104,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10105,7,7.08731,80.014366,Hospitalized,female,elder,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
@@ -10201,10 +10201,10 @@ case10198,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha
 case10199,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10200,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10201,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
-case10202,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10203,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10204,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10205,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
+case10202,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10203,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10204,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10205,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
 case10206,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10207,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10208,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
@@ -10268,28 +10268,28 @@ case10265,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha
 case10266,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10267,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10268,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
-case10269,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10270,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10271,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10272,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10273,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10274,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10275,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10276,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10277,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10278,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10279,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10280,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10281,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10282,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10283,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10284,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10285,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10286,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10287,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10288,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10289,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10290,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
+case10269,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10270,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10271,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10272,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10273,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10274,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10275,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10276,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10277,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10278,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10279,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10280,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10281,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10282,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10283,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10284,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10285,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10286,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10287,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10288,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10289,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10290,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
 case10291,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10292,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10293,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
@@ -10398,16 +10398,16 @@ case10395,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha
 case10396,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10397,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10398,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
-case10399,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10400,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10401,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10402,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10403,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10404,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10405,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10406,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10407,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
-case10408,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel worker
+case10399,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10400,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10401,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10402,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10403,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10404,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10405,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10406,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10407,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
+case10408,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Katunayake apparel workers
 case10409,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10410,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
 case10411,7,7.08731,80.014366,Hospitalized,female,adult,October,Not dead,Gampaha,N/A,Divulapitiya Cluster
@@ -14249,15 +14249,15 @@ case14246,5,6.9543,80.2046,Hospitalized,male,elder,November,Not dead,Colombo,N/A
 case14247,5,6.9543,80.2046,Hospitalized,male,elder,November,Not dead,Colombo,N/A,N/A
 case14248,6,6.0367,80.217,Discharged,male,elder,March,Not dead,Galle,N/A,N/A
 case14249,6,6.0367,80.217,Hospitalized,male,adult,October,Not dead,Galle,N/A,Divulapitiya cluster
-case14250,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14251,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14252,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14253,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14254,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14255,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14256,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14257,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
-case14258,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Paliyagoda cluster
+case14250,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14251,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14252,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14253,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14254,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14255,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14256,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14257,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
+case14258,6,6.0367,80.217,Hospitalized,male,elder,October,Not dead,Galle,N/A,Peliyagoda cluster
 case14259,6,6.0367,80.217,Hospitalized,male,adult,October,Not dead,Galle,N/A,Galle Fisheries Harbour 
 case14260,6,6.0367,80.217,Hospitalized,male,adult,October,Not dead,Galle,N/A,Galle Fisheries Harbour 
 case14261,6,6.0367,80.217,Hospitalized,male,adult,October,Not dead,Galle,N/A,Galle Fisheries Harbour 
@@ -14599,18 +14599,18 @@ case14596,14,7.4863,80.3623,Hospitalized,male,adult,October,Not dead,Kurunegala,
 case14597,14,7.4863,80.3623,Hospitalized,male,adult,October,Not dead,Kurunegala,N/A,Divulapitiya cluster
 case14598,14,7.4863,80.3623,Hospitalized,male,adult,October,Not dead,Kurunegala,N/A,Divulapitiya cluster
 case14599,14,7.4863,80.3623,Hospitalized,male,adult,October,Not dead,Kurunegala,N/A,Divulapitiya cluster
-case14600,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14601,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14602,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14603,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14604,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14605,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14606,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14607,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14608,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14609,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14610,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
-case14611,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel factory workers
+case14600,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14601,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14602,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14603,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14604,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14605,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14606,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14607,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14608,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14609,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14610,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
+case14611,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,Katunayake apparel workers
 case14612,14,7.4863,80.3623,Hospitalized,male,adult,October,Not dead,Kurunegala,N/A,Fishery harbour cluster
 case14613,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,N/A
 case14614,14,7.4863,80.3623,Hospitalized,male,elder,October,Not dead,Kurunegala,N/A,N/A
@@ -14799,11 +14799,11 @@ case14796,13,9.3961,80.3982,Hospitalized,male,adult,November,Not dead,Kilinochch
 case14797,23,6.68278,80.39917,Discharged,male,adult,April,Not dead,Ratnapura,N/A,N/A
 case14798,23,6.68278,80.39917,Discharged,male,adult,April,Not dead,Ratnapura,N/A,N/A
 case14799,23,6.68278,80.39917,Discharged,male,adult,April,Not dead,Ratnapura,N/A,Naval Base - Welisara
-case14800,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor 
-case14801,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor 
-case14802,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor 
-case14803,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor 
-case14804,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor 
+case14800,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor/staff 
+case14801,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor/staff 
+case14802,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor/staff 
+case14803,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor/staff 
+case14804,23,6.68278,80.39917,Discharged,male,adult,July,Not dead,Ratnapura,N/A,Kandakadu counselor/staff 
 case14805,23,6.68278,80.39917,Hospitalized,male,adult,October,Not dead,Ratnapura,N/A,N/A
 case14806,23,6.68278,80.39917,Hospitalized,male,adult,October,Not dead,Ratnapura,N/A,Peliyagoda cluster
 case14807,23,6.68278,80.39917,Hospitalized,male,adult,October,Not dead,Ratnapura,N/A,Peliyagoda cluster
@@ -15001,15 +15001,15 @@ case14998,2,8.31223,80.41306,Discharged,male,adult,April,Not dead,Anuradhapura,N
 case14999,2,8.31223,80.41306,Discharged,male,adult,April,Not dead,Anuradhapura,N/A,Naval Base - Welisara
 case15000,2,8.31223,80.41306,Discharged,male,elder,April,Not dead,Anuradhapura,N/A,N/A
 case15001,2,8.31223,80.41306,Discharged,male,adult,April,Not dead,Anuradhapura,N/A,Naval Base - Welisara
-case15002,2,8.31223,80.41306,Discharged,male,adult,April,Not dead,Anuradhapura,N/A,Naval Base – Welisara
-case15003,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's 
-case15004,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu staff's 
-case15005,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu staff's 
-case15006,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's 
-case15007,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's
-case15008,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's
-case15009,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor's
-case15010,2,8.31223,80.41306,Hospitalized,male,adult,October,Not dead,Anuradhapura,N/A,Paliyagoda cluster
+case15002,2,8.31223,80.41306,Discharged,male,adult,April,Not dead,Anuradhapura,N/A,Naval Base - Welisara
+case15003,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15004,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15005,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15006,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15007,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15008,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15009,2,8.31223,80.41306,Hospitalized,male,elder,July,Not dead,Anuradhapura,N/A,Kandakadu counselor/staff 
+case15010,2,8.31223,80.41306,Hospitalized,male,adult,October,Not dead,Anuradhapura,N/A,Peliyagoda cluster
 case15011,2,8.31223,80.41306,Hospitalized,male,elder,November,Not dead,Anuradhapura,N/A,N/A
 case15012,2,8.31223,80.41306,Hospitalized,male,elder,November,Not dead,Anuradhapura,N/A,N/A
 case15013,2,8.31223,80.41306,Hospitalized,male,elder,November,Not dead,Anuradhapura,N/A,N/A
@@ -15027,9 +15027,9 @@ case15024,2,8.31223,80.41306,Hospitalized,female,elder,November,Not dead,Anuradh
 case15025,2,8.31223,80.41306,Hospitalized,female,elder,November,Not dead,Anuradhapura,N/A,N/A
 case15026,2,8.31223,80.41306,Hospitalized,female,elder,November,Not dead,Anuradhapura,N/A,N/A
 case15027,25,8.7514,80.4971,Discharged,female,elder,March,Not dead,Vavuniya,N/A,N/A
-case15028,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,Paliyagoda cluster
-case15029,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,Paliyagoda cluster
-case15030,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,Paliyagoda cluster
+case15028,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,Peliyagoda cluster
+case15029,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,Peliyagoda cluster
+case15030,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,Peliyagoda cluster
 case15031,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,N/A
 case15032,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,N/A
 case15033,25,8.7514,80.4971,Hospitalized,female,elder,October,Not dead,Vavuniya,N/A,N/A
@@ -15047,7 +15047,7 @@ case15044,17,5.94851,80.53528,Discharged,male,elder,April,Not dead,Matara,N/A,N/
 case15045,17,5.94851,80.53528,Discharged,male,adult,April,Not dead,Matara,N/A,Naval Base - Welisara
 case15046,17,5.94851,80.53528,Hospitalized,male,elder,July,Not dead,Matara,N/A,Kandakadu counselor/staff 
 case15047,17,5.94851,80.53528,Hospitalized,male,elder,July,Not dead,Matara,N/A,Kandakadu counselor/staff 
-case15048,17,5.94851,80.53528,Hospitalized,male,adult,October,Not dead,Matara,N/A,Paliyagoda cluster
+case15048,17,5.94851,80.53528,Hospitalized,male,adult,October,Not dead,Matara,N/A,Peliyagoda cluster
 case15049,17,5.94851,80.53528,Hospitalized,male,elder,October,Not dead,Matara,N/A,N/A
 case15050,17,5.94851,80.53528,Hospitalized,male,elder,November,Not dead,Matara,N/A,N/A
 case15051,17,5.94851,80.53528,Hospitalized,male,elder,November,Not dead,Matara,N/A,N/A
@@ -15072,9 +15072,9 @@ case15069,17,5.94851,80.53528,Hospitalized,male,elder,November,Not dead,Matara,N
 case15070,17,5.94851,80.53528,Hospitalized,male,elder,November,Not dead,Matara,N/A,N/A
 case15071,17,5.94851,80.53528,Hospitalized,male,elder,November,Not dead,Matara,N/A,N/A
 case15072,17,5.94851,80.53528,Hospitalized,male,elder,November,Not dead,Matara,N/A,N/A
-case15073,16,7.4675,80.6234,Discharged,male,adult,July,Not dead,Matale,N/A,Kandakadu patient
-case15074,16,7.4675,80.6234,Hospitalized,male,elder,July,Not dead,Matale,N/A,Kandakadu patient
-case15075,16,7.4675,80.6234,Discharged,male,adult,July,Not dead,Matale,N/A,Kandakadu patient
+case15073,16,7.4675,80.6234,Discharged,male,adult,July,Not dead,Matale,N/A,Kandakadu counselor/staff 
+case15074,16,7.4675,80.6234,Hospitalized,male,elder,July,Not dead,Matale,N/A,Kandakadu counselor/staff 
+case15075,16,7.4675,80.6234,Discharged,male,adult,July,Not dead,Matale,N/A,Kandakadu counselor/staff 
 case15076,16,7.4675,80.6234,Discharged,male,adult,July,Not dead,Matale,N/A,Senapura inmates' 
 case15077,16,7.4675,80.6234,Hospitalized,male,adult,October,Not dead,Matale,N/A,Divulapitiya cluster
 case15078,16,7.4675,80.6234,Hospitalized,male,adult,October,Not dead,Matale,N/A,Divulapitiya cluster
@@ -15115,7 +15115,7 @@ case15112,11,7.2955,80.6356,Discharged,female,adult,July,Not dead,Kandy,N/A,Sena
 case15113,11,7.2955,80.6356,Discharged,female,adult,July,Not dead,Kandy,N/A,Senapura inmates' 
 case15114,11,7.2955,80.6356,Discharged,female,adult,July,Not dead,Kandy,N/A,Senapura inmates' 
 case15115,11,7.2955,80.6356,Hospitalized,female,elder,July,Not dead,Kandy,N/A,Kandakadu inmates' 
-case15116,11,7.2955,80.6356,Hospitalized,female,elder,July,Not dead,Kandy,N/A,Kandakadu inmates'
+case15116,11,7.2955,80.6356,Hospitalized,female,elder,July,Not dead,Kandy,N/A,Kandakadu inmates' 
 case15117,11,7.2955,80.6356,Hospitalized,female,elder,July,Not dead,Kandy,N/A,Kandakadu inmates' 
 case15118,11,7.2955,80.6356,Hospitalized,female,adult,October,Not dead,Kandy,N/A,Divulapitiya cluster
 case15119,11,7.2955,80.6356,Hospitalized,female,adult,October,Not dead,Kandy,N/A,Divulapitiya cluster
@@ -15454,17 +15454,17 @@ case15451,21,7.93965,81.00274,Discharged,female,adult,March,Not dead,Polonnaruwa
 case15452,21,7.93965,81.00274,Discharged,female,adult,March,Not dead,Polonnaruwa,N/A,N/A
 case15453,21,7.93965,81.00274,Discharged,female,adult,April,Not dead,Polonnaruwa,N/A,N/A
 case15454,21,7.93965,81.00274,Discharged,female,adult,April,Not dead,Polonnaruwa,N/A,Naval Base - Welisara
-case15455,21,7.93965,81.00274,Discharged,female,adult,April,Not dead,Polonnaruwa,N/A,Naval Base – Welisara
-case15456,21,7.93965,81.00274,Discharged,female,adult,April,Not dead,Polonnaruwa,N/A,Naval Base – Welisara
-case15457,21,7.93965,81.00274,Discharged,female,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor
-case15458,21,7.93965,81.00274,Discharged,female,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor
-case15459,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor
-case15460,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu staff's 
-case15461,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu staff's 
-case15462,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu staff's 
-case15463,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu staff's 
-case15464,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu staff's 
-case15465,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu staff's 
+case15455,21,7.93965,81.00274,Discharged,female,adult,April,Not dead,Polonnaruwa,N/A,Naval Base - Welisara
+case15456,21,7.93965,81.00274,Discharged,female,adult,April,Not dead,Polonnaruwa,N/A,Naval Base - Welisara
+case15457,21,7.93965,81.00274,Discharged,female,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15458,21,7.93965,81.00274,Discharged,female,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15459,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15460,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15461,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15462,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15463,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15464,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
+case15465,21,7.93965,81.00274,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Kandakadu counselor/staff 
 case15466,21,7.93965,81.00274,Hospitalized,male,adult,November,Not dead,Polonnaruwa,N/A,N/A
 case15467,21,7.93965,81.00274,Hospitalized,male,adult,November,Not dead,Polonnaruwa,N/A,N/A
 case15468,21,7.93965,81.00274,Hospitalized,male,adult,November,Not dead,Polonnaruwa,N/A,N/A
@@ -15475,7 +15475,7 @@ case15472,3,6.9895,81.0557,Discharged,male,adult,March,Not dead,Badulla,N/A,N/A
 case15473,3,6.9895,81.0557,Discharged,male,adult,March,Not dead,Badulla,N/A,N/A
 case15474,3,6.9895,81.0557,Discharged,male,adult,April,Not dead,Badulla,N/A,N/A
 case15475,3,6.9895,81.0557,Discharged,male,adult,April,Not dead,Badulla,N/A,Naval Base - Welisara
-case15476,3,6.9895,81.0557,Discharged,male,adult,April,Not dead,Badulla,N/A,Navy (Agalawatta)
+case15476,3,6.9895,81.0557,Discharged,male,adult,April,Not dead,Badulla,N/A,Navy 
 case15477,3,6.9895,81.0557,Hospitalized,male,elder,October,Not dead,Badulla,N/A,N/A
 case15478,3,6.9895,81.0557,Hospitalized,male,adult,October,Not dead,Badulla,N/A,Peliyagoda cluster
 case15479,3,6.9895,81.0557,Hospitalized,male,adult,October,Not dead,Badulla,N/A,Peliyagoda cluster
@@ -15509,8 +15509,8 @@ case15506,3,6.9895,81.0557,Hospitalized,female,adult,November,Not dead,Badulla,N
 case15507,3,6.9895,81.0557,Hospitalized,female,adult,November,Not dead,Badulla,N/A,N/A
 case15508,8,6.1429,81.1212,Discharged,female,adult,April,Not dead,Hambantota,N/A,Naval Base - Welisara
 case15509,8,6.1429,81.1212,Discharged,female,adult,April,Not dead,Hambantota,N/A,Naval Base - Welisara
-case15510,8,6.1429,81.1212,Discharged,female,adult,July,Not dead,Hambantota,N/A,Kandakadu staff's 
-case15511,8,6.1429,81.1212,Discharged,female,adult,July,Not dead,Hambantota,N/A,Kandakadu staff's 
+case15510,8,6.1429,81.1212,Discharged,female,adult,July,Not dead,Hambantota,N/A,Kandakadu counselor/staff 
+case15511,8,6.1429,81.1212,Discharged,female,adult,July,Not dead,Hambantota,N/A,Kandakadu counselor/staff 
 case15512,8,6.1429,81.1212,Hospitalized,female,adult,October,Not dead,Hambantota,N/A,Peliyagoda cluster
 case15513,8,6.1429,81.1212,Hospitalized,female,adult,October,Not dead,Hambantota,N/A,Peliyagoda cluster
 case15514,8,6.1429,81.1212,Hospitalized,female,adult,October,Not dead,Hambantota,N/A,Peliyagoda cluster
@@ -15927,7 +15927,7 @@ case15924,21,8.08656,81.17667,Hospitalized,female,adult,September,Not dead,Polon
 case15925,21,8.08656,81.17667,Hospitalized,female,adult,September,Not dead,Polonnaruwa,N/A,Kandakadu Rehabilitation Centre: inmates
 case15926,21,8.08656,81.17667,Hospitalized,female,adult,September,Not dead,Polonnaruwa,N/A,Kandakadu Rehabilitation Centre: inmates
 case15927,24,8.5711,81.2335,Discharged,female,adult,April,Not dead,Trincomalee,N/A,Naval Base - Welisara
-case15928,24,8.5711,81.2335,Discharged,female,adult,April,Not dead,Trincomalee,N/A,Navy (Agalawatta)
+case15928,24,8.5711,81.2335,Discharged,female,adult,April,Not dead,Trincomalee,N/A,Navy 
 case15929,24,8.5711,81.2335,Hospitalized,female,adult,July,Not dead,Trincomalee,N/A,Kandakadu counselor/staff 
 case15930,24,8.5711,81.2335,Hospitalized,female,adult,October,Not dead,Trincomalee,N/A,Fishery harbour cluster
 case15931,24,8.5711,81.2335,Hospitalized,female,adult,October,Not dead,Trincomalee,N/A,Fishery harbour cluster
@@ -15952,11 +15952,11 @@ case15949,18,6.8714,81.3487,Hospitalized,female,adult,November,Not dead,Moneraga
 case15950,18,6.8714,81.3487,Hospitalized,female,adult,November,Not dead,Moneragala,N/A,N/A
 case15951,18,6.8714,81.3487,Hospitalized,female,adult,November,Not dead,Moneragala,N/A,N/A
 case15952,1,7.29754,81.68202,Discharged,female,adult,April,Not dead,Ampara,N/A,N/A
-case15953,1,7.29754,81.68202,Discharged,female,adult,April,Not dead,Ampara,N/A,Naval Base – Welisara 
+case15953,1,7.29754,81.68202,Discharged,female,adult,April,Not dead,Ampara,N/A,Naval Base - Welisara
 case15954,1,7.29754,81.68202,Discharged,female,adult,April,Not dead,Ampara,N/A,Naval Base - Welisara
 case15955,1,7.29754,81.68202,Hospitalized,female,adult,July,Not dead,Ampara,N/A,Kandakadu counselor/staff 
-case15956,1,7.29754,81.68202,Hospitalized,female,adult,July,Not dead,Ampara,N/A,Kandakadu counselor/staff
-case15957,1,7.29754,81.68202,Hospitalized,female,adult,July,Not dead,Ampara,N/A,Kandakadu counselor/staff
+case15956,1,7.29754,81.68202,Hospitalized,female,adult,July,Not dead,Ampara,N/A,Kandakadu counselor/staff 
+case15957,1,7.29754,81.68202,Hospitalized,female,adult,July,Not dead,Ampara,N/A,Kandakadu counselor/staff 
 case15958,1,7.29754,81.68202,Hospitalized,female,adult,October,Not dead,Ampara,N/A,N/A
 case15959,1,7.29754,81.68202,Hospitalized,female,adult,October,Not dead,Ampara,N/A,N/A
 case15960,1,7.29754,81.68202,Hospitalized,female,adult,November,Not dead,Ampara,N/A,N/A
@@ -16050,151 +16050,151 @@ case16047,5,6.8018,79.9227,Hospitalized,male,elder,November,Not dead,Colombo,N/A
 case16048,5,6.8018,79.9227,Hospitalized,male,elder,November,Not dead,Colombo,N/A,N/A
 case16049,5,6.8018,79.9227,Hospitalized,male,elder,November,Not dead,Colombo,N/A,N/A
 case16050,5,6.8018,79.9227,Hospitalized,male,elder,November,Not dead,Colombo,N/A,N/A
-case16051,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16052,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16053,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16054,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16055,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16056,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16057,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16058,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16059,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16060,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16061,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16062,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16063,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16064,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16065,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16066,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16067,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16068,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16069,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16070,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16071,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16072,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16073,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16074,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16075,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16076,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16077,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16078,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16079,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16080,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16081,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16082,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16083,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16084,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16085,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16086,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16087,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16088,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16089,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16090,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16091,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16092,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16093,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16094,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16095,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16096,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16097,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16098,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16099,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16100,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16101,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16102,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16103,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16104,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16105,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16106,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16107,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16108,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16109,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16110,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16111,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16112,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16113,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16114,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16115,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16116,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16117,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16118,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16119,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16120,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16121,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16122,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16123,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16124,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16125,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16126,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16127,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16128,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16129,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16130,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16131,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16132,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16133,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16134,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16135,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16136,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16137,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16138,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16139,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16140,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16141,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16142,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16143,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16144,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16145,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16146,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16147,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16148,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16149,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16150,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16151,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16152,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16153,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16154,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16155,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16156,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16157,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16158,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16159,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16160,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16161,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16162,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16163,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16164,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16165,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16166,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16167,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16168,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura staff
-case16169,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16170,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16171,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16172,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16173,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16174,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16175,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16176,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16177,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16178,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16179,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16180,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16181,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16182,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16183,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16184,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16185,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16186,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16187,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16188,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16189,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16190,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16191,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16192,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16193,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16194,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates
-case16195,21,8.10357,81.17835,Hospitalized,male,adult,September,Not dead,Polonnaruwa,N/A,Senapura inmates
+case16051,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16052,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16053,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16054,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16055,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16056,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16057,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16058,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16059,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16060,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16061,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16062,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16063,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16064,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16065,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16066,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16067,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16068,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16069,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16070,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16071,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16072,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16073,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16074,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16075,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16076,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16077,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16078,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16079,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16080,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16081,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16082,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16083,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16084,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16085,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16086,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16087,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16088,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16089,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16090,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16091,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16092,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16093,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16094,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16095,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16096,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16097,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16098,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16099,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16100,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16101,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16102,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16103,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16104,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16105,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16106,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16107,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16108,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16109,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16110,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16111,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16112,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16113,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16114,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16115,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16116,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16117,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16118,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16119,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16120,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16121,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16122,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16123,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16124,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16125,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16126,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16127,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16128,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16129,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16130,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16131,21,8.10357,81.17835,Hospitalized,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16132,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16133,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16134,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16135,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16136,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16137,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16138,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16139,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16140,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16141,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16142,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16143,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16144,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16145,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16146,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16147,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16148,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16149,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16150,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16151,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16152,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16153,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16154,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16155,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16156,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16157,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16158,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16159,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16160,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16161,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16162,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16163,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16164,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16165,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16166,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16167,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16168,21,8.10357,81.17835,Discharged,male,adult,July,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16169,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16170,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16171,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16172,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16173,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16174,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16175,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16176,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16177,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16178,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16179,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16180,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16181,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16182,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16183,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16184,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16185,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16186,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16187,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16188,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16189,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16190,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16191,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16192,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16193,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16194,21,8.10357,81.17835,Hospitalized,male,adult,August,Not dead,Polonnaruwa,N/A,Senapura inmates' 
+case16195,21,8.10357,81.17835,Hospitalized,male,adult,September,Not dead,Polonnaruwa,N/A,Senapura inmates' 
 ,,,,,,,,,,,
 ,,,,,,,,,,,
 ,,,,,,,,,,,
@@ -16537,9 +16537,9 @@ case16534,5,7.2008,79.8737,Discharged,male,elder,April,Not dead,Colombo,N/A,N/A
 case16535,5,6.957,79.8778,Discharged,male,elder,April,Not dead,Colombo,N/A,N/A
 case16536,5,7.2924,80.6354,Discharged,male,adult,April,Not dead,Colombo,N/A,N/A
 case16537,5,6.8743,79.9696,Discharged,male,adult,April,Not dead,Colombo,N/A,Navy 
-case16538,5,6.7823,79.9948,Hospitalized,male,elder,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case16539,5,6.7823,79.9948,Hospitalized,male,elder,July,Not dead,Colombo,N/A,Kandakadu counselor's 
-case16540,5,6.7823,79.9948,Hospitalized,male,elder,July,Not dead,Colombo,N/A,Kandakadu counselor's 
+case16538,5,6.7823,79.9948,Hospitalized,male,elder,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case16539,5,6.7823,79.9948,Hospitalized,male,elder,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
+case16540,5,6.7823,79.9948,Hospitalized,male,elder,July,Not dead,Colombo,N/A,Kandakadu counselor/staff 
 case16541,5,6.8649,79.8997,Hospitalized,male,adult,October,Not dead,Colombo,N/A,Divulapitiya cluster
 case16542,5,6.9373,79.8718,Hospitalized,male,adult,October,Not dead,Colombo,N/A,Divulapitiya cluster
 case16543,5,6.9344,79.8531,Hospitalized,male,adult,October,Not dead,Colombo,N/A,Divulapitiya cluster
