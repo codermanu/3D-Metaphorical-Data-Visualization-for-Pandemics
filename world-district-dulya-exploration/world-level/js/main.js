@@ -23,7 +23,7 @@ aSource.href = "https://github.com/ladybug-tools/spider-covid-19-viz-3d/";
 
 spnTitle.innerHTML = document.title; // ? document.title : location.href.split( "/" ).pop().slice( 0, - 5 ).replace( /-/g, " " );
 const versionStr = version + "-" + timeStamp + "-" + build;
-spnVersion.innerHTML = "Covid-19 World Wide data" ;
+// spnVersion.innerHTML = "COVID-19 World Data" ;
 //divDescription.innerHTML = document.head.querySelector( "[ name=description ]" ).content;
 
 spnDescription.innerHTML = `

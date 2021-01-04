@@ -330,6 +330,7 @@
 
       function removecarousel(){
         console.log("REMOVE CAROUSEL")
+        changeSubTitle(" ");
      
         for( var i = scene.children.length - 1; i >= 0; i--) {
           obj = scene.children[i];
@@ -929,7 +930,8 @@
         console.log("distrcit_Id",distrcit_Id)
 
         isMushroomSelected =false;
-        
+        changeSubTitle(hovered_districtName+" District");
+
             
         }else if(intersects.length > 0 && isMushroomSelected ==false){
 
@@ -1000,9 +1002,6 @@
           "<br>"+"Total Cases: "+hovered_totalCases+"<br>" + 
           "Recovered: "+hovered_totalRecovered+"<br>"+
           "Deaths: "+hovered_totalDeaths+"<br>" )
-
-        //Change District name accordingly
-        changeSubTitle(hovered_districtName+" District");
          
           setTimeout(function() {
             divElement.css({
@@ -1020,6 +1019,7 @@
             display: "none"
           });
         }
+
       }
 
       // Following two functions will convert mouse coordinates

@@ -74,6 +74,7 @@ ul {
 }
 .couponcode {
 	float: right;
+	display: none;
 }
 .couponcode:hover > .coupontooltip {
 	display: block;
@@ -163,7 +164,7 @@ ul {
 	border-radius: 1ch;
 	opacity: 0.85;
 	padding: 1ch;
-	font-size: 24px;
+	font-size: 15px;
 
 }
 
