@@ -130,7 +130,7 @@
     <!-- 2D Charts -->
     <div id="myModal" class="modal">
     <span class="close" id="close_btn">&times;</span>
-    <canvas id="chart" width="450px" height="400px"></canvas>
+    <canvas id="chart" width="450px" height="400px" ></canvas>
     </div>
 
     <!-- Tooltip -->
@@ -295,10 +295,9 @@
         };
       }
 
-
       function carouselinit() {
         isCarousel = true;
-
+     
         var metaphorDescriptor = new MetaphorDescriptor(
           0,
           null,
@@ -327,7 +326,7 @@
         //console.log("PARENT",parent.metaphor)
 
       }
-
+    
       function removecarousel(){
         console.log("REMOVE CAROUSEL")
         changeSubTitle(" ");
@@ -345,14 +344,22 @@
           scene.remove(obj); 
           isCarousel=false;
 
+
         }
      }
 
     }
 
       function removeChart(){
-        document.getElementById("myModal").style.display ="none";
-      }
+    
+        if(isCarousel==false){
+          var els = $('#chart'), saved = els.clone (true);
+          els.remove ();
+          document.getElementById("myModal").style.display ="none";
+        }
+        
+        saved.appendTo ($('#myModal'));
+          }
 
       function init() {
         // console.log(districtWithpxl);
@@ -508,6 +515,7 @@
         // startDragCone(event);
         console.log("mouseDown");
         console.log(scene.children)
+
 
         if (mouseDragCount < 5) {
           console.log("mousedrag");
@@ -922,6 +930,7 @@
 
         if (intersects.length > 0 && isMushroomSelected ){
         
+        
         // get the district Id from the mushroom
         var distrcit_Id=intersects[0].object.parent.userData.distrctId
 
@@ -937,10 +946,13 @@
 
           removecarousel();
           removeChart();
+
           isMushroomSelected =true;
                 
         }else{
+         
           onMouseDown();
+
           
         }
     }
@@ -1064,6 +1076,7 @@
 
       function onMouseMove(event) {
         updateMouseCoords(event, mouse);
+        console.log("Mousemove");
 
         latestMouseProjection = undefined;
         hoveredObj = undefined;
