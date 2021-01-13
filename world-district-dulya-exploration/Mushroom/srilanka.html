@@ -21,17 +21,19 @@
     <div id="mymenu" class="mymenu">
     <span id="maintitle" style="font-size:18px;margin-top: 10px;">COVID-19 Data Visualization<br>Sri Lanka - District Level</span>
     <br/><br/>
-    <span id="subtitle" style="font-size:18px;margin-top: 10px;color: rgb(94, 191, 230);"></span>
-    <br/><br/> 
-    <a href="../world-level/covid-19-remix/c19-remix.html" class="btnMenu" title="World Level">
-      <img src="img/world.png" alt="Main Map" style="width:20px;height:20px;border:0">
-      World Level
-    </a>
+    <span id="subtitle" style="font-size:18px;margin-top: 10px;color: rgb(94, 191, 230);"> </span>
     <br/>
-    <a href="#" class="btnMenu" title="Ward Level">
-      <img src="img/ward2.png" alt="Main Map" style="width:20px;height:20px;border:0">
+    <span id = "WardLevel">
+    <a href="#" class="btnMenu" title="Ward Level" >
+      <img src="img/ward2.png" alt="Main Map" style="width:20px;height:20px;border:0;right: 50000px;" >
       Ward Level
     </a>
+  </span>
+  <br/> 
+  <a href="../world-level/covid-19-remix/c19-remix.html" class="btnMenu" title="World Level">
+    <img src="img/world.png" alt="Main Map" style="width:20px;height:20px;border:0">
+    World Level
+  </a>
    
 
     </div>
@@ -57,7 +59,19 @@
 
       }
       showMenu();
+      hideWardLevel();
+
+      function showWardLevel(){
+        var menu = document.getElementById("WardLevel");
+        menu.style.display = "block";
+      }
+      function hideWardLevel(){
+        var menu = document.getElementById("WardLevel");
+        menu.style.display = "none";
+      }
+
     </script>
+    
     
 
     <style>
@@ -329,6 +343,7 @@
     
       function removecarousel(){
         console.log("REMOVE CAROUSEL")
+        hideWardLevel();
         changeSubTitle(" ");
      
         for( var i = scene.children.length - 1; i >= 0; i--) {
@@ -940,6 +955,12 @@
 
         isMushroomSelected =false;
         changeSubTitle(hovered_districtName+" District");
+          if(hovered_districtName =="Colombo"){
+
+            showWardLevel("Ward Level")
+          }else{
+            hideWardLevel()
+          };
 
             
         }else if(intersects.length > 0 && isMushroomSelected ==false){
