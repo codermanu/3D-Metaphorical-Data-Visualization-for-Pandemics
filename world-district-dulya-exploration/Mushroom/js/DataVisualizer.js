@@ -222,7 +222,7 @@ DataVisualizer.prototype.update = function(path, mainDimension, xDimensions) {
                         fontColor: "white",
                      } }
             ],
-            xAxes:[{stacked:true,barPercentage :0.4,ticks: {
+            xAxes:[{stacked:true,barPercentage :0.2,ticks: {
                 fontColor: "white",
                 
              } }]

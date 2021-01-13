@@ -30,8 +30,8 @@ function createCarousel(node, hasMiddle) {
         context.fillStyle = "black";
        // context.textAlign= "left";
         //context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
-        context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
-        context.strokeText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
+        context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 40);
+        context.strokeText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 40);
 
         var texture = new THREE.Texture(canvas) 
         texture.needsUpdate = true;
@@ -101,7 +101,7 @@ function createMiddleButton(node) {
     var material = new THREE.MeshBasicMaterial( { color: '#FF0000'} );
     material.side = THREE.DoubleSide;
     var sphere = new THREE.Mesh( geometry, material );
-    sphere.position.y=20;
+    sphere.position.y=30;
     sphere.userData.node = node;
 
     sphere.getType = function(){
@@ -123,7 +123,7 @@ function createSegment(radius, angleStart, angleEnd, color, dimension, carousel)
     var extrOpt = {
         curveSegments: 32,
         steps: 1,
-        amount: 25,
+        amount: 45, //height of segment
         depth:2,
         bevelEnabled: false,
     };
