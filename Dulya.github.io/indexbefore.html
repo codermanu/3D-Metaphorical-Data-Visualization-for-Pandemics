@@ -14,7 +14,6 @@
 	<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"
 	/>
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
-	<link rel ="stylesheet" href = "css/modal.css"/>
 	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 	<style>
 		body {
@@ -190,7 +189,6 @@
 		<span class="close" id="close_btn">&times;</span>
 		<canvas id="chart" width="450px" height="400px"></canvas>
 	</div>
-
 	<!-- </div> -->
 	<div id="mymenu" class="mymenu">
 		<span id="maintitle" style="font-size:18px;margin-top: 10px;">Dengue Data for Test</span>
@@ -205,44 +203,68 @@
 <!--		<button id="january" onclick="monthDataSelection()">January</button>-->
 <!--&lt;!&ndash;		<button>January</button>&ndash;&gt;-->
 <!--	</div>-->
-<!--	<div id="monthModal" class = "modal" style = "display: none">-->
-<!--			<input type="checkbox" id="february" name="february" value="February">-->
-<!--			<label for="february"> February</label><br>-->
-<!--			<input type="checkbox" id="march" name="march" value="March">-->
-<!--			<label for="march"> March</label><br>-->
-<!--			<input type="checkbox" id="april" name="april" value="April">-->
-<!--			<label for="april"> April</label><br>-->
-<!--			<input type="checkbox" id="january" name="january" value="January">-->
-<!--			<label for="january"> January</label><br>-->
-<!--			<input type="checkbox" id="november" name="november" value="November">-->
-<!--			<label for="november"> november</label><br>-->
-<!--			<button id = "months_select">Select</button>-->
-<!--	</div>-->
-	<div id = "monthModal" class="modal-box">
-		<div class="modal-box-content">
-			<h1>Select Month</h1>
-			<label class="container">February
-				<input type="checkbox" id="february" name="february" value="February">
-				<span class="checkmark"></span>
-			</label>
-			<label class="container">March
-				<input type="checkbox" id="march" name="march" value="March">
-				<span class="checkmark"></span>
-			</label>
-			<label class="container">April
-				<input type="checkbox" id="april" name="april" value="April">
-				<span class="checkmark"></span>
-			</label>
-			<label class="container">January
-				<input type="checkbox" id="january" name="january" value="January">
-				<span class="checkmark"></span>
-			</label>
-			<label class="container">November
-				<input type="checkbox" id="november" name="november" value="November">
-				<span class="checkmark"></span>
-			</label>
-			<button id = "months_select" class = "btn_select">Select</button>
-		</div>
+	<div id="monthModal" class = "modal" style = "display: none">
+
+		<!-- Modal content -->
+<!--		<div>-->
+<!--			<span class="close">&times;</span>-->
+<!--			<p>Some text in the Modal..</p>-->
+
+
+			<input type="checkbox" id="february" name="february" value="february">
+			<label for="february"> February</label><br>
+			<input type="checkbox" id="march" name="march" value="march">
+			<label for="march"> March</label><br>
+			<input type="checkbox" id="april" name="april" value="april">
+			<label for="april"> April</label><br>
+			<input type="checkbox" id="january" name="january" value="january">
+			<label for="january"> January</label><br>
+			<button id = "months" onclick = "selectedMonths()" >Select</button>
+			<script>
+				var datasetCsv;
+				function selectedMonths(){
+					return  new Promise((resolve, reject) => {
+						var array = []
+						var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+						for (var i = 0; i < checkboxes.length; i++) {
+							array.push(checkboxes[i].value)
+						}
+						// monthDataSelection(array);
+
+						resolve('success');
+					});
+					// var array = []
+					// var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+					//
+					// for (var i = 0; i < checkboxes.length; i++) {
+					// 	array.push(checkboxes[i].value)
+					// }
+					// // monthDataSelection(array)
+					// console.log("loading dataset according to the month");
+					// for (var i = 0; i < array.length; i++){
+					// 	switch(array[i]) {
+					// 		case "january":
+					// 			datasetCsv = "dataset/Covid19_ward_data_final_january.csv";
+					// 			console.log("dataset here", datasetCsv)
+					// 			// code block
+					// 			break;
+					// 		case "february":
+					// 			datasetCsv = "dataset/Covid19_ward_data_final_february.csv";
+					// 			// code block
+					// 			break;
+					// 		default:
+					// 			datasetCsv = "dataset/Covid19_ward_data_final.csv";
+					// 			// code block
+					// 	}
+					// }
+					// console.log("checked items are", array)
+				}
+
+			</script>
+
+<!--		</div>-->
+
 	</div>
 	<script>
 		function showMenu(){
@@ -370,8 +392,7 @@
 		// 	console.log("Select the month");
 		// 	window.alert("Select your month");
 		// }
-		function loadDataset(polygon, callback, month) {
-
+		function loadDataset(polygon, callback) {
 			console.log("loading dataset...");
 			//d3.js - parse and prepare common input formats
 			//converts a CSV file into an array of objects - all string values
@@ -381,19 +402,12 @@
 			// }
 			// console.log("dataset is",datasetCsv);
 			// d3.csv(datasetCsv, function (data) {
-			d3.csv("dataset/Covid19_ward_data_final.csv", function (data) {
-			// 	d3.csv("dataset/final (copy).csv", function (data) {
+			d3.csv(datasetCsv, function (data) {
+				//d3.csv("dataset/final (copy).csv", function (data) {
 				
 				//select cases according to the given boundary
 				//what is report?????
-				if (month !== '') {
-					data.forEach(item => {
-						if (item['period'] === month) {
-							dataset.push(item);
-						}
-					});
-				}
-				dataset = dataset.filter(function (report) {
+				dataset = data.filter(function (report) {
 					var bid = 0;
 					try {
 						bid = parseInt(report.boundaryid);
@@ -642,7 +656,6 @@
 					}
 				);
 		}
-
 		function initMap() {
 			var mapProp = {
 				center: new google.maps.LatLng(6.9224, 79.8661),
@@ -659,45 +672,46 @@
 				map: map
 			});
 			marker.setVisible(false);
-
-			var polygonTemp;
-
-			document.getElementById('months_select').addEventListener('click', function() {
-				document.getElementById('monthModal').style.display = 'none';
-
-
-				var array = []
-				var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
-				for (var i = 0; i < checkboxes.length; i++) {
-					array.push(checkboxes[i].value)
-				}
-				// monthDataSelection(array);
-
-				loadDataset(polygonTemp, initScene,checkboxes[0].value);
-
-				labelRenderer = new THREE.CSS2DRenderer();
-				labelRenderer.setSize( window.innerWidth, window.innerHeight );
-				labelRenderer.domElement.style.position = 'absolute';
-				labelRenderer.domElement.style.top = 0;
-				first_stage_container.appendChild( labelRenderer.domElement );
-			});
 			
 			addListenersOnWards = function (polygon) {
 				google.maps.event.addListener(polygon, 'click', function (event) {
-					polygonTemp = polygon;
 					console.log("BID", polygon.indexID);
-
+					// showPopUp();
 					var modal = document.getElementById("monthModal");
 					modal.style.display = "block";
+					selectedMonths().then(res => {
+						console.log("datasethi");
+						loadDataset(polygon, initScene);
+					});
+					// var p = new Promise((resolve, reject) => {
+					// 	selectedMonths();
+					// });
+					// // selectedMonths();
+					//
+					// // monthDataSelection();
+					//
+					// // window.onclick = function(event) {
+					// // 	if (event.target != modal && modal.style.display == "block") {
+					// // 		modal.style.display = "none";
+					// // 	}
+					// // }
+					// loadDataset(polygon, initScene);
+					//
 
+
+					labelRenderer = new THREE.CSS2DRenderer();
+					labelRenderer.setSize( window.innerWidth, window.innerHeight );
+					labelRenderer.domElement.style.position = 'absolute';
+					labelRenderer.domElement.style.top = 0;
+					first_stage_container.appendChild( labelRenderer.domElement );
+					//document.body.appendChild( labelRenderer.domElement );
 				});
 				
 				google.maps.event.addListener(polygon, 'mouseover', function (event) {
 					console.log("on window");
 					var ind = polygon.indexID;
 					var ward = wards[ind];
-
+					
 					marker.setPosition(event.latLng);
 					infowindow.setContent(ward.name);
 					infowindow.open(map, marker);
@@ -1035,7 +1049,7 @@
 				
 				var ward = getWardOnConePosition();
 				if(ward != null) {
-					loadDataset(ward, changeWard,"");
+					loadDataset(ward, changeWard);
 				}
 				
 				updateConeLabel("");

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c37d6757-cab7-4e20-8c81-0b2235acbd58" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dulya.github.io/css/modal.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dulya.github.io/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dulya.github.io/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dulya.github.io/js/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Dulya.github.io/js/Carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dulya.github.io/js/Structure.js" beforeDir="false" afterPath="$PROJECT_DIR$/Dulya.github.io/js/Structure.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +26,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/mmp310" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mmp310" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SvnConfiguration">
@@ -46,6 +50,11 @@
       <workItem from="1609091567463" duration="6996000" />
       <workItem from="1609510269037" duration="1292000" />
       <workItem from="1609523046206" duration="12728000" />
+      <workItem from="1609682859017" duration="1214000" />
+      <workItem from="1610206538262" duration="5225000" />
+      <workItem from="1610263856477" duration="4469000" />
+      <workItem from="1610303502666" duration="27804000" />
+      <workItem from="1610650262037" duration="8311000" />
     </task>
     <servers />
   </component>
@@ -57,43 +66,13 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="412" y="199" width="604" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1294.741@72.27.1294.741" timestamp="1609344248702" />
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1608827936850">
+    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1610352949813">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1608827936850" />
-    <state x="227" y="27" width="620" height="741" key="find.popup" timestamp="1609574003302">
+    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1610352949813" />
+    <state x="227" y="27" width="620" height="741" key="find.popup" timestamp="1610303719768">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="227" y="27" width="620" height="741" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1609574003302" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Dulya.github.io/index.html</url>
-          <line>796</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Dulya.github.io/index.html</url>
-          <line>879</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Dulya.github.io/index.html</url>
-          <line>522</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Dulya.github.io/index.html</url>
-          <line>975</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="227" y="27" width="620" height="741" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1610303719768" />
   </component>
 </project>

@@ -8,7 +8,12 @@ function createCarousel(node, hasMiddle) {
     var segments={};
     var numOfSegments=node.metaphorDescriptor.dimensions.length;
     //trying to add explode button
+    var subDimLengths = {};
+    // if (hasMiddle) {
+    //     subDimLengths = subdimentionsWithLength[node.metaphorDescriptor.mainDimension];
+    // }
     if(hasMiddle){
+        subDimLengths = subdimentionsWithLength[node.metaphorDescriptor.mainDimension];
         var middleButton = createMiddleButton(node);
         parent.userData.middleButton = middleButton;
         parent.add(middleButton);
@@ -18,7 +23,31 @@ function createCarousel(node, hasMiddle) {
     for(i=0;i<numOfSegments;i++){
 
         var segmentPortion=360/numOfSegments;
-        var color=Math.random() * 0xffff00;
+        var subD = node.metaphorDescriptor.dimensions[i];
+        if(hasMiddle) {
+            segmentPortion = 360 * subDimLengths[subD] / dataset.length;
+        }
+        //var values =
+        //var segmentPortion = (values/7220)*360;
+        var color;
+        if(subD == "death"|| subD == "female") {
+            color = 0xff0000;
+        }else{
+            if(subD == "Hospitalized"){
+                color = 0xffff00;
+            }else{
+                if(subD == "Discharged"){
+                    color = 0x00ff00;
+                }else{
+                    if(subD == "male") {
+                        color = 0x0000ff;
+                    }else{
+                        color=Math.random() * 0x00ff00;
+                    }
+                }
+            }
+
+        }
         var segment=createSegment(250,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent, numOfSegments);
         startAngle+=segmentPortion;
 
@@ -86,11 +115,12 @@ function createCarousel(node, hasMiddle) {
 
 function createMiddleButton(node) {
     //trying to add explode button
-    var geometry = new THREE.SphereGeometry(50,16,16, Math.PI/2, Math.PI*2, 0, 0.5 * Math.PI)
+    var geometry = new THREE.SphereGeometry(50,16,16, Math.PI/2, Math.PI*2, 0, 1 * Math.PI)
     var material = new THREE.MeshBasicMaterial( { color: '#FF0000'} );
     material.side = THREE.DoubleSide;
     var sphere = new THREE.Mesh( geometry, material );
-    sphere.position.y=20;
+    // sphere.position.y=20;
+    sphere.position.z=20;
     sphere.userData.node = node;
 
     sphere.getType = function(){
@@ -178,22 +208,22 @@ function createSegment(radius, angleStart, angleEnd, color, dimension, carousel,
 
         var radians = (this.userData.angleEnd + this.userData.angleStart) * 0.5;
         var vx = Math.cos(radians);
-        var vz = -Math.sin(radians);
+        var vy = Math.sin(radians);
         var sinTime = 0.6; //Math.abs(Math.sin(3500*0.001)+1);
 
         //Move the actual piece
         this.position.x = sinTime * vx*100;
-        this.position.z = sinTime * vz*100;
+        this.position.y = sinTime * vy*100;
 
-        this.scale.y = this.scale.y+0.5;
+        this.scale.z = this.scale.z+0.5;
 
         this.userData.isActive = true;
     }
 
     segment.shrink = function() {
         this.position.x = this.userData.initialPosition.x;
-        this.position.z = this.userData.initialPosition.z;
-        this.scale.y = this.scale.y-0.5;
+        this.position.y = this.userData.initialPosition.y;
+        this.scale.z = this.scale.z-0.5;
         this.userData.isActive = false;
     }
 

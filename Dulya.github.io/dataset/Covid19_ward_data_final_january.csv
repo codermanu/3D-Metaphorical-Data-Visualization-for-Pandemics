@@ -1,0 +1,700 @@
+caseid,boundaryid,wardname,lat,lon,status,gender,age,period,place_of_death,district,underlying_conditions,contacts
+case6794,0,Sammanthranapura,6.921407022,79.87022311,death,male,adult,January,Hospital,Colombo,Cardiac arrest,N/A
+case6795,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6796,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6797,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6798,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6799,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6800,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6801,0,Sammanthranapura,6.921407022,79.87022311,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7064,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7065,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7066,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7067,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7068,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7069,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7070,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,N/A
+case7071,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,N/A
+case7072,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,N/A
+case7073,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7074,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7075,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7076,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7077,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7078,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7079,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7080,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7081,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7082,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7083,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7084,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7085,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7086,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7087,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7088,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7089,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7090,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7091,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7092,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7093,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7094,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7095,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7096,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7097,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7098,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7099,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7100,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7101,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7102,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7103,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7104,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7105,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7106,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7107,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7108,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7109,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7110,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case7111,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7112,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7113,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7114,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7115,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7116,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7117,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7118,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7119,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7120,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7121,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7122,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7123,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7124,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7125,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7126,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7127,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7128,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7129,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7130,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7131,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case7132,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7133,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7134,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7135,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7136,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7137,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7138,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7139,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7140,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7141,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7142,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7143,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7144,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7145,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7146,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7147,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7148,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7149,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7150,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7151,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7152,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7153,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7154,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7155,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7156,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7157,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7158,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7159,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7160,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7161,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7162,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7163,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7164,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7165,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7166,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7167,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7168,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7169,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7170,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7171,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7172,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7173,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7174,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7175,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7176,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7177,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7178,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7179,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7180,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7181,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7182,1,Mattakuliya,6.9732207,79.8765779,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6918,2,Modara,6.9671944,79.868902,death,female,adult,January,IDH,Colombo,N/A,N/A
+case6919,2,Modara,6.9671944,79.868902,death,male,adult,January,IDH,Colombo,Diabetes,N/A
+case6920,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case6921,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case6922,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case6923,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case6924,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case6925,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case6926,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6927,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6928,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6929,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6930,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6931,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6932,2,Modara,6.9671944,79.868902,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6933,2,Modara,6.9671944,79.868902,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6934,2,Modara,6.9671944,79.868902,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6935,2,Modara,6.9671944,79.868902,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6936,2,Modara,6.9671944,79.868902,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6937,2,Modara,6.9671944,79.868902,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6938,2,Modara,6.9671944,79.868902,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6939,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6940,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6941,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6942,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6943,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6944,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6945,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6946,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6947,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6948,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6949,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6950,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6951,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6952,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6953,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6954,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6955,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6956,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6957,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6958,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6959,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6960,2,Modara,6.9671944,79.868902,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6961,2,Modara,6.9671944,79.868902,Hospitalized,female,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6533,3,Mahawatta,6.9533886,79.8731212,death,female,elder,January,At home,Colombo,Chronic lung disease,N/A
+case6534,3,Mahawatta,6.9533886,79.8731212,death,female,elder,January,At home,Colombo,High blood pressure and diabetes,N/A
+case6535,3,Mahawatta,6.9533886,79.8731212,death,female,adult,January,Hospital,Colombo,Cardiac arrest,N/A
+case6536,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6537,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6538,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6539,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6540,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6541,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6542,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6543,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6544,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6545,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6546,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6547,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6548,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6549,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6550,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6551,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6552,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6553,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6554,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6555,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6556,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6557,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6558,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6559,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6560,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6561,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6562,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6563,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6564,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6565,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6566,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6567,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6568,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6569,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6570,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6571,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6572,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6573,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6574,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6575,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6576,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Close contacts (Not in a QC)
+case6577,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6578,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6579,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6580,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6581,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6582,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6583,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6584,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6585,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6586,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6587,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6588,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6589,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6590,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6591,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6592,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6593,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6594,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6595,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6596,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6597,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6598,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6599,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6600,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6601,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6602,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6603,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6604,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6605,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6606,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6607,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6608,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6609,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6610,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6611,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6612,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6613,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6614,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6615,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6616,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6617,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6618,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6619,3,Mahawatta,6.9533886,79.8731212,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6962,4,Aluthmawatha,6.9617317,79.8656937,death,female,elder,January,At home,Colombo,Pneumonia condition due to COVID-19,N/A
+case6963,4,Aluthmawatha,6.9617317,79.8656937,death,male,elder,January,At home,Colombo,Cardiac arrest,N/A
+case6964,4,Aluthmawatha,6.9617317,79.8656937,death,male,adult,January,Hospital,Colombo,Cancer,N/A
+case6965,4,Aluthmawatha,6.9617317,79.8656937,death,female,adult,January,Hospital,Colombo,Liver disease,N/A
+case6966,4,Aluthmawatha,6.9617317,79.8656937,death,female,elder,January,At home,Colombo,Pneumonia condition due to COVID-19,N/A
+case6967,4,Aluthmawatha,6.9617317,79.8656937,death,male,adult,January,Hospital,Colombo,Blood poisoning,N/A
+case6968,4,Aluthmawatha,6.9617317,79.8656937,death,male,adult,January,IDH,Colombo,Chronic lung disease,N/A
+case6969,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6970,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6971,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6972,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6973,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6974,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6975,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6976,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6977,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6978,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6979,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6980,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6981,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6982,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6983,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6984,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6985,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6986,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6987,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6988,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6989,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6990,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6991,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6992,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6993,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6994,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6995,4,Aluthmawatha,6.9617317,79.8656937,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6996,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6997,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6998,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6999,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7000,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7001,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7002,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7003,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7004,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7005,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7006,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7007,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7008,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7009,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7010,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7011,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7012,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7013,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7014,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7015,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7016,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7017,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7018,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7019,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7020,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7021,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7022,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7023,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7024,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7025,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7026,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7027,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7028,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case7029,5,Lunupokuna,6.9549537,6.9549537,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6802,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,elder,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case6803,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Fishery harbour cluster
+case6804,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6805,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6806,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6807,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6808,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6809,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6810,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6811,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6812,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6813,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6814,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6815,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6816,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6817,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6818,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6819,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6820,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6821,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6822,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6823,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6824,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6825,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6826,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6827,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6828,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6829,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6830,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6831,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6832,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6833,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6834,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6835,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6836,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6837,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6838,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6839,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6840,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6841,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6842,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6843,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6844,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6845,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6846,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6847,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6848,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6849,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6850,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6851,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6852,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6853,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6854,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6855,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6856,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6857,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6858,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6859,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6860,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6861,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6862,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6863,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6864,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6865,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6866,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6867,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6868,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6869,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6870,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6871,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6872,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6873,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6874,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6875,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6876,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6877,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6878,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6879,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6880,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6881,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6882,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6883,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6884,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6885,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6886,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6887,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6888,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6889,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6890,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6891,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6892,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6893,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6894,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6895,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6896,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6897,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6898,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6899,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6900,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6901,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6902,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6903,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6904,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6905,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6906,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6907,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6908,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6909,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6910,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6911,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6912,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6913,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6914,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6915,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6916,7,Blue_Mandel,6.903184131,79.86273435,Discharged,male,elder,January,Not dead,Colombo,N/A,N/A
+case6917,7,Blue_Mandel,6.903184131,79.86273435,Hospitalized,female,elder,January,Not dead,Colombo,N/A,N/A
+case6620,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6621,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6622,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6623,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6624,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6625,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6626,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6627,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6628,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6629,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6630,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6631,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6632,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6633,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6634,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6635,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6636,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6637,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6638,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6639,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6640,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6641,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6642,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6643,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6644,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6645,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6646,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6647,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6648,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6649,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6650,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6651,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6652,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6653,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6654,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6655,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6656,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6657,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6658,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6659,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6660,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6661,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6662,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6663,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6664,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6665,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6666,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6667,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6668,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6669,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6670,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6671,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6672,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6673,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6674,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6675,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6676,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6677,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6678,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6679,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6680,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6681,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6682,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6683,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6684,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6685,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6686,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6687,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6688,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6689,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6690,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6691,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6692,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6693,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6694,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6695,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6696,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6697,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6698,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6699,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6700,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6701,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6702,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6703,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6704,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6705,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case6706,8,Grandpass_North,6.914431117,79.86456239,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5765,9,Dematagoda,6.9327474,79.8803715,death,male,elder,January,At home,Colombo,Diabetes,N/A
+case5766,9,Dematagoda,6.9327474,79.8803715,death,male,elder,January,Hospital,Colombo,Pneumonia condition due to COVID-19,N/A
+case5767,9,Dematagoda,6.9327474,79.8803715,death,female,adult,January,Hospital,Colombo,Pneumonia condition due to COVID-19,N/A
+case5768,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Divulapitiya apparel factory workers
+case5769,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5770,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5771,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5772,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5773,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5774,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5775,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5776,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5777,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5778,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5779,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5780,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5781,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5782,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5783,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5784,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5785,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5786,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5787,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5788,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5789,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5790,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5791,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,Peliyagoda cluster
+case5792,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5793,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5794,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5795,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5796,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5797,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5798,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5799,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5800,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5801,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5802,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5803,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5804,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5805,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5806,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5807,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5808,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5809,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5810,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5811,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5812,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5813,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5814,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5815,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5816,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5817,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5818,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5819,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5820,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5821,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5822,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5823,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5824,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5825,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5826,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5827,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5828,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5829,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5830,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5831,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5832,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5833,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5834,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5835,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5836,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5837,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5838,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5839,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5840,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5841,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5842,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5843,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5844,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5845,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5846,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5847,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,adult,January,Not dead,Colombo,N/A,N/A
+case5848,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5849,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5850,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5851,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5852,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5853,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5854,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5855,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5856,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5857,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5858,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5859,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5860,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5861,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5862,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5863,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5864,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5865,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5866,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5867,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5868,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5869,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5870,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5871,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5872,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5873,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5874,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5875,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5876,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5877,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5878,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5879,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5880,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5881,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5882,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5883,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5884,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5885,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5886,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5887,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5888,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5889,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5890,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5891,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5892,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5893,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5894,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5895,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5896,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5897,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5898,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5899,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5900,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5901,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5902,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5903,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5904,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5905,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5906,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5907,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5908,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5909,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5910,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5911,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5912,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5913,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5914,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5915,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5916,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5917,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5918,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5919,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5920,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5921,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5922,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5923,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5924,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5925,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5926,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5927,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5928,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5929,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5930,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5931,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5932,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5933,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A
+case5934,9,Dematagoda,6.9327474,79.8803715,Hospitalized,male,elder,January,Not dead,Colombo,N/A,N/A

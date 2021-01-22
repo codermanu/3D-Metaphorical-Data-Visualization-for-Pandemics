@@ -95,7 +95,7 @@ function CreateNewNode(metaphorDescriptor){
   if(metaphorDescriptor.metaphorType == 0){
     node.metaphor = createCarousel(node, false);
   }else{
-    node.metaphor = createCarousel(node,true);
+    node.metaphor = createCarousel(node, true);
   }
    // check metaphor types and create appropriate metaphors
    
