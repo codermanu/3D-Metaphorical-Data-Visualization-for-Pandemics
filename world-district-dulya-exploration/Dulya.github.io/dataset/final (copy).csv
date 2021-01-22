@@ -1,0 +1,217 @@
+caseid,boundaryid,lat,long,status,gender,age_a,period,place_of_death,Detected City,District,Underlying conditions,Contacts
+case0,15,7.083636, 80.004073,death,male,adult,March,IDH,Marawila,Gampaha,,
+case1,25,7.083636, 80.004073,death,male,elder,March,Hospital ,Kochchikade,Gampaha,Suffering from a long term lung disease and also suffered a heart attack,
+case2,32,,,death,male,elder,April,IDH,Maradana,Colombo,"Diabetes, high blood pressure, and also kidney failure",
+case3,4,,,death,male,adult,April,IDH,,Colombo,Worsening of a pneumonia condition,
+case4,43,,,death,male,adult,April,Hospital ,QC- Welikanda,Quarantine Centers,None,
+case5,9,,,death,male,elder,April,IDH,Dehiwala,Colombo,,
+case6,26,,,death,male,adult,April,IDH,Mt. Lavinia,Colombo,,
+case7,14,7.483678,80.358293,death,female,elder,May,Hospital ,Polpithigama,Kurunegala,Chronic kidney ailment,
+case8,40,,,death,female,adult,May,IDH,"Modara, Methsanda Sevana",Colombo,,
+case9,0,,,death,female,adult,May,QC,In a QC - Trincomalee,Quarantine Centers,,
+case10,34,,,death,male,adult,May,Hospital ,,Quarantine Centers,,
+case11,14,7.483678,80.358293,death,female,adult,August,Not home,Iranawila Treatment Center,Kurunegala,Diagnosed with cancer and heart ailments in addition to the COVID-19 infection,
+case12,20,,,death,male,adult,September,Hospital ,District General Hospital - Chilaw,Puttalam,Cardiac arrest,
+case13,14,7.483678,80.358293,death,female,adult,October,Not home,Kuliyapitiya,Kurunegala,,
+case14,14,7.483678,80.358293,death,male,adult,October,Hospital ,"Kuliyapitiya, Unaleeya",Kurunegala,Heart decease,
+case15,32,,,death,male,elder,October,Hospital ,Colombo 02,Colombo,Blood infection,
+case16,33,7.083636, 80.004073,death,male,adult,October,Not home,Ja Ela,Gampaha,Cirrhosis,
+case17,14,,,death,male,adult,October,Hospital ,Keselwatta,Colombo,Youth with special needs,
+case18,0,,,death,female,elder,October,Hospital ,Slave Island,Colombo,,
+case19,17,,,death,female,adult,October,Hospital ,Colomb0 12,Colombo,Diabetes,
+case20,15,7.083636, 80.004073,death,male,adult,November,Hospital ,Mahara,Gampaha,High blood pressure and respiratory tract infection,
+case21,53,,,death,female,elder,November,At home,Jampettah Street,Colombo,,
+case22,5,,,death,female,elder,November,At home,Colombo 15,Colombo,"Lung infection, Pneumonia condition due to COVID-19",
+case23,35,,,death,female,elder,November,At home,Colomb0 13,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case24,18,,,death,male,adult,November,Hospital ,Colombo 02,Colombo,,
+case25,4,,,death,female,elder,November,Hospital ,Wellampitiya,Colombo,,
+case26,15,,,death,female,adult,November,At home,Colombo 12,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case27,53,,,death,female,elder,November,At home,Colombo 14,Colombo,Lung infection caused by the COVID-19 virus infection,
+case28,25,,,death,male,elder,November,At home,Colombo 15,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case29,19,,,death,male,adult,November,IDH,"Modara, Colombo 15",Colombo,Novel coronavirus infection and diabetes complications,
+case30,31,,,death,female,adult,November,At Home,"Maligawaththa, Colombo 10",Colombo,Ailing from a chronic heart condition in addition to COVID-19,
+case31,39,,,death,female,elder,November,Hospital ,"Maligawaththa, Colombo 10",Colombo,Pneumonia condition due to COVID-19,
+case32,32,7.083636, 80.004073,death,male,elder,November,IDH,Ganemulla,Gampaha,Sepsis caused by COVID-19 related pneumonia,
+case33,22,,,death,male,elder,November,At home,Wellampitiya,Colombo,Pneumonia condition due to COVID-19,
+case34,14,,,death,male,elder,November,At home,Colombo,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case35,8,7.083636, 80.004073,death,female,elder,November,IDH,Kandana,Gampaha,She had been suffering from a long-term illness (reportedly),
+case36,28,,,death,male,adult,November,Not home,Rajagiriya,Colombo,Pneumonia condition due to COVID-19,
+case37,20,,,death,male,adult,November,Not home,Colombo 10,Colombo,Pneumonia condition due to COVID-19,
+case38,41,7.083636, 80.004073,death,female,elder,November,Not home,Udugampola,Gampaha,Pneumonia condition due to COVID-19,
+case39,1,,,death,male,adult,November,Not home,,Colombo,,
+case40,48,7.083636, 80.004073,death,male,adult,November,At home,Ragama,Gampaha,Suffered from cancer,
+case41,6,,,death,male,elder,November,At home,Panadura,Kalutara,Cardiac arrest caused by the COVID-19 virus infection,
+case42,45,,,death,male,adult,November,Hospital ,Colombo 11,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case43,25,,,death,male,adult,November,Hospital ,Kelaniya,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case44,49,,,death,female,elder,November,At home,Maligawatta,Colombo,Cardiac arrest caused by high blood pressure due to Covid-19 infection,
+case45,36,7.083636, 80.004073,death,male,elder,November,Hospital ,Imbulgoda,Gampaha,Exacerbation of leukemia and a complication of the respiratory system,
+case46,53,7.083636, 80.004073,death,male,adult,November,Hospital ,Colombo 12,Gampaha,COVID-19 along with a chronic illness in the lungs,
+case47,52,,,death,male,adult,November,Hospital ,Meegoda,Colombo,COVID-19 related pneumonia and secondary bacterial infection,
+case48,35,,,death,female,elder,November,At home,Colombo 14,Colombo,High blood pressure and diabetes,
+case49,18,,,death,male,elder,November,Hospital ,Chilaw,Puttalam,High blood pressure and brain haemorrhage.,
+case50,8,,,death,male,elder,November,At home,Ratmalana,Colombo,"High blood pressure, diabetes",
+case51,43,,,death,male,elder,November,At home,Colombo 13,Colombo,Cardiac arrest,
+case52,43,,,death,male,elder,November,At home,Colombo 13,Colombo,Suffered from asthma,
+case53,50,,,death,male,adult,November,Hospital ,"Jinthupitiya, Colombo 13",Colombo,Suffered from cancer,
+case54,5,,,death,male,adult,November,Hospital ,Colombo 15,Colombo,Suffered from cancer and Pneumonia condition due to COVID-19,
+case55,16,,,death,male,elder,November,At home,Colombo 12,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case56,5,,,death,male,elder,November,At home,"Borella, Colombo 8",Colombo,Chronic lung disease,
+case57,4,,,death,male,elder,November,At home,Colombo 13,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case58,14,,,death,female,elder,November,At home,Moratuwa,Colombo,Suffered from diabetes,
+case59,50,,,death,male,elder,November,IDH,Colombo 10,Colombo,Suffered from chronic kidney disease,
+case60,36,,,death,male,elder,November,At home,Colombo 13,Colombo,Worsening of diabetes and cognitive heart diseases due to COVID-19 infection,
+case61,44,,,death,male,elder,November,Hospital ,Colombo 10,Colombo,High blood pressure due to Covid-19 infection,
+case62,0,,,death,female,elder,November,At home,Rathmalana,Colombo,Covid-19 infection and complications in diabetes and high blood pressure,
+case63,45,,,death,female,elder,November,At home,Kirulapone,Colombo,Suffered from high blood pressure diabetes and Covid-19 infection,
+case64,43,,,death,female,elder,November,Hospital ,Colombo 2,Colombo,Pneumonia condition due to COVID-19,
+case65,38,,,death,male,elder,November,At home,Dematagoda,Colombo,Complications of diabetes causeed by Covid-19 infection,
+case66,18,7.083636, 80.004073,death,male,elder,November,At home,Kandana,Gampaha,Complication of diabetes condition due to COVID-19 infection,
+case67,40,,,death,female,elder,November,Hospital ,Colombo 12,Colombo,"Succumbed to high blood pressure, diabetes, and weakness in the lungs caused by COVID-19",
+case68,51,,,death,male,adult,November,At home,Colombo 13,Colombo,Complication of diabetes condition due to COVID-19 infection,
+case69,39,,,death,female,adult,November,Hospital ,Colombo 15,Colombo,Suffered from liver disease,
+case70,41,,,death,male,elder,November,At home,Colombo 10,Colombo,Pneumonia condition due to COVID-19,
+case71,52,,,death,female,adult,November,At home,Pokunuwita,Kalutara,High blood pressure and cardiac arrest caused by the COVID-19 virus infection,
+case72,9,,,death,male,elder,November,At home,Halthota,Kalutara,Cardiac arrest caused by the COVID-19 virus infection,
+case73,29,,,death,male,elder,November,Hospital ,"Slave Island, Colombo 2",Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case74,30,,,death,male,adult,November,Hospital ,Colombo 2,Colombo,Septic shock caused by COVID-19 related pneumonia,
+case75,17,,,death,male,elder,November,Hospital ,Wellampitiya,Colombo,High blood pressure and diabetes along with COVID-19 infection,
+case76,39,,,death,female,adult,November,At home,Colombo 10,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case77,19,,,death,male,elder,November,At home,Colombo 10,Colombo,High blood pressure and diabetes and cardiac arrest caused by the COVID-19 virus infection,
+case78,17,,,death,female,elder,November,At home,Colombo 13,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case79,16,,,death,male,elder,November,Hospital ,Wellawatta,Colombo,Bacterial infection and septic shock caused by COVID-19,
+case80,35,,,death,female,elder,November,Hospital ,Wellampitiya,Colombo,Severe pneumonia condition due to COVID-19,
+case81,52,,,death,female,elder,November,IDH,,Colombo,Blood poisoning and pneumonia condition due to COVID-19,
+case82,33,,,death,male,elder,November,Hospital ,Dematagoda,Colombo,Pneumonia condition due to COVID-19,
+case83,47,,,death,female,elder,November,At home,Colombo 15,Colombo,Pneumonia condition due to COVID-19,
+case84,30,,,death,male,adult,November,At home,Colombo 12,Colombo,Chronic respiratory disease induced by Covid-19 infection,
+case85,6,,,death,female,elder,November,At home,Borella,Colombo,Pneumonia condition due to COVID-19,
+case86,24,,,death,male,elder,November,IDH,Colombo 10,Colombo,Pneumonia condition due to COVID-19,
+case87,47,7.083636, 80.004073,death,female,elder,November,IDH,Heiyanthuduwa,Gampaha,Severe infection caused by COVID-19,
+case88,48,,,death,male,adult,November,Hospital ,"Mattakkuliya, Colombo 15",Colombo,Blood poisoning caused by COVID-19,
+case89,28,,,death,female,adult,November,Hospital ,Colombo 14,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case90,29,,,death,male,elder,November,Hospital ,Ginigathhena,Nuwara Eliya,Multi-organ dysfunction due to complications of diarrhea induced by Covid-19 infection,
+case91,28,7.083636, 80.004073,death,male,adult,November,Hospital ,Siyambalape South,Gampaha,Covid 19 infection and chronic kidney disease,
+case92,42,,,death,female,elder,November,Hospital ,Colombo 05,Colombo,Pneumonia condition due to COVID-19,
+case93,20,,,death,male,adult,November,IDH,Atalugama,Kalutara,"Complications of Covid-19 infection, chronic liver disease and encephalitis",
+case94,53,,,death,female,adult,November,Hospital ,Colombo 12,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case95,45,,,death,male,elder,November,Hospital ,Pannipitiya,Colombo,Liver disease worsened by COVID-19 infection,
+case96,53,,,death,male,elder,November,Hospital ,Colombo 08,Colombo,Bacteria infection with Covid-19 infection and chronic lung disease,
+case97,1,,,death,male,elder,November,Hospital ,Bampalapitiya,Colombo,"High blood pressure, pneumonia and a cardiac arrest caused by Covid-19 infection",
+case98,22,7.083636, 80.004073,death,female,elder,November,Hospital ,Peliyagoda,Gampaha,"High blood pressure, diabetes and a stroke resulting from Covid-19 infection",
+case99,45,,,death,female,elder,November,At home,Colombo 13,Colombo,Stroke and cardiac arrest caused by the COVID-19 virus infection,
+case100,53,,,death,female,adult,November,Hospital ,"Dematagoda, Colombo 09",Colombo,Pneumonia condition due to COVID-19,
+case101,7,,,death,female,elder,November,At home,Maradana,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case102,49,,,death,male,adult,November,IDH,Colombo 15,Colombo,Chronic lung disease and Covid-19 infection,
+case103,18,,,death,male,elder,November,At home,Colombo 02,Colombo,Cardiac arrest caused by the COVID-19 virus infection,
+case104,30,,,death,female,adult,November,At home,"Maligawatta, Colombo 10",Colombo,"Cardiac arrest caused by the COVID-19 virus infection, Suffered from chronic renal disease and diabetes",
+case105,44,,,death,male,elder,November,At home,Colombo 10,Colombo,Covid-19 pneumonia with a chronic lung disease with asthma,
+case106,3,,,death,male,elder,November,Hospital ,Magazine Prison,Colombo,Kidney infection exacerbated by Covid-19,
+case107,,7.083636, 80.004073,Discharged,female,adult,January,Not dead,Katunayake,Gampaha,,
+case108,,,,Discharged,male,adult,March,Not dead,Mattegoda,Colombo,,
+case109,,,,Discharged,male,adult,March,Not dead,Colombo 08,Colombo,,
+case110,,,,Hospitalized,male,adult,March,Not dead,Colombo 08,Colombo,,
+case111,,7.083636, 80.004073,Hospitalized,male,adult,March,Not dead,Mahara,Gampaha,,
+case112,14,7.483678,80.358293,Hospitalized,male,adult,March,Not dead,Udubaddawa,Kurunegala,,
+case113,,,,Hospitalized,male,adult,March,Not dead,Dunkannawa,Puttalam,,
+case114,,,,Hospitalized,male,adult,March,Not dead,Colombo 08,Colombo,,
+case115,,,,Discharged,female,child,March,Not dead,Colombo 08,Colombo,,
+case116,,,,Hospitalized,male,adult,March,Not dead,Akuregoda,Colombo,,
+case117,,,,Hospitalized,female,child,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case118,4,7.732766,81.673702,Hospitalized,male,elder,March,Not dead,Batticaloa QC,Batticaloa,,
+case119,,,,Hospitalized,male,adult,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case120,,,,Hospitalized,male,adult,March,Not dead,Ratnapura,Ratnapura,,
+case121,,7.083636, 80.004073,Hospitalized,male,elder,March,Not dead,Kelaniya,Gampaha,,
+case122,,,,Hospitalized,female,adult,April,Not dead,Jaffna,Jaffna,,
+case123,,,,Hospitalized,female,adult,April,Not dead,Katukaliyawa QC,Puttalam,,
+case124,,,,Hospitalized,female,child,April,Not dead,Kandakadu QC,Polonnaruwa,,
+case125,,,,Hospitalized,female,adult,April,Not dead,Kotahena Keselwatta,Colombo,,
+case126,,,,Hospitalized,male,adult,April,Not dead,"Hidinna kanda, Ratnapua",Ratnapura,,
+case127,,,,Hospitalized,male,child,April,Not dead,Keselwatta,Colombo,,
+case128,2,8.30729,80.402796,Hospitalized,male,adult,April,Not dead,Saliyapura,Anuradhapura,,
+case129,,,,Hospitalized,male,child,April,Not dead,"Thanamalvila, 13 1/2th Mile post",Moneragala,,
+case130,,,,Hospitalized,female,elder,May,Not dead,,Unspecified,,
+case131,,,,Hospitalized,male,adult,May,Not dead,"Bandaranakike Pura, Rajagiriya",Colombo,,
+case132,,,,Hospitalized,male,adult,May,Not dead,"Salamulla, Kolonnawa",Colombo,,
+case133,,,,Hospitalized,male,child,May,Not dead,,Unspecified,,
+case134,2,8.30729,80.402796,Hospitalized,male,child,July,Not dead,Rajanganaya,Anuradhapura,,
+case135,2,8.30729,80.402796,Hospitalized,male,child,July,Not dead,Rajanganaya,Anuradhapura,,
+case136,6,6.017141,80.275383,Discharged,male,adult,July,Not dead,"Habaraduwa, Heenatigla",Galle,,
+case137,2,8.30729,80.402796,Hospitalized,female,child,July,Not dead,Rajanganaya,Anuradhapura,,
+case138,,7.083636, 80.004073,Hospitalized,female,adult,October,Not dead,Divulapitiya,Gampaha,,
+case139,,7.083636, 80.004073,Hospitalized,female,child,October,Not dead,,Gampaha,,
+case140,14,7.483678,80.358293,Hospitalized,male,adult,October,Not dead,"Kurunegala, Uyandana",Kurunegala,,
+case141,,,,Hospitalized,female,child,October,Not dead,"Horana, Kandanhena",Kalutara,,
+case142,,,,Hospitalized,male,child,October,Not dead,Colombo ,Colombo,,
+case143,,,,Hospitalized,male,adult,October,Not dead,Dikowita,Puttalam,,
+case144,,7.083636, 80.004073,Hospitalized,female,child,October,Not dead,Minuwangoda,Gampaha,,
+case145,,,,Hospitalized,N/A,adult,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case146,,,,Hospitalized,N/A,child,March,Not dead,Kalutara South,Kalutara,,
+case147,,,,Hospitalized,N/A,child,April,Not dead,Kotahena Keselwatta,Colombo,,
+case148,,,,Hospitalized,N/A,child,May,Not dead,,Unspecified,,Navy close contacts
+case149,,,,Hospitalized,N/A,child,May,Not dead,,Unspecified,,Navy close contacts (child)
+case150,,,,Hospitalized,N/A,child,May,Not dead,,Unspecified,,Navy close contacts in a QC
+case151,,,,Hospitalized,N/A,child,May,Not dead,,Unspecified,,Navy close contacts (child) a QC
+case152,6,6.036088,80.214228,Hospitalized,female,N/A,March,Not dead,Galle,Galle,,
+case153,,,,Hospitalized,male,N/A,March,Not dead,Rajagiriya,Colombo,,
+case154,,,,Hospitalized,male,N/A,March,Not dead,Bauddhaloka Mawatha,Colombo,,Indian national
+case155,,,,Hospitalized,male,N/A,March,Not dead,Colombo 08,Colombo,,
+case156,,,,Hospitalized,male,N/A,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case157,,,,Hospitalized,male,N/A,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case158,,,,Hospitalized,male,N/A,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case159,,,,Hospitalized,male,N/A,March,Not dead,Kandakadu QC,Polonnaruwa,,
+case160,,,,Hospitalized,female,N/A,March,Not dead,Vauniya QC,Vavuniya,,
+case161,,,,Hospitalized,female,N/A,March,Not dead,Colombo 08,Colombo,,
+case162,,,,Discharged,female,N/A,March,Not dead,Rathmalana,Colombo,,From Itally
+case163,,,,Hospitalized,female,N/A,March,Not dead,Ratnapura,Ratnapura,,Gem business person's wife
+case164,,,,Hospitalized,female,N/A,March,Not dead,Ratnapura,Ratnapura,,Gem business person's daughter
+case165,,,,Hospitalized,female,N/A,April,Not dead,Beruwala,Kalutara,,
+case166,,7.083636, 80.004073,Discharged,male,N/A,April,Not dead,"Suduwella, Ja-ela",Gampaha,,Discharged from Iranavila hospital
+case167,,7.083636, 80.004073,Hospitalized,male,N/A,April,Not dead,"Suduwella, Ja-ela",Gampaha,,
+case168,,7.083636, 80.004073,Hospitalized,male,N/A,April,Not dead,"Suduwella, Ja-ela",Gampaha,,
+case169,,7.083636, 80.004073,Hospitalized,male,N/A,April,Not dead,"Suduwella, Ja-ela",Gampaha,,
+case170,,,,Hospitalized,male,N/A,April,Not dead,Kotahena Keselwatta,Colombo,,
+case171,,,,Hospitalized,male,N/A,April,Not dead,Kotahena Keselwatta,Colombo,,
+case172,,,,Hospitalized,male,N/A,April,Not dead,Kotahena Keselwatta,Colombo,,
+case173,,,,Hospitalized,female,N/A,April,Not dead,Kotahena Keselwatta,Colombo,,
+case174,14,7.483678,80.358293,Hospitalized,male,N/A,April,Not dead,"Rathnotuwa, Wariyapola",Kurunegala,,
+case175,,,,Hospitalized,male,N/A,April,Not dead,Mahakachchikudiya,Vavuniya,,(On leave) Naval Base - Welisara
+case176,,,,Hospitalized,female,N/A,April,Not dead,Maradana,Colombo,,
+case177,,,,Hospitalized,male,N/A,April,Not dead,Padaviya,Polonnaruwa,,(On leave) Naval Base - Welisara
+case178,,,,Hospitalized,female,N/A,April,Not dead,"Thanamalvila, 13 1/2th Mile post",Moneragala,,
+case179,,,,Hospitalized,male,N/A,April,Not dead,Havelock lane,Colombo,,"Cleaning personnel, CMC, Suspected link to Bandaranayake Mawata, Keselwatta (Garbage truck's driver from Bandaranayake Mawata)"
+case180,,,,Hospitalized,male,N/A,April,Not dead,Agalawatta,Kalutara,,Navy close contacts
+case181,,,,Hospitalized,male,N/A,April,Not dead,Agalawatta,Kalutara,,Navy close contacts
+case182,,,,Hospitalized,female,N/A,April,Not dead,Agalawatta,Kalutara,,Navy close contacts
+case183,,,,Hospitalized,male,N/A,April,Not dead,Agalawatta,Kalutara,,Navy close contacts
+case184,,,,Hospitalized,female,N/A,April,Not dead,Agalawatta,Kalutara,,Navy close contacts
+case185,,,,Hospitalized,male,N/A,April,Not dead,Gunasinghepura,Colombo,,From a Air Force QC
+case186,,,,Hospitalized,female,N/A,May,Not dead,Malabe,Colombo,,Nurse - CGH -  Negative (previously identified as COVID-19 patients have been declared as COVID-19 negative (06th May)
+case187,,7.083636, 80.004073,Hospitalized,male,N/A,May,Not dead,Kelawarapitiya,Gampaha,,Navy close contacts
+case188,,,,Hospitalized,male,N/A,May,Not dead,,Unspecified,,Navy close contacts (father)
+case189,,,,Hospitalized,female,N/A,May,Not dead,,Unspecified,,Navy close contacts (mother)
+case190,,,,Hospitalized,female,N/A,June,Not dead,,Unspecified,,Army peronal (Homagama) close contact - Wife (Rajagiriya QC)
+case191,,,,Hospitalized,male,N/A,June,Not dead,,Unspecified,,Army peronal (Homagama) close contact - Son (Rajagiriya QC)
+case192,2,8.30729,80.402796,Hospitalized,male,N/A,July,Not dead,Rajanganaya,Anuradhapura,,Kandakadu staff (counselor)
+case193,2,8.30729,80.402796,Hospitalized,female,N/A,July,Not dead,Rajanganaya-yaya 5,Anuradhapura,,Kandakadu counselor's wife
+case194,2,8.30729,80.402796,Hospitalized,female,N/A,July,Not dead,"Rajanganaya-yaya 1,3, 5",Anuradhapura,,Kandakadu counselor's close contact
+case195,2,8.30729,80.402796,Hospitalized,female,N/A,July,Not dead,"Rajanganaya-yaya 1,3, 5",Anuradhapura,,Kandakadu counselor's close contact
+case196,2,8.30729,80.402796,Hospitalized,female,N/A,July,Not dead,"Rajanganaya-yaya 1,3, 5",Anuradhapura,,Kandakadu counselor's close contact
+case197,2,8.30729,80.402796,Hospitalized,male,N/A,July,Not dead,"Rajanganaya-yaya 1,3, 5",Anuradhapura,,Kandakadu counselor's close contact
+case198,,,,Hospitalized,female,N/A,July,Not dead,Piliyandala,Colombo,,Kandakadu counselor's wife
+case199,,,,Hospitalized,female,N/A,July,Not dead,Piliyandala,Colombo,,Kandakadu counselor's mother
+case200,,,,Hospitalized,male,N/A,July,Not dead,Homagama,Colombo,,Kandakadu counselor's close contact (Father)
+case201,,,,Hospitalized,male,N/A,July,Not dead,Homagama,Colombo,,Kandakadu counselor's close contact (Brother)
+case202,,,,Hospitalized,male,N/A,July,Not dead,Homagama,Colombo,,Kandakadu counselor's close contact (Brother)
+case203,,,,Hospitalized,female,N/A,July,Not dead,Homagama,Colombo,,Kandakadu counselor's close contact (Grandmother)
+case204,,,,Hospitalized,male,N/A,August,Not dead,Lankapura,Polonnaruwa,,Lankapura divisional secretariat's office security personal (Sri Lanka Civil Security Force)
+case205,,,,Hospitalized,female,N/A,August,Not dead,Lankapura,Polonnaruwa,,Security personal(2823)'s daughter (Sri Lanka Civil Security Force)
+case206,,,,Hospitalized,male,N/A,October,Not dead,,Unspecified,,"From mediterranean sea (in a QC, seamarshall) "
+case207,14,7.483678,80.358293,Hospitalized,female,N/A,October,Not dead,"Narammala, Galahitiyawa",Kurunegala,,Divulapitiya apparel factory workers (on leave)
+case208,14,7.483678,80.358293,Hospitalized,female,N/A,October,Not dead,"Kuliyapitiya, Nakkawatta",Kurunegala,,Divulapitiya apparel factory workers (on leave)
+case209,,,,Hospitalized,female,N/A,October,Not dead,"Medagoda, Bakingahawela, Pubbara Dewalagoda",Moneragala,,Divulapitiya apparel factory workers (on leave)
+case210,,,,Hospitalized,female,N/A,October,Not dead,Punkudutivu,Jaffna,,Divulapitiya apparel factory workers (on leave)
+case211,,,,Hospitalized,male,N/A,October,Not dead,"Horana, Kandahena",Kalutara,,Divulapitiya apparel factory workers
+case212,,,,Hospitalized,female,N/A,October,Not dead,"Horana, Kandanhena",Kalutara,,Close contact to Divulapitiya apparel factory workers
+case213,,,,Hospitalized,female,N/A,October,Not dead,"Horana, Kandanhena",Kalutara,,"Close contact to Divulapitiya apparel factory workers, a nurse at Horana hospital"
+case214,,,,Hospitalized,male,N/A,October,Not dead,Colombo ,Colombo,,"Close contact to Divulapitiya apparel factory workers Lady Ridgeway Hospital, Father of the child"
+case215,2,8.30729,80.402796,Hospitalized,female,N/A,October,Not dead,Viharapalugama,Anuradhapura,,"Close contact to Divulapitiya apparel factory workers, "
