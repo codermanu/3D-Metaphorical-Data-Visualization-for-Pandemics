@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Sri Lanka</name>
+    <description/>
+    <NetworkLink>
+      <name>Sri Lanka</name>
+      <Link>
+        <href><![CDATA[https://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1MqGKl8vFnbEpZvRU-Ab_Q8kp8ic]]></href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>

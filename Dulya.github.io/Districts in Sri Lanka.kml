@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Districts in Sri Lanka</name>
+    <description><![CDATA[Older than 1990 - Purple<br>1990-1994 - Blue<br>1995-1999 - Teal <br>2000-2004 - Green<br>2005-2009 - Yellow<br>2010-2014 - Red]]></description>
+    <Style id="icon-62-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/62-green.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-62-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/62-green.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-62">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-62-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-62-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FF6600-3000-115-normal">
+      <LineStyle>
+        <color>ff0066ff</color>
+        <width>3</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>730066ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FF6600-3000-115-highlight">
+      <LineStyle>
+        <color>ff0066ff</color>
+        <width>4.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>730066ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FF6600-3000-115">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FF6600-3000-115-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FF6600-3000-115-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Untitled layer</name>
+      <Placemark>
+        <name>Colombo Sri Lanka District</name>
+        <description>2000</description>
+        <styleUrl>#icon-62</styleUrl>
+        <Point>
+          <coordinates>
+            79.863739,6.928472,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>INDIA BANGALORE MISSION</name>
+        <description>1993</description>
+        <styleUrl>#poly-FF6600-3000-115</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                79.61792,8.233237,0
+                79.793701,6.735531,0
+                80.123291,5.96029,0
+                80.716553,5.812757,0
+                81.749268,6.331678,0
+                82.045898,7.258945,0
+                81.859131,7.743651,0
+                81.551514,8.129929,0
+                81.397705,8.705929,0
+                80.804443,9.421968,0
+                80.167236,9.925566,0
+                79.628906,9.784851,0
+                79.667358,9.476154,0
+                79.920044,9.313569,0
+                79.661865,9.074976,0
+                79.815674,8.716789,0
+                79.61792,8.233237,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

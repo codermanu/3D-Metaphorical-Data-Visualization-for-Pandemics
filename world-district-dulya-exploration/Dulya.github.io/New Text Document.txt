@@ -1,0 +1,18 @@
+/* var i;
+    for(i=0;i<path.length;i++){
+        var query = {};
+        Object.keys(path[i])
+        .forEach(function eachKey(key) { 
+            var j;
+            for(j=0;j<path[i][key].length;j++){
+                query[key] = path[i][key][j];
+                console.log("queryyyyyyyyyyyyy ",query);
+                var temp_result=_.filter(this.dataset, query);
+                pathResult.push(temp_result);
+            }
+            
+            console.log("path resultttttttttttt",pathResult);
+            
+        });      
+      
+    }*/
