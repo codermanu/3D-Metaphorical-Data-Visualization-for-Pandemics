@@ -15,6 +15,8 @@
 	/>
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
 	<link rel ="stylesheet" href = "css/modal.css"/>
+	<link rel ="stylesheet" href = "css/backMenu.css"/>
+
 	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 	<style>
 		body {
@@ -200,6 +202,34 @@
 			Main Map
 		</a>
 	</div>
+
+
+	<!-- ADD BackButtons to District and World Level -->
+	<div id="backMenu" class="backMenu" >
+		<span id = "WardLevel">
+		<a href="../world-level/covid-19-remix/c19-remix.html" class="btnMenu" title="World Level">
+			<img src="images/world.png" alt="Main Map" style="width:20px;height:20px;border:0">
+			<b> World Level</b>
+			</a>
+			<br/> 
+		<a href="../Mushroom/srilanka.html" class="btnMenu" title="Ward Level" >
+		<img src="images/ward2.png" alt="Main Map" style="width:20px;height:20px;border:0;right: 50000px;" >
+		<b> District Level</b>
+		</a>
+	</span>
+	</div>
+	<script>
+		function showBackMenu(){
+		  var menu = document.getElementById("backMenu");
+		  menu.style.display = "block";
+		}
+		function hideBackMenu(){
+		  var menu = document.getElementById("backMenu");
+		  menu.style.display = "none";
+		}
+	  </script>
+	  
+
 <!--	<div style="margin-left:50px;margin-right:60px;">-->
 <!--		<span id="monthSelection" style="font-size:10px;margin-top: 10px;">Months</span>-->
 <!--		<button id="january" onclick="monthDataSelection()">January</button>-->
@@ -632,7 +662,7 @@
 						scene.add(staticMapGroup);
 						isCasaroul = true;
 					},
-
+					
 					// onProgress callback currently not supported
 					undefined,
 
@@ -641,9 +671,13 @@
 						console.error( 'An error happened while loading' );
 					}
 				);
+				hideBackMenu()
+
 		}
 
 		function initMap() {
+			showBackMenu()
+
 			var mapProp = {
 				center: new google.maps.LatLng(6.9224, 79.8661),
 				zoom: 12,
@@ -664,7 +698,6 @@
 
 			document.getElementById('months_select').addEventListener('click', function() {
 				document.getElementById('monthModal').style.display = 'none';
-
 
 				var array = []
 				var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
