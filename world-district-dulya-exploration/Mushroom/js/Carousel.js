@@ -30,8 +30,8 @@ function createCarousel(node, hasMiddle) {
         context.fillStyle = "black";
        // context.textAlign= "left";
         //context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 50);
-        context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 40);
-        context.strokeText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 40);
+        context.fillText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 35);
+        context.strokeText(toTitleCase(node.metaphorDescriptor.dimensions[i]), 0, 35);
 
         var texture = new THREE.Texture(canvas) 
         texture.needsUpdate = true;
@@ -202,10 +202,10 @@ function createSegment(radius, angleStart, angleEnd, color, dimension, carousel)
     }
 
     segment.lock = function() {
-        // make the segment black
-        this.material.color.r = 0;
-        this.material.color.g = 0;
-        this.material.color.b = 0;
+        // make the segment white
+        this.material.color.r =255;
+        this.material.color.g = 255;
+        this.material.color.b = 255;
         this.userData.isLocked = true;
     }
 
