@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Mushroom</title>
+
+<script src="./threejs/build/three.min.js"></script>
+<script src="./cs291-master/lib/Coordinates.js"></script>
+<script src="./cs291-master/lib/OrbitAndPanControls.new.js"></script>
+<script src="./cs291-master/lib/dat.gui.min.js"></script>
+<script src="./tween.js-master/src/Tween.js"></script>
+<script src="./js/mushroom.js"></script>
+<script src="./js/butterfly.js"></script>
+<script src="./js/tubeTry.js"></script>
+
+
+
+<style type="text/css">
+	
+	#container{
+		width: 640px;
+		height: 480px;
+		border: 1px solid #000;
+	}
+	
+
+	#licenseStuff {
+		padding-top: 5px;
+		margin-top: 10px;
+		border-top: 1px solid #999;
+		font-family: arial, helvetica, sans-serif;
+		font-size: 10px;
+	}
+	
+</style>
+
+</head>
+<body>
+
+
+<div id="container">
+<canvas>
+</canvas>
+</div>
+
+<script type="text/javascript">
+/*global THREE, Coordinates, document, window, dat*/
+
+var camera, scene, renderer, projector;
+var cameraControls, effectController;
+
+var clock = new THREE.Clock();
+var canvasWidth =  640;
+var canvasHeight = 480;
+
+var rSeg = 32;
+var hSeg = 8;
+
+var showSpotCam = false;			
+var isDaytime = true;
+var animateWater = true;
+var closeView = false;
+
+var bubbleCount = 50;
+var bubblePartSys;							
+var bubbleTextureDay, bubbleTextureNight;	//so can switch for night and day
+
+var objects = [];			//list of mesh  in the scene that check for onmousedown
+
+var daylight, nightlight;	//arrays to hold lights for day and nights 
+var riverMat;				//made global so can access for animation in render func
+
+var mushroomList = [];		//list of Mushroom objects (mushroom.js)
+var smallMushrooms = [];	//list of generated mushrooms
+
+var moon;
+var moonlight;
+var bfly1;
+
+
+
+// function that should be called
+function drawMushroom () {
+
+    // capSize,stalkHeight,stalkTop,stalkBottom,capScaleY
+    
+	var m1 = new Mushroom(65, 100, 19,15, 1.6, 1);
+	// var m2 = new Mushroom(60, 100, 19,15, 1.6, 1);
+
+	
+	m1.setColors("0xff00ba", "0xbbba00", "0xffba00");
+	//#BAFF00
+	m1.setTextures("./img/cap1.png", "./img/ucap1.png", "./img/stalk1.png");
+	
+		
+	m1.growIt();
+	
+	
+	m1.model.id = "m1";
+	m1.model.children[0].id = "cap1";
+	m1.model.children[1].id = "ucap1";	
+	m1.model.children[2].id = "stalk1";	
+	m1.model.children[2].material.map.wrapT = THREE.RepeatWrapping;
+	m1.model.children[0].material.map.wrapS = THREE.RepeatWrapping;
+	m1.model.children[0].material.map.repeat.set(3,1);		
+	
+	m1.model.position.x = -100;
+		
+	var shroomGroup = new THREE.Object3D();
+	shroomGroup.add(m1.model);
+	// leftright topdown frontback
+	shroomGroup.position.copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
+	// copy(new THREE.Vector3(141.39527860089362, -100, -262.84823731300366))
+	scene.add(shroomGroup);
+	
+	//push (cap, undercap, stalk) onto object array so can detect intersect when click 
+	for (var i = 0; i < 3; i++) {
+		objects.push(m1.model.children[i]);	
+		
+	}
+		
+	mushroomList.push(m1);
+	
+			//use traverse code snippet from udacity cs291 
+		mushroomList[0].model.traverse(function (object) {
+			if (object instanceof THREE.Mesh) {
+				object.castShadow = true;
+				//object.receiveShadow = true;
+			}
+		});		
+	
+	
+}
+
+// Mostly grabbed from http://mrdoob.github.com/three.js/examples/canvas_interactive_cubes.html
+// Author unknown.
+function onDocumentMouseDown( event ) {
+
+	//console.log("objects.length:" + objects.length);
+	event.preventDefault();
+
+	// Annoying nested window code: need to subtract offsets for nested windows.
+	// This is not needed if you have just a single window filling the browser
+	var node = event.srcElement;
+	var mouseX = event.clientX - node.offsetLeft;
+	var mouseY = event.clientY - node.offsetTop;
+
+
+	getBoundingClientRect()
+	//   givest the element's position relative to the browser's visile viewport.
+	// clientX/Y
+	//   gives the mouse position relative to the browser's visible viewport.
+	//
+	// we then just have to find the difference between the two
+	// to get the mouse position in "canvas-space"
+	var canvasPosition = renderer.domElement.getBoundingClientRect();
+	var mouseX = event.clientX - canvasPosition.left;
+	var mouseY = event.clientY - canvasPosition.top;
+
+	console.log(canvasPosition.left,canvasPosition.top);
+	console.log(mouseX,mouseY);
+
+	/*
+	while (node.offsetParent){
+		node = node.offsetParent;
+		mouseX -= node.offsetLeft;
+		mouseY -= node.offsetTop;
+	}*/
+
+	/* the old way */
+	/*
+	var mouseVector = new THREE.Vector3(
+		2 * ( mouseX / canvasWidth ) - 1,
+		1 - 2 * ( mouseY / canvasHeight ), 0.5 );
+	projector.unprojectVector( mouseVector, camera );
+
+	var raycaster = new THREE.Raycaster( camera.position, mouseVector.sub( camera.position ).normalize() );
+	*/
+
+	/* the new way: simpler creation of raycaster */
+	/* from tutorial: http://soledadpenades.com/articles/three-js-tutorials/object-picking/ */
+	var mouseVector = new THREE.Vector3(
+		2 * ( mouseX / canvasWidth ) - 1,
+		1 - 2 * ( mouseY / canvasHeight ));
+		
+	// debug: console.log( "client Y " + event.clientY + ", mouse Y " + mouseY );
+
+	// var raycaster = projector.pickingRay( mouseVector.clone(), camera );
+	// var intersects = raycaster.intersectObjects( objects );
+
+	var vector = point.clone().unproject( camera );
+	var direction = new THREE.Vector3( 0, 0, -1 ).transformDirection( camera.matrixWorld );
+	raycaster.set( vector, direction );
+	var intersects = raycaster.intersectObjects( objects );
+
+	if ( intersects.length > 0 ) {
+
+		//intersects[ 0 ].object.material.color.setRGB( Math.random(), Math.random(), Math.random() );
+		var id = intersects[0].object.id;
+		//console.log("intersects:" + id);
+		
+		if (id == "cap1" || id == "ucap1"  || id == "stalk1") {
+			mushroomAction1();
+		} else if (id == "cap2" || id == "ucap2"  || id == "stalk2") {
+			mushroomAction2();
+		} else if (id == "cap3" || id == "ucap3"  || id == "stalk3") {
+			mushroomAction3();
+		}
+		
+	
+		/*var sphereGeom = new THREE.Spher
+		eGeometry(10);
+		var sphereMaterial = new THREE.MeshBasicMaterial({color: 0xdddddd});
+		
+		var sphere = new THREE.Mesh( sphereGeom, sphereMaterial );
+		sphere.position = intersects[ 0 ].point;
+		scene.add( sphere );
+		*/
+	}
+
+	/*
+	// Parse all the faces, for when you are using face materials
+	for ( var i in intersects ) {
+		intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xFFFFFF | 0x80000000 );
+	}
+	*/
+}
+
+
+//switch from night to day
+function mushroomAction1() {
+	var shroom = mushroomList[0];
+	shroom.spin();
+	
+	isDaytime = !isDaytime;	
+	updateTimeOfDay();
+	effectController.isDaytime = isDaytime;		
+}
+
+//change camera view, toggle between close and far
+function mushroomAction2() {
+	var shroom = mushroomList[1];
+	shroom.pushButton();
+	
+	closeView = !closeView;
+	
+	var origPos = new THREE.Vector3();
+	var origLook = new THREE.Vector3();
+	
+	origPos.copy(camera.position);
+	origLook.copy(cameraControls.target);
+	
+	var startPos1 = {x1: origPos.x, y1: origPos.y, z1:origPos.z,
+		x2: origLook.x, y2: origLook.y, z2: origLook.z};
+
+	var endPos1;
+	
+	if (closeView) {
+		endPos1 = {x1: -32, y1:79, z1:500, x2:-7, y2:90, z2: 67}
+	} else {
+		endPos1 = {x1: -290, y1:570, z1:1400, x2:60, y2:195, z2: -47}
+	}
+		
+	var tween0 = new TWEEN.Tween(startPos1).to(endPos1, 1000);
+	tween0.easing(TWEEN.Easing.Linear.None);
+	tween0.onUpdate(function() {
+		camera.position.x = startPos1.x1;
+		camera.position.y = startPos1.y1;
+		camera.position.z = startPos1.z1;
+		
+		cameraControls.target.x = startPos1.x2;
+		cameraControls.target.y = startPos1.y2;
+		cameraControls.target.z = startPos1.z2;
+	});
+	
+	tween0.delay(500);
+	tween0.start();
+}
+//create baby mushrooms
+function mushroomAction3() {
+	var shroom = mushroomList[2];
+	shroom.jiggle();
+	
+	var capSize = 10 + (Math.random() * 10);
+	var stalkHeight = 10 + (Math.random() * 5);
+	var stalkTop = capSize - 5 - (Math.random() * 5);
+	var stalkBottom = stalkTop + (Math.random() * 5);
+	var capScaleY = Math.random() * 2 + 0.5;
+	
+	var m = new Mushroom (capSize, stalkHeight, stalkTop, stalkBottom, capScaleY);
+	
+	var capColors = ["0xeeeeee", "0xffba00", "0xD32416", "0xdd9900", "0xdddd00"];
+	var capTextures = ["./img/cap1.png", "./img/cap2.png", "./img/cap3.png"];
+	
+	var rnd1 = Math.floor(Math.random()*5);
+	var rnd2 = Math.floor(Math.random()*3);
+	
+	var mColor = capColors[rnd1];
+		
+	m.setColors(mColor, mColor, mColor);
+	m.capTexture = capTextures[rnd2];
+	m.growIt();
+	
+	m.model.traverse(function(obj) {
+		if (obj instanceof THREE.Mesh) {
+			obj.castShadow = true;
+		}
+	});
+	
+	var xpos = Math.random() * 800 - 400;
+	var ypos = stalkHeight / 2;
+	var zpos = Math.random() * 200 + 120;
+	
+	m.model.position.set(xpos, ypos, zpos);
+	
+	//console.log("baby mushroom is born! at:" +  xpos + ", " + ypos + "," + zpos)
+	
+	smallMushrooms.push(m);
+	scene.add(m.model);
+}
+
+function harvestSmallMushrooms() {
+	//loop through smallMushrooms
+	//console.log("harvest:" + smallMushrooms.length);
+	for (var i = smallMushrooms.length - 1; i >= 0; i--) {		
+		scene.remove(smallMushrooms[i].model);		
+	}	
+	smallMushrooms = [];
+}
+
+function init() {
+	var canvasRatio = canvasWidth / canvasHeight;
+
+	// RENDERER
+	renderer = new THREE.WebGLRenderer( { antialias: false } );
+	renderer.gammaInput = true;
+	renderer.gammaOutput = true;
+	renderer.setSize(canvasWidth, canvasHeight);
+	
+	if (isDaytime) {
+		renderer.setClearColor( 0xDDEEFF, 1.0 );
+	} else {
+		renderer.setClearColor( 0x000066, 1.0 );
+	}
+	
+	renderer.shadowMapEnabled = true;
+	
+	
+	// CAMERA
+	var viewAngle = 45;
+	var near = 0.1;
+	var far = 20000;
+	camera = new THREE.PerspectiveCamera( viewAngle, canvasRatio, near, far);
+	
+	// CONTROLS
+	cameraControls = new THREE.OrbitAndPanControls(camera, renderer.domElement);
+	camera.position.set(105,418,890);
+	cameraControls.target.set(21,191,-23);
+	
+	// projector = new THREE.Projector();
+	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+	
+}
+function setupGui() {
+	
+	effectController = {
+		showSpotCam : showSpotCam,
+		isDaytime: isDaytime,
+		// animateWater: animateWater,
+		harvest: false,
+		camPosX: camera.position.x,
+		camPosY: camera.position.y,
+		camPosZ: camera.position.z,
+		camLookX: cameraControls.target.x,
+		camLookY: cameraControls.target.y,
+		camLookZ: cameraControls.target.z
+		
+	}
+}
+function fillScene() {
+	scene = new THREE.Scene();
+	// var ambient = new THREE.AmbientLight(0x222222);	
+	// scene.add(ambient);
+	
+	//day lights
+	var light1 = new THREE.DirectionalLight( 0xffffff, 0.8 );
+	light1.position.set( 200, 500, 500 );
+		
+	var light2 = new THREE.DirectionalLight( 0xddffdd, 0.7 );
+	light2.position.set( -20, 0, -20 );
+
+	var sunlight = new THREE.SpotLight(0xfffff0);
+	sunlight.position.set ( 400, 800, 1000);
+	sunlight.castShadow = isDaytime;
+	sunlight.intensity = 1.0;
+	sunlight.shadowCameraVisible = showSpotCam && isDaytime;
+	sunlight.shadowDarkness = 0.5;
+	
+	var lightTarget = new THREE.Object3D();
+	lightTarget.position.set(0,0,50);	
+	scene.add(lightTarget);
+	 sunlight.target = lightTarget;
+	
+	daylight = new THREE.Object3D();
+	daylight.add(light1);
+	daylight.add(light2);
+	daylight.add(sunlight);
+	
+	daylight.traverse(function (obj) {
+		obj.visible = isDaytime;
+	});
+	
+	scene.add(daylight);
+	// scene.add(nightlight);
+	
+	//Coordinates.drawGrid({size: 500});
+	//Coordinates.drawAllAxes({axisLength: 100, axisRadius: 1});
+	
+	// drawBackground();
+	drawMushroom();	
+	// drawButterfly();
+}
+
+
+
+function addToDOM() {
+    var container = document.getElementById('container');
+    var canvas = container.getElementsByTagName('canvas');
+    if (canvas.length>0) {http://workshop.chromeexperiments.com/examples/gui/#
+        container.removeChild(canvas[0]);
+    }
+    container.appendChild( renderer.domElement );
+}
+
+
+function animate() {
+	requestAnimationFrame(animate);
+	render();
+	
+}
+
+
+
+function render() {
+    var delta = clock.getDelta();
+	
+	cameraControls.update(delta);
+	
+	var time = clock.getElapsedTime();
+	
+	effectController.camPosX = camera.position.x;
+	effectController.camPosY = camera.position.y;
+	effectController.camPosZ = camera.position.z;
+	effectController.camLookX = cameraControls.target.x;
+	effectController.camLookY = cameraControls.target.y;
+	effectController.camLookZ = cameraControls.target.z;
+	
+	TWEEN.update();
+	
+    var time = clock.getElapsedTime();
+	renderer.render(scene, camera);
+}
+
+
+
+
+
+// this is the main action sequence
+
+init();
+setupGui();
+fillScene();
+addToDOM();
+ animate();
+
+</script>
+
+
+
+
+</body>
+</html>
