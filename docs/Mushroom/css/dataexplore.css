@@ -1,0 +1,99 @@
+body {
+    font-family: Monospace;
+    background-color: #000;
+    color: #000;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#info {
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    border: 1px solid;
+
+    left: 0;
+    top: 0;
+    width: 450px;
+    /* Full width */
+    height: 450px;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    color: white;
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+
+.close {
+    color: rgb(255,255,255);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.mymenu {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    
+    right: 0;
+    top: 0;
+    width: 410px;
+    /* Full width */
+    height: 170px;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0);
+    /* Black w/ opacity */
+    color: white;
+    text-align: right;
+    margin-right: 25px;
+}
+.btnMenu{
+    text-decoration: none;
+    text-align: left;
+}
+.btnMenu:hover {
+    text-decoration: none;
+    -webkit-filter: drop-shadow(12px 12px 7px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.5));
+}

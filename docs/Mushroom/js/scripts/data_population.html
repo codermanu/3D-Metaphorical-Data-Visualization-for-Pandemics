@@ -1,0 +1,74 @@
+<!--
+	Author: Dulya Murage
+-->
+<html>
+	<script>
+		var getRandomLocation = function (latitude, longitude, radiusInMeters) {
+
+		    var getRandomCoordinates = function (radius, uniform) {
+		        // Generate two random numbers
+		        var a = Math.random(),
+		            b = Math.random();
+
+		        // Flip for more uniformity.
+		        if (uniform) {
+		            if (b < a) {
+		                var c = b;
+		                b = a;
+		                a = c;
+		            }
+		        }
+
+		        // It's all triangles.
+		        return [
+		            b * radius * Math.cos(2 * Math.PI * a / b),
+		            b * radius * Math.sin(2 * Math.PI * a / b)
+		        ];
+		    };
+
+		    var randomCoordinates = getRandomCoordinates(radiusInMeters, true);
+
+		    // Earths radius in meters via WGS 84 model.
+		    var earth = 6378137;
+
+		    // Offsets in meters.
+		    var northOffset = randomCoordinates[0],
+		        eastOffset = randomCoordinates[1];
+
+		    // Offset coordinates in radians.
+		    var offsetLatitude = northOffset / earth,
+		        offsetLongitude = eastOffset / (earth * Math.cos(Math.PI * (latitude / 180)));
+
+		    // Offset position in decimal degrees.
+		    return {
+		        latitude: latitude + (offsetLatitude * (180 / Math.PI)),
+		        longitude: longitude + (offsetLongitude * (180 / Math.PI))
+		    }
+		};
+		function getRandomInt(min, max) {
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
+		};
+
+		var ages = ["child", "adult", "elder"];
+		var genders = ["male", "female"];
+		var deaths = ["death", "no-death"];
+		var periods=["2012-2014","2014-2016","2016-2018"];
+		var fogged=["fogged","not-fogged"];
+
+		var ss = "caseid,boundaryid,lat,lon,death,gender,age,period,fogg\n";
+		for(var i=0; i<2500; i++){
+			var loc = getRandomLocation(6.91001447097832, 79.86658443677698, 1500);
+
+			var age = ages[getRandomInt(0,2)];
+			var gender = genders[getRandomInt(0,1)];
+			var death = deaths[getRandomInt(0,1)];
+			var period = periods[getRandomInt(0,2)];
+			var fogg = fogged[getRandomInt(0,1)];
+
+
+
+			ss += "case"+i+", "+getRandomInt(0,53)+", "+loc.latitude+", "+loc.longitude+", "+death+", "+gender+", "+age+", "+period+", "+fogg+"\n";
+		}
+		console.log(ss);
+	</script>
+</html>

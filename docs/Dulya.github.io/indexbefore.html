@@ -1,0 +1,1144 @@
+<!--
+	Author: Dulya Murage
+-->
+<html>
+
+<head>
+	<!-- <title>VBD Drill-Down</title> -->
+	<title>COVID19_Visualization</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js></script>
+	<script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"
+	/>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+	<style>
+		body {
+			font-family: Monospace;
+			background-color: #000000;
+			color: #000;
+			margin: 0px;
+			overflow: hidden;
+		}
+
+		#info {
+			position: absolute;
+			padding: 10px;
+			width: 100%;
+			text-align: center;
+		}
+
+		a {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		/* The Modal (background) */
+
+		.modal {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Stay in place */
+			z-index: 1;
+			/* Sit on top */
+			border: 1px solid;
+
+			left: 0;
+			top: 0;
+			width: 450px;
+			/* Full width */
+			height: 450px;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.4);
+			/* Black w/ opacity */
+			color: white;
+		}
+
+		/* Modal Content/Box */
+
+		.modal-content {
+			background-color: #fefefe;
+			margin: 15% auto;
+			/* 15% from the top and centered */
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			/* Could be more or less, depending on screen size */
+		}
+
+		/* The Close Button */
+
+		.close {
+			color: rgb(255,255,255);
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.mymenu {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Stay in place */
+			z-index: 1;
+			
+			right: 0;
+			top: 0;
+			width: 250px;
+			/* Full width */
+			height: 100px;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0);
+			/* Black w/ opacity */
+			color: white;
+			text-align: center;
+		}
+		.btnMenu{
+			text-decoration: none;
+		}
+		.btnMenu:hover {
+			text-decoration: none;
+			-webkit-filter: drop-shadow(12px 12px 7px rgba(255, 255, 255, 0.5));
+     		filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.5));
+		}
+	</style>
+</head>
+
+<body>
+	<script src="js/GlobalFunctions.js"></script>
+	<script src="js/three.js"></script>
+	<script src="js/controls/OrbitControls.js"></script>
+	<script src="js/renderers/CSS3DRenderer.js"></script>
+	<script src="js/renderers/CSS2DRenderer.js"></script>
+	<script src="js/libs/stats.min.js"></script>
+	<script src="js/libs/tween.min.js"></script>
+	<script src="js/libs/lodash.js"></script>
+	<script src="js/renderers/CanvasRenderer.js"></script>
+	<script src="js/renderers/Projector.js"></script>
+	<script type='text/javascript' src='js/DAT.GUI.min.js'></script>
+	<script src="js/Carousel.js"></script>
+	<script src="js/Extra.js"></script>
+	<script src="js/Connector.js"></script>
+	<script src="js/Structure.js"></script>
+	<script src="js/DataExplorer.js"></script>
+	<script src="js/geoxml3.js"></script>
+	<script src="js/encode.js"></script>
+	<script src="js/PlanetoMap.js"></script>
+	<!-- read data from csv-->
+	<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+	<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+	<script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+	<script src="https://d3js.org/d3-request.v1.min.js"></script>
+	<script src="js/loaders/OBJLoader.js"></script>
+
+
+
+	<!-- The Modal -->
+	<!-- Modal -->
+	<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<canvas id="chart" width="700px" height="700px"></canvas>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	 -->
+	<!-- <script>
+		$('.modal-content').resizable({
+			//alsoResize: ".modal-dialog",
+			minHeight: 300,
+			minWidth: 300
+		});
+		$('.modal-dialog').draggable();
+
+		$('#myModal').on('show.bs.modal', function () {
+			$(this).find('.modal-body').css({
+				'max-height': '100%'
+			});
+		});
+	</script> -->
+
+	<!--/////////////////////////////////// -->
+	<!-- <div id="myModal" class="modal"> -->
+
+	<div id="myModal" class="modal">
+		<span class="close" id="close_btn">&times;</span>
+		<canvas id="chart" width="450px" height="400px"></canvas>
+	</div>
+	<!-- </div> -->
+	<div id="mymenu" class="mymenu">
+		<span id="maintitle" style="font-size:18px;margin-top: 10px;">Dengue Data for Test</span>
+		<br/>
+		<a href="index.html" class="btnMenu" title="Back to main map">
+			<img src="images/map_button.png" alt="Main Map" style="width:42px;height:42px;border:0">
+			Main Map
+		</a>
+	</div>
+<!--	<div style="margin-left:50px;margin-right:60px;">-->
+<!--		<span id="monthSelection" style="font-size:10px;margin-top: 10px;">Months</span>-->
+<!--		<button id="january" onclick="monthDataSelection()">January</button>-->
+<!--&lt;!&ndash;		<button>January</button>&ndash;&gt;-->
+<!--	</div>-->
+	<div id="monthModal" class = "modal" style = "display: none">
+
+		<!-- Modal content -->
+<!--		<div>-->
+<!--			<span class="close">&times;</span>-->
+<!--			<p>Some text in the Modal..</p>-->
+
+
+			<input type="checkbox" id="february" name="february" value="february">
+			<label for="february"> February</label><br>
+			<input type="checkbox" id="march" name="march" value="march">
+			<label for="march"> March</label><br>
+			<input type="checkbox" id="april" name="april" value="april">
+			<label for="april"> April</label><br>
+			<input type="checkbox" id="january" name="january" value="january">
+			<label for="january"> January</label><br>
+			<button id = "months" onclick = "selectedMonths()" >Select</button>
+			<script>
+				var datasetCsv;
+				function selectedMonths(){
+					return  new Promise((resolve, reject) => {
+						var array = []
+						var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+						for (var i = 0; i < checkboxes.length; i++) {
+							array.push(checkboxes[i].value)
+						}
+						// monthDataSelection(array);
+
+						resolve('success');
+					});
+					// var array = []
+					// var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+					//
+					// for (var i = 0; i < checkboxes.length; i++) {
+					// 	array.push(checkboxes[i].value)
+					// }
+					// // monthDataSelection(array)
+					// console.log("loading dataset according to the month");
+					// for (var i = 0; i < array.length; i++){
+					// 	switch(array[i]) {
+					// 		case "january":
+					// 			datasetCsv = "dataset/Covid19_ward_data_final_january.csv";
+					// 			console.log("dataset here", datasetCsv)
+					// 			// code block
+					// 			break;
+					// 		case "february":
+					// 			datasetCsv = "dataset/Covid19_ward_data_final_february.csv";
+					// 			// code block
+					// 			break;
+					// 		default:
+					// 			datasetCsv = "dataset/Covid19_ward_data_final.csv";
+					// 			// code block
+					// 	}
+					// }
+					// console.log("checked items are", array)
+				}
+
+			</script>
+
+<!--		</div>-->
+
+	</div>
+	<script>
+		function showMenu(){
+			var menu = document.getElementById("mymenu");
+			menu.style.display = "block";
+		}
+		function hideMenu(){
+			var menu = document.getElementById("mymenu");
+			menu.style.display = "none";
+		}
+		function changeMenuTitle(txt){
+			var title = document.getElementById("maintitle");
+			title.innerHTML = txt;
+		}
+	</script>
+	<script>
+		$('.modal').resizable({
+			//alsoResize: ".modal-dialog",
+			minHeight: 300,
+			minWidth: 300
+		});
+		//$('.modal-dialog').draggable();
+		/*
+		$('#myModal').on('show.bs.modal', function () {
+			$(this).find('.modal-body').css({
+				'max-height': '100%'
+			});
+		});*/
+	</script>
+
+	<script src="js/DataVisualizer.js"></script>
+	<script src="js/CaseVisualizer.js"></script>
+
+	<script>
+		var isModalDragging = false;
+		//drag and drop visualizing window
+		dragElement(document.getElementById("myModal"));
+
+		function dragElement(elmnt) {
+			var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+			if (document.getElementById(elmnt.id + "header")) {
+				// if present, the header is where you move the DIV from:
+				document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+			} else {
+				// otherwise, move the DIV from anywhere inside the DIV:
+				elmnt.onmousedown = dragMouseDown;
+			}
+
+			function dragMouseDown(e) {
+				e = e || window.event;
+				e.preventDefault();
+				isModalDragging = true;
+				controls.saveState(); // save the state
+				// get the mouse cursor position at startup:
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				document.onmouseup = closeDragElement;
+				// call a function whenever the cursor moves:
+				document.onmousemove = elementDrag;
+			}
+
+			function elementDrag(e) {
+				e = e || window.event;
+				e.preventDefault();
+				// calculate the new cursor position:
+				pos1 = pos3 - e.clientX;
+				pos2 = pos4 - e.clientY;
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				// set the element's new position:
+				elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+				elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+			}
+
+			function closeDragElement() {
+				isModalDragging = false;
+				controls.reset();
+				// stop moving when mouse button is released:
+				document.onmouseup = null;
+				document.onmousemove = null;
+			}
+		}
+	</script>
+	<script>
+		var dataset = [];
+		//var boundaryId=48;
+		var fields = [];
+		var subdimensions;
+		var subdimentionsWithLength = [];
+		//fields in the dataset - caseid,boundaryid,lat,lon,death,gender,age,period,fogg
+		//dimensional fields - death, gender, agea, period, fogg
+		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon","contacts","district","underlying_conditions","place_of_death","wardname","period"];
+
+		// function monthDataSelection(){
+		// 	console.log("loading dataset according to the month");
+		// 	if(document.getElementById() === "January") {
+		// 		datasetCsv = "dataset/Covid19_ward_data_final_january.csv"
+		// 	}else {
+		// 		datasetCsv = "dataset/Covid19_ward_data_final.csv"
+		// 	}
+		// 	document.getElementById("january")
+		//
+		// }
+		function monthDataSelection(array){
+			console.log("loading dataset according to the month");
+			for (var i = 0; i < array.length; i++){
+				switch(array[i]) {
+					case "january":
+						datasetCsv = "dataset/Covid19_ward_data_final_january.csv";
+						console.log("dataset here", datasetCsv)
+						// code block
+						break;
+					case "february":
+						datasetCsv = "dataset/Covid19_ward_data_final_february.csv";
+						// code block
+						break;
+					default:
+						datasetCsv = "dataset/Covid19_ward_data_final.csv";
+						// code block
+				}
+			}
+
+		}
+		// function showPopUp() {
+		// 	console.log("Select the month");
+		// 	window.alert("Select your month");
+		// }
+		function loadDataset(polygon, callback) {
+			console.log("loading dataset...");
+			//d3.js - parse and prepare common input formats
+			//converts a CSV file into an array of objects - all string values
+			// var month = getMonth;
+			// if(month==="November"){
+			// 	datasetCsv = "dataset/Covid19_ward_data_final_december.csv"
+			// }
+			// console.log("dataset is",datasetCsv);
+			// d3.csv(datasetCsv, function (data) {
+			d3.csv(datasetCsv, function (data) {
+				//d3.csv("dataset/final (copy).csv", function (data) {
+				
+				//select cases according to the given boundary
+				//what is report?????
+				dataset = data.filter(function (report) {
+					var bid = 0;
+					try {
+						bid = parseInt(report.boundaryid);
+					} catch (e) {
+						console.log("error", e);
+					}
+					return bid == polygon.indexID;
+				});
+				//select dimensional fields
+                localStorage.setItem("treeTrunkHeight", dataset.length);
+				if (dataset.length > 0) {
+					fields = Object.keys(dataset[0]).filter(function (key) {
+						return nonDimensionalFields.indexOf(key) == -1;
+					});
+				}
+
+				//finding subdimenions from the dataset values
+				var fieldValues = {};
+				subdimensions = {};
+				fields.forEach(function (field) {
+					fieldValues[field] = [];
+					subdimensions[field] = [];
+				});
+
+				dataset.forEach(function (record) {
+					fields.forEach(function (field) {
+						fieldValues[field].push(record[field]);
+					});
+
+				});
+				var fieldValwithCount = JSON.parse(JSON.stringify(fieldValues));
+				fields.forEach(function (field) {
+					let itm = fieldValwithCount[field];
+					var countObj = {};
+					itm.forEach(function(i) { countObj[i] = (countObj[i]||0) + 1;});
+					subdimentionsWithLength[field] = countObj;
+				});
+				fields.forEach(function (field) {
+					fieldValues[field] = Array.from(new Set(fieldValues[field]));
+					if (isSubdimension(fieldValues[field])) {
+						subdimensions[field] = fieldValues[field];
+					}
+
+				});
+				console.log("dataset loaded!");
+				console.log("######## Dataset #########");
+				console.log("Main dimensions = ", fields);
+				console.log("Main dimensions info = ", subdimensions);
+				console.log("##########################")
+
+
+				callback(polygon);
+
+			});
+
+			//conditions for selecting subdimesnions
+			var isSubdimension = function (dimArray) {
+				// var threshold = (dataset.length * 10) / 100;
+				// if (!dimArray.some(isNaN)) {
+				// 	return false;
+				// }
+				//
+				// if (dimArray.length >= threshold) {
+				// 	return false;
+				// }
+
+				return true;
+			}
+		}
+
+
+
+	</script>
+
+	<script>
+		var marker, i;
+		var showMap = true;
+		var first_stage_container;
+		var second_stage_Container;
+		var scene;
+		var dynamicMapGroup = new THREE.Group();
+		var staticMapGroup = new THREE.Group();
+		var staticMap;
+		var centerCords = new THREE.Vector2();
+		var PLANE_SIZE = 2000;
+		var MAP_SIZE = 512;
+		var ZOOM = 15; //Static Map zoom
+		
+		var webGLRenderer, dynamicMapRenderer, canvasRenderer, labelRenderer;
+		var controls;
+		var iniZoom; //= controls.target.distanceTo( controls.object.position )
+		var isCarouselSelected = false;
+		var isCasaroul = false;
+		var parent;
+		var cone; //main metaphor moving object
+		var clickedSlice;
+		var dataExplorer;
+		var dataVisualizer;
+		var caseVisualizer;
+
+		var map;
+
+		var addListenersOnPolygon;
+		var wards = [];
+
+		// instantiate a loader
+		
+		function initScene(polygon) {
+			showMap = false;
+			var x = document.getElementById("googleMap");
+			x.style.display = "none";
+			camera.position.set(-2.198618297315242, 802.3112481029098, 2755.1754787778136);
+			controls.update();
+			iniZoom = controls.target.distanceTo( controls.object.position );
+			
+			// change number of carousel segments
+			/*
+			var gui = new dat.gui.GUI({
+				height: 5 * 32 - 1
+			});
+
+			var params = {
+				numOfParas: 4,
+			};*/
+			
+			
+			var metaphorDescriptor = new MetaphorDescriptor(0, null, Object.keys(subdimensions), [], undefined);
+			// console.log(metaphorDescriptor);
+			parent = CreateNewNode(metaphorDescriptor);
+
+			caseVisualizer = new CaseVisualizer(scene, subdimensions);
+			dataVisualizer = new DataVisualizer(dataset, caseVisualizer);
+			dataExplorer = new DataExplorer(scene, parent, subdimensions, dataVisualizer);
+
+			console.log(dataExplorer);
+
+			staticMapGroup.add(parent.metaphor);
+
+			infowindow.open(map, marker);
+
+			switchScene(polygon);
+			//load human avatar
+			//loadAvatar(scene,dataset.length*ratio);
+			console.log("Scene initialization completed!");
+			showMenu();
+		}
+		function switchScene(polygon){
+			/*
+			var elms = document.getElementsByClassName("close-button");
+			console.log(elms);
+			elms[0].style.marginTop="20px";
+			elms[0].style.width="auto";
+			elms[0].style.fontSize=20;
+			elms[0].innerHTML = "Dengue Data for "+wards[polygon.indexID].name+"";
+			*/
+			changeMenuTitle("Covid-19 Data for "+wards[polygon.indexID].name+"");
+
+			var loader = new THREE.TextureLoader();
+			var coordinateIterator;
+
+			var points = [];
+			var latCords = [];
+			var lngCords = [];
+			
+			var coordinatePool = wards[polygon.indexID].Polygon[0].outerBoundaryIs[0].coordinates;
+			var numOfCoordinates = coordinatePool.length;
+			for (coordinateIterator = 0; coordinateIterator < numOfCoordinates; coordinateIterator++) {
+
+				latCords.push(coordinatePool[coordinateIterator].lat);
+				lngCords.push(coordinatePool[coordinateIterator].lng);
+
+				points.push([coordinatePool[coordinateIterator].lat, coordinatePool[coordinateIterator].lng]);
+
+			}
+			//
+			/*
+			var ind = polygon.indexID;
+			var gap = ind;
+			if(ind<3){
+				gap = ind-2;
+				if(ind<2){
+					gap = ind-1;
+				}
+			}else{
+				gap = ind-3
+			}
+			
+			for (let index = gap; index < gap+6; index++) {
+				var coordinatePool = wards[index].Polygon[0].outerBoundaryIs[0].coordinates;
+				var numOfCoordinates = coordinatePool.length;
+				for (coordinateIterator = 0; coordinateIterator < numOfCoordinates; coordinateIterator++) {
+
+					latCords.push(coordinatePool[coordinateIterator].lat);
+					lngCords.push(coordinatePool[coordinateIterator].lng);
+
+					points.push([coordinatePool[coordinateIterator].lat, coordinatePool[coordinateIterator].lng]);
+
+				}
+				
+			}
+			*/
+			//
+			var encoded = createEncodings(points);
+			//console.log(encoded);
+
+
+			var maxLat = Math.max(...latCords);
+			var minLat = Math.min(...latCords);
+			var maxLng = Math.max(...lngCords);
+			var minLng = Math.min(...lngCords);
+
+			var centerLat = minLat + ((maxLat - minLat) / 2);
+			var centerLng = minLng + ((maxLng - minLng) / 2);
+			centerCords.set(centerLat, centerLng);
+
+			console.log(centerLat + " " + centerLng);
+
+
+			loader.load(
+					'http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
+					// onLoad callback
+					function ( groundTexture ) {
+						// console.log('http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyCdWv25tk8tkWF15i20yBvik8pCJHUF2HI');
+						groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+						groundTexture.repeat.set(1, 1);
+						groundTexture.anisotropy = 16;
+
+						var groundMaterial = new THREE.MeshLambertMaterial({ map: groundTexture });
+						
+						staticMap = new THREE.Mesh(new THREE.PlaneBufferGeometry(PLANE_SIZE, PLANE_SIZE), groundMaterial); //2000,2000
+						staticMap.position.y = - 350;
+						// localStorage.setItem("staticMapPosition",)
+						staticMap.rotation.x = - Math.PI / 2;
+						staticMap.receiveShadow = true;
+						staticMapGroup.add(staticMap);
+						scene.add(staticMapGroup);
+						isCasaroul = true;
+					},
+
+					// onProgress callback currently not supported
+					undefined,
+
+					// onError callback
+					function ( err ) {
+						console.error( 'An error happened while loading' );
+					}
+				);
+		}
+		function initMap() {
+			var mapProp = {
+				center: new google.maps.LatLng(6.9224, 79.8661),
+				zoom: 12,
+			};
+
+			map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+			infowindow = new google.maps.InfoWindow({
+				content: "VBD Research"
+			});
+			
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(6.9224, 79.8661),
+				map: map
+			});
+			marker.setVisible(false);
+			
+			addListenersOnWards = function (polygon) {
+				google.maps.event.addListener(polygon, 'click', function (event) {
+					console.log("BID", polygon.indexID);
+					// showPopUp();
+					var modal = document.getElementById("monthModal");
+					modal.style.display = "block";
+					selectedMonths().then(res => {
+						console.log("datasethi");
+						loadDataset(polygon, initScene);
+					});
+					// var p = new Promise((resolve, reject) => {
+					// 	selectedMonths();
+					// });
+					// // selectedMonths();
+					//
+					// // monthDataSelection();
+					//
+					// // window.onclick = function(event) {
+					// // 	if (event.target != modal && modal.style.display == "block") {
+					// // 		modal.style.display = "none";
+					// // 	}
+					// // }
+					// loadDataset(polygon, initScene);
+					//
+
+
+					labelRenderer = new THREE.CSS2DRenderer();
+					labelRenderer.setSize( window.innerWidth, window.innerHeight );
+					labelRenderer.domElement.style.position = 'absolute';
+					labelRenderer.domElement.style.top = 0;
+					first_stage_container.appendChild( labelRenderer.domElement );
+					//document.body.appendChild( labelRenderer.domElement );
+				});
+				
+				google.maps.event.addListener(polygon, 'mouseover', function (event) {
+					console.log("on window");
+					var ind = polygon.indexID;
+					var ward = wards[ind];
+					
+					marker.setPosition(event.latLng);
+					infowindow.setContent(ward.name);
+					infowindow.open(map, marker);
+				});
+				google.maps.event.addListener(polygon, 'mouseout', function (event) {
+					// console.log("on window");
+					infowindow.close();
+				});
+			};
+
+			// https://github.com/geocodezip/geoxml3
+			var myParser = new geoXML3.parser({
+				map: map, //your map
+				afterParse: function (doc) { // callback after parse
+					wards = [];
+					for (var i = 0; i < doc[0].placemarks.length; i++) {
+						doc[0].placemarks[i]["indexID"] = i;
+						wards.push(doc[0].placemarks[i]);
+
+
+						var ward = new google.maps.Polygon({
+							paths: wards[i].Polygon[0].outerBoundaryIs[0].coordinates,
+							strokeColor: '#000',
+							strokeOpacity: 1,
+							strokeWeight: 2,
+							fillColor: '#D3D3D3',
+							fillOpacity: 0.3,
+							indexID: i
+						});
+						addListenersOnWards(ward);
+						ward.setMap(map);
+						map.setZoom(12.5);
+						//Zoom out to display whole Sri Lanka
+						// map.setZoom(8);
+					}
+				}
+			});
+
+		    
+			//myParser.parse('District2.kml');
+			myParser.parse('doc.kml');
+			//myParser.parse('https://dulya.github.io/doc.kml');
+		
+		}
+
+		var MapElement = function (id, x, y, z, rx) {
+			var div = document.createElement('div');
+			div.id = id; //'googleMap';
+			div.style.width = '1200px';
+			div.style.height = '950px';
+
+			var object = new THREE.CSS3DObject(div);
+			object.position.set(x, y, z);
+			object.rotation.x = rx;
+			return object;
+		};
+
+
+		init();
+		animate();
+
+		function init() {
+			first_stage_container = document.createElement('div');
+			document.body.appendChild(first_stage_container);
+
+			//add scene
+			scene = new THREE.Scene();
+			scene.background = new THREE.Color(0x000000);
+			scene.fog = new THREE.Fog(0xcce0ff, 500, 10000);
+
+			//set camera
+			camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 10000);
+			camera.position.set(0.2538268801815511, 1329.2257935074563, -25.3884727987337);
+
+			//set lights
+			var light, materials;
+			light = new THREE.DirectionalLight(0xffffff, 1);
+			light.position.set(50, 200, 100);
+			light.position.multiplyScalar(1.3);
+			light.castShadow = true;
+			light.shadow.mapSize.width = 1024;
+			light.shadow.mapSize.height = 1024;
+
+			var d = 300;
+			light.shadow.camera.left = - d;
+			light.shadow.camera.right = d;
+			light.shadow.camera.top = d;
+			light.shadow.camera.bottom = - d;
+			light.shadow.camera.far = 1000;
+
+			camera.add(light);
+			scene.add(camera);
+
+			//renderers
+
+			dynamicMapRenderer = new THREE.CSS3DRenderer();
+			dynamicMapRenderer.setSize(window.innerWidth, window.innerHeight);
+			dynamicMapRenderer.domElement.style.position = 'absolute';
+			first_stage_container.appendChild(dynamicMapRenderer.domElement);
+
+			webGLRenderer = new THREE.WebGLRenderer({ antialias: true });
+			webGLRenderer.setPixelRatio(window.devicePixelRatio);
+			webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+
+			webGLRenderer.gammaInput = true;
+			webGLRenderer.gammaOutput = true;
+			webGLRenderer.shadowMap.enabled = true;
+			first_stage_container.appendChild(webGLRenderer.domElement);
+
+
+			canvasRenderer = new THREE.CanvasRenderer(); // WebGLRenderer
+			canvasRenderer.setSize(window.innerWidth, window.innerHeight);
+			canvasRenderer.setClearColor(0x333333, 0.9);
+			first_stage_container.appendChild(canvasRenderer.domElement);
+
+			//controls
+			controls = new THREE.OrbitControls(camera);
+			controls.maxPolarAngle = Math.PI * 0.5;
+			controls.minDistance = 1000;
+			controls.maxDistance = 5000;
+
+			// performance monitor
+			stats = new Stats();
+			first_stage_container.appendChild(stats.dom);
+
+			//Stage 1 - load dynamic google map
+			var mapObject = new MapElement('googleMap', 0, 0, 540, 270);
+			dynamicMapGroup.add(mapObject);
+			dynamicMapGroup.position.y = -459;
+			dynamicMapGroup.rotation.x = 1.3819063267948963; // - Math.PI / 2;
+			dynamicMapGroup.rotation.y = -3.14159265358979;// - Math.PI;
+
+			//Stage 2 - load static google map
+
+			second_stage_Container = document.createElement('div');
+			document.body.appendChild(second_stage_Container);
+
+			//add marker cone to staticMapGroup
+			// var geometry = new THREE.ConeGeometry(40, 550, 32);
+			// var material = new THREE.MeshBasicMaterial({ color: 0XFF0000 });
+			// cone = new THREE.Mesh(geometry, material);
+			// cone.position.y = -100;
+			// cone.scale.y = 0.6;
+			// staticMapGroup.add(cone);
+
+			//add trunk to staticMapGroup
+			var trunkGeometry = new THREE.CylinderGeometry(40, 40, 550, 32);
+			var trunkMaterial = new THREE.MeshBasicMaterial({ color: 0xA0522D });
+			trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+			trunk.position.y = -180;
+			// localStorage.setItem(treeTrunkLength )
+			trunk.scale.y = 0.6;
+			trunkHeight = localStorage.getItem("treeTrunkHeight");
+            // trunk.scale.y = trunkHeight/100;
+			// staticMap.position.y = -trunkHeight/100;
+			staticMapGroup.add(trunk);
+
+
+			scene.add(dynamicMapGroup);
+			console.log("Scene init done!");
+
+
+		}
+
+		var mouseDragCount = 0;
+		window.addEventListener('resize', onWindowResize, false);
+		window.addEventListener('mouseup', onMouseUp, false);
+		window.addEventListener('mousedown', onMouseDown, false);
+		window.onmousemove = onMouseMove; //addEventListener('onmousemove', onMouseMove, false);
+		
+
+		
+
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+			dynamicMapRenderer.setSize(window.innerWidth, window.innerHeight);
+			canvasRenderer.setSize(window.innerWidth, window.innerHeight);
+
+		}
+
+		function animate() {
+			requestAnimationFrame(animate);
+			render();
+			stats.update();
+		}
+
+		function render() {
+			if (showMap) {
+				controls.enabled = false;
+				dynamicMapRenderer.render(scene, camera);
+			} else if (isModalDragging) {
+				controls.enabled = false;
+			} else if(isConeDragging) {
+				controls.enabled = false;
+			} else {
+
+				if (isCasaroul && isCarouselSelected) {
+					controls.enabled = false;
+					parent.rotation.y += (targetRotation - parent.rotation.y) * 0.05;
+				} else {
+					controls.enabled = true;
+				}
+
+			}
+			if(labelRenderer){
+				labelRenderer.render( scene, camera );
+			}
+			
+			webGLRenderer.render(scene, camera);
+			canvasRenderer.render(scene, camera);
+		}
+
+
+		var isConeDragging = false;
+		function onMouseMove(event) {
+			//console.log("Moving");
+			dragCone(event);
+		}
+
+		function onMouseDown(event) {
+			event.preventDefault();
+			startDragCone(event);
+
+
+			if (mouseDragCount < 5) {
+
+				var raycaster = new THREE.Raycaster();
+				var mouse = new THREE.Vector2();
+				var intersects;
+				mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+				mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+				raycaster.setFromCamera(mouse, camera);
+
+				if (isCasaroul) {
+					var prevNumLevels = dataExplorer.levels.length;
+					// get all segments and buttons in the scene
+					var i = 0;
+					var children_segments = [];
+					var allNodes = dataExplorer.getAllNodes();
+
+					for (i = 0; i < allNodes.length; i++) {
+						children_segments = children_segments.concat(allNodes[i].metaphor.children);
+					}
+
+
+					var intersects = raycaster.intersectObjects(children_segments, true);
+					//console.log(allActiveNodes);											
+					var time = new Date() * 0.001;
+					for (i = 0; i < intersects.length; i++) {
+						if (intersects[i].object.geometry.type == 'ExtrudeGeometry' || intersects[i].object.geometry.type == "SphereGeometry") {
+							isSegmentClicked = true;
+
+							// When the user clicks on the button, open the modal
+
+							clickedSlice = intersects[i].object;
+
+							clickedSlice.select(dataExplorer);
+							/*
+							if(clickedSlice.getType() == "segment"){
+								//clickedDimension = clickedSlice.getDimension();
+								clickedSlice.select(dataExplorer);
+							}else if(clickedSlice.getType() == "middle_button"){
+								clickedSlice.select(dataExplorer);
+							}*/
+
+
+							break;
+						}
+					}
+					/*
+					var curNumLevels = dataExplorer.levels.length;
+					if(curNumLevels>prevNumLevels && curNumLevels>3){
+						var lev = curNumLevels-1;
+						var zooms = [0,0,0,1.36*iniZoom,1.5*iniZoom, 1.7*iniZoom];
+
+						var curZoom = controls.target.distanceTo( controls.object.position );
+						
+						if (curZoom < zooms[lev]){
+							controls.zoomOut(zooms[lev]);
+							controls.update();
+						}
+						
+					}*/
+				}
+			}
+			mouseDragCount = 0;
+		}
+		
+		function checkMouseIntersect(obj, mouseEvent){
+			var raycaster = new THREE.Raycaster();
+			var mouse = new THREE.Vector2();
+			var intersects;
+			mouse.x = (mouseEvent.clientX / window.innerWidth) * 2 - 1;
+			mouse.y = -(mouseEvent.clientY / window.innerHeight) * 2 + 1;
+			raycaster.setFromCamera(mouse, camera);
+
+			var intersects = raycaster.intersectObjects([obj], true);
+			if(intersects.length > 0){
+				return intersects[0];
+			}
+			return false;
+		}
+		function startDragCone(mouseEvent){
+			isConeDragging = false;
+			if(checkMouseIntersect(trunk, mouseEvent)){
+				isConeDragging = true;
+				controls.saveState(); // save the state
+			}
+		}
+		function dragCone(mouseEvent){
+			if(isConeDragging){
+				// check if mouse hits the static plane. if so place cone to the mouse position on plane
+				var intersect = checkMouseIntersect(staticMap, mouseEvent);
+				
+				if(intersect){
+					trunk.position.set(intersect.point.x, trunk.position.y, intersect.point.z);
+					var ward = getWardOnConePosition();
+					if(ward != null){
+						updateConeLabel(ward.name);
+					}else{
+						updateConeLabel("");
+					}
+					
+				}
+			}
+		}
+		function endDragCone(mouseEvent){
+			placeCone(mouseEvent);
+			isConeDragging = false;
+		}
+		function placeCone(mouseEvent){
+			if(isConeDragging){
+				
+				var ward = getWardOnConePosition();
+				if(ward != null) {
+					loadDataset(ward, changeWard);
+				}
+				
+				updateConeLabel("");
+				trunk.position.set(0, trunk.position.y, 0);
+				isConeDragging = false;
+				controls.reset();
+			}		
+		}
+		function updateConeLabel(msg){
+			var container=null;
+			if(trunk.children.length>0){
+				container = trunk.children[0];
+				container.children[0].element.innerHTML=msg;
+			}else{
+				container = new THREE.Group();
+
+				var moonDiv = document.createElement('div');
+				moonDiv.className = 'label';
+				moonDiv.textContent = msg;
+				moonDiv.style.marginTop = '-1em';
+				var moonLabel = new THREE.CSS2DObject(moonDiv);
+				moonLabel.position.set(trunk.position.x, trunk.position.y+100, trunk.position.z);
+
+				container.add(moonLabel);
+				trunk.add(container);
+			}
+			
+            
+		}
+		function getWardOnConePosition(){
+			var config = {
+					lat: centerCords.x, // center lat
+					lng: centerCords.y, // center lng
+					zoom: ZOOM,
+					size: {
+						x: MAP_SIZE,
+						y: MAP_SIZE,
+					}
+				};
+				
+				var vector = new THREE.Vector3().copy( trunk.position );
+				
+				staticMap.worldToLocal( vector );
+				
+				var tVector = transformPlaneToMap(vector.x, vector.y);
+
+				// console.log( 'local point: ', tVector );
+				
+				var coordinate = getCoordinate(tVector.x,tVector.y,config);
+				
+				// console.log("latlng: ", coordinate);
+				
+				
+				// check to which ward the coordinate belong to
+				var ward;
+				for(var i=0; i<wards.length; i++){
+					ward =  wards[i];
+
+					if(google.maps.geometry.poly.containsLocation(coordinate, ward.polygon)){
+						return ward;
+					}
+				}
+				return null;
+		}
+		function changeWard(polygon) {
+			switchScene(polygon);
+			dataVisualizer.updateDataset(dataset);
+		}
+		function transformPlaneToMap(x,y){
+			var halfMap = (MAP_SIZE/2);
+			var halfPlane = (PLANE_SIZE/2)
+			var scaleRatio = halfMap/halfPlane;
+
+			return new THREE.Vector2(x*scaleRatio+halfMap, halfMap-y*scaleRatio); 
+		}
+
+		function onMouseUp(event) {
+
+			event.preventDefault();
+			isModalDragging = false; // if this is true, we should make it false anyway
+			endDragCone(event);
+
+		}
+
+	</script>
+
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA&callback=initMap"></script>
+</body>
+
+</html>
