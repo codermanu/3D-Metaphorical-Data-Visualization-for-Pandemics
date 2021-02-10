@@ -81,9 +81,12 @@ CaseVisualizer.prototype.update = function (mainDimension, xDimensions, dataset,
             lastX = -60;
             lastZ = lastZ + 100;
             
-            var moonLabel = createLabel(xDimensions[j]);
-            moonLabel.position.set(lastX+60, model.position.y, lastZ);
-            this.container.add(moonLabel);
+            if (mainDimension !== null){
+                var moonLabel = createLabel(xDimensions[j]);
+                moonLabel.position.set(lastX+60, model.position.y, lastZ);
+                this.container.add(moonLabel);
+            }
+
             // console.log("Adding", count, "humans for a cluster");
             for (var i = 0; i < count; i++) {
                 var newMan = model.clone();
