@@ -200,6 +200,7 @@
       //var boundaryId=48;
       var fields = [];
       var subdimensions;
+      var subdimentionsWithLength = [];
       var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon", "district","medicalCondition"];
 
       var MapElement = function (id, x, y, z, rx) {
@@ -277,6 +278,14 @@
             fields.forEach(function (field) {
               fieldValues[field].push(record[field]);
             });
+          });
+
+          var fieldValwithCount = JSON.parse(JSON.stringify(fieldValues));
+          fields.forEach(function (field) {
+            let itm = fieldValwithCount[field];
+            var countObj = {};
+            itm.forEach(function(i) { countObj[i] = (countObj[i]||0) + 1;});
+            subdimentionsWithLength[field] = countObj;
           });
 
           fields.forEach(function (field) {
