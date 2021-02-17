@@ -26,7 +26,7 @@ function createCarousel(node, hasMiddle) {
             segmentPortion = 360 * subDimLengths[subD] / dataset.length;
         }
         var color=Math.random() * 0xffff00;
-        var segment=createSegment(300,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent);
+        var segment=createSegment(275,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent);
         startAngle+=segmentPortion;
 
         // create a canvas element

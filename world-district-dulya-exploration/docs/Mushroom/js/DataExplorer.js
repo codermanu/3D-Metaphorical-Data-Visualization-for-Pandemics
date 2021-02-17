@@ -16,21 +16,21 @@ function DataExplorer(scene, mainNode, dimensions, visualizer){
     this.levels = [[mainNode]]; // level 0 has only parent
     this.levelpositions = [
         [new THREE.Vector3(0,0,0)], // level0
-        [new THREE.Vector3(600,300,0)], // level1
+        [new THREE.Vector3(600,275,0)], // level1 //300
         [
-            new THREE.Vector3(-200,500,-500), 
-            new THREE.Vector3(-600,500,-1200), 
-            new THREE.Vector3(200,500,-1200)
+            new THREE.Vector3(-200,325,-500), //500
+            new THREE.Vector3(-600,325,-1200), 
+            new THREE.Vector3(200,325,-1200)
         ],  // level2
         [
-            new THREE.Vector3(-800,700,0),
-            new THREE.Vector3(-1200,700,-200),
-            new THREE.Vector3(-1200,700,200)
+            new THREE.Vector3(-800,405,0), //700
+            new THREE.Vector3(-1200,405,-200),
+            new THREE.Vector3(-1200,405,200)
         ],  // level3
         [
-            new THREE.Vector3(-200,900,500),
-            new THREE.Vector3(-200,900,500),
-            new THREE.Vector3(200,900,500)
+            new THREE.Vector3(-200,450,500), //900
+            new THREE.Vector3(-200,450,500),
+            new THREE.Vector3(200,450,500)
         ],  // level4
         [
             new THREE.Vector3(80,1100,820),
