@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b38b529-a3de-4be3-9fbe-74a73278b148" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Dulya.github.io/css/backMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Dulya.github.io/css/backMenu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Dulya.github.io/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Dulya.github.io/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Dulya.github.io/js/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Dulya.github.io/js/Carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Mushroom/js/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Mushroom/js/Carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Mushroom/srilanka.html" beforeDir="false" afterPath="$PROJECT_DIR$/world-district-dulya-exploration/docs/Mushroom/srilanka.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
       <updated>1611308693314</updated>
       <workItem from="1611308694879" duration="1423000" />
       <workItem from="1611847660490" duration="70000" />
-      <workItem from="1613408757151" duration="12021000" />
+      <workItem from="1613408757151" duration="16718000" />
     </task>
     <servers />
   </component>
@@ -47,6 +46,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="189" y="27" width="1049" height="741" key="CommitChangelistDialog2" timestamp="1613579867210">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="189" y="27" width="1049" height="741" key="CommitChangelistDialog2/72.27.1294.741@72.27.1294.741" timestamp="1613579867210" />
+    <state x="191" y="86" width="1035" height="629" key="DiffContextDialog" timestamp="1613579864793">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="191" y="86" width="1035" height="629" key="DiffContextDialog/72.27.1294.741@72.27.1294.741" timestamp="1613579864793" />
     <state x="409" y="136" width="620" height="522" key="find.popup" timestamp="1613410651696">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
