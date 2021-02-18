@@ -214,16 +214,13 @@
 			World Level
 		</a>
 	</div>
-
-
+<!--	search box-->
+	<div class="search-menu" id = "search-menu">
+		<input class="search-input" id="pac-input" placeholder="Enter a Location" />
+		<button class="search-reset" onclick="initMap()">Reset</button>
+	</div>
 	<!-- ADD BackButtons to District and World Level -->
 	<div id="backMenu" class="backMenu" >
-		<input
-				id="pac-input"
-				class="controls"
-				type="text"
-				placeholder="Search Box"
-		/>
 		<span id = "WardLevel">
 		<a href="../../index.html" class="btnMenu" title="World Level">
 			<img src="images/world.png" alt="Main Map" style="width:20px;height:20px;border:0">
@@ -272,7 +269,8 @@
 <!--	</div>-->
 	<div id = "monthModal" class="modal-box">
 		<div class="modal-box-content">
-			<h1>Select Month</h1>
+			<h1 style ="display: inline-block">Select Month</h1>
+			<span id="closeModal" class="Close" onclick="closeButtonClick()">&times;</span>
 <!--			<label class="container">January-->
 <!--				<input type="checkbox" id="january" name="january" value="January">-->
 <!--				<span class="checkmark"></span>-->
@@ -302,19 +300,19 @@
 <!--				<span class="checkmark"></span>-->
 <!--			</label>-->
 			<label class="container">August
-				<input type="checkbox" id="august" name="august" value="August">
+				<input type="checkbox" id="august" name="august" value="August" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 			<label class="container">September
-				<input type="checkbox" id="september" name="september" value="September">
+				<input type="checkbox" id="september" name="september" value="September" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 			<label class="container">October
-				<input type="checkbox" id="october" name="october" value="October">
+				<input type="checkbox" id="october" name="october" value="October" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 			<label class="container">November
-				<input type="checkbox" id="november" name="november" value="November">
+				<input type="checkbox" id="november" name="november" value="November" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 <!--			<label class="container">December-->
@@ -325,6 +323,10 @@
 		</div>
 	</div>
 	<script>
+		function closeButtonClick() {
+			var modal = document.getElementById("monthModal");
+			modal.style.display = "none";
+		}
 		function showMenu(){
 			var menu = document.getElementById("mymenu");
 			menu.style.display = "block";
@@ -748,8 +750,9 @@
 			var polygonTemp;
 
 			document.getElementById('months_select').addEventListener('click', function() {
-				document.getElementById('monthModal').style.display = 'none';
+				document.getElementById('search-menu').style.display = 'none';
 
+				document.getElementById('monthModal').style.display = 'none';
 				var array = []
 				var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
@@ -771,7 +774,12 @@
 				google.maps.event.addListener(polygon, 'click', function (event) {
 					polygonTemp = polygon;
 					console.log("BID", polygon.indexID);
-
+					var checkboxes = document.getElementsByClassName("checkboxcl");
+					for (var j = 0; j < checkboxes.length; j++) {
+						if (checkboxes[j].checked) {
+							checkboxes[j].checked = false;
+						}
+					}
 					var modal = document.getElementById("monthModal");
 					modal.style.display = "block";
 
