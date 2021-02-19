@@ -25,7 +25,45 @@ function createCarousel(node, hasMiddle) {
         if(hasMiddle) {
             segmentPortion = 360 * subDimLengths[subD] / dataset.length;
         }
-        var color=Math.random() * 0xffff00;
+       // var color=Math.random() * 0xffff00;
+        //var values =
+        //var segmentPortion = (values/7220)*360;
+        var color;
+
+        if(subD == "death") {
+            color = 0xff0000;
+        }else{
+            if(subD == "Hospitalized"){
+                color = 0xffff00;
+            }else{
+                if(subD == "Discharged"){
+                    color = 0x00ff00;
+                }else{
+                    if(subD == "male") {
+                        color = 0x00ced1;
+                    }else{
+                        if(subD == "female") {
+                            color = 0xff69b4;
+                        }else{
+                            if(subD == "child"){
+                                color = 0x00ff7f;
+                            }else{
+                                if(subD == "adult"){
+                                    color = 0xFFA500;
+                                }else{
+                                    if(subD =="elder"){
+                                        color = 0x808080;
+                                    }else{
+                                        color=Math.random() * 0x00ff00;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
         var segment=createSegment(275,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent);
         startAngle+=segmentPortion;
 
