@@ -91,6 +91,7 @@ a {
 .btnMenu{
     text-decoration: none;
     text-align: left;
+    color: rgb(155, 208, 229);
 }
 .btnMenu:hover {
     text-decoration: none;

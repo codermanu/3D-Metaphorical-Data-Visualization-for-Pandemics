@@ -2,7 +2,7 @@
 /**
 * Author: Dulya Murage
 */
-function MetaphorDescriptor(mtype, dimension, dimensions, connectedSegments, position=new THREE.Vector3(0,150,0), level=0) {
+function MetaphorDescriptor(mtype, dimension, dimensions, connectedSegments, position=new THREE.Vector3(0,100,0), level=0) {
   this.metaphorType = mtype; // main (0) or sub >=(1)
   this.mainDimension = dimension;
   this.dimensions = dimensions;
