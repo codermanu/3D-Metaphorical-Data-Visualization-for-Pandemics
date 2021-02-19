@@ -4,7 +4,7 @@
 function createCarousel(node, hasMiddle) {
     var parent = new THREE.Group();
     parent.userData.node = node;
-    var startAngle=0;
+    var startAngle=270;
     var segments={};
     var numOfSegments=node.metaphorDescriptor.dimensions.length;
     //trying to add explode button
@@ -30,7 +30,8 @@ function createCarousel(node, hasMiddle) {
         //var values =
         //var segmentPortion = (values/7220)*360;
         var color;
-        if(subD == "death"|| subD == "female") {
+
+        if(subD == "death") {
             color = 0xff0000;
         }else{
             if(subD == "Hospitalized"){
@@ -40,9 +41,25 @@ function createCarousel(node, hasMiddle) {
                     color = 0x00ff00;
                 }else{
                     if(subD == "male") {
-                        color = 0x0000ff;
+                        color = 0x00ced1;
                     }else{
-                        color=Math.random() * 0x00ff00;
+                        if(subD == "female") {
+                            color = 0xff69b4;
+                        }else{
+                            if(subD == "child"){
+                                color = 0x00ff7f;
+                            }else{
+                                if(subD == "adult"){
+                                    color = 0xFFA500;
+                                }else{
+                                    if(subD =="elder"){
+                                        color = 0x808080;
+                                    }else{
+                                        color=Math.random() * 0x00ff00;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

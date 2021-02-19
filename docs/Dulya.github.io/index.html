@@ -18,6 +18,7 @@
 	<link rel ="stylesheet" href = "css/backMenu.css"/>
 
 	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
 	<style>
 		body {
 			font-family: Monospace;
@@ -97,7 +98,7 @@
 			top: 0;
 			width: 250px;
 			/* Full width */
-			height: 100px;
+			height: 200px;
 			/* Full height */
 			overflow: auto;
 			/* Enable scroll if needed */
@@ -116,6 +117,7 @@
 			-webkit-filter: drop-shadow(12px 12px 7px rgba(255, 255, 255, 0.5));
      		filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.5));
 		}
+
 	</style>
 </head>
 
@@ -198,12 +200,25 @@
 		<span id="maintitle" style="font-size:18px;margin-top: 10px;">Dengue Data for Test</span>
 		<br/>
 		<a href="index.html" class="btnMenu" title="Back to main map">
-			<img src="images/map_button.png" alt="Main Map" style="width:42px;height:42px;border:0">
-			Main Map
+			<img src="images/districtmap.png" alt="Colombo Wards Map" style="width:42px;height:42px;border:0;">
+			<font color="#ADD8E6">Colombo Wards Map</font>
+		</a>
+		<br/>
+		<a href="../Mushroom/srilanka.html" class="btnMenu" title="Back to main map" >
+			<img src="images/ward2.png" alt="District Level" style="width:42px;height:42px;border:0">
+			<font color="#ADD8E6">District Level</font>
+		</a>
+		<br/>
+		<a href="../../index.html"class="btnMenu" title="Back to main map">
+			<img src="images/world.png" alt="World Level" style="width:42px;height:42px;border:0">
+			<font color="#ADD8E6">World Level</font>
 		</a>
 	</div>
-
-
+<!--	search box-->
+	<div class="search-menu" id = "search-menu">
+		<input class="search-input" id="pac-input" placeholder="Enter a Location" />
+		<button class="search-reset" onclick="initMap()">Reset</button>
+	</div>
 	<!-- ADD BackButtons to District and World Level -->
 	<div id="backMenu" class="backMenu" >
 		<span id = "WardLevel">
@@ -218,6 +233,10 @@
 		</a>
 	</span>
 	</div>
+
+
+	<div id="map"></div>
+
 	<script>
 		function showBackMenu(){
 		  var menu = document.getElementById("backMenu");
@@ -250,7 +269,8 @@
 <!--	</div>-->
 	<div id = "monthModal" class="modal-box">
 		<div class="modal-box-content">
-			<h1>Select Month</h1>
+			<h1 style ="display: inline-block">Select Month</h1>
+			<span id="closeModal" class="Close" onclick="closeButtonClick()">&times;</span>
 <!--			<label class="container">January-->
 <!--				<input type="checkbox" id="january" name="january" value="January">-->
 <!--				<span class="checkmark"></span>-->
@@ -280,19 +300,19 @@
 <!--				<span class="checkmark"></span>-->
 <!--			</label>-->
 			<label class="container">August
-				<input type="checkbox" id="august" name="august" value="August">
+				<input type="checkbox" id="august" name="august" value="August" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 			<label class="container">September
-				<input type="checkbox" id="september" name="september" value="September">
+				<input type="checkbox" id="september" name="september" value="September" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 			<label class="container">October
-				<input type="checkbox" id="october" name="october" value="October">
+				<input type="checkbox" id="october" name="october" value="October" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 			<label class="container">November
-				<input type="checkbox" id="november" name="november" value="November">
+				<input type="checkbox" id="november" name="november" value="November" class="checkboxcl">
 				<span class="checkmark"></span>
 			</label>
 <!--			<label class="container">December-->
@@ -303,6 +323,10 @@
 		</div>
 	</div>
 	<script>
+		function closeButtonClick() {
+			var modal = document.getElementById("monthModal");
+			modal.style.display = "none";
+		}
 		function showMenu(){
 			var menu = document.getElementById("mymenu");
 			menu.style.display = "block";
@@ -392,7 +416,7 @@
 		var subdimentionsWithLength = [];
 		//fields in the dataset - caseid,boundaryid,lat,lon,death,gender,age,period,fogg
 		//dimensional fields - death, gender, agea, period, fogg
-		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon","contacts","district","underlying_conditions","place_of_death","wardname","period"];
+		var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon","district","place_of_death","wardname","period","underlying_conditions","contacts"];
 
 		// function monthDataSelection(){
 		// 	console.log("loading dataset according to the month");
@@ -671,8 +695,9 @@
 
 
 			loader.load(
-					'http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA',
+					'http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA' + '&libraries=places',
 					// onLoad callback
+
 					function ( groundTexture ) {
 						// console.log('http://maps.googleapis.com/maps/api/staticmap?center=' + centerLat + ',' + centerLng + '&zoom='+ZOOM+'&size='+MAP_SIZE+'x'+MAP_SIZE+'&maptype=roadmap&sensor=false&path=color:red|weight:2|fillcolor:white|enc:' + encoded + '&key=AIzaSyCdWv25tk8tkWF15i20yBvik8pCJHUF2HI');
 						groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
@@ -690,7 +715,7 @@
 						scene.add(staticMapGroup);
 						isCasaroul = true;
 					},
-					
+
 					// onProgress callback currently not supported
 					undefined,
 
@@ -715,7 +740,7 @@
 			infowindow = new google.maps.InfoWindow({
 				content: "VBD Research"
 			});
-			
+
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(6.9224, 79.8661),
 				map: map
@@ -725,8 +750,9 @@
 			var polygonTemp;
 
 			document.getElementById('months_select').addEventListener('click', function() {
-				document.getElementById('monthModal').style.display = 'none';
+				document.getElementById('search-menu').style.display = 'none';
 
+				document.getElementById('monthModal').style.display = 'none';
 				var array = []
 				var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
@@ -743,17 +769,22 @@
 				labelRenderer.domElement.style.top = 0;
 				first_stage_container.appendChild( labelRenderer.domElement );
 			});
-			
+
 			addListenersOnWards = function (polygon) {
 				google.maps.event.addListener(polygon, 'click', function (event) {
 					polygonTemp = polygon;
 					console.log("BID", polygon.indexID);
-
+					var checkboxes = document.getElementsByClassName("checkboxcl");
+					for (var j = 0; j < checkboxes.length; j++) {
+						if (checkboxes[j].checked) {
+							checkboxes[j].checked = false;
+						}
+					}
 					var modal = document.getElementById("monthModal");
 					modal.style.display = "block";
 
 				});
-				
+
 				google.maps.event.addListener(polygon, 'mouseover', function (event) {
 					console.log("on window");
 					var ind = polygon.indexID;
@@ -768,7 +799,65 @@
 					infowindow.close();
 				});
 			};
+			// ######################
 
+			const input = document.getElementById("pac-input");
+			console.log("search box output -> ", input);
+			const searchBox = new google.maps.places.SearchBox(input);
+			// map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+			// Bias the SearchBox results towards current map's viewport.
+			map.addListener("bounds_changed", () => {
+				searchBox.setBounds(map.getBounds());
+			});
+			let markers = [];
+			// Listen for the event fired when the user selects a prediction and retrieve
+			// more details for that place.
+			searchBox.addListener("places_changed", () => {
+				const places = searchBox.getPlaces();
+
+				if (places.length == 0) {
+					return;
+				}
+				// Clear out the old markers.
+				markers.forEach((marker) => {
+					marker.setMap(null);
+				});
+				markers = [];
+				// For each place, get the icon, name and location.
+				const bounds = new google.maps.LatLngBounds();
+				places.forEach((place) => {
+					if (!place.geometry || !place.geometry.location) {
+						console.log("Returned place contains no geometry");
+						return;
+					}
+					const icon = {
+						url: place.icon,
+						size: new google.maps.Size(71, 71),
+						origin: new google.maps.Point(0, 0),
+						anchor: new google.maps.Point(17, 34),
+						scaledSize: new google.maps.Size(25, 25),
+					};
+					// Create a marker for each place.
+					markers.push(
+							new google.maps.Marker({
+								map,
+								icon,
+								title: place.name,
+								position: place.geometry.location,
+							})
+					);
+
+					if (place.geometry.viewport) {
+						// Only geocodes have viewport.
+						bounds.union(place.geometry.viewport);
+					} else {
+						bounds.extend(place.geometry.location);
+					}
+				});
+				map.fitBounds(bounds);
+			});
+
+			// #############################
 			// https://github.com/geocodezip/geoxml3
 			var myParser = new geoXML3.parser({
 				map: map, //your map
@@ -797,11 +886,11 @@
 				}
 			});
 
-		    
+
 			//myParser.parse('District2.kml');
 			myParser.parse('doc.kml');
 			//myParser.parse('https://dulya.github.io/doc.kml');
-		
+
 		}
 
 		var MapElement = function (id, x, y, z, rx) {
@@ -981,7 +1070,7 @@
 		}
 
 		function onMouseDown(event) {
-			event.preventDefault();
+			// event.preventDefault();
 			startDragCone(event);
 
 
@@ -1175,7 +1264,7 @@
 
 		function onMouseUp(event) {
 
-			event.preventDefault();
+			// event.preventDefault();
 			isModalDragging = false; // if this is true, we should make it false anyway
 			endDragCone(event);
 
@@ -1185,7 +1274,7 @@
 
 
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA&callback=initMap"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7LT-AfWOztGLh-L5_5YRmw5HeNiiNYA&callback=initMap&libraries=places" async></script>
 </body>
 
 </html>

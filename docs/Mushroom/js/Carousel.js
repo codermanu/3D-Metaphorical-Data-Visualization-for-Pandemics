@@ -8,7 +8,10 @@ function createCarousel(node, hasMiddle) {
     var segments={};
     var numOfSegments=node.metaphorDescriptor.dimensions.length;
     //trying to add explode button
+    var subDimLengths = {};
+
     if(hasMiddle){
+        subDimLengths = subdimentionsWithLength[node.metaphorDescriptor.mainDimension];
         var middleButton = createMiddleButton(node);
         parent.userData.middleButton = middleButton;
         parent.add(middleButton);
@@ -18,8 +21,12 @@ function createCarousel(node, hasMiddle) {
     for(i=0;i<numOfSegments;i++){
 
         var segmentPortion=360/numOfSegments;
+        var subD = node.metaphorDescriptor.dimensions[i];
+        if(hasMiddle) {
+            segmentPortion = 360 * subDimLengths[subD] / dataset.length;
+        }
         var color=Math.random() * 0xffff00;
-        var segment=createSegment(300,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent); 
+        var segment=createSegment(275,THREE.Math.degToRad(startAngle),THREE.Math.degToRad(startAngle+segmentPortion), color, node.metaphorDescriptor.dimensions[i], parent);
         startAngle+=segmentPortion;
 
         // create a canvas element

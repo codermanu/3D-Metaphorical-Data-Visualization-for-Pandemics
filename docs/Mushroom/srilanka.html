@@ -25,13 +25,13 @@
     <br/>
     <span id = "WardLevel">
     <a href="../Dulya.github.io/index.html" class="btnMenu" title="Ward Level" >
-      <img src="img/ward2.png" alt="Main Map" style="width:20px;height:20px;border:0;right: 50000px;" >
+      <img src="img/wardwhite.png" alt="Main Map" style="width:20px;height:20px;border:0;right: 50000px;" >
       Ward Level
     </a>
   </span>
   <br/> 
   <a href="../../index.html" class="btnMenu" title="World Level">
-    <img src="img/world.png" alt="Main Map" style="width:20px;height:20px;border:0">
+    <img src="img/worldwhite.png" alt="Main Map" style="width:20px;height:20px;border:0">
     World Level
   </a>
    
@@ -200,7 +200,8 @@
       //var boundaryId=48;
       var fields = [];
       var subdimensions;
-      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon", "district","medicalCondition"];
+      var subdimentionsWithLength = [];
+      var nonDimensionalFields = ["caseid", "boundaryid", "lat", "lon", "district","medicalCondition", "contacts","deathPlace"];
 
       var MapElement = function (id, x, y, z, rx) {
         var div = document.createElement("div");
@@ -243,7 +244,7 @@
       animate();
 
       function dataexplore_csv(district_id) {
-        d3.csv("data-explore/districtdata.csv", function (data) {
+        d3.csv("data-explore/districtdata(copy).csv", function (data) {
           // console.log("csv data", data);
           //select cases according to the given boundary
           dataset = data.filter(function (report) {
@@ -277,6 +278,14 @@
             fields.forEach(function (field) {
               fieldValues[field].push(record[field]);
             });
+          });
+
+          var fieldValwithCount = JSON.parse(JSON.stringify(fieldValues));
+          fields.forEach(function (field) {
+            let itm = fieldValwithCount[field];
+            var countObj = {};
+            itm.forEach(function(i) { countObj[i] = (countObj[i]||0) + 1;});
+            subdimentionsWithLength[field] = countObj;
           });
 
           fields.forEach(function (field) {
@@ -396,7 +405,7 @@
           10000
         );
         
-        camera.position.set(-2.198618297315242, 802.3112481029098, 2755.1754787778136);
+        camera.position.set(-2.198618297315242, 1500.3112481029098, 2755.1754787778136);
 
         group = new THREE.Group();
 
