@@ -244,7 +244,7 @@
       animate();
 
       function dataexplore_csv(district_id) {
-        d3.csv("data-explore/districtdata(copy).csv", function (data) {
+        d3.csv("data-explore/districtdata.csv", function (data) {
           // console.log("csv data", data);
           //select cases according to the given boundary
           dataset = data.filter(function (report) {
